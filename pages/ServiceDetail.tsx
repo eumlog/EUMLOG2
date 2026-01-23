@@ -75,7 +75,7 @@ const ServiceDetail = () => {
                     <div className="mb-20">
                         <h3 className="text-xl md:text-2xl font-bold text-eum-dark mb-6">📍 STEP 3. 1:1 온라인 상담 — 진짜 원하는 사람을 파악해요</h3>
                         <img src="https://wordpress-928536-5600374.cloudwaysapps.com/wp-content/uploads/2025/11/004-1-788x1024.png" alt="STEP 3" className="w-full rounded-2xl shadow-sm mb-6 border border-gray-100" />
-                        <p className="text-gray-700 text-lg font-medium">
+                        <p className="text-gray-700 leading-relaxed mb-6">
                             작성된 신청서를 바탕으로<br />
                             스마트 매칭 매니저와 조건에 대해 5~10분간 상담합니다.
                         </p>
@@ -125,7 +125,7 @@ const ServiceDetail = () => {
                                 </li>
                                 <li className="flex items-start gap-2 text-gray-700 bg-blue-50 p-4 rounded-xl">
                                     <span className="text-blue-500 font-bold">✔</span>
-                                    <span>매칭이 <span className="text-blue-600 font-bold">성사된 이후에도 3개월 내내 프로필 제공이 계속 진행</span>됩니다.</span>
+                                    <span>실제 커플이 될 때까지 <span className="text-blue-600 font-bold">3개월 내내 프로필 제공이 계속 진행</span>됩니다.</span>
                                 </li>
                             </ul>
                             
@@ -180,7 +180,8 @@ const ServiceDetail = () => {
                             <img src="https://wordpress-928536-5600374.cloudwaysapps.com/wp-content/uploads/2025/11/NEW_가격안내-003-788x1024.png" alt="Premium Price" className="w-full rounded-2xl shadow-sm" />
                         </div>
 
-                        <div className="overflow-hidden border border-gray-200 rounded-2xl mb-8">
+                        {/* Membership Plan Table */}
+                        <div className="overflow-hidden border border-gray-200 rounded-2xl mb-12">
                             <table className="w-full text-sm md:text-base">
                                 <thead className="bg-gray-100">
                                     <tr>
@@ -210,16 +211,34 @@ const ServiceDetail = () => {
                             </table>
                         </div>
 
+                        {/* Matching Fee Table */}
+                        <div className="mb-12">
+                            <h5 className="font-bold text-gray-800 text-lg mb-4 text-center">▼ 매칭비 (만남 확정 시 / 후불)</h5>
+                            <div className="overflow-hidden border border-gray-200 rounded-2xl shadow-sm">
+                                <table className="w-full text-xs md:text-sm text-center">
+                                    <thead className="bg-gray-100">
+                                        <tr>
+                                            <th className="py-3 px-2 font-bold text-gray-600 border-b border-gray-100">비용</th>
+                                            <th className="py-3 px-2 font-bold text-gray-600 border-b border-gray-100">남성</th>
+                                            <th className="py-3 px-2 font-bold text-gray-600 border-b border-gray-100">여성</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-gray-200">
+                                        <tr><td className="py-3 px-2 font-bold bg-gray-50 text-gray-800">20,000원</td><td className="py-3 px-2">25세 이하</td><td className="py-3 px-2">25세 이하</td></tr>
+                                        <tr><td className="py-3 px-2 font-bold bg-gray-50 text-gray-800">30,000원</td><td className="py-3 px-2">26 - 30세</td><td className="py-3 px-2">26 - 28세</td></tr>
+                                        <tr><td className="py-3 px-2 font-bold bg-gray-50 text-gray-800">40,000원</td><td className="py-3 px-2">31 - 34세</td><td className="py-3 px-2">29 - 31세</td></tr>
+                                        <tr><td className="py-3 px-2 font-bold bg-gray-50 text-gray-800">50,000원</td><td className="py-3 px-2">35 - 38세</td><td className="py-3 px-2">32 - 34세</td></tr>
+                                        <tr><td className="py-3 px-2 font-bold bg-gray-50 text-gray-800">60,000원</td><td className="py-3 px-2">38세 이상</td><td className="py-3 px-2">35세 이상</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p className="text-xs text-gray-400 mt-2 text-center">※ 한국식 나이(세는 나이) 기준입니다.</p>
+                        </div>
+
                         <ul className="space-y-3 text-sm text-gray-600 mb-10 bg-gray-50 p-6 rounded-2xl">
                             <li><strong>• 매칭비:</strong> 매칭비는 회원님이 선택하고 상대방도 수락했을 경우에만 나이대별로 후불 결제됩니다.</li>
                             <li><strong>• 서비스 기간:</strong> 모든 플랜은 <strong>3개월(90일)</strong> 동안 유효하며, 매칭 성공 후에도 횟수 제한 없이 서비스가 지속됩니다.</li>
                         </ul>
-
-                        <div className="bg-gradient-to-r from-pink-50 to-purple-50 p-6 md:p-8 rounded-2xl border border-pink-100 text-center mb-12">
-                            <p className="font-black text-pink-600 text-lg mb-2">🎁 우반 참가자 특별 이벤트!</p>
-                            <p className="text-gray-700 font-medium mb-2">기존 6:6 소개팅 참가자분들께는 특별가로 진행합니다!!</p>
-                            <p className="text-xl font-bold text-gray-900">* 3개월 이용권 : 16만원(남성) / 10만원(여성)</p>
-                        </div>
                     </div>
 
                     {/* CTA */}
