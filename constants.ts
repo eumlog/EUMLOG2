@@ -1,3 +1,4 @@
+
 import { ImageAssets, TextAssets } from './types';
 
 export const DEFAULT_IMAGES: ImageAssets = {
@@ -12,7 +13,7 @@ export const DEFAULT_IMAGES: ImageAssets = {
     card3: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop",
     processStep1: "https://wooban.co.kr/wp-content/uploads/2026/01/001-1.png",
     processStep2: "https://wooban.co.kr/wp-content/uploads/2026/01/002-1.png",
-    processStep3: "https://wooban.co.kr/wp-content/uploads/2026/01/003-1.png",
+    processStep3: "https://wooban.co.kr/wp-content/uploads/2026/01/%EC%A7%84%ED%96%89%EB%B0%A9%EC%8B%9Dv2_%EB%B3%B5%EC%82%AC%EB%B3%B8-_1_-003-1024x683.png",
     processStep4: "https://wooban.co.kr/wp-content/uploads/2026/01/004-1.png",
     processStep5: "https://wooban.co.kr/wp-content/uploads/2026/01/005-1.png",
     processStep6: "https://wooban.co.kr/wp-content/uploads/2026/01/006-1.png",

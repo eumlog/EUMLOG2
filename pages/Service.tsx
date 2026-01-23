@@ -67,12 +67,12 @@ const Service: React.FC = () => {
     },
     {
       step: "03",
-      title: "1:1 카톡 상담",
+      title: "1:1 메신저 상담",
       subtitle: "진짜 원하는 사람을 파악해요",
       content: (
           <div className="space-y-4">
               <p className="text-gray-600 text-base leading-relaxed keep-all font-medium">
-                  카톡으로 5~10분간 선택한 필수 조건들에 대해 상담합니다.
+                  메신저로 스마트 매칭 매니저와 5~10분간 선택한 필수 조건들에 대해 상담합니다.
               </p>
               <div className="flex items-center gap-4 bg-eum-accent/5 p-5 rounded-2xl border border-eum-accent/10">
                   <MessageSquare className="w-4 h-4 text-eum-accent" />

@@ -88,19 +88,19 @@ export const FloatingMenu = () => {
             {/* Toggle Button (Side tab) */}
             <button 
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center justify-center w-[12px] h-[32px] md:w-[15px] md:h-[40px] bg-[#7d7d7d] text-white/50 border border-white/5 rounded-l-md hover:text-white transition-all shadow-xl group"
+                className="flex items-center justify-center w-[12px] h-[32px] md:w-[15px] md:h-[40px] bg-[#7d7d7d]/70 backdrop-blur-md text-white/50 border border-white/10 rounded-l-md hover:text-white transition-all shadow-xl group"
                 aria-label={isOpen ? "메뉴 숨기기" : "메뉴 보기"}
             >
                 {isOpen ? <ChevronRight className="w-2 md:w-3 h-2 md:h-3 group-hover:scale-125 transition-transform" /> : <ChevronLeft className="w-2 md:w-3 h-2 md:h-3 group-hover:scale-125 transition-transform" />}
             </button>
 
             {/* Menu Items (More Compact Grey Bar with Larger Text & Rounded Corners on left) */}
-            <div className="flex flex-col bg-[#7d7d7d]/95 backdrop-blur-sm shadow-2xl border-l border-white/5 overflow-hidden rounded-l-[1.2rem] md:rounded-l-[1.8rem]">
+            <div className="flex flex-col bg-[#7d7d7d]/70 backdrop-blur-md shadow-2xl border-l border-white/10 overflow-hidden rounded-l-[1.2rem] md:rounded-l-[1.8rem]">
                 {items.map((item, idx) => (
                     <Link 
                         key={idx} 
                         to={item.href} 
-                        className={`group flex flex-col items-center justify-center w-[48px] h-[58px] md:w-[58px] md:h-[70px] ${idx !== items.length - 1 ? 'border-b border-white/5' : ''} hover:bg-black/10 transition-all duration-300`}
+                        className={`group flex flex-col items-center justify-center w-[48px] h-[58px] md:w-[58px] md:h-[70px] ${idx !== items.length - 1 ? 'border-b border-white/10' : ''} hover:bg-black/10 transition-all duration-300`}
                     >
                         <item.icon className="w-3.5 h-3.5 md:w-4.5 md:h-4.5 text-white/90 group-hover:text-white group-hover:scale-110 transition-all mb-1" />
                         <span className="text-[8.5px] md:text-[10.5px] font-black text-white group-hover:text-white transition-colors tracking-tighter text-center leading-tight whitespace-pre-wrap">
