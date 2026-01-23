@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowDown, Sparkles, MessageSquare, Heart, Info } from 'lucide-react';
+import { ArrowDown, Sparkles, MessageSquare, Heart, Info, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
@@ -272,6 +272,17 @@ const Service: React.FC = () => {
         
         <div className="text-center mt-24 md:mt-32">
            <p className="text-gray-400 mb-6 md:mb-8 font-black uppercase tracking-[0.3em] text-[9px]">Ready to meet someone new?</p>
+           
+           <div className="mb-8 text-center">
+               <p className="flex items-center justify-center gap-2 text-gray-500 font-bold text-sm md:text-base mb-2">
+                   <span className="bg-eum-accent/10 text-eum-accent rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-black">?</span>
+                   비용이 궁금하신가요?
+               </p>
+               <Link to="/pricing" className="inline-flex items-center gap-2 text-eum-dark font-bold border-b border-gray-300 hover:text-eum-accent hover:border-eum-accent transition-all text-sm md:text-base pb-1">
+                   가격 안내 보기 <ArrowRight className="w-3.5 h-3.5" />
+               </Link>
+           </div>
+
            <Link to="/apply" className="group relative inline-flex items-center justify-center px-12 py-5 md:px-16 md:py-6 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
               <span className="relative z-10 flex items-center gap-3 text-base md:text-lg">
                   지금 바로 신청하기 <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
