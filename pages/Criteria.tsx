@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { X, Check } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
@@ -74,9 +75,9 @@ const CriteriaPage: React.FC = () => {
                 <h3 className="text-lg md:text-2xl font-bold mb-5 md:mb-6 text-eum-dark text-left">이런 분께 추천드립니다</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                     {[
-                        { num: "01", text: "지역에서 괜찮은 사람을 찾기 어렵다고 느끼는 분" },
+                        { num: "01", text: <>지역에서 괜찮은 사람을<br/>찾기 어렵다고 느끼는 분</> },
                         { num: "02", text: "지인 소개나 앱이 부담스러운 분" },
-                        { num: "03", text: "결정사 비용은 부담되지만, 진지한 만남은 원하는 분" },
+                        { num: "03", text: <>결정사 비용은 부담되지만,<br/>진지한 만남은 원하는 분</> },
                         { num: "04", text: "빠른 만남보다, 차분한 관계를 원하시는 분" }
                     ].map((item, i) => (
                         <div key={i} className="flex flex-col justify-between bg-[#F9F9F9] p-5 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 hover:border-eum-accent/30 transition-all duration-300 group">
@@ -95,10 +96,10 @@ const CriteriaPage: React.FC = () => {
                 <h3 className="text-lg md:text-2xl font-bold mb-5 md:mb-6 text-eum-dark text-left">이음로그와 맞지 않을 수 있습니다</h3>
                 <div className="space-y-3">
                      {[
-                         "현실적인 조건을 고려하지 않고 특정 외모·스펙만을 강하게 고집하는 경우",
-                         "만남에 대한 준비보다 기대치만 높은 상태인 경우",
-                         "가벼운 호기심, 유흥 목적의 만남을 원하는 경우",
-                         "신원 확인이 어렵거나 무례한 언행, 반복적인 노쇼 이력이 있는 경우"
+                         <>현실적인 조건을 고려하지 않고 <br/>외모·스펙만을 강하게 고집하는 경우</>,
+                         <>만남에 대한 준비보다 기대치만<br/>높은 상태인 경우</>,
+                         <>가벼운 호기심이나<br/>빠른 만남을 원하는 경우</>,
+                         <>신원 확인이 어렵거나 무례한 언행, <br/>반복적인 노쇼 이력이 있는 경우</>
                      ].map((text, i) => (
                         <div key={i} className="flex items-start gap-3 bg-gray-50 p-4 md:p-5 rounded-lg md:rounded-xl border border-gray-100 hover:bg-white hover:shadow-sm transition-all text-left">
                             <X className="w-3 h-3 text-rose-400 flex-shrink-0 mt-1 opacity-80" />
