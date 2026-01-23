@@ -88,4 +88,93 @@ const ProfilePage = () => {
       </div>
 
       <div className="max-w-[650px] w-[90%] mx-auto -mt-20 pb-40 relative z-10">
-        <div className="bg-white rounded-[3rem
+        <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100">
+          <div className="text-center mb-10">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-eum-accent/10 text-eum-accent text-xs font-black tracking-widest uppercase mb-4">
+              Authorized Access
+            </div>
+            <h1 className="text-3xl md:text-4xl font-black mb-3 text-eum-dark tracking-tight">{profile.name}</h1>
+            <div className="flex flex-wrap justify-center gap-2 mb-6">
+               {badges.map((badge, idx) => (
+                 <span key={idx} className="px-3 py-1 bg-gray-100 text-gray-600 rounded-lg text-xs font-bold">
+                   {badge}
+                 </span>
+               ))}
+            </div>
+            <div className="relative py-6">
+               <div className="absolute top-0 left-1/2 -translate-x-1/2 text-4xl text-eum-accent/20 font-serif">"</div>
+               <p className="text-lg md:text-xl font-bold text-gray-700 italic leading-relaxed px-6">
+                 {profile.catchphrase}
+               </p>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Sparkles className="w-5 h-5 text-eum-accent" />
+                <h3 className="font-bold text-gray-400 text-sm uppercase tracking-wider">Introduction</h3>
+              </div>
+              <p className="text-gray-600 leading-loose whitespace-pre-wrap font-medium text-sm md:text-base bg-gray-50 p-6 rounded-2xl">
+                {profile.intro}
+              </p>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Heart className="w-5 h-5 text-rose-400" />
+                <h3 className="font-bold text-gray-400 text-sm uppercase tracking-wider">Personality</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {profile.personalityTags.map((tag, idx) => (
+                  <span key={idx} className="px-4 py-2 rounded-xl bg-rose-50 text-rose-500 font-bold text-sm border border-rose-100">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Coffee className="w-5 h-5 text-amber-500" />
+                <h3 className="font-bold text-gray-400 text-sm uppercase tracking-wider">Lifestyle & Hobbies</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {profile.hobbyTags.map((tag, idx) => (
+                  <span key={idx} className="px-4 py-2 rounded-xl bg-amber-50 text-amber-600 font-bold text-sm border border-amber-100">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+               <div className="flex items-center gap-2 mb-4">
+                <Star className="w-5 h-5 text-purple-500" />
+                <h3 className="font-bold text-gray-400 text-sm uppercase tracking-wider">Ideal Date</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {profile.dateTags.map((tag, idx) => (
+                  <span key={idx} className="px-4 py-2 rounded-xl bg-purple-50 text-purple-600 font-bold text-sm border border-purple-100">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-gray-100 text-center">
+             <button onClick={() => setIsLoggedIn(false)} className="text-gray-400 font-bold text-xs hover:text-eum-dark transition-colors">
+               로그아웃
+             </button>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[#0f0f0f] text-white">
+        <Footer />
+      </div>
+    </div>
+  );
+};
+
+export default ProfilePage;

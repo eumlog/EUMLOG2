@@ -19,6 +19,8 @@ import ApplyPage from './pages/Apply';
 import AdminPage from './pages/Admin';
 import InstagramRegionsPage from './pages/Instagram';
 import PolicyPage from './pages/Policy';
+import ProfilePage from './pages/Profile';
+import ServiceDetail from './pages/ServiceDetail';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,7 +102,7 @@ const AppContent = () => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
 
-    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin';
+    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile';
 
     return (
         <>
@@ -125,6 +127,8 @@ const AppContent = () => {
                         <Route path="/admin" element={<AdminPage />} />
                         <Route path="/instagram" element={<InstagramRegionsPage />} />
                         <Route path="/policy" element={<PolicyPage />} />
+                        <Route path="/profile" element={<ProfilePage />} />
+                        <Route path="/service-detail" element={<ServiceDetail />} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </main>
