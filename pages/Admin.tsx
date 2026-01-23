@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ExternalLink, FileText, Settings, LayoutGrid, Layers, Workflow, Info, CheckCircle, Trash2, Upload, Database, Image as ImageIcon, AppWindow, Save, RefreshCw, UserCircle } from 'lucide-react';
+import { ExternalLink, FileText, Settings, LayoutGrid, Layers, Workflow, Info, CheckCircle, Trash2, Upload, Database, Image as ImageIcon, AppWindow, Save, RefreshCw, UserCircle, Lock } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
 import { IMAGES, TEXTS, refreshAssets, getImageKeys, getTextKeys } from '../lib/assets';
@@ -42,6 +42,13 @@ const IMAGE_META: Record<string, { label: string; location: string; size: string
 
 const AdminPage = () => {
     const navigate = useNavigate();
+    
+    // Auth State
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [loginId, setLoginId] = useState('');
+    const [loginPw, setLoginPw] = useState('');
+    const [authError, setAuthError] = useState('');
+
     const [images, setImages] = useState<Partial<ImageAssets>>({});
     const [texts, setTexts] = useState<Partial<TextAssets>>({});
     const [message, setMessage] = useState<Message | null>(null);
@@ -79,6 +86,16 @@ const AdminPage = () => {
         loadData(); 
         checkStorageUsage(); 
     }, [loadData, checkStorageUsage]);
+
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (loginId === 'admin' && loginPw === '8645686') {
+            setIsAuthenticated(true);
+            setAuthError('');
+        } else {
+            setAuthError('아이디 또는 비밀번호가 올바르지 않습니다.');
+        }
+    };
 
     const handleSave = () => {
         setIsProcessing(true);
@@ -177,6 +194,62 @@ const AdminPage = () => {
             setMessage({ text: '초기화되었습니다.', type: 'success' });
         }
     };
+
+    if (!isAuthenticated) {
+        return (
+            <div className="bg-eum-dark min-h-screen flex items-center justify-center p-6">
+                <div className="max-w-md w-full bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/10 shadow-2xl">
+                    <div className="flex flex-col items-center mb-8">
+                        <div className="w-16 h-16 bg-eum-accent/20 rounded-2xl flex items-center justify-center mb-4">
+                            <Lock className="w-8 h-8 text-eum-accent" />
+                        </div>
+                        <h2 className="text-2xl font-black text-white uppercase tracking-wider">Admin Login</h2>
+                        <p className="text-gray-400 text-xs font-bold mt-2">관리자 권한이 필요합니다</p>
+                    </div>
+                    
+                    <form onSubmit={handleLogin} className="space-y-4">
+                        <div>
+                            <input 
+                                type="text" 
+                                value={loginId} 
+                                onChange={(e) => setLoginId(e.target.value)} 
+                                placeholder="Admin ID" 
+                                className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-500 font-bold outline-none focus:border-eum-accent transition-all"
+                            />
+                        </div>
+                        <div>
+                            <input 
+                                type="password" 
+                                value={loginPw} 
+                                onChange={(e) => setLoginPw(e.target.value)} 
+                                placeholder="Password" 
+                                className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-500 font-bold outline-none focus:border-eum-accent transition-all"
+                            />
+                        </div>
+                        
+                        {authError && (
+                            <div className="text-red-400 text-xs font-bold text-center bg-red-500/10 py-2 rounded-lg">
+                                {authError}
+                            </div>
+                        )}
+
+                        <button 
+                            type="submit" 
+                            className="w-full bg-eum-accent text-white font-black py-4 rounded-xl hover:bg-white hover:text-eum-dark transition-all mt-4 shadow-lg"
+                        >
+                            로그인
+                        </button>
+                    </form>
+                    
+                    <div className="mt-8 text-center">
+                        <button onClick={() => navigate('/')} className="text-gray-500 text-xs font-bold hover:text-white transition-colors">
+                            홈으로 돌아가기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-eum-bg min-h-screen pb-20">
