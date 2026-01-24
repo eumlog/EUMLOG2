@@ -273,8 +273,8 @@ const Service: React.FC = () => {
         <div className="text-center mt-24 md:mt-32">
            <p className="text-gray-400 mb-6 md:mb-8 font-black uppercase tracking-[0.3em] text-[9px]">Ready to meet someone new?</p>
            
-           <div className="mb-8 text-center">
-               <p className="flex items-center justify-center gap-2 text-gray-500 font-bold text-sm md:text-base mb-2">
+           <div className="mb-8 text-center flex flex-col items-center gap-3">
+               <p className="flex items-center justify-center gap-2 text-gray-500 font-bold text-sm md:text-base">
                    <span className="bg-eum-accent/10 text-eum-accent rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-black">?</span>
                    비용이 궁금하신가요?
                </p>

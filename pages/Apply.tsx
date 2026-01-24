@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MapPin, Lock } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
@@ -10,7 +11,7 @@ const ApplyPage = () => (
             <div className="max-w-[900px] w-[82%] md:w-full mx-auto">
                 <div className="text-left md:text-center mb-10 md:mb-16">
                     <h2 className="text-xl md:text-3xl font-bold text-eum-dark mb-3">어디에 거주하시나요?</h2>
-                    <p className="text-gray-600 text-sm md:text-lg font-medium leading-relaxed">이음로그는 수도권이 아닌, <span className="text-eum-accent font-bold">지방 거점</span>을 중심으로 운영됩니다.</p>
+                    <p className="text-gray-600 text-sm md:text-lg font-medium leading-relaxed">이음로그는 수도권이 아닌, <br/><span className="text-eum-accent font-bold">지방 거점</span>을 중심으로 운영됩니다.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {[{ id: 'gj', name: '광주 · 전남', status: 'active', desc: '지금 바로 신청 가능합니다.', link: 'https://link.inpock.co.kr/e.um_log' }, { id: 'dg', name: '대구 · 경북', status: 'preparing', desc: '오픈 준비 중입니다.' }, { id: 'bs', name: '부산 · 경남', status: 'preparing', desc: '오픈 준비 중입니다.' }, { id: 'dj', name: '대전 · 충청', status: 'preparing', desc: '오픈 준비 중입니다.' }].map((region) => (
