@@ -21,6 +21,7 @@ import InstagramRegionsPage from './pages/Instagram';
 import PolicyPage from './pages/Policy';
 import ProfilePage from './pages/Profile';
 import ServiceDetail from './pages/ServiceDetail';
+import Landing from './pages/Landing'; // Import the new Landing page
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -102,7 +103,8 @@ const AppContent = () => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
 
-    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile';
+    // 랜딩 페이지에서는 플로팅 메뉴 숨기기 (선택 사항, 일단 유지하거나 제거 가능)
+    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing';
 
     return (
         <>
@@ -112,7 +114,9 @@ const AppContent = () => {
                 className="min-h-screen flex flex-col justify-between" 
                 style={{ opacity: loading ? 0 : 1 }}
             >
+                {/* Navbar is typically shared, but for a standalone landing page, you might want to hide it or keep it. Keeping it for consistency unless requested otherwise. */}
                 <Navbar />
+                
                 {showFloatingBanner && <FloatingMenu />}
                 <main className="flex-1">
                     <Routes>
@@ -129,6 +133,9 @@ const AppContent = () => {
                         <Route path="/policy" element={<PolicyPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/service-detail" element={<ServiceDetail />} />
+                        {/* New Landing Route */}
+                        <Route path="/landing" element={<Landing />} />
+                        
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </main>

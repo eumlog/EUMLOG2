@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ExternalLink, FileText, Settings, LayoutGrid, Layers, Workflow, Info, CheckCircle, Trash2, Upload, Database, Image as ImageIcon, AppWindow, Save, RefreshCw, UserCircle, Lock, BookOpen } from 'lucide-react';
+import { ExternalLink, FileText, Settings, LayoutGrid, Layers, Workflow, Info, CheckCircle, Trash2, Upload, Database, Image as ImageIcon, AppWindow, Save, RefreshCw, UserCircle, Lock, BookOpen, MapPin } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
 import { IMAGES, TEXTS, refreshAssets, getImageKeys, getTextKeys } from '../lib/assets';
@@ -273,7 +273,13 @@ const AdminPage = () => {
                                 onClick={() => navigate('/service-detail')} 
                                 className="flex items-center gap-2 px-4 py-2 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs"
                             >
-                                <BookOpen className="w-3 h-3" /> 상세 진행 방식 확인 (Hidden Page)
+                                <BookOpen className="w-3 h-3" /> 상세 진행 방식 확인
+                            </button>
+                            <button 
+                                onClick={() => navigate('/landing')} 
+                                className="flex items-center gap-2 px-4 py-2 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs border border-eum-accent/20"
+                            >
+                                <MapPin className="w-3 h-3 text-eum-accent" /> 광주·전남 랜딩페이지
                             </button>
                             <button 
                                 onClick={() => navigate('/')} 
