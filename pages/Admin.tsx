@@ -32,7 +32,7 @@ const IMAGE_META: Record<string, { label: string; location: string; size: string
     card3: { label: "철학 카드 03", location: "메인 > 하단 스택형 카드", size: "800 x 1200", icon: Layers },
     processStep1: { label: "신청서 작성", location: "진행방식 > 1단계", size: "1200 x 900", icon: Workflow },
     processStep2: { label: "2차 설문", location: "진행방식 > 2단계", size: "1200 x 900", icon: Workflow },
-    processStep3: { label: "카톡 상담", location: "진행방식 > 3단계", size: "1200 x 900", icon: Workflow },
+    processStep3: { label: "1:1 상담", location: "진행방식 > 3단계", size: "1200 x 900", icon: Workflow },
     processStep4: { label: "매칭/차단", location: "진행방식 > 4단계", size: "1200 x 900", icon: Workflow },
     processStep5: { label: "프로필 제공", location: "진행방식 > 5단계", size: "1200 x 900", icon: Workflow },
     processStep6: { label: "만남 확정", location: "진행방식 > 6단계", size: "1200 x 900", icon: Workflow },
