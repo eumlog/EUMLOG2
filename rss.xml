@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>E.UM LOG | 이음로그</title>
+    <link>https://eumlog.co.kr/</link>
+    <description>수도권이 아닌 지역기반 소개팅, 3개월의 동행.</description>
+    <language>ko</language>
+    <item>
+      <title>이음로그 서비스 소개</title>
+      <link>https://eumlog.co.kr/service-detail</link>
+      <description>광주·전남 지역 기반 1:1 소개팅, 이음로그의 상세 진행 방식을 확인하세요.</description>
+      <pubDate>Sun, 26 Jan 2025 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>멤버십 및 가격 안내</title>
+      <link>https://eumlog.co.kr/pricing</link>
+      <description>합리적인 비용으로 제공되는 이음로그의 3개월 멤버십 플랜을 확인하세요.</description>
+      <pubDate>Sun, 26 Jan 2025 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>가입 기준 안내</title>
+      <link>https://eumlog.co.kr/criteria</link>
+      <description>이음로그는 검증된 분들과 함께합니다. 가입 기준을 확인해보세요.</description>
+      <pubDate>Sun, 26 Jan 2025 09:00:00 +0900</pubDate>
+    </item>
+  </channel>
+</rss>
