@@ -104,6 +104,19 @@ const ServiceDetail = () => {
                                 ㅈㅇㅎ / 95 / 순천 (랜덤)<br />
                                 ㄱㅎㄴ / 93 / 여수 (랜덤)
                             </blockquote>
+
+                            {/* Added Section for Specific Blocking */}
+                            <div className="mt-6 bg-rose-50 p-5 rounded-xl border border-rose-100">
+                                <h4 className="font-bold text-rose-500 mb-2 flex items-center gap-2">
+                                    <span className="bg-rose-500 text-white text-[10px] px-2 py-0.5 rounded-full">NEW</span>
+                                    특정 지인 원천 차단 기능
+                                </h4>
+                                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                                    마주치기 껄끄러운 사람이 있으신가요?<br/>
+                                    <strong>차단하고 싶은 사람의 이름을 모두 등록</strong>해주시면 시스템에서 <strong className="text-rose-500">영구적으로 매칭 대상에서 제외</strong>됩니다.<br/>
+                                    <span className="text-xs text-gray-500 mt-1 block">※ 이름뿐만 아니라 연락처도 등록 가능하며, 더욱 확실하게 차단됩니다.</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
 

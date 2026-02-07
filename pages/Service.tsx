@@ -108,9 +108,14 @@ const Service: React.FC = () => {
                       </li>
                   </ul>
               </div>
-              <p className="text-[13px] text-gray-500 font-bold leading-relaxed keep-all bg-gray-50 p-4 rounded-xl border border-gray-100">
-                💡 상대방의 ‘초성/나이/지역'을 미리 확인 후, 지인이라면 새로운 프로필을 제공합니다.
-              </p>
+              <div className="space-y-2">
+                <p className="text-[13px] text-gray-500 font-bold leading-relaxed keep-all bg-gray-50 p-4 rounded-xl border border-gray-100">
+                  💡 <strong>[기본]</strong> 상대방의 ‘초성/나이/지역'을 미리 확인 후, 지인이라면 새로운 프로필을 제공합니다.
+                </p>
+                <p className="text-[13px] text-gray-600 font-bold leading-relaxed keep-all bg-rose-50 p-4 rounded-xl border border-rose-100">
+                  🛡️ <strong>[추가]</strong> 차단하고 싶은 <strong>지인의 이름을 등록</strong>하면 해당 인원은 매칭에서 <strong>100% 원천 차단</strong>됩니다.
+                </p>
+              </div>
           </div>
       ),
       img: IMAGES.processStep4

@@ -14,44 +14,43 @@ const ContactPage = () => (
             <div className="max-w-[1000px] w-[90%] mx-auto">
                 <div className="text-center mb-12 md:mb-16">
                     <span className="text-eum-accent text-xs md:text-sm font-black tracking-widest uppercase mb-3 block">Before Asking</span>
-                    <h2 className="text-2xl md:text-3xl font-black text-eum-dark mb-4">문의 전, 확인해주세요</h2>
+                    <h2 className="text-2xl md:text-3xl font-black text-eum-dark mb-4">문의 전, 읽어주세요</h2>
                     <p className="text-gray-500 font-medium text-sm md:text-base leading-relaxed">
-                        대부분의 궁금한 점은 아래 페이지에 있습니다.<br className="hidden md:block"/>
-                        미리 확인하시면 더 빠른 상담이 가능합니다.
+                        궁금한 점이 있다면<br className="md:hidden"/> 아래 내용을 먼저 확인해주세요.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <Link to="/service" className="group bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 hover:border-eum-accent/30 hover:bg-white hover:shadow-lg transition-all duration-300">
-                        <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-5 group-hover:bg-eum-accent group-hover:text-white transition-colors">
+                    <Link to="/service" className="group bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 hover:border-eum-accent/30 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center">
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-4 group-hover:bg-eum-accent group-hover:text-white transition-colors">
                             <ClipboardList className="w-5 h-5 md:w-6 md:h-6 text-gray-400 group-hover:text-white transition-colors" />
                         </div>
-                        <h3 className="text-lg font-bold text-eum-dark mb-2 group-hover:text-eum-accent transition-colors">진행 방식</h3>
-                        <p className="text-sm text-gray-500 mb-4 leading-relaxed font-medium">신청부터 만남까지의 과정</p>
-                        <div className="flex items-center text-xs font-bold text-gray-400 group-hover:text-eum-dark transition-colors">
-                            확인하기 <ArrowRight className="w-3 h-3 ml-1" />
+                        <h3 className="text-lg font-bold text-eum-dark mb-1 group-hover:text-eum-accent transition-colors">진행 방식</h3>
+                        <p className="text-xs text-gray-400 mb-4 font-medium">전체 진행 과정</p>
+                        <div className="mt-auto flex items-center text-[10px] font-bold text-gray-400 group-hover:text-eum-dark transition-colors border border-gray-200 rounded-full px-3 py-1 group-hover:border-eum-dark">
+                            VIEW <ArrowRight className="w-2.5 h-2.5 ml-1" />
                         </div>
                     </Link>
 
-                    <Link to="/pricing" className="group bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 hover:border-eum-accent/30 hover:bg-white hover:shadow-lg transition-all duration-300">
-                        <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-5 group-hover:bg-eum-accent group-hover:text-white transition-colors">
+                    <Link to="/pricing" className="group bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 hover:border-eum-accent/30 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center">
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-4 group-hover:bg-eum-accent group-hover:text-white transition-colors">
                             <CreditCard className="w-5 h-5 md:w-6 md:h-6 text-gray-400 group-hover:text-white transition-colors" />
                         </div>
-                        <h3 className="text-lg font-bold text-eum-dark mb-2 group-hover:text-eum-accent transition-colors">가격 안내</h3>
-                        <p className="text-sm text-gray-500 mb-4 leading-relaxed font-medium">멤버십 및 매칭 비용 안내</p>
-                        <div className="flex items-center text-xs font-bold text-gray-400 group-hover:text-eum-dark transition-colors">
-                            확인하기 <ArrowRight className="w-3 h-3 ml-1" />
+                        <h3 className="text-lg font-bold text-eum-dark mb-1 group-hover:text-eum-accent transition-colors">가격 안내</h3>
+                        <p className="text-xs text-gray-400 mb-4 font-medium">비용 상세 확인</p>
+                        <div className="mt-auto flex items-center text-[10px] font-bold text-gray-400 group-hover:text-eum-dark transition-colors border border-gray-200 rounded-full px-3 py-1 group-hover:border-eum-dark">
+                            VIEW <ArrowRight className="w-2.5 h-2.5 ml-1" />
                         </div>
                     </Link>
 
-                    <Link to="/criteria" className="group bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 hover:border-eum-accent/30 hover:bg-white hover:shadow-lg transition-all duration-300">
-                        <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-5 group-hover:bg-eum-accent group-hover:text-white transition-colors">
+                    <Link to="/criteria" className="group bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 hover:border-eum-accent/30 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center">
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-4 group-hover:bg-eum-accent group-hover:text-white transition-colors">
                             <UserCheck className="w-5 h-5 md:w-6 md:h-6 text-gray-400 group-hover:text-white transition-colors" />
                         </div>
-                        <h3 className="text-lg font-bold text-eum-dark mb-2 group-hover:text-eum-accent transition-colors">가입 기준</h3>
-                        <p className="text-sm text-gray-500 mb-4 leading-relaxed font-medium">가입 조건 및 활동 회원 특징</p>
-                        <div className="flex items-center text-xs font-bold text-gray-400 group-hover:text-eum-dark transition-colors">
-                            확인하기 <ArrowRight className="w-3 h-3 ml-1" />
+                        <h3 className="text-lg font-bold text-eum-dark mb-1 group-hover:text-eum-accent transition-colors">가입 기준</h3>
+                        <p className="text-xs text-gray-400 mb-4 font-medium">필수 가입 조건</p>
+                        <div className="mt-auto flex items-center text-[10px] font-bold text-gray-400 group-hover:text-eum-dark transition-colors border border-gray-200 rounded-full px-3 py-1 group-hover:border-eum-dark">
+                            VIEW <ArrowRight className="w-2.5 h-2.5 ml-1" />
                         </div>
                     </Link>
                 </div>
@@ -65,10 +64,9 @@ const ContactPage = () => (
                     <div className="inline-flex items-center justify-center w-12 h-12 bg-eum-dark text-white rounded-2xl mb-5 shadow-lg">
                         <Headset className="w-6 h-6" />
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-black text-eum-dark mb-3">그래도 궁금한 점이 있으신가요?</h3>
+                    <h3 className="text-2xl md:text-3xl font-black text-eum-dark mb-3">상담이 필요하신가요?</h3>
                     <p className="text-gray-500 font-medium text-sm md:text-base leading-relaxed">
-                        위 내용을 확인하셨다면,<br className="md:hidden"/> 매니저와 직접 상담해보세요.<br/>
-                        친절하고 상세하게 안내해 드리겠습니다.
+                        매니저가 직접<br className="md:hidden"/> 친절하게 안내해 드립니다.
                     </p>
                 </div>
                 
