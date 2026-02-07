@@ -22,6 +22,6 @@ export const DEFAULT_IMAGES: ImageAssets = {
 };
 
 export const DEFAULT_TEXTS: TextAssets = {
-    siteTitle: "E.UM LOG",
-    siteDescription: "수도권이 아닌 지역기반 소개팅, 3개월의 동행.",
+    siteTitle: "이음로그 | 지역 기반 1:1 프리미엄 소개팅",
+    siteDescription: "우리 지역 생활권에서 만나는 1:1 프리미엄 소개팅. 지인 차단과 맞춤 매칭으로 가볍지 않은 진짜 인연을 연결합니다.",
 };
