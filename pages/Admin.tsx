@@ -70,7 +70,7 @@ const AdminPage = () => {
     const [message, setMessage] = useState<Message | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [storageUsage, setStorageUsage] = useState(0);
-    const [activeTab, setActiveTab] = useState<'assets' | 'weekly'>('weekly'); // 주차별 명단 탭을 기본으로
+    const [activeTab, setActiveTab] = useState<'assets' | 'weekly'>('weekly');
 
     // 스토리지 용량 체크 (MB 단위)
     const checkStorageUsage = useCallback(() => {
@@ -106,7 +106,6 @@ const AdminPage = () => {
             const w = localStorage.getItem('EUM_WEEKLY_LISTS');
             if (w) {
                 const parsed = JSON.parse(w);
-                // Safe sorting: Handle potential non-numeric IDs gracefully
                 parsed.sort((a: WeeklyItem, b: WeeklyItem) => {
                     const idA = Number(a.id) || 0;
                     const idB = Number(b.id) || 0;
@@ -214,13 +213,12 @@ const AdminPage = () => {
             const currentListJson = localStorage.getItem('EUM_WEEKLY_LISTS');
             const currentList: WeeklyItem[] = currentListJson ? JSON.parse(currentListJson) : [];
 
-            // 제목 자동 생성
             const today = new Date();
             const autoTitle = `${today.getMonth() + 1}월 ${Math.ceil(today.getDate() / 7)}주차 ${newWeekRegion === 'jn' ? '전남' : '광주'} 선정자`;
             const titleToUse = newWeekTitle.trim() || autoTitle;
 
             const newItem: WeeklyItem = {
-                id: Date.now(), // 고유 ID
+                id: Date.now(),
                 title: titleToUse,
                 image: imgSrc,
                 date: new Date().toLocaleDateString(),
@@ -237,9 +235,9 @@ const AdminPage = () => {
             setNewWeekImage('');
             checkStorageUsage();
             
-            alert("등록되었습니다!");
+            alert("등록되었습니다! (이미지 주소 사용 권장)");
         } catch (e: any) {
-             alert("저장 용량이 부족합니다. '명단 전체 삭제' 후 다시 시도하거나, 이미지 파일 대신 URL을 사용해주세요.");
+             alert("오류: 저장 용량이 부족하거나 문제가 발생했습니다. '이미지 주소(URL)' 방식을 사용해주세요.");
         }
     };
 
@@ -247,10 +245,17 @@ const AdminPage = () => {
     const handleWeeklyImageAutoRegister = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
+        
+        // 파일 업로드 시 경고 메시지 표시
+        if(!window.confirm("주의: 파일 업로드(PC 파일)는 해당 브라우저에서만 보입니다.\n다른 사람에게도 보이게 하려면 '이미지 주소(URL)' 방식을 권장합니다.\n계속 하시겠습니까?")) {
+            e.target.value = '';
+            return;
+        }
+
         processImage(file, (resizedDataUrl) => {
             registerWeeklyItem(resizedDataUrl);
         });
-        e.target.value = ''; // 재선택 가능하게
+        e.target.value = '';
     };
 
     // [주차별 명단] URL 수동 등록
@@ -262,7 +267,7 @@ const AdminPage = () => {
         registerWeeklyItem(newWeekImage.trim());
     };
 
-    // [주차별 명단] 삭제 로직 (타입 안전성 확보)
+    // [주차별 명단] 삭제 로직 (강력한 버전)
     const deleteWeeklyItem = (targetId: string | number) => {
         if (!window.confirm('정말 삭제하시겠습니까?')) return;
 
@@ -271,7 +276,7 @@ const AdminPage = () => {
             if (!currentListJson) return;
 
             const currentList: WeeklyItem[] = JSON.parse(currentListJson);
-            // ID를 문자열로 변환하여 비교 (타입 불일치 방지)
+            // 모든 ID를 문자열로 변환하여 비교 (가장 안전)
             const updatedList = currentList.filter(item => String(item.id) !== String(targetId));
 
             localStorage.setItem('EUM_WEEKLY_LISTS', JSON.stringify(updatedList));
@@ -329,7 +334,7 @@ const AdminPage = () => {
             }
         };
         reader.readAsText(file);
-        e.target.value = ''; // 초기화
+        e.target.value = ''; 
     };
 
     if (!isAuthenticated) {
@@ -391,7 +396,7 @@ const AdminPage = () => {
                                 <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-500"><Calendar className="w-6 h-6" /></div>
                                 <div>
                                     <h3 className="text-xl font-black text-eum-dark">주차별 참가자 명단 관리</h3>
-                                    <p className="text-xs text-gray-400 mt-1">삭제가 안 될 경우 [명단 전체 삭제] 후 다시 등록하세요.</p>
+                                    <p className="text-xs text-gray-400 mt-1">삭제 버튼이 안 먹으면 [명단 전체 삭제]를 이용하세요.</p>
                                 </div>
                             </div>
                             <button onClick={clearAllWeeklyItems} className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-500 rounded-xl font-bold text-xs hover:bg-red-500 hover:text-white transition-all">
@@ -424,24 +429,32 @@ const AdminPage = () => {
                                     {/* URL Input (Preferred) */}
                                     <div className="p-5 bg-blue-50 rounded-xl border border-blue-100">
                                         <div className="flex justify-between items-center mb-2">
-                                            <p className="text-sm font-bold text-blue-600 flex items-center gap-2"><LinkIcon className="w-4 h-4"/> 이미지 주소(URL)로 등록</p>
-                                            <span className="text-[10px] bg-white px-2 py-0.5 rounded text-blue-400 font-bold border border-blue-100">추천 방식</span>
+                                            <p className="text-sm font-bold text-blue-600 flex items-center gap-2"><LinkIcon className="w-4 h-4"/> 1. 이미지 주소(URL)로 등록 (강력 추천)</p>
+                                            <span className="text-[10px] bg-white px-2 py-0.5 rounded text-blue-400 font-bold border border-blue-100">모든 브라우저에 보임</span>
                                         </div>
                                         <div className="flex gap-2">
                                             <input type="text" placeholder="https://..." value={newWeekImage} onChange={(e) => setNewWeekImage(e.target.value)} className="flex-1 p-3 bg-white rounded-lg border border-blue-200 outline-none focus:border-blue-500 text-xs font-mono" />
-                                            <button onClick={handleWeeklyUrlRegister} className="px-5 bg-blue-600 text-white rounded-lg font-bold text-xs hover:bg-blue-700 whitespace-nowrap shadow-md">URL 등록</button>
+                                            <button onClick={handleWeeklyUrlRegister} className="px-5 bg-blue-600 text-white rounded-lg font-bold text-xs hover:bg-blue-700 whitespace-nowrap shadow-md">URL 저장</button>
                                         </div>
-                                        <p className="text-[10px] text-blue-400 mt-2">* 이미지가 서버에 저장되어 사라지지 않고 용량을 차지하지 않습니다.</p>
+                                        <p className="text-[11px] text-blue-400 mt-2 font-medium leading-relaxed">
+                                            * 인터넷에 있는 이미지 주소를 복사해서 넣으세요. (예: 블로그 이미지 우클릭 -> 이미지 주소 복사)<br/>
+                                            * 이 방식으로 하면 <strong>모든 사람의 폰에서 이미지가 잘 보입니다.</strong>
+                                        </p>
                                     </div>
 
-                                    <div className="text-center text-xs font-bold text-gray-400 my-2">- 또는 -</div>
-
-                                    {/* File Input */}
-                                    <label className={`w-full p-4 rounded-xl border-2 border-dashed flex items-center justify-center gap-3 cursor-pointer hover:bg-white transition-colors ${isProcessing ? 'bg-gray-100' : 'bg-gray-50 border-gray-300'}`}>
-                                        <Upload className="w-5 h-5 text-gray-400" />
-                                        <span className="text-sm font-bold text-gray-500">{isProcessing ? '처리 중...' : '이미지 파일 업로드 (자동 압축됨)'}</span>
-                                        <input type="file" accept="image/*" className="hidden" disabled={isProcessing} onChange={handleWeeklyImageAutoRegister} />
-                                    </label>
+                                    {/* File Input (Deprecated Warning) */}
+                                    <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
+                                        <p className="text-xs font-bold text-gray-500 mb-2">2. 파일 업로드 (비추천)</p>
+                                        <label className={`w-full p-3 rounded-lg border border-dashed flex items-center justify-center gap-2 cursor-pointer bg-white ${isProcessing ? 'opacity-50' : ''}`}>
+                                            <Upload className="w-4 h-4 text-gray-400" />
+                                            <span className="text-xs font-bold text-gray-400">{isProcessing ? '처리 중...' : '내 컴퓨터 파일 선택'}</span>
+                                            <input type="file" accept="image/*" className="hidden" disabled={isProcessing} onChange={handleWeeklyImageAutoRegister} />
+                                        </label>
+                                        <p className="text-[10px] text-red-400 mt-2 font-medium">
+                                            * 주의: 파일 업로드는 <strong>지금 이 컴퓨터에서만</strong> 보입니다.<br/>
+                                            * 다른 사람 폰에서는 이미지가 안 보일 수 있으니 <strong>위의 URL 방식을 사용하세요.</strong>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -458,6 +471,7 @@ const AdminPage = () => {
                                     <div className="flex-1 w-full text-center md:text-left">
                                         <h5 className="font-black text-gray-800 text-sm mb-1">{item.title}</h5>
                                         <p className="text-xs text-gray-400">{item.date} 등록</p>
+                                        <p className="text-[10px] text-gray-300 truncate max-w-[200px] mt-1">{item.image.startsWith('data:') ? '(파일 업로드됨 - 로컬 전용)' : item.image}</p>
                                     </div>
                                     <div className="flex gap-2 w-full md:w-auto">
                                         <a href={item.image} target="_blank" rel="noopener noreferrer" className="flex-1 p-3 bg-gray-50 rounded-xl text-center"><LinkIcon className="w-4 h-4 mx-auto text-gray-400" /></a>

@@ -32,12 +32,11 @@ const Navbar = () => {
         }
     };
 
-    // 이미지와 동일한 메뉴 구성 (참가자 명단 추가)
+    // '참가자 명단' 메뉴 제거됨
     const navLinks = [
         { name: '소개', href: '/about' }, 
         { name: '멤버십 안내', href: '/pricing' }, 
         { name: '진행방식', href: '/service' }, 
-        { name: '참가자 명단', href: '/weekly' },
         { name: '가입기준', href: '/criteria' }, 
         { name: '자주 묻는 질문', href: '/faq' }
     ];
@@ -55,7 +54,7 @@ const Navbar = () => {
                         </Link>
                     </div>
                     
-                    {/* PC 중앙 메뉴 - 크기 13px -> 15px로 확대 및 간격 조정 */}
+                    {/* PC 중앙 메뉴 */}
                     <div className="hidden lg:flex gap-10 text-[15px] font-bold tracking-tight">
                         {navLinks.map((link) => (
                             <Link 
