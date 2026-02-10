@@ -21,7 +21,7 @@ const Service: React.FC = () => {
       content: (
           <div className="space-y-4">
               <p className="text-gray-600 text-base leading-relaxed keep-all font-medium">
-                  인스타 프로필 링크에서 1분이면 신청 가능합니다.
+                  네이버 폼을 통해 1분이면 신청 가능합니다.
               </p>
               <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
                   <span className="text-[10px] font-black text-eum-accent uppercase tracking-wider block mb-4">[ 기입 항목 예시 ]</span>
@@ -213,8 +213,7 @@ const Service: React.FC = () => {
             이음로그 진행 방식
           </h2>
           <p className="text-gray-500 text-base md:text-lg leading-relaxed keep-all font-medium max-w-lg mx-auto">
-              이미지와 상세 설명을 통해<br/>
-              이음로그만의 <span className="text-eum-accent font-bold">7단계 프리미엄 프로세스</span>를 확인해보세요.
+               이음로그만의 <span className="text-eum-accent font-bold">7단계 프리미엄 프로세스</span>를 확인해보세요.
           </p>
         </div>
 

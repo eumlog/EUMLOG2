@@ -135,7 +135,7 @@ const WeeklyList = () => {
                         <h3 className="text-xl md:text-2xl font-black text-eum-dark mb-6 leading-tight">
                             이번주 명단의<br/>주인공이 되어보세요
                         </h3>
-                        <Link to="/apply" className="group relative inline-flex items-center justify-center px-12 py-5 md:px-16 md:py-6 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
+                        <Link to="/links" className="group relative inline-flex items-center justify-center px-12 py-5 md:px-16 md:py-6 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
                             <span className="relative z-10 flex items-center gap-3 text-base md:text-lg">
                                 매칭 신청하기 <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
                             </span>
