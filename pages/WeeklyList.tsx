@@ -6,7 +6,7 @@ import { Calendar, Users, MapPin, ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface WeeklyItem {
-    id: number;
+    id: string | number;
     title: string;
     image: string;
     date: string;
@@ -24,7 +24,8 @@ const WeeklyList = () => {
                 const stored = localStorage.getItem('EUM_WEEKLY_LISTS');
                 if (stored) {
                     const parsed = JSON.parse(stored);
-                    parsed.sort((a: WeeklyItem, b: WeeklyItem) => b.id - a.id);
+                    // Ensure safe sorting by converting ID to number
+                    parsed.sort((a: WeeklyItem, b: WeeklyItem) => Number(b.id) - Number(a.id));
                     setLists(parsed);
                 }
             } catch (e) {

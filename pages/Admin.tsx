@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ExternalLink, Settings, LayoutGrid, Layers, Workflow, Info, Trash2, Upload, Database, Image as ImageIcon, AppWindow, Save, RefreshCw, Lock, MapPin, Calendar, Plus, Link as LinkIcon, AlertCircle, Download, FileJson } from 'lucide-react';
+import { ExternalLink, Settings, LayoutGrid, Layers, Workflow, Info, Trash2, Upload, Database, Image as ImageIcon, AppWindow, Save, RefreshCw, Lock, MapPin, Calendar, Plus, Link as LinkIcon, AlertCircle, Download, FileJson, XCircle } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
 import { IMAGES, TEXTS, refreshAssets, getImageKeys, getTextKeys } from '../lib/assets';
@@ -14,7 +14,7 @@ interface Message {
 }
 
 interface WeeklyItem {
-    id: number; // 숫자형 ID로 변경하여 비교 오류 방지
+    id: string | number; // 호환성을 위해 유연한 타입 적용
     title: string;
     image: string;
     date: string;
@@ -106,8 +106,8 @@ const AdminPage = () => {
             const w = localStorage.getItem('EUM_WEEKLY_LISTS');
             if (w) {
                 const parsed = JSON.parse(w);
-                // ID 내림차순 정렬
-                parsed.sort((a: WeeklyItem, b: WeeklyItem) => b.id - a.id);
+                // ID 내림차순 정렬 (최신순) - ID가 문자일수도 숫자일수도 있으므로 Number로 변환하여 비교
+                parsed.sort((a: WeeklyItem, b: WeeklyItem) => Number(b.id) - Number(a.id));
                 setWeeklyLists(parsed);
             } else {
                 setWeeklyLists([]);
@@ -204,7 +204,7 @@ const AdminPage = () => {
         }
     };
 
-    // [주차별 명단] 등록
+    // [주차별 명단] 등록 (공통)
     const registerWeeklyItem = (imgSrc: string) => {
         try {
             const currentListJson = localStorage.getItem('EUM_WEEKLY_LISTS');
@@ -216,7 +216,7 @@ const AdminPage = () => {
             const titleToUse = newWeekTitle.trim() || autoTitle;
 
             const newItem: WeeklyItem = {
-                id: Date.now(), // 고유 숫자 ID
+                id: Date.now(), // 고유 ID
                 title: titleToUse,
                 image: imgSrc,
                 date: new Date().toLocaleDateString(),
@@ -235,7 +235,7 @@ const AdminPage = () => {
             
             alert("등록되었습니다!");
         } catch (e: any) {
-             alert("저장 용량이 부족합니다. \n이미지 URL을 사용하거나 '백업' 후 초기화해주세요.");
+             alert("저장 용량이 부족합니다. '명단 전체 삭제' 후 다시 시도하거나, 이미지 파일 대신 URL을 사용해주세요.");
         }
     };
 
@@ -258,8 +258,8 @@ const AdminPage = () => {
         registerWeeklyItem(newWeekImage.trim());
     };
 
-    // [주차별 명단] 삭제 로직 (명확한 필터링)
-    const deleteWeeklyItem = (targetId: number) => {
+    // [주차별 명단] 삭제 로직 (타입 안전성 확보)
+    const deleteWeeklyItem = (targetId: string | number) => {
         if (!window.confirm('정말 삭제하시겠습니까?')) return;
 
         try {
@@ -267,14 +267,24 @@ const AdminPage = () => {
             if (!currentListJson) return;
 
             const currentList: WeeklyItem[] = JSON.parse(currentListJson);
-            // 숫자 비교로 정확히 삭제
-            const updatedList = currentList.filter(item => item.id !== targetId);
+            // ID를 문자열로 변환하여 비교 (타입 불일치 방지)
+            const updatedList = currentList.filter(item => String(item.id) !== String(targetId));
 
             localStorage.setItem('EUM_WEEKLY_LISTS', JSON.stringify(updatedList));
-            setWeeklyLists(updatedList); // State 즉시 갱신
+            setWeeklyLists(updatedList);
             checkStorageUsage();
         } catch (e) {
             alert("삭제 중 오류가 발생했습니다.");
+        }
+    };
+
+    // [주차별 명단] 전체 삭제
+    const clearAllWeeklyItems = () => {
+        if (window.confirm('⚠️ 정말 모든 명단을 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.')) {
+            localStorage.removeItem('EUM_WEEKLY_LISTS');
+            setWeeklyLists([]);
+            checkStorageUsage();
+            alert('모든 명단이 삭제되었습니다.');
         }
     };
 
@@ -318,15 +328,6 @@ const AdminPage = () => {
         e.target.value = ''; // 초기화
     };
 
-    const handleReset = () => {
-        if (window.confirm('모든 데이터(이미지/명단 포함)를 초기화하시겠습니까? \n주의: 백업하지 않은 데이터는 영구 삭제됩니다.')) {
-            localStorage.clear();
-            refreshAssets();
-            loadData();
-            alert('초기화되었습니다.');
-        }
-    };
-
     if (!isAuthenticated) {
         return (
             <div className="bg-eum-dark min-h-screen flex items-center justify-center p-6">
@@ -354,7 +355,7 @@ const AdminPage = () => {
             <PageHeader title="관리자 페이지" subtitle="Admin Panel" />
             
             <div className="py-12 px-6 max-w-[1100px] mx-auto">
-                {/* 데이터 백업/복구 (최상단 중요 기능) */}
+                {/* 데이터 백업/복구 */}
                 <div className="mb-12 bg-white p-6 rounded-[2rem] border border-eum-accent/20 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                         <h3 className="text-lg font-black text-eum-dark flex items-center gap-2"><Database className="w-5 h-5 text-eum-accent" /> 데이터 백업 및 복구</h3>
@@ -381,12 +382,17 @@ const AdminPage = () => {
                 {/* --- WEEKLY LIST TAB --- */}
                 {activeTab === 'weekly' && (
                     <div className="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100">
-                        <div className="flex items-center gap-4 mb-10 pb-6 border-b border-gray-50">
-                            <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-500"><Calendar className="w-6 h-6" /></div>
-                            <div>
-                                <h3 className="text-xl font-black text-eum-dark">주차별 참가자 명단 관리</h3>
-                                <p className="text-xs text-gray-400 mt-1">새로고침해도 사라지지 않도록 [백업]을 습관화해주세요.</p>
+                        <div className="flex items-center justify-between mb-10 pb-6 border-b border-gray-50">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-500"><Calendar className="w-6 h-6" /></div>
+                                <div>
+                                    <h3 className="text-xl font-black text-eum-dark">주차별 참가자 명단 관리</h3>
+                                    <p className="text-xs text-gray-400 mt-1">삭제가 안 될 경우 [명단 전체 삭제] 후 다시 등록하세요.</p>
+                                </div>
                             </div>
+                            <button onClick={clearAllWeeklyItems} className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-500 rounded-xl font-bold text-xs hover:bg-red-500 hover:text-white transition-all">
+                                <XCircle className="w-4 h-4" /> 명단 전체 삭제
+                            </button>
                         </div>
 
                         {/* Add New */}
@@ -412,12 +418,16 @@ const AdminPage = () => {
                                     <input type="text" placeholder="제목 입력 (비워두면 자동 생성)" value={newWeekTitle} onChange={(e) => setNewWeekTitle(e.target.value)} className="w-full p-4 bg-white rounded-xl border border-gray-200 outline-none focus:border-eum-accent font-bold" />
                                     
                                     {/* URL Input (Preferred) */}
-                                    <div className="p-4 bg-white rounded-xl border border-gray-200">
-                                        <p className="text-xs font-bold text-eum-accent mb-2">★ [권장] 이미지 주소(URL)로 등록 (오류 없음)</p>
-                                        <div className="flex gap-2">
-                                            <input type="text" placeholder="https://..." value={newWeekImage} onChange={(e) => setNewWeekImage(e.target.value)} className="flex-1 p-3 bg-gray-50 rounded-lg border border-gray-200 outline-none focus:border-eum-accent text-xs font-mono" />
-                                            <button onClick={handleWeeklyUrlRegister} className="px-5 bg-eum-dark text-white rounded-lg font-bold text-xs hover:bg-black whitespace-nowrap">주소로 등록</button>
+                                    <div className="p-5 bg-blue-50 rounded-xl border border-blue-100">
+                                        <div className="flex justify-between items-center mb-2">
+                                            <p className="text-sm font-bold text-blue-600 flex items-center gap-2"><LinkIcon className="w-4 h-4"/> 이미지 주소(URL)로 등록</p>
+                                            <span className="text-[10px] bg-white px-2 py-0.5 rounded text-blue-400 font-bold border border-blue-100">추천 방식</span>
                                         </div>
+                                        <div className="flex gap-2">
+                                            <input type="text" placeholder="https://..." value={newWeekImage} onChange={(e) => setNewWeekImage(e.target.value)} className="flex-1 p-3 bg-white rounded-lg border border-blue-200 outline-none focus:border-blue-500 text-xs font-mono" />
+                                            <button onClick={handleWeeklyUrlRegister} className="px-5 bg-blue-600 text-white rounded-lg font-bold text-xs hover:bg-blue-700 whitespace-nowrap shadow-md">URL 등록</button>
+                                        </div>
+                                        <p className="text-[10px] text-blue-400 mt-2">* 이미지가 서버에 저장되어 사라지지 않고 용량을 차지하지 않습니다.</p>
                                     </div>
 
                                     <div className="text-center text-xs font-bold text-gray-400 my-2">- 또는 -</div>
