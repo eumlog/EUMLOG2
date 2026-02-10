@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Share2, MessageCircle, Instagram, Home, FileText, ChevronRight, Info, ExternalLink, MapPin, Lock, CheckCircle, X } from 'lucide-react';
+import { Share2, MessageCircle, Instagram, Home, FileText, ChevronRight, ClipboardList, ExternalLink, MapPin, Lock, CheckCircle, X } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
 
 const LinkTree = () => {
@@ -55,13 +55,13 @@ const LinkTree = () => {
                         </button>
                     </div>
 
-                    <h1 className="text-3xl md:text-4xl font-black text-eum-dark leading-tight mb-2">
+                    <h1 className="text-3xl md:text-4xl font-black text-eum-dark leading-tight mb-3">
                         광주 · 전남<br/>
-                        <span className="text-eum-accent">1:1 매칭 신청</span>
+                        <span className="text-eum-accent">프리미엄 1:1 소개팅</span>
                     </h1>
-                    <p className="text-sm text-gray-500 font-medium leading-relaxed">
-                        가벼운 만남이 아닌, <br/>
-                        지인 걱정 없이 진지한 인연을 찾는 곳.
+                    <p className="text-sm text-gray-600 font-medium leading-relaxed">
+                        "아무나 만나기엔 시간이 아깝잖아요."<br/>
+                        <span className="text-eum-dark font-bold underline decoration-eum-accent/30 decoration-2 underline-offset-2">지인 차단 100%</span>, 검증된 분과의 진지한 만남.
                     </p>
                 </div>
 
@@ -90,19 +90,22 @@ const LinkTree = () => {
 
                 {/* 3. Secondary Actions: Process & Kakao */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                    {/* Process (Internal) */}
-                    <Link to="/service" className="block bg-white p-6 rounded-[1.8rem] border border-gray-100 shadow-sm hover:border-eum-accent/30 hover:shadow-md transition-all duration-300 group">
-                        <div className="w-8 h-8 bg-eum-bg rounded-full flex items-center justify-center mb-3 text-eum-dark group-hover:bg-eum-dark group-hover:text-white transition-colors">
-                            <Info className="w-4 h-4" />
+                    {/* Process (Internal) - Visually Enhanced */}
+                    <Link to="/service" className="block bg-white p-6 rounded-[1.8rem] border-2 border-eum-accent/20 hover:border-eum-accent shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden">
+                         {/* Decorative shape */}
+                        <div className="absolute top-0 right-0 bg-eum-accent/5 w-16 h-16 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+                        
+                        <div className="w-10 h-10 bg-eum-bg rounded-2xl flex items-center justify-center mb-3 text-eum-accent group-hover:bg-eum-accent group-hover:text-white transition-colors relative z-10">
+                            <ClipboardList className="w-5 h-5" />
                         </div>
-                        <h3 className="text-sm font-bold text-gray-800">진행 방식</h3>
-                        <p className="text-[10px] text-gray-400 mt-1">상세 절차 확인</p>
+                        <h3 className="text-sm font-bold text-gray-800 relative z-10">진행 방식</h3>
+                        <p className="text-[10px] text-gray-500 mt-1 font-medium relative z-10">어떻게 진행되나요?</p>
                     </Link>
 
                     {/* Kakao (Internal) */}
                     <Link to="/contact" className="block bg-[#FEE500] p-6 rounded-[1.8rem] shadow-sm hover:shadow-md transition-all duration-300 group">
-                        <div className="w-8 h-8 bg-white/40 rounded-full flex items-center justify-center mb-3 text-[#3c1e1e]">
-                            <MessageCircle className="w-4 h-4 fill-current" />
+                        <div className="w-10 h-10 bg-white/40 rounded-2xl flex items-center justify-center mb-3 text-[#3c1e1e]">
+                            <MessageCircle className="w-5 h-5 fill-current" />
                         </div>
                         <h3 className="text-sm font-bold text-[#3c1e1e]">카톡 문의</h3>
                         <p className="text-[10px] text-[#3c1e1e]/60 mt-1">1:1 채팅 상담</p>
@@ -125,9 +128,9 @@ const LinkTree = () => {
                         </div>
                         <div className="flex-1">
                             <h3 className="text-sm font-bold text-gray-800 flex items-center gap-1">
-                                6:6 미팅 : 우연히반하다 <ExternalLink className="w-3 h-3 text-gray-300" />
+                                6:6 소개팅 : 우연히반하다 <ExternalLink className="w-3 h-3 text-gray-300" />
                             </h3>
-                            <p className="text-[10px] text-gray-400 font-medium">여·순·광 6대6 로테이션 소개팅</p>
+                            <p className="text-[10px] text-gray-400 font-medium">여·순·광 로테이션 소개팅</p>
                         </div>
                     </a>
 
