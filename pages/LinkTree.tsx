@@ -51,7 +51,7 @@ const LinkTree = () => {
                             className="flex items-center gap-1.5 px-3 py-1 bg-white border border-gray-200 rounded-full text-[10px] font-bold text-gray-500 hover:border-eum-accent hover:text-eum-accent transition-colors"
                         >
                             <MapPin className="w-3 h-3" />
-                            다른 지역 보기
+                            지역 선택
                         </button>
                     </div>
 
@@ -61,7 +61,7 @@ const LinkTree = () => {
                     </h1>
                     <p className="text-sm text-gray-600 font-medium leading-relaxed">
                         "아무나 만나기엔 시간이 아깝잖아요."<br/>
-                        <span className="text-eum-dark font-bold underline decoration-eum-accent/30 decoration-2 underline-offset-2">지인 차단 100%</span>, 검증된 분과의 진지한 만남.
+                        <Link to="/blocking-system" className="text-eum-dark font-bold underline decoration-eum-accent/30 decoration-2 underline-offset-2 hover:text-eum-accent transition-colors">지인 차단 100%</Link>, 검증된 분과의 진지한 만남.
                     </p>
                 </div>
 
@@ -112,9 +112,8 @@ const LinkTree = () => {
                     </Link>
                 </div>
 
-                {/* 4. Other Links (List Style) */}
-                <div className="space-y-3">
-                    {/* 6:6 Instagram Link (Updated Text) */}
+                {/* 4. Instagram Link (List Style) */}
+                <div className="mb-4">
                     <a 
                         href="https://www.instagram.com/woo_ban/" 
                         target="_blank" 
@@ -133,25 +132,30 @@ const LinkTree = () => {
                             <p className="text-[10px] text-gray-400 font-medium">여·순·광 로테이션 소개팅</p>
                         </div>
                     </a>
+                </div>
 
-                    {/* Homepage Link */}
-                    <Link 
-                        to="/" 
-                        className="flex items-center gap-4 bg-white p-4 rounded-2xl border border-gray-100 hover:border-eum-accent/30 transition-colors group"
-                    >
-                        <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-eum-accent">
-                            <Home className="w-5 h-5" />
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="text-sm font-bold text-gray-800">이음로그 홈페이지</h3>
-                            <p className="text-[10px] text-gray-400 font-medium">메인 화면으로 이동</p>
-                        </div>
-                    </Link>
+                {/* 5. Homepage Link - Centered & Larger Box */}
+                <Link 
+                    to="/" 
+                    className="flex flex-col items-center justify-center w-full bg-white p-6 rounded-[2rem] border border-gray-100 hover:border-eum-dark hover:shadow-lg transition-all duration-300 group mb-12"
+                >
+                    <div className="flex items-center gap-2 mb-2">
+                        <Home className="w-5 h-5 text-eum-accent group-hover:text-eum-dark transition-colors" />
+                        <h3 className="text-lg font-black text-gray-800 group-hover:text-eum-dark transition-colors">이음로그 홈페이지</h3>
+                    </div>
+                    <p className="text-xs text-gray-400 font-medium group-hover:text-gray-600 transition-colors">
+                        공식 웹사이트 바로가기
+                    </p>
+                </Link>
+
+                {/* 6. Bottom Branding */}
+                <div className="text-center">
+                    <p className="text-sm font-bold text-gray-500 mb-3">수도권이 아닌 지역기반 1:1 소개팅</p>
+                    <h2 className="text-3xl font-black text-eum-dark/30 tracking-[0.2em] uppercase mb-10">E.UM LOG</h2>
                 </div>
 
                 {/* Footer Info */}
-                <div className="mt-12 text-center border-t border-gray-200/50 pt-8">
-                    <p className="text-lg font-black text-eum-dark/20 uppercase tracking-widest mb-2">E.UM LOG</p>
+                <div className="text-center border-t border-gray-200/50 pt-8">
                     <p className="text-[10px] text-gray-400">
                         전남 순천시 충효로 15 | 사업자번호: 671-14-02393<br/>
                         © 2025 E.UM LOG. All Rights Reserved.
