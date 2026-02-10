@@ -114,7 +114,7 @@ const LinkTree = () => {
                         <div className="w-10 h-10 bg-eum-bg rounded-2xl flex items-center justify-center mb-3 text-eum-accent group-hover:bg-eum-accent group-hover:text-white transition-colors relative z-10">
                             <Users className="w-5 h-5" />
                         </div>
-                        <h3 className="text-sm font-bold text-gray-800 relative z-10">이번주 참가자 명단</h3>
+                        <h3 className="text-sm font-bold text-gray-800 relative z-10 leading-tight">이번주 참가자<br/>명단</h3>
                         <p className="text-[10px] text-gray-500 mt-1 font-medium relative z-10">실제 참여자 현황</p>
                     </Link>
                 </div>
