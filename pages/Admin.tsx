@@ -437,7 +437,7 @@ const AdminPage = () => {
                                             <button onClick={handleWeeklyUrlRegister} className="px-5 bg-blue-600 text-white rounded-lg font-bold text-xs hover:bg-blue-700 whitespace-nowrap shadow-md">URL 저장</button>
                                         </div>
                                         <p className="text-[11px] text-blue-400 mt-2 font-medium leading-relaxed">
-                                            * 인터넷에 있는 이미지 주소를 복사해서 넣으세요. (예: 블로그 이미지 우클릭 -> 이미지 주소 복사)<br/>
+                                            * 인터넷에 있는 이미지 주소를 복사해서 넣으세요. (예: 블로그 이미지 우클릭 → 이미지 주소 복사)<br/>
                                             * 이 방식으로 하면 <strong>모든 사람의 폰에서 이미지가 잘 보입니다.</strong>
                                         </p>
                                     </div>
