@@ -145,7 +145,20 @@ const SystemFeatures = () => {
                             <h3 className="font-sans text-xl md:text-3xl font-black text-eum-dark leading-tight">이음로그만의 <br /><span className="text-eum-accent">특별한 3가지 약속</span></h3>
                         </div>
                         <div className="space-y-6 md:space-y-10">
-                            <div className="feature-item flex gap-3.5 md:gap-5 group"><div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300"><Shield className="w-4 h-4 md:w-7 h-7" /></div><div><h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">철저한 지인 차단</h4><p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">프로필 제공 전, 상대방의 ‘초성/나이/지역’을 통해 지인 여부를 미리 확인합니다.</p></div></div>
+                            <div className="feature-item flex gap-3.5 md:gap-5 group">
+                                <div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300">
+                                    <Shield className="w-4 h-4 md:w-7 h-7" />
+                                </div>
+                                <div>
+                                    <h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">철저한 지인 차단</h4>
+                                    <p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">
+                                        프로필 제공 전, 상대방의 ‘초성/나이/지역’을 통해 지인 여부를 미리 확인합니다.
+                                    </p>
+                                    <Link to="/blocking-system" className="inline-flex items-center gap-1 mt-3 text-[10px] md:text-xs font-bold text-gray-400 hover:text-eum-accent transition-colors border-b border-gray-200 hover:border-eum-accent pb-0.5">
+                                        지인 차단 방식 자세히 보기 <ArrowRight className="w-3 h-3" />
+                                    </Link>
+                                </div>
+                            </div>
                             <div className="feature-item flex gap-3.5 md:gap-5 group"><div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300"><MessageCircle className="w-4 h-4 md:w-7 h-7" /></div><div><h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">1:1 온라인 상담</h4><p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">메신저로 5~10분간 선택한 필수 조건들에 대해 상담합니다.</p></div></div>
                             <div className="feature-item flex gap-3.5 md:gap-5 group"><div className="flex-shrink-0 w-9 h-9 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-eum-accent group-hover:text-white transition-all duration-300"><Coins className="w-4 h-4 md:w-7 h-7" /></div><div><h4 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2">3개월 구독제</h4><p className="text-gray-600 leading-relaxed font-medium text-[11px] md:text-base break-keep">단순히 횟수만 채우는 만남이 아닙니다. 인연이 나타날 때까지 지속적으로 소개합니다.</p></div></div>
                         </div>
