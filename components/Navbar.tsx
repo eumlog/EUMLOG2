@@ -32,11 +32,12 @@ const Navbar = () => {
         }
     };
 
-    // 이미지와 동일한 메뉴 구성
+    // 이미지와 동일한 메뉴 구성 (참가자 명단 추가)
     const navLinks = [
         { name: '소개', href: '/about' }, 
         { name: '멤버십 안내', href: '/pricing' }, 
         { name: '진행방식', href: '/service' }, 
+        { name: '참가자 명단', href: '/weekly' },
         { name: '가입기준', href: '/criteria' }, 
         { name: '자주 묻는 질문', href: '/faq' }
     ];

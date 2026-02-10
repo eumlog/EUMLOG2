@@ -14,7 +14,7 @@ const Footer = () => (
             </Link>
             <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-8 gap-y-4 mt-16 md:mt-24 text-[10px] md:text-sm font-semibold tracking-wider text-gray-400">
                 <Link to="/instagram" className="hover:text-white transition-colors">인스타그램</Link>
-                <a href="https://pf.kakao.com/_Cxfxcxon" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">카카오톡 문의</a>
+                <Link to="/contact" className="hover:text-white transition-colors">카카오톡 문의</Link>
                 <Link to="/faq" className="hover:text-white transition-colors">자주 묻는 질문</Link>
             </div>
             <div className="mt-12 md:mt-20 w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[9px] md:text-xs text-gray-600 font-medium gap-6 md:gap-0">

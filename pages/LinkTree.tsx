@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Share2, MessageCircle, Instagram, Home, FileText, ChevronRight, ClipboardList, ExternalLink, MapPin, Lock, CheckCircle, X } from 'lucide-react';
+import { Share2, MessageCircle, Instagram, Home, FileText, ChevronRight, ClipboardList, ExternalLink, MapPin, Lock, CheckCircle, X, Calendar, Users } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
 
 const LinkTree = () => {
@@ -88,7 +88,7 @@ const LinkTree = () => {
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 </a>
 
-                {/* 3. Secondary Actions: Process & Kakao */}
+                {/* 3. Secondary Actions: Process & Weekly List */}
                 <div className="grid grid-cols-2 gap-3 mb-5">
                     {/* Process (Internal) - Visually Enhanced */}
                     <Link to="/service" className="block bg-white p-5 rounded-[1.5rem] border-2 border-eum-accent/20 hover:border-eum-accent shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden">
@@ -102,13 +102,20 @@ const LinkTree = () => {
                         <p className="text-[10px] text-gray-500 mt-1 font-medium relative z-10">어떻게 진행되나요?</p>
                     </Link>
 
-                    {/* Kakao (Internal) */}
-                    <Link to="/contact" className="block bg-[#FEE500] p-5 rounded-[1.5rem] shadow-sm hover:shadow-md transition-all duration-300 group">
-                        <div className="w-10 h-10 bg-white/40 rounded-2xl flex items-center justify-center mb-3 text-[#3c1e1e]">
-                            <MessageCircle className="w-5 h-5 fill-current" />
+                    {/* Weekly List (Replaces Kakao) */}
+                    <Link to="/weekly" className="block bg-white p-5 rounded-[1.5rem] border-2 border-eum-accent/20 hover:border-eum-accent shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden">
+                        <div className="absolute top-0 right-0 bg-eum-accent/5 w-16 h-16 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+                        
+                        {/* NEW Badge - Pink Outline Style */}
+                        <div className="absolute top-4 right-4 bg-white border border-pink-400 text-pink-500 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20">
+                            NEW
                         </div>
-                        <h3 className="text-sm font-bold text-[#3c1e1e]">카톡 문의</h3>
-                        <p className="text-[10px] text-[#3c1e1e]/60 mt-1">1:1 채팅 상담</p>
+
+                        <div className="w-10 h-10 bg-eum-bg rounded-2xl flex items-center justify-center mb-3 text-eum-accent group-hover:bg-eum-accent group-hover:text-white transition-colors relative z-10">
+                            <Users className="w-5 h-5" />
+                        </div>
+                        <h3 className="text-sm font-bold text-gray-800 relative z-10">이번주 참가자 명단</h3>
+                        <p className="text-[10px] text-gray-500 mt-1 font-medium relative z-10">실제 참여자 현황</p>
                     </Link>
                 </div>
 
@@ -151,7 +158,14 @@ const LinkTree = () => {
                 {/* 6. Bottom Branding */}
                 <div className="text-center">
                     <p className="text-sm font-bold text-gray-500 mb-3">수도권이 아닌 지역기반 1:1 소개팅</p>
-                    <h2 className="text-3xl font-black text-eum-dark/30 tracking-[0.2em] uppercase mb-10">E.UM LOG</h2>
+                    <h2 className="text-3xl font-black text-eum-dark/30 tracking-[0.2em] uppercase mb-8">E.UM LOG</h2>
+                </div>
+
+                {/* 7. Footer Links */}
+                <div className="flex flex-wrap justify-center items-center gap-6 mb-10 text-xs font-bold text-gray-400">
+                    <Link to="/instagram" className="hover:text-eum-dark transition-colors">인스타그램</Link>
+                    <Link to="/contact" className="hover:text-eum-dark transition-colors">카카오톡 문의</Link>
+                    <Link to="/faq" className="hover:text-eum-dark transition-colors">자주 묻는 질문</Link>
                 </div>
 
                 {/* Footer Info */}

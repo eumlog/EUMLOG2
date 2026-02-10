@@ -25,6 +25,7 @@ import Landing from './pages/Landing';
 import BlockingSystem from './pages/BlockingSystem';
 import LinkTree from './pages/LinkTree';
 import InstaLinks from './pages/InstaLinks';
+import WeeklyList from './pages/WeeklyList';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -107,7 +108,7 @@ const AppContent = () => {
     }, [location.pathname]);
 
     // 랜딩 페이지 및 링크트리 페이지에서는 플로팅 메뉴 숨기기
-    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/links' && location.pathname !== '/insta-links';
+    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/links' && location.pathname !== '/insta-links' && location.pathname !== '/weekly';
     
     // 링크트리 페이지에서는 네비게이션바 숨기기 (인포크링크 느낌을 위해)
     const showNavbar = location.pathname !== '/links' && location.pathname !== '/insta-links';
@@ -140,6 +141,7 @@ const AppContent = () => {
                         <Route path="/service-detail" element={<ServiceDetail />} />
                         <Route path="/blocking-system" element={<BlockingSystem />} />
                         <Route path="/landing" element={<Landing />} />
+                        <Route path="/weekly" element={<WeeklyList />} />
                         
                         {/* LinkTree Routes */}
                         <Route path="/links" element={<LinkTree />} />
