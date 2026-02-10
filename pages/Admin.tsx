@@ -106,8 +106,12 @@ const AdminPage = () => {
             const w = localStorage.getItem('EUM_WEEKLY_LISTS');
             if (w) {
                 const parsed = JSON.parse(w);
-                // ID 내림차순 정렬 (최신순) - ID가 문자일수도 숫자일수도 있으므로 Number로 변환하여 비교
-                parsed.sort((a: WeeklyItem, b: WeeklyItem) => Number(b.id) - Number(a.id));
+                // Safe sorting: Handle potential non-numeric IDs gracefully
+                parsed.sort((a: WeeklyItem, b: WeeklyItem) => {
+                    const idA = Number(a.id) || 0;
+                    const idB = Number(b.id) || 0;
+                    return idB - idA;
+                });
                 setWeeklyLists(parsed);
             } else {
                 setWeeklyLists([]);

@@ -43,6 +43,17 @@ const AppContent = () => {
         }
     }, [navigate]);
 
+    // [중요] 인스타그램 등 외부 앱에서 Hash(#) 링크를 제거하는 문제 해결
+    // https://eumlog.co.kr/?go=links 로 접속하면 -> /links 페이지로 자동 이동
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const redirectPath = params.get('go') || params.get('path');
+        if (redirectPath) {
+            // 쿼리 파라미터가 있으면 해당 경로로 이동 (예: ?go=links -> #/links)
+            navigate(`/${redirectPath}`, { replace: true });
+        }
+    }, [navigate]);
+
     useEffect(() => {
         if (!loading && wrapperRef.current) {
             gsap.to(wrapperRef.current, { 

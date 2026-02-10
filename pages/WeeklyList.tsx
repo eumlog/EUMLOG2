@@ -24,12 +24,18 @@ const WeeklyList = () => {
                 const stored = localStorage.getItem('EUM_WEEKLY_LISTS');
                 if (stored) {
                     const parsed = JSON.parse(stored);
-                    // Ensure safe sorting by converting ID to number
-                    parsed.sort((a: WeeklyItem, b: WeeklyItem) => Number(b.id) - Number(a.id));
+                    // Safe sorting: Handle potential non-numeric IDs gracefully to prevent crashes
+                    parsed.sort((a: WeeklyItem, b: WeeklyItem) => {
+                        const idA = Number(a.id) || 0;
+                        const idB = Number(b.id) || 0;
+                        return idB - idA;
+                    });
                     setLists(parsed);
                 }
             } catch (e) {
                 console.error("Failed to load weekly lists", e);
+                // Fail gracefully
+                setLists([]);
             }
         };
         loadList();
