@@ -43,14 +43,21 @@ const AppContent = () => {
         }
     }, [navigate]);
 
-    // [중요] 인스타그램 등 외부 앱에서 Hash(#) 링크를 제거하는 문제 해결
-    // https://eumlog.co.kr/?go=links 로 접속하면 -> /links 페이지로 자동 이동
+    // [중요] 인스타그램 등 외부 앱 리다이렉트 처리 및 URL 정리
+    // ?go=links 등이 있을 때 해당 페이지로 이동 후, 주소창에서 쿼리스트링을 지워
+    // 이후 내부 링크 이동이나 새로고침 시 문제가 없도록 함.
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const redirectPath = params.get('go') || params.get('path');
+        
         if (redirectPath) {
-            // 쿼리 파라미터가 있으면 해당 경로로 이동 (예: ?go=links -> #/links)
+            // 1. 해당 경로로 이동 (HashRouter 내부 상태 업데이트)
             navigate(`/${redirectPath}`, { replace: true });
+            
+            // 2. 주소창의 ?go=... 쿼리 파라미터를 제거하여 깔끔한 URL(#/path)로 변경
+            // 이를 통해 새로고침 시 다시 리다이렉트되거나 내부 링크 이동 시 쿼리가 따라붙는 문제를 방지
+            const cleanUrl = `${window.location.pathname}#/${redirectPath}`;
+            window.history.replaceState({}, '', cleanUrl);
         }
     }, [navigate]);
 
