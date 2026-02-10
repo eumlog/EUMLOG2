@@ -76,10 +76,6 @@ export const FloatingMenu = () => {
     // blocking-system 페이지에서는 기본적으로 닫혀있도록 설정
     const [isOpen, setIsOpen] = useState(location.pathname !== '/blocking-system');
 
-    // 경로가 바뀔 때마다 blocking-system이면 닫고, 아니면 여는 로직 (선택 사항, 유저 경험에 따라 조정 가능)
-    // 여기서는 초기 진입 시점만 제어하기 위해 useState 초기값으로 설정함.
-    
-    // 만약 페이지 이동시마다 상태를 강제하고 싶다면 아래 useEffect 사용
     useEffect(() => {
         if (location.pathname === '/blocking-system') {
             setIsOpen(false);
@@ -99,7 +95,7 @@ export const FloatingMenu = () => {
         <div 
             className={`fixed right-0 top-1/2 transform -translate-y-1/2 z-[100] flex items-center transition-transform duration-500 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-[48px] md:translate-x-[58px]'}`}
         >
-            {/* Toggle Button (Side tab) */}
+            {/* Toggle Button */}
             <button 
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center justify-center w-[12px] h-[32px] md:w-[15px] md:h-[40px] bg-[#7d7d7d]/70 backdrop-blur-md text-white/50 border border-white/10 rounded-l-md hover:text-white transition-all shadow-xl group"
@@ -108,7 +104,7 @@ export const FloatingMenu = () => {
                 {isOpen ? <ChevronRight className="w-2 md:w-3 h-2 md:h-3 group-hover:scale-125 transition-transform" /> : <ChevronLeft className="w-2 md:w-3 h-2 md:h-3 group-hover:scale-125 transition-transform" />}
             </button>
 
-            {/* Menu Items (More Compact Grey Bar with Larger Text & Rounded Corners on left) */}
+            {/* Menu Items */}
             <div className="flex flex-col bg-[#7d7d7d]/70 backdrop-blur-md shadow-2xl border-l border-white/10 overflow-hidden rounded-l-[1.2rem] md:rounded-l-[1.8rem]">
                 {items.map((item, idx) => (
                     <Link 

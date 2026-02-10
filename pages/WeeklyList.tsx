@@ -6,11 +6,11 @@ import { Calendar, Users, MapPin, ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface WeeklyItem {
-    id: string;
+    id: number;
     title: string;
     image: string;
     date: string;
-    region?: 'gj' | 'jn'; // gj: Gwangju, jn: Jeonnam
+    region?: 'gj' | 'jn';
 }
 
 const WeeklyList = () => {
@@ -19,31 +19,32 @@ const WeeklyList = () => {
     const [fadeKey, setFadeKey] = useState(0);
 
     useEffect(() => {
-        try {
-            const stored = localStorage.getItem('EUM_WEEKLY_LISTS');
-            if (stored) {
-                const parsed = JSON.parse(stored);
-                // 최신순 정렬
-                parsed.sort((a: WeeklyItem, b: WeeklyItem) => Number(b.id) - Number(a.id));
-                setLists(parsed);
+        const loadList = () => {
+            try {
+                const stored = localStorage.getItem('EUM_WEEKLY_LISTS');
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    parsed.sort((a: WeeklyItem, b: WeeklyItem) => b.id - a.id);
+                    setLists(parsed);
+                }
+            } catch (e) {
+                console.error("Failed to load weekly lists", e);
             }
-        } catch (e) {
-            console.error("Failed to load weekly lists", e);
-        }
+        };
+        loadList();
+        // Listen for updates from other tabs or admin
+        window.addEventListener('storage', loadList);
+        return () => window.removeEventListener('storage', loadList);
     }, []);
 
-    // 탭 변경 시 페이드 애니메이션 재실행을 위한 키 업데이트
     useEffect(() => {
         setFadeKey(prev => prev + 1);
     }, [activeTab]);
 
     const filteredLists = lists.filter(item => {
-        // gj 탭: region이 'gj'이거나 region 정보가 없는(구 데이터) 경우
         if (activeTab === 'gj') {
             return item.region === 'gj' || !item.region;
-        } 
-        // jn 탭: region이 'jn'인 경우
-        else {
+        } else {
             return item.region === 'jn';
         }
     });
@@ -97,7 +98,6 @@ const WeeklyList = () => {
                             <div className="space-y-8">
                                 {filteredLists.map((item) => (
                                     <div key={item.id} className="bg-white rounded-[2rem] border border-gray-100 shadow-lg overflow-hidden">
-                                        {/* Card Header */}
                                         <div className="px-6 py-5 border-b border-gray-50 flex justify-between items-center bg-white">
                                             <div className="flex items-center gap-3">
                                                 <div className={`w-10 h-10 text-white rounded-xl flex items-center justify-center shadow-md ${item.region === 'jn' ? 'bg-indigo-600' : 'bg-eum-dark'}`}>
@@ -114,22 +114,13 @@ const WeeklyList = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        {/* Image Area */}
                                         <div className="p-2 bg-gray-50">
                                             <div className="rounded-2xl overflow-hidden border border-gray-200">
-                                                <img 
-                                                    src={item.image} 
-                                                    alt={item.title} 
-                                                    className="w-full h-auto object-cover block"
-                                                />
+                                                <img src={item.image} alt={item.title} className="w-full h-auto object-cover block" />
                                             </div>
                                         </div>
-                                        
                                         <div className="px-6 py-4 bg-white text-center">
-                                            <p className="text-[11px] text-gray-400 font-medium">
-                                                * 개인정보 보호를 위해 상세 정보는 가림 처리되었습니다.
-                                            </p>
+                                            <p className="text-[11px] text-gray-400 font-medium">* 개인정보 보호를 위해 상세 정보는 가림 처리되었습니다.</p>
                                         </div>
                                     </div>
                                 ))}

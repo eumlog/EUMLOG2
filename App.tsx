@@ -37,16 +37,12 @@ const AppContent = () => {
     const navigate = useNavigate();
     const isFirstMount = useRef(true);
 
-    // 진입 시 항상 홈으로 강제 이동 (새로고침 포함)
     useEffect(() => {
         if (isFirstMount.current) {
             isFirstMount.current = false;
-            // Only redirect if explicitly on a wrong path or refreshed at root
-            // Removing strict home force to allow direct deep linking for Profile/Admin
         }
     }, [navigate]);
 
-    // 초기 로딩 후 래퍼 표시 애니메이션
     useEffect(() => {
         if (!loading && wrapperRef.current) {
             gsap.to(wrapperRef.current, { 
@@ -60,15 +56,10 @@ const AppContent = () => {
         }
     }, [loading]);
 
-    // 자산 업데이트 및 메타데이터 동기화
     useEffect(() => {
         const handleAssetUpdate = () => {
             setUpdateTick(prev => prev + 1);
-            
-            // Meta Data Sync
             document.title = TEXTS.siteTitle || "E.UM LOG";
-            
-            // Favicon Sync
             const faviconUrl = IMAGES.favicon;
             if (faviconUrl) {
                 let link = document.getElementById("dynamic-favicon") as HTMLLinkElement;
@@ -80,8 +71,6 @@ const AppContent = () => {
                 }
                 link.href = faviconUrl;
             }
-
-            // OG Image Sync
             const ogImageUrl = IMAGES.ogImage;
             if (ogImageUrl) {
                 let ogMeta = document.getElementById("dynamic-og-image") as HTMLMetaElement;
@@ -93,25 +82,20 @@ const AppContent = () => {
                 }
                 ogMeta.content = ogImageUrl;
             }
-            
             ScrollTrigger.refresh();
         };
-
         handleAssetUpdate();
         window.addEventListener('assets-updated', handleAssetUpdate);
         return () => window.removeEventListener('assets-updated', handleAssetUpdate);
     }, []);
 
-    // 경로 변경 시 스크롤 상단 이동
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
 
-    // 랜딩 페이지 및 링크트리 페이지에서는 플로팅 메뉴 숨기기
-    // weekly 페이지 제외 조건을 삭제하여 weekly에서도 플로팅 배너가 뜨도록 수정
+    // 플로팅 메뉴 표시 조건 (WeeklyList 포함)
     const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/links' && location.pathname !== '/insta-links';
     
-    // 링크트리 페이지에서는 네비게이션바 숨기기 (인포크링크 느낌을 위해)
     const showNavbar = location.pathname !== '/links' && location.pathname !== '/insta-links';
 
     return (
@@ -143,11 +127,8 @@ const AppContent = () => {
                         <Route path="/blocking-system" element={<BlockingSystem />} />
                         <Route path="/landing" element={<Landing />} />
                         <Route path="/weekly" element={<WeeklyList />} />
-                        
-                        {/* LinkTree Routes */}
                         <Route path="/links" element={<LinkTree />} />
                         <Route path="/insta-links" element={<InstaLinks />} />
-                        
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </main>
