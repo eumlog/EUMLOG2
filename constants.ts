@@ -1,10 +1,46 @@
 
 import { ImageAssets, TextAssets } from './types';
 
+// =================================================================
+// ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+// [여기만 수정하세요] 
+// 날짜와 이미지 주소만 넣으면 제목(몇월 몇주차)은 알아서 만들어집니다.
+// =================================================================
+
+export const WEEKLY_PARTICIPANTS = [
+    // -------------------------------------------------------------
+    // [작성 방법]
+    // 1. 아래 덩어리를 복사해서 추가하세요.
+    // 2. "date": 날짜를 적으세요 (예: "2025-01-26")
+    // 3. "image": 이미지 주소를 넣으세요.
+    // 4. "region": 광주면 "gj", 전남이면 "jn"
+    // -------------------------------------------------------------
+
+    {
+       date: "2025-02-10",
+       image: "https://wooban.co.kr/wp-content/uploads/2026/02/002-2-819x1024.png", 
+       region: "gj"
+    },
+
+    {
+       date: "2025-02-10",
+       image: "https://wooban.co.kr/wp-content/uploads/2026/02/004-2-819x1024.png", 
+       region: "jn"
+    },
+
+    // ⬇️ 여기에 계속 추가하면 됩니다 ⬇️
+    
+];
+
+// =================================================================
+// ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+// =================================================================
+
+
 export const DEFAULT_IMAGES: ImageAssets = {
-    favicon: "https://wooban.co.kr/wp-content/uploads/2026/01/%EB%A1%9C%EA%B3%A0-001-3.png", // 제공해주신 새로운 파비콘 링크 적용
-    logo: "", // 텍스트 로고 사용을 위해 비워둠
-    ogImage: "https://wooban.co.kr/wp-content/uploads/2026/01/%EC%9D%B4%EC%9D%8C%EB%A1%9C%EA%B7%B8%EB%9E%80v2_%EB%B3%B5%EC%82%AC%EB%B3%B8-001.png", // 새로운 웹공유 썸네일 링크
+    favicon: "https://wooban.co.kr/wp-content/uploads/2026/01/%EB%A1%9C%EA%B3%A0-001-3.png",
+    logo: "",
+    ogImage: "https://wooban.co.kr/wp-content/uploads/2026/01/%EC%9D%B4%EC%9D%8C%EB%A1%9C%EA%B7%B8%EB%9E%80v2_%EB%B3%B5%EC%82%AC%EB%B3%B8-001.png",
     heroBackground: "https://wooban.co.kr/wp-content/uploads/2026/01/sss-1536x652.png",
     philosophy: "https://wooban.co.kr/wp-content/uploads/2026/01/unnamed.jpg",
     systemFeatures: "https://wooban.co.kr/wp-content/uploads/2026/01/%EA%B0%80%EA%B2%A9%EC%95%88%EB%82%B42_%EB%B3%B5%EC%82%AC%EB%B3%B8-_8_-004.png",

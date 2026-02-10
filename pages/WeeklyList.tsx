@@ -2,59 +2,54 @@
 import React, { useEffect, useState } from 'react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
-import { Calendar, Users, MapPin, ArrowRight, Sparkles } from 'lucide-react';
+import { Calendar, Users, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { WEEKLY_PARTICIPANTS } from '../constants';
 
-interface WeeklyItem {
-    id: string | number;
-    title: string;
-    image: string;
-    date: string;
-    region?: 'gj' | 'jn';
-}
+// 날짜 문자열을 받아서 "N월 N주차" 문자열을 반환하는 함수
+const getWeekTitle = (dateStr: string, region: string) => {
+    try {
+        const date = new Date(dateStr.replace(/\./g, '-')); // 2025.01.26 -> 2025-01-26 변환 지원
+        if (isNaN(date.getTime())) return dateStr; // 날짜 형식이 아니면 그대로 반환
+
+        const month = date.getMonth() + 1;
+        
+        // 주차 계산 (해당 월의 몇 번째 주인지)
+        const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+        const dayOfWeek = firstDayOfMonth.getDay(); // 0(일) ~ 6(토)
+        const dateNum = date.getDate();
+        
+        // (날짜 + 1일의 요일 인덱스 - 1) / 7 -> 대략적인 주차 계산
+        // 간단하게: 해당 날짜가 그 달의 몇 번째 주인지를 계산
+        const offsetDate = dateNum + dayOfWeek - 1;
+        const weekNum = Math.floor(offsetDate / 7) + 1;
+
+        const regionName = region === 'gj' ? '광주' : '전남';
+        return `${month}월 ${weekNum}주차 ${regionName} 선정자`;
+    } catch (e) {
+        return dateStr;
+    }
+};
 
 const WeeklyList = () => {
-    const [lists, setLists] = useState<WeeklyItem[]>([]);
     const [activeTab, setActiveTab] = useState<'gj' | 'jn'>('gj');
     const [fadeKey, setFadeKey] = useState(0);
-
-    useEffect(() => {
-        const loadList = () => {
-            try {
-                const stored = localStorage.getItem('EUM_WEEKLY_LISTS');
-                if (stored) {
-                    const parsed = JSON.parse(stored);
-                    // Safe sorting: Handle potential non-numeric IDs gracefully to prevent crashes
-                    parsed.sort((a: WeeklyItem, b: WeeklyItem) => {
-                        const idA = Number(a.id) || 0;
-                        const idB = Number(b.id) || 0;
-                        return idB - idA;
-                    });
-                    setLists(parsed);
-                }
-            } catch (e) {
-                console.error("Failed to load weekly lists", e);
-                // Fail gracefully
-                setLists([]);
-            }
-        };
-        loadList();
-        // Listen for updates from other tabs or admin
-        window.addEventListener('storage', loadList);
-        return () => window.removeEventListener('storage', loadList);
-    }, []);
 
     useEffect(() => {
         setFadeKey(prev => prev + 1);
     }, [activeTab]);
 
-    const filteredLists = lists.filter(item => {
+    const filteredLists = WEEKLY_PARTICIPANTS.filter(item => {
         if (activeTab === 'gj') {
             return item.region === 'gj' || !item.region;
         } else {
             return item.region === 'jn';
         }
-    });
+    }).map(item => ({
+        ...item,
+        // 여기서 제목을 자동 생성합니다.
+        title: getWeekTitle(item.date, item.region)
+    }));
 
     return (
         <div className="bg-eum-bg min-h-screen">
@@ -99,12 +94,12 @@ const WeeklyList = () => {
                                 <p className="text-gray-400 font-bold text-sm mb-1">
                                     {activeTab === 'gj' ? '광주 지역' : '전남 지역'} 등록된 명단이 없습니다.
                                 </p>
-                                <p className="text-xs text-gray-300">관리자 페이지에서 명단을 등록해주세요.</p>
+                                <p className="text-xs text-gray-300">업데이트 준비 중입니다.</p>
                             </div>
                         ) : (
                             <div className="space-y-8">
-                                {filteredLists.map((item) => (
-                                    <div key={item.id} className="bg-white rounded-[2rem] border border-gray-100 shadow-lg overflow-hidden">
+                                {filteredLists.map((item: any, index: number) => (
+                                    <div key={index} className="bg-white rounded-[2rem] border border-gray-100 shadow-lg overflow-hidden">
                                         <div className="px-6 py-5 border-b border-gray-50 flex justify-between items-center bg-white">
                                             <div className="flex items-center gap-3">
                                                 <div className={`w-10 h-10 text-white rounded-xl flex items-center justify-center shadow-md ${item.region === 'jn' ? 'bg-indigo-600' : 'bg-eum-dark'}`}>
