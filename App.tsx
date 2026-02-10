@@ -108,7 +108,8 @@ const AppContent = () => {
     }, [location.pathname]);
 
     // 랜딩 페이지 및 링크트리 페이지에서는 플로팅 메뉴 숨기기
-    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/links' && location.pathname !== '/insta-links' && location.pathname !== '/weekly';
+    // weekly 페이지 제외 조건을 삭제하여 weekly에서도 플로팅 배너가 뜨도록 수정
+    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/links' && location.pathname !== '/insta-links';
     
     // 링크트리 페이지에서는 네비게이션바 숨기기 (인포크링크 느낌을 위해)
     const showNavbar = location.pathname !== '/links' && location.pathname !== '/insta-links';

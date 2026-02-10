@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { CreditCard, ClipboardList, PenLine, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const Preloader = ({ onComplete }: { onComplete: () => void }) => {
@@ -72,7 +72,21 @@ export const PageHeader = ({ title, subtitle }: { title: string; subtitle: strin
 };
 
 export const FloatingMenu = () => {
-    const [isOpen, setIsOpen] = useState(true);
+    const location = useLocation();
+    // blocking-system 페이지에서는 기본적으로 닫혀있도록 설정
+    const [isOpen, setIsOpen] = useState(location.pathname !== '/blocking-system');
+
+    // 경로가 바뀔 때마다 blocking-system이면 닫고, 아니면 여는 로직 (선택 사항, 유저 경험에 따라 조정 가능)
+    // 여기서는 초기 진입 시점만 제어하기 위해 useState 초기값으로 설정함.
+    
+    // 만약 페이지 이동시마다 상태를 강제하고 싶다면 아래 useEffect 사용
+    useEffect(() => {
+        if (location.pathname === '/blocking-system') {
+            setIsOpen(false);
+        } else {
+            setIsOpen(true);
+        }
+    }, [location.pathname]);
 
     const items = [
         { name: '멤버십 안내', icon: CreditCard, href: '/pricing' },

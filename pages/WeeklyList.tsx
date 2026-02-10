@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
-import { Calendar, Users, MapPin } from 'lucide-react';
+import { Calendar, Users, MapPin, ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface WeeklyItem {
     id: string;
@@ -134,6 +135,19 @@ const WeeklyList = () => {
                                 ))}
                             </div>
                         )}
+                    </div>
+
+                    {/* CTA Section */}
+                    <div className="mt-16 text-center">
+                        <h3 className="text-xl md:text-2xl font-black text-eum-dark mb-6 leading-tight">
+                            이번주 명단의<br/>주인공이 되어보세요
+                        </h3>
+                        <Link to="/apply" className="group relative inline-flex items-center justify-center px-12 py-5 md:px-16 md:py-6 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
+                            <span className="relative z-10 flex items-center gap-3 text-base md:text-lg">
+                                매칭 신청하기 <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-eum-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </Link>
                     </div>
 
                 </div>
