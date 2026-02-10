@@ -55,9 +55,9 @@ const LinkTree = () => {
                         </button>
                     </div>
 
-                    <h1 className="text-3xl md:text-4xl font-black text-eum-dark leading-tight mb-3">
+                    <h1 className="text-3xl md:text-4xl font-black text-eum-dark leading-snug mb-3">
                         광주 · 전남<br/>
-                        <span className="text-eum-accent">프리미엄 1:1 소개팅</span>
+                        <span className="text-eum-accent text-xl md:text-2xl">프리미엄 1:1 소개팅</span>
                     </h1>
                     <p className="text-sm text-gray-600 font-medium leading-relaxed">
                         "아무나 만나기엔 시간이 아깝잖아요."<br/>

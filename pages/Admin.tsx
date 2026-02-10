@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ExternalLink, FileText, Settings, LayoutGrid, Layers, Workflow, Info, CheckCircle, Trash2, Upload, Database, Image as ImageIcon, AppWindow, Save, RefreshCw, UserCircle, Lock, BookOpen, MapPin } from 'lucide-react';
+import { ExternalLink, FileText, Settings, LayoutGrid, Layers, Workflow, Info, CheckCircle, Trash2, Upload, Database, Image as ImageIcon, AppWindow, Save, RefreshCw, UserCircle, Lock, BookOpen, MapPin, Instagram } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
 import { IMAGES, TEXTS, refreshAssets, getImageKeys, getTextKeys } from '../lib/assets';
@@ -101,7 +101,6 @@ const AdminPage = () => {
         setIsProcessing(true);
         setMessage(null);
         
-        // Use a slight delay to ensure the UI updates before the heavy localStorage operation
         setTimeout(() => {
             try {
                 const cleanImages: Partial<ImageAssets> = {};
@@ -114,7 +113,6 @@ const AdminPage = () => {
                 });
                 
                 const imgJson = JSON.stringify(cleanImages);
-                // Basic check for 5MB limit
                 if (imgJson.length > 4.8 * 1024 * 1024) {
                     throw new Error("STORAGE_QUOTA_EXCEEDED");
                 }
@@ -134,7 +132,6 @@ const AdminPage = () => {
                 checkStorageUsage();
                 setMessage({ text: '성공적으로 저장되었습니다.', type: 'success' });
                 
-                // Optional: Force a small refresh of the local states to match exactly what's in storage
                 loadData();
             } catch (e: any) {
                 if (e.message === "STORAGE_QUOTA_EXCEEDED" || e.name === 'QuotaExceededError') {
@@ -161,7 +158,6 @@ const AdminPage = () => {
                     let width = img.width;
                     let height = img.height;
                     
-                    // Stronger compression and resizing for localStorage limits
                     const MAX_WIDTH = 1000;
                     if (width > MAX_WIDTH) {
                         height *= MAX_WIDTH / width;
@@ -173,7 +169,6 @@ const AdminPage = () => {
                     const ctx = canvas.getContext('2d');
                     ctx?.drawImage(img, 0, 0, width, height);
                     
-                    // 0.6 quality to balance clarity and size
                     const resizedDataUrl = canvas.toDataURL('image/jpeg', 0.6);
                     setImages(prev => ({ ...prev, [key]: resizedDataUrl }));
                     setIsProcessing(false);
@@ -258,34 +253,52 @@ const AdminPage = () => {
             <div className="py-12 px-6 max-w-[1100px] mx-auto">
                 {/* Navigation Quick Links */}
                 <div className="mb-12">
-                    <div className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm flex flex-wrap items-center gap-6">
+                    <div className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm flex flex-col gap-4">
                         <h3 className="text-sm font-black text-gray-700 flex items-center gap-2 uppercase tracking-widest">
                             <ExternalLink className="w-4 h-4 text-eum-accent" /> 페이지 바로가기
                         </h3>
                         <div className="flex flex-wrap gap-3">
                             <button 
                                 onClick={() => navigate('/policy')} 
-                                className="flex items-center gap-2 px-4 py-2 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs"
+                                className="flex items-center gap-2 px-4 py-3 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs"
                             >
                                 <FileText className="w-3 h-3" /> 운영 규정 수정/확인
                             </button>
                             <button 
                                 onClick={() => navigate('/service-detail')} 
-                                className="flex items-center gap-2 px-4 py-2 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs"
+                                className="flex items-center gap-2 px-4 py-3 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs"
                             >
                                 <BookOpen className="w-3 h-3" /> 상세 진행 방식 확인
                             </button>
                             <button 
                                 onClick={() => navigate('/landing')} 
-                                className="flex items-center gap-2 px-4 py-2 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs border border-eum-accent/20"
+                                className="flex items-center gap-2 px-4 py-3 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs"
                             >
-                                <MapPin className="w-3 h-3 text-eum-accent" /> 광주·전남 랜딩페이지
+                                <MapPin className="w-3 h-3" /> 광주·전남 랜딩페이지
                             </button>
                             <button 
                                 onClick={() => navigate('/')} 
-                                className="flex items-center gap-2 px-4 py-2 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs"
+                                className="flex items-center gap-2 px-4 py-3 bg-eum-bg text-eum-dark rounded-xl hover:bg-gray-200 transition-all font-bold text-xs"
                             >
                                 <RefreshCw className="w-3 h-3" /> 홈페이지 메인
+                            </button>
+                        </div>
+                        
+                        <div className="w-full h-px bg-gray-100 my-2"></div>
+                        
+                        {/* New LinkTree Shortcuts */}
+                        <div className="flex flex-wrap gap-3">
+                            <button 
+                                onClick={() => navigate('/links')} 
+                                className="flex items-center gap-2 px-4 py-3 bg-eum-dark text-white rounded-xl hover:bg-black transition-all font-bold text-xs"
+                            >
+                                <MapPin className="w-3 h-3" /> [기존] 지역 선택 링크트리
+                            </button>
+                            <button 
+                                onClick={() => navigate('/insta-links')} 
+                                className="flex items-center gap-2 px-4 py-3 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-xl hover:opacity-90 transition-all font-bold text-xs shadow-lg"
+                            >
+                                <Instagram className="w-3 h-3" /> [NEW] 인스타용 링크 페이지
                             </button>
                         </div>
                     </div>
