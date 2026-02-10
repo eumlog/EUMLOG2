@@ -36,10 +36,10 @@ const LinkTree = () => {
                 </button>
             </div>
 
-            <div className="max-w-[500px] w-full mx-auto px-6 pt-6 md:pt-10">
+            <div className="max-w-[440px] w-full mx-auto px-8 pt-8 md:pt-12">
                 
                 {/* 1. Region Title Section */}
-                <div className="text-left mb-10">
+                <div className="text-left mb-8">
                     <div className="flex items-center justify-between mb-4">
                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-eum-dark text-white rounded-full text-[10px] font-bold tracking-widest uppercase">
                             <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
@@ -70,7 +70,7 @@ const LinkTree = () => {
                     href="https://m.site.naver.com/1Pznd" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group relative block w-full bg-eum-dark text-white p-7 rounded-[2rem] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 mb-6 overflow-hidden"
+                    className="group relative block w-full bg-eum-dark text-white p-6 rounded-[1.8rem] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 mb-5 overflow-hidden"
                 >
                     <div className="relative z-10 flex justify-between items-start">
                         <div>
@@ -89,9 +89,9 @@ const LinkTree = () => {
                 </a>
 
                 {/* 3. Secondary Actions: Process & Kakao */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="grid grid-cols-2 gap-3 mb-5">
                     {/* Process (Internal) - Visually Enhanced */}
-                    <Link to="/service" className="block bg-white p-6 rounded-[1.8rem] border-2 border-eum-accent/20 hover:border-eum-accent shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden">
+                    <Link to="/service" className="block bg-white p-5 rounded-[1.5rem] border-2 border-eum-accent/20 hover:border-eum-accent shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden">
                          {/* Decorative shape */}
                         <div className="absolute top-0 right-0 bg-eum-accent/5 w-16 h-16 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
                         
@@ -103,7 +103,7 @@ const LinkTree = () => {
                     </Link>
 
                     {/* Kakao (Internal) */}
-                    <Link to="/contact" className="block bg-[#FEE500] p-6 rounded-[1.8rem] shadow-sm hover:shadow-md transition-all duration-300 group">
+                    <Link to="/contact" className="block bg-[#FEE500] p-5 rounded-[1.5rem] shadow-sm hover:shadow-md transition-all duration-300 group">
                         <div className="w-10 h-10 bg-white/40 rounded-2xl flex items-center justify-center mb-3 text-[#3c1e1e]">
                             <MessageCircle className="w-5 h-5 fill-current" />
                         </div>
@@ -119,7 +119,7 @@ const LinkTree = () => {
                         href="https://www.instagram.com/woo_ban/" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-gray-100 hover:border-pink-200 transition-colors group"
+                        className="flex items-center gap-4 bg-white p-4 rounded-2xl border border-gray-100 hover:border-pink-200 transition-colors group"
                     >
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 p-[2px]">
                             <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
@@ -137,7 +137,7 @@ const LinkTree = () => {
                     {/* Homepage Link */}
                     <Link 
                         to="/" 
-                        className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-gray-100 hover:border-eum-accent/30 transition-colors group"
+                        className="flex items-center gap-4 bg-white p-4 rounded-2xl border border-gray-100 hover:border-eum-accent/30 transition-colors group"
                     >
                         <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-eum-accent">
                             <Home className="w-5 h-5" />
