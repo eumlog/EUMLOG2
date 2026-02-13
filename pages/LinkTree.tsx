@@ -102,8 +102,11 @@ const LinkTree = () => {
                         <p className="text-[10px] text-gray-500 mt-1 font-medium relative z-10">어떻게 진행되나요?</p>
                     </Link>
 
-                    {/* Weekly List (Replaces Kakao) */}
-                    <Link to="/weekly" className="block bg-white p-5 rounded-[1.5rem] border-2 border-eum-accent/20 hover:border-eum-accent shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden">
+                    {/* Weekly List (External Link) - Opens in SAME window */}
+                    <a 
+                        href="https://m.site.naver.com/20ZdO" 
+                        className="block bg-white p-5 rounded-[1.5rem] border-2 border-eum-accent/20 hover:border-eum-accent shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden"
+                    >
                         <div className="absolute top-0 right-0 bg-eum-accent/5 w-16 h-16 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
                         
                         {/* NEW Badge - Pink Outline Style */}
@@ -116,7 +119,7 @@ const LinkTree = () => {
                         </div>
                         <h3 className="text-sm font-bold text-gray-800 relative z-10 leading-tight">이번주 참가자<br/>명단</h3>
                         <p className="text-[10px] text-gray-500 mt-1 font-medium relative z-10">실제 참여자 현황</p>
-                    </Link>
+                    </a>
                 </div>
 
                 {/* 4. Instagram Link (List Style) */}
