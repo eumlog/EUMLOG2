@@ -22,6 +22,8 @@ export interface ImageAssets extends AssetMap {
   processStep6: string;
   processStep7: string;
   footerTexture: string;
+  landing2Hero: string;
+  landing2Detail: string;
 }
 
 export interface TextAssets extends AssetMap {

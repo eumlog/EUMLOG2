@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useCallback, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Settings, LayoutGrid, Layers, Workflow, Download, Upload, Database, Image as ImageIcon, AppWindow, Lock } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
@@ -18,6 +18,7 @@ const GROUPS = [
     { id: 'main', title: '메인 페이지 섹션별 이미지', icon: LayoutGrid, keys: ['heroBackground', 'philosophy', 'systemFeatures', 'footerTexture'] },
     { id: 'cards', title: '핵심 가치 카드', icon: Layers, keys: ['card1', 'card2', 'card3'] },
     { id: 'process', title: '진행 방식 단계별', icon: Workflow, keys: ['processStep1', 'processStep2', 'processStep3', 'processStep4', 'processStep5', 'processStep6', 'processStep7'] },
+    { id: 'landing2', title: '랜딩페이지 2 (이미지형)', icon: LayoutGrid, keys: ['landing2Hero', 'landing2Detail'] },
 ];
 
 const IMAGE_META: Record<string, { label: string; location: string; size: string; icon: any }> = {
@@ -38,6 +39,8 @@ const IMAGE_META: Record<string, { label: string; location: string; size: string
     processStep6: { label: "만남 확정", location: "진행방식 > 6단계", size: "1200 x 900", icon: Workflow },
     processStep7: { label: "피드백", location: "진행방식 > 7단계", size: "1200 x 900", icon: Workflow },
     footerTexture: { label: "푸터 배경", location: "모든 페이지 하단", size: "1920 x 1080", icon: LayoutGrid },
+    landing2Hero: { label: "상단 감성 사진", location: "랜딩2 > 최상단", size: "가로 800px 권장", icon: ImageIcon },
+    landing2Detail: { label: "하단 상세 설명 (긴 이미지)", location: "랜딩2 > 하단 설명", size: "가로 800px, 세로 길게", icon: ImageIcon },
 };
 
 const AdminPage = () => {
@@ -245,6 +248,9 @@ const AdminPage = () => {
                         <h3 className="text-lg font-black text-eum-dark flex items-center gap-2"><Database className="w-5 h-5 text-eum-accent" /> 데이터 백업 및 복구</h3>
                         <p className="text-xs text-gray-500 mt-1">프로그램 수정이나 브라우저 변경 시 데이터가 사라질 수 있으니 꼭 백업하세요.</p>
                         <p className="text-[10px] text-red-400 mt-1 font-bold">Storage Usage: {storageUsage.toFixed(2)}MB / 5.0MB</p>
+                        <div className="mt-2">
+                             <Link to="/landing2" target="_blank" className="text-xs font-bold text-eum-accent underline">랜딩페이지 2 바로가기</Link>
+                        </div>
                     </div>
                     <div className="flex gap-3">
                         <button onClick={handleDownloadBackup} className="flex items-center gap-2 px-5 py-3 bg-gray-100 text-gray-700 rounded-xl font-bold text-xs hover:bg-gray-200 transition-all">

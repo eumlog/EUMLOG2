@@ -17,14 +17,14 @@ export const WEEKLY_PARTICIPANTS = [
     // -------------------------------------------------------------
 
     {
-       date: "2026-02-10",
-       image: "https://wooban.co.kr/wp-content/uploads/2026/02/002-2-819x1024.png", 
+       date: "2026-02-23",
+       image: "https://wooban.co.kr/wp-content/uploads/2026/02/002-3.png", 
        region: "gj"
     },
 
     {
-       date: "2026-02-10",
-       image: "https://wooban.co.kr/wp-content/uploads/2026/02/004-2-819x1024.png", 
+       date: "2026-02-23",
+       image: "https://wooban.co.kr/wp-content/uploads/2026/02/005.png", 
        region: "jn"
     },
 
@@ -55,6 +55,8 @@ export const DEFAULT_IMAGES: ImageAssets = {
     processStep6: "https://wooban.co.kr/wp-content/uploads/2026/01/006-1.png",
     processStep7: "https://wooban.co.kr/wp-content/uploads/2026/01/007-1.png",
     footerTexture: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp",
+    landing2Hero: "https://picsum.photos/800/600",
+    landing2Detail: "https://picsum.photos/800/2000",
 };
 
 export const DEFAULT_TEXTS: TextAssets = {

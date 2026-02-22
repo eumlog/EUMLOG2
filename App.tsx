@@ -22,6 +22,7 @@ import PolicyPage from './pages/Policy';
 import ProfilePage from './pages/Profile';
 import ServiceDetail from './pages/ServiceDetail';
 import Landing from './pages/Landing';
+import Landing2 from './pages/Landing2';
 import BlockingSystem from './pages/BlockingSystem';
 import LinkTree from './pages/LinkTree';
 import InstaLinks from './pages/InstaLinks';
@@ -112,7 +113,7 @@ const AppContent = () => {
     }, [location.pathname]);
 
     // 플로팅 메뉴 표시 조건 (WeeklyList 포함)
-    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/links' && location.pathname !== '/insta-links';
+    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/landing2' && location.pathname !== '/links' && location.pathname !== '/insta-links';
     
     const showNavbar = location.pathname !== '/links' && location.pathname !== '/insta-links';
 
@@ -144,6 +145,7 @@ const AppContent = () => {
                         <Route path="/service-detail" element={<ServiceDetail />} />
                         <Route path="/blocking-system" element={<BlockingSystem />} />
                         <Route path="/landing" element={<Landing />} />
+                        <Route path="/landing2" element={<Landing2 />} />
                         <Route path="/weekly" element={<WeeklyList />} />
                         <Route path="/links" element={<LinkTree />} />
                         <Route path="/insta-links" element={<InstaLinks />} />
