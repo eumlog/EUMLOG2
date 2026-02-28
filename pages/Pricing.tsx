@@ -50,124 +50,158 @@ const PricingPage = () => (
         </div>
 
         {/* 2. Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-20 md:mb-32">
-          {/* Basic Plan */}
-          <div className="bg-white rounded-2xl md:rounded-[2.5rem] p-7 md:p-10 shadow-sm border border-gray-300 hover:-translate-y-1 transition-all duration-500 flex flex-col">
-            <div className="mb-6 md:mb-8">
-              <span className="inline-block bg-gray-100 text-gray-500 text-[9px] font-black px-3 py-1 rounded-full tracking-widest mb-4 uppercase">
-                Basic Plan
+        <div className="grid md:grid-cols-3 gap-4 mb-20 md:mb-32">
+          {/* Lite Plan */}
+          <div className="bg-white rounded-2xl md:rounded-[2rem] p-6 md:p-8 shadow-sm border border-gray-200 hover:-translate-y-1 transition-all duration-500 flex flex-col">
+            <div className="mb-6">
+              <span className="inline-block bg-gray-100 text-gray-500 text-[10px] font-black px-3 py-1 rounded-full tracking-widest mb-3 uppercase">
+                Lite Plan
               </span>
-              <h4 className="text-xl md:text-2xl font-bold text-gray-900">베이직</h4>
+              <h4 className="text-xl md:text-2xl font-bold text-gray-900">라이트</h4>
+              <p className="text-xs text-gray-400 mt-2 font-medium">부담 없이 시작하는 플랜</p>
             </div>
 
-            <ul className="space-y-3 md:space-y-4 mb-8 md:mb-10 flex-1">
-              <li className="flex items-center gap-2.5 text-gray-700 text-[13px] font-medium">
-                <Check className="w-3.5 h-3.5 text-eum-accent" />
-                <span>3개월 무제한 프로필 제공</span>
+            <ul className="space-y-3 mb-8 flex-1">
+              <li className="flex items-center gap-2 text-gray-700 text-[13px] font-medium">
+                <Check className="w-3.5 h-3.5 text-gray-400" />
+                <span>3개월 무제한 소개</span>
               </li>
-              <li className="flex items-center gap-2.5 text-gray-900 font-bold text-[13px] bg-gray-50 p-3.5 rounded-xl md:p-4 md:rounded-2xl">
-                <BadgeCheck className="w-4 h-4 text-eum-accent" />
-                <span>[조건 2개] 보장</span>
+              <li className="flex items-center gap-2 text-gray-400 text-[13px] font-medium">
+                <Check className="w-3.5 h-3.5 text-gray-300" />
+                <span>조건 보장 없음</span>
               </li>
             </ul>
 
-            <div className="mt-auto space-y-3 pt-6 border-t border-gray-50">
+            <div className="mt-auto space-y-3 pt-6 border-t border-gray-100">
               <div className="flex justify-between items-center px-1">
-                <span className="text-gray-400 text-[9px] font-bold uppercase tracking-wider">Male</span>
+                <span className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Male</span>
                 <span className="text-lg font-black text-gray-900">180,000원</span>
               </div>
               <div className="w-full h-px bg-gray-100"></div>
               <div className="flex justify-between items-center px-1">
-                <span className="text-gray-400 text-[9px] font-bold uppercase tracking-wider">Female</span>
+                <span className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Female</span>
                 <span className="text-lg font-black text-gray-900">120,000원</span>
               </div>
             </div>
           </div>
 
-          {/* Premium Plan */}
-          <div className="bg-white rounded-2xl md:rounded-[2.5rem] p-7 md:p-10 shadow-md border-2 border-eum-accent/20 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden flex flex-col">
-            <div className="absolute top-0 right-0 bg-eum-accent text-white text-[9px] font-black px-4 py-1.5 rounded-bl-xl uppercase tracking-tighter shadow-sm">Recommended</div>
-            <div className="mb-6 md:mb-8">
-              <span className="inline-block bg-eum-accent/10 text-eum-accent text-[9px] font-black px-3 py-1 rounded-full tracking-widest mb-4 uppercase">
-                Premium Plan
+          {/* Standard Plan */}
+          <div className="bg-white rounded-2xl md:rounded-[2rem] p-6 md:p-8 shadow-md border-2 border-eum-accent/30 hover:-translate-y-1 transition-all duration-500 flex flex-col relative overflow-hidden">
+             <div className="absolute top-0 right-0 bg-eum-accent text-white text-[9px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-tighter shadow-sm">Popular</div>
+            <div className="mb-6">
+              <span className="inline-block bg-eum-accent/10 text-eum-accent text-[10px] font-black px-3 py-1 rounded-full tracking-widest mb-3 uppercase">
+                Standard Plan
               </span>
-              <h4 className="text-xl md:text-2xl font-bold text-eum-accent">프리미엄</h4>
+              <h4 className="text-xl md:text-2xl font-bold text-eum-accent">스탠다드</h4>
+              <p className="text-xs text-eum-accent/60 mt-2 font-medium">가장 합리적인 선택</p>
             </div>
 
-            <ul className="space-y-3 md:space-y-4 mb-8 md:mb-10 flex-1">
-              <li className="flex items-center gap-2.5 text-gray-700 text-[13px] font-medium">
+            <ul className="space-y-3 mb-8 flex-1">
+              <li className="flex items-center gap-2 text-gray-700 text-[13px] font-medium">
                 <Check className="w-3.5 h-3.5 text-eum-accent" />
-                <span>3개월 무제한 프로필 제공</span>
+                <span>3개월 무제한 소개</span>
               </li>
-              <li className="flex items-center gap-2.5 text-eum-accent font-bold text-[13px] bg-eum-accent/5 p-3.5 rounded-xl md:p-4 md:rounded-2xl">
+              <li className="flex items-center gap-2 text-gray-900 font-bold text-[13px] bg-gray-50 p-2 rounded-lg">
                 <BadgeCheck className="w-4 h-4 text-eum-accent" />
-                <span>[조건 5개] 보장</span>
+                <span>조건 2개 보장</span>
               </li>
-              <li className="flex items-center gap-2 text-amber-600 text-[10px] md:text-[11px] font-bold px-1">
-                <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
-                <span>매칭 실패 시, '우반(6:6)' 참가권 증정</span>
+              <li className="flex items-center gap-2 text-gray-700 text-[13px] font-medium">
+                <Check className="w-3.5 h-3.5 text-eum-accent" />
+                <span>에프터 케어 포함</span>
               </li>
             </ul>
 
             <div className="mt-auto space-y-3 pt-6 border-t border-eum-accent/10">
               <div className="flex justify-between items-center px-1">
-                <span className="text-eum-accent/60 text-[9px] font-bold uppercase tracking-wider">Male</span>
-                <span className="text-lg font-black text-eum-accent">360,000원</span>
+                <span className="text-eum-accent/60 text-[10px] font-bold uppercase tracking-wider">Male</span>
+                <span className="text-lg font-black text-eum-accent">320,000원</span>
               </div>
               <div className="w-full h-px bg-eum-accent/10"></div>
               <div className="flex justify-between items-center px-1">
-                <span className="text-eum-accent/60 text-[9px] font-bold uppercase tracking-wider">Female</span>
-                <span className="text-lg font-black text-eum-accent">240,000원</span>
+                <span className="text-eum-accent/60 text-[10px] font-bold uppercase tracking-wider">Female</span>
+                <span className="text-lg font-black text-eum-accent">230,000원</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Premium Plan */}
+          <div className="bg-[#1C1C1C] rounded-2xl md:rounded-[2rem] p-6 md:p-8 shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-eum-accent/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+            <div className="mb-6 relative z-10">
+              <span className="inline-block bg-white/10 text-white text-[10px] font-black px-3 py-1 rounded-full tracking-widest mb-3 uppercase border border-white/10">
+                Premium Plan
+              </span>
+              <h4 className="text-xl md:text-2xl font-bold text-white">프리미엄</h4>
+              <p className="text-xs text-gray-400 mt-2 font-medium">완벽한 만남을 위한 케어</p>
+            </div>
+
+            <ul className="space-y-3 mb-8 flex-1 relative z-10">
+              <li className="flex items-center gap-2 text-gray-300 text-[13px] font-medium">
+                <Check className="w-3.5 h-3.5 text-eum-accent" />
+                <span>3개월 무제한 소개</span>
+              </li>
+              <li className="flex items-center gap-2 text-white font-bold text-[13px] bg-white/10 p-2 rounded-lg border border-white/5">
+                <BadgeCheck className="w-4 h-4 text-eum-accent" />
+                <span>조건 5개 완벽 보장</span>
+              </li>
+              <li className="flex items-center gap-2 text-gray-300 text-[13px] font-medium">
+                <Check className="w-3.5 h-3.5 text-eum-accent" />
+                <span>에프터 케어 포함</span>
+              </li>
+              <li className="flex items-center gap-2 text-amber-400 text-[13px] font-bold">
+                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                <span>만남 성사 3회 보장</span>
+              </li>
+            </ul>
+
+            <div className="mt-auto space-y-3 pt-6 border-t border-white/10 relative z-10">
+              <div className="flex justify-between items-center px-1">
+                <span className="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Male</span>
+                <span className="text-lg font-black text-white">480,000원</span>
+              </div>
+              <div className="w-full h-px bg-white/10"></div>
+              <div className="flex justify-between items-center px-1">
+                <span className="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Female</span>
+                <span className="text-lg font-black text-white">360,000원</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 3. Matching Success Fee Table */}
+        {/* After Care Description */}
+        <div className="flex items-center justify-center gap-2 mb-20 md:mb-32 text-center">
+            <BadgeCheck className="w-5 h-5 text-white fill-eum-dark" />
+            <p className="text-sm md:text-base font-bold text-gray-700">
+                <span className="text-eum-dark font-black">에프터케어</span> : 3개월 종료 후에도 나를 선택한 상대가 있다면 무료 연결
+            </p>
+        </div>
+
+        {/* 3. Matching Success Fee Info */}
         <div className="max-w-[800px] mx-auto mt-16 md:mt-24">
-          <div className="bg-[#1C1C1C] rounded-[2rem] md:rounded-[3rem] p-8 md:p-14 text-white shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-eum-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            
-            <div className="relative z-10 flex flex-col items-center">
-              
-              <ArrowDown className="w-6 h-6 md:w-8 md:h-8 text-white/50 animate-bounce mb-6 md:mb-8" />
-
-              <div className="flex flex-col items-center justify-center gap-2 mb-8 md:mb-12">
-                <Users className="w-5 h-5 md:w-6 md:h-6 text-eum-accent" />
-                <h3 className="text-lg md:text-2xl font-bold text-center">매칭 성사비</h3>
-                <p className="text-center text-eum-accent text-sm md:text-base font-bold mt-2 keep-all">
-                  서로의 프로필을 보고 만남을 수락하면 발생하는 비용.
+          <div className="bg-gray-50 rounded-[2rem] p-8 md:p-12 text-center border border-gray-100">
+             <div className="flex flex-col items-center justify-center gap-3 mb-8">
+                <Users className="w-6 h-6 text-eum-dark" />
+                <h3 className="text-xl md:text-2xl font-bold text-eum-dark">매칭 성사비란?</h3>
+                <p className="text-gray-600 text-sm md:text-base font-medium keep-all max-w-lg mx-auto leading-relaxed">
+                  서로의 프로필을 확인하고, <span className="text-eum-dark font-bold">실제 만남을 수락했을 때만</span> 발생하는 비용입니다.
                 </p>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-8 md:divide-x md:divide-white/10 w-full">
-                <div className="space-y-5 md:pr-10">
-                  <h4 className="text-center text-[11px] md:text-sm font-bold text-eum-accent pb-3 border-b border-white/10 uppercase tracking-widest">Men's Fee</h4>
-                  <div className="space-y-3.5 text-[13px] px-1">
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">25세 이하</span><span className="text-white font-bold">20,000원</span></div>
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">26 - 30세</span><span className="text-white font-bold">30,000원</span></div>
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">31 - 34세</span><span className="text-white font-bold">40,000원</span></div>
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">35 - 38세</span><span className="text-white font-bold">50,000원</span></div>
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">38세 이상</span><span className="text-white font-bold">60,000원</span></div>
-                  </div>
+             </div>
+             
+             <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
+                <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+                    <div className="text-xs text-gray-400 font-bold mb-1">라이트</div>
+                    <div className="text-lg font-black text-eum-dark">40,000원</div>
                 </div>
-                
-                <div className="md:pl-10 space-y-5">
-                  <h4 className="text-center text-[11px] md:text-sm font-bold text-[#FF8A8A] pb-3 border-b border-white/10 uppercase tracking-widest">Women's Fee</h4>
-                  <div className="space-y-3.5 text-[13px] px-1">
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">25세 이하</span><span className="text-white font-bold">20,000원</span></div>
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">26 - 28세</span><span className="text-white font-bold">30,000원</span></div>
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">29 - 31세</span><span className="text-white font-bold">40,000원</span></div>
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">32 - 34세</span><span className="text-white font-bold">50,000원</span></div>
-                    <div className="flex justify-between items-center text-gray-400"><span className="font-medium">35세 이상</span><span className="text-white font-bold">60,000원</span></div>
-                  </div>
+                <div className="bg-white p-4 rounded-2xl border border-eum-accent/30 shadow-sm">
+                    <div className="text-xs text-eum-accent font-bold mb-1">스탠다드</div>
+                    <div className="text-lg font-black text-eum-accent">30,000원</div>
                 </div>
-              </div>
-
-              <div className="mt-10 pt-6 border-t border-white/10 text-center w-full">
-                <p className="text-gray-500 text-[9px] font-medium uppercase tracking-tighter">※ 위 금액은 1회 매칭 성사 시 발생하는 비용입니다.</p>
-              </div>
-            </div>
+                <div className="bg-eum-dark p-4 rounded-2xl shadow-sm">
+                    <div className="text-xs text-gray-400 font-bold mb-1">프리미엄</div>
+                    <div className="text-lg font-black text-white">20,000원</div>
+                </div>
+             </div>
+             <p className="text-xs text-gray-400 mt-6 font-medium">* 1회 매칭 성사 시 발생하는 비용입니다.</p>
           </div>
         </div>
         
