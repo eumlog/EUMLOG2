@@ -18,7 +18,7 @@ export const WEEKLY_PARTICIPANTS = [
 
     {
        date: "2026-03-04",
-       image: "https://wooban.co.kr/wp-content/uploads/2026/02/002-1.png", 
+       image: "https://wooban.co.kr/wp-content/uploads/2026/03/002-1.png", 
        region: "gj"
     },
 
