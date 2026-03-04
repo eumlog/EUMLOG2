@@ -17,13 +17,13 @@ export const WEEKLY_PARTICIPANTS = [
     // -------------------------------------------------------------
 
     {
-       date: "2026-02-23",
-       image: "https://wooban.co.kr/wp-content/uploads/2026/02/002-3.png", 
+       date: "2026-03-04",
+       image: "https://wooban.co.kr/wp-content/uploads/2026/02/002-1.png", 
        region: "gj"
     },
 
     {
-       date: "2026-02-23",
+       date: "2026-03-04",
        image: "https://wooban.co.kr/wp-content/uploads/2026/02/005.png", 
        region: "jn"
     },
