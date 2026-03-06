@@ -19,6 +19,7 @@ import ApplyPage from './pages/Apply';
 import AdminPage from './pages/Admin';
 import InstagramRegionsPage from './pages/Instagram';
 import PolicyPage from './pages/Policy';
+import PolicyPage2 from './pages/Policy2';
 import ProfilePage from './pages/Profile';
 import ServiceDetail from './pages/ServiceDetail';
 import Landing from './pages/Landing';
@@ -141,6 +142,7 @@ const AppContent = () => {
                         <Route path="/admin" element={<AdminPage />} />
                         <Route path="/instagram" element={<InstagramRegionsPage />} />
                         <Route path="/policy" element={<PolicyPage />} />
+                        <Route path="/policy2" element={<PolicyPage2 />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/service-detail" element={<ServiceDetail />} />
                         <Route path="/blocking-system" element={<BlockingSystem />} />

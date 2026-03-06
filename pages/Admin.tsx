@@ -248,8 +248,9 @@ const AdminPage = () => {
                         <h3 className="text-lg font-black text-eum-dark flex items-center gap-2"><Database className="w-5 h-5 text-eum-accent" /> 데이터 백업 및 복구</h3>
                         <p className="text-xs text-gray-500 mt-1">프로그램 수정이나 브라우저 변경 시 데이터가 사라질 수 있으니 꼭 백업하세요.</p>
                         <p className="text-[10px] text-red-400 mt-1 font-bold">Storage Usage: {storageUsage.toFixed(2)}MB / 5.0MB</p>
-                        <div className="mt-2">
+                        <div className="mt-2 flex gap-4">
                              <Link to="/landing2" target="_blank" className="text-xs font-bold text-eum-accent underline">랜딩페이지 2 바로가기</Link>
+                             <Link to="/policy2" target="_blank" className="text-xs font-bold text-eum-accent underline">운영규정 V2 바로가기</Link>
                         </div>
                     </div>
                     <div className="flex gap-3">
