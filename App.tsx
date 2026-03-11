@@ -23,6 +23,7 @@ import PolicyPage2 from './pages/Policy2';
 import ProfilePage from './pages/Profile';
 import ServiceDetail from './pages/ServiceDetail';
 import Landing from './pages/Landing';
+import SurveyLinks from './pages/SurveyLinks';
 import Landing2 from './pages/Landing2';
 import BlockingSystem from './pages/BlockingSystem';
 import LinkTree from './pages/LinkTree';
@@ -144,6 +145,7 @@ const AppContent = () => {
                         <Route path="/policy" element={<PolicyPage />} />
                         <Route path="/policy2" element={<PolicyPage2 />} />
                         <Route path="/profile" element={<ProfilePage />} />
+                        <Route path="/survey" element={<SurveyLinks />} />
                         <Route path="/service-detail" element={<ServiceDetail />} />
                         <Route path="/blocking-system" element={<BlockingSystem />} />
                         <Route path="/landing" element={<Landing />} />
