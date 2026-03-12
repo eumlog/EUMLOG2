@@ -115,7 +115,7 @@ const AppContent = () => {
     }, [location.pathname]);
 
     // 플로팅 메뉴 표시 조건 (WeeklyList 포함)
-    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/landing2' && location.pathname !== '/links' && location.pathname !== '/insta-links';
+    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/landing2' && location.pathname !== '/links' && location.pathname !== '/insta-links' && location.pathname !== '/survey';
     
     const showNavbar = location.pathname !== '/links' && location.pathname !== '/insta-links';
 
