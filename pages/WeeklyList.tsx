@@ -6,29 +6,41 @@ import { Calendar, Users, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { WEEKLY_PARTICIPANTS } from '../constants';
 
-// 날짜 문자열을 받아서 "N월 N주차" 문자열을 반환하는 함수
-const getWeekTitle = (dateStr: string, region: string) => {
-    try {
-        const date = new Date(dateStr.replace(/\./g, '-')); // 2025.01.26 -> 2025-01-26 변환 지원
-        if (isNaN(date.getTime())) return dateStr; // 날짜 형식이 아니면 그대로 반환
+// 가장 최근 수요일을 구하는 함수
+const getRecentWednesday = () => {
+    const now = new Date();
+    const dayOfWeek = now.getDay();
+    // 0: 일, 1: 월, 2: 화, 3: 수, 4: 목, 5: 금, 6: 토
+    // 오늘이 수요일(3)이면 0일 전, 목요일(4)이면 1일 전... 화요일(2)이면 6일 전
+    const daysSinceWednesday = (dayOfWeek + 7 - 3) % 7;
+    const recentWednesday = new Date(now);
+    recentWednesday.setDate(now.getDate() - daysSinceWednesday);
+    return recentWednesday;
+};
 
-        const month = date.getMonth() + 1;
-        
-        // 주차 계산 (해당 월의 몇 번째 주인지)
-        const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-        const dayOfWeek = firstDayOfMonth.getDay(); // 0(일) ~ 6(토)
-        const dateNum = date.getDate();
-        
-        // (날짜 + 1일의 요일 인덱스 - 1) / 7 -> 대략적인 주차 계산
-        // 간단하게: 해당 날짜가 그 달의 몇 번째 주인지를 계산
-        const offsetDate = dateNum + dayOfWeek - 1;
-        const weekNum = Math.floor(offsetDate / 7) + 1;
+// 날짜를 YYYY-MM-DD 형식으로 포맷팅
+const formatDate = (date: Date) => {
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+};
 
-        const regionName = region === 'gj' ? '광주' : '전남';
-        return `${month}월 ${weekNum}주차 ${regionName} 선정자`;
-    } catch (e) {
-        return dateStr;
-    }
+// 수요일 날짜를 기반으로 "N월 N주차" 문자열을 반환하는 함수
+const getAutoWeekTitle = (region: string) => {
+    const date = getRecentWednesday();
+    const month = date.getMonth() + 1;
+    
+    // 주차 계산 (해당 월의 몇 번째 주인지)
+    const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+    const dayOfWeek = firstDayOfMonth.getDay(); // 0(일) ~ 6(토)
+    const dateNum = date.getDate();
+    
+    const offsetDate = dateNum + dayOfWeek - 1;
+    const weekNum = Math.floor(offsetDate / 7) + 1;
+
+    const regionName = region === 'gj' ? '광주' : '전남';
+    return `${month}월 ${weekNum}주차 ${regionName} 선정자`;
 };
 
 const WeeklyList = () => {
@@ -47,8 +59,9 @@ const WeeklyList = () => {
         }
     }).map(item => ({
         ...item,
-        // 여기서 제목을 자동 생성합니다.
-        title: getWeekTitle(item.date, item.region)
+        // 여기서 제목과 날짜를 매주 수요일 기준으로 자동 생성합니다.
+        title: getAutoWeekTitle(item.region || 'gj'),
+        date: formatDate(getRecentWednesday())
     }));
 
     return (
