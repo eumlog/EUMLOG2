@@ -1,6 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Share2, Home, FileText, ChevronRight, ClipboardList, ExternalLink, MapPin, Lock, CheckCircle, X, Users } from 'lucide-react';
+
+const AnimatedCounter = ({ end, duration = 2000 }: { end: number, duration?: number }) => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        let startTime: number | null = null;
+        let animationFrameId: number;
+
+        const animate = (currentTime: number) => {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            setCount(Math.floor(easeProgress * end));
+            
+            if (progress < 1) {
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        };
+        animationFrameId = requestAnimationFrame(animate);
+
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [end, duration]);
+
+    return <span>{count}</span>;
+};
 
 const IMG_HERO = "https://wooban.co.kr/wp-content/uploads/2026/01/c444221dcc16c2149c5b0ad510f6c3a4-768x1023.jpg";
 const IMG_BREAK = "https://wooban.co.kr/wp-content/uploads/2026/01/%EC%9D%B4%EC%9D%8C%EB%A1%9C%EA%B7%B8%EB%9E%80v2_%EB%B3%B5%EC%82%AC%EB%B3%B8-_1_-002-819x1024.png";
@@ -92,7 +117,7 @@ const LinkTree = () => {
                     ].map((item) => (
                         <div key={item.label} className="bg-[#faf7f5] rounded-xl p-4">
                             <div className={`text-[22px] font-black leading-none mb-1 ${item.accent ? 'text-[#b8856a] text-[16px]' : 'text-gray-900'}`}>
-                                {item.num}
+                                {item.num === '950+' ? <><AnimatedCounter end={950} />+</> : item.num}
                             </div>
                             <div className="text-[12px] font-bold text-gray-900 mb-1">{item.label}</div>
                             <div className="text-[11px] text-gray-400 leading-snug">{item.sub}</div>
@@ -104,10 +129,10 @@ const LinkTree = () => {
             {/* ── 3. 선정 기준 ── */}
             <div className="px-6 py-7 border-b border-gray-100">
                 <div className="bg-[#181614] rounded-2xl p-5">
-                    <p className="text-[15px] font-bold text-white mb-3">아무나 받지 않습니다</p>
+                    <p className="text-[18px] font-black text-white mb-3">아무나 받지 않습니다</p>
                     <p className="text-[13px] text-white/45 leading-[1.9]">
-                        기본적인 외모·스타일 관리가 되어 있는 분,<br />
-                        진지한 만남을 준비하신 분을 선정합니다.<br />
+                        <span className="text-white/85 font-medium">기본적인 외모·스타일 관리가 되어 있는 분,<br />
+                        진지한 만남을 준비하신 분을 선정합니다.</span><br />
                         신청자의 절반 정도만 통과하는 이유가 여기 있어요.<br /><br />
                         가벼운 설렘을 찾는 분이라면 솔직히 여기가 맞지 않을 수 있습니다.<br />
                         <span className="text-white/85 font-medium">괜찮은 사람과의 만남, 이음로그에서 시작해보세요.</span>
@@ -137,10 +162,10 @@ const LinkTree = () => {
                 <div className="flex flex-col">
                     {[
                         { n: '1', title: '신청서 작성', desc: '네이버폼으로 기본 정보 입력 (1분)' },
-                        { n: '2', title: '상세 설문 + 1:1 카톡 상담', desc: '이상형 조건과 보장 카테고리 선택 후 결제' },
+                        { n: '2', title: '1:1 카톡 상담', desc: '' },
                         { n: '3', title: '지인 차단 시스템', desc: '초성·지역 정보로 아는 사람 여부 사전 확인' },
                         { n: '4', title: '매주 1명 프로필 제공', desc: '3개월간 조건에 맞는 분을 순차 소개' },
-                        { n: '5', title: '쌍방 수락 → 소개팅 진행', desc: '매니저가 일정·장소 조율까지 함께합니다' },
+                        { n: '5', title: '쌍방 수락 → 소개팅 진행', desc: '' },
                     ].map((step, i, arr) => (
                         <div key={step.n} className="flex gap-4 py-2">
                             <div className="flex flex-col items-center">
@@ -151,7 +176,7 @@ const LinkTree = () => {
                             </div>
                             <div className="pb-1">
                                 <p className="text-[13px] font-bold text-gray-900 mb-0.5">{step.title}</p>
-                                <p className="text-[12px] text-gray-400 leading-snug">{step.desc}</p>
+                                {step.desc && <p className="text-[12px] text-gray-400 leading-snug">{step.desc}</p>}
                             </div>
                         </div>
                     ))}
@@ -184,23 +209,21 @@ const LinkTree = () => {
                     href="https://m.site.naver.com/1Pznd"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#faf7f5] rounded-xl px-4 py-4"
+                    className="flex items-center gap-3 w-full bg-[#faf7f5] border border-[#8a6b5d] rounded-xl px-4 py-4 shadow-sm transition-transform hover:-translate-y-0.5"
                 >
-                    <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center text-[14px] flex-shrink-0">📋</div>
+                    <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center text-[14px] flex-shrink-0">📝</div>
                     <div className="flex-1">
                         <p className="text-[13px] font-bold text-gray-900">소개팅 신청서 작성</p>
-                        <p className="text-[11px] text-gray-400">네이버폼 · 1분 완료</p>
+                        <p className="text-[11px] text-gray-500 font-medium">네이버폼 · 1분 완료</p>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-gray-300" />
+                    <ChevronRight className="w-4 h-4 text-gray-400" />
                 </a>
 
                 <Link
                     to="/service"
-                    className="flex items-center gap-3 w-full bg-[#faf7f5] rounded-xl px-4 py-4"
+                    className="flex items-center gap-3 w-full bg-[#faf7f5] border border-transparent rounded-xl px-4 py-4"
                 >
-                    <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center flex-shrink-0">
-                        <ClipboardList className="w-4 h-4 text-gray-500" />
-                    </div>
+                    <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center text-[14px] flex-shrink-0">📌</div>
                     <div className="flex-1">
                         <p className="text-[13px] font-bold text-gray-900">진행 방식</p>
                         <p className="text-[11px] text-gray-400">어떻게 진행되나요?</p>
@@ -210,7 +233,7 @@ const LinkTree = () => {
 
                 <Link
                     to="/weekly"
-                    className="flex items-center gap-3 w-full bg-[#faf7f5] rounded-xl px-4 py-4"
+                    className="flex items-center gap-3 w-full bg-[#faf7f5] border border-transparent rounded-xl px-4 py-4"
                 >
                     <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center text-[14px] flex-shrink-0">👥</div>
                     <div className="flex-1">
@@ -220,18 +243,22 @@ const LinkTree = () => {
                     <ChevronRight className="w-4 h-4 text-gray-300" />
                 </Link>
 
+                <div className="flex justify-center my-4">
+                    <div className="w-12 h-px bg-gray-300"></div>
+                </div>
+
                 <Link
                     to="/"
-                    className="flex items-center gap-3 w-full bg-[#181614] rounded-xl px-4 py-4"
+                    className="flex items-center gap-3 w-full bg-[#faf7f5] border border-transparent rounded-xl px-4 py-4"
                 >
-                    <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                        <Home className="w-4 h-4 text-white" />
+                    <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center flex-shrink-0">
+                        <Home className="w-4 h-4 text-gray-500" />
                     </div>
                     <div className="flex-1">
-                        <p className="text-[13px] font-bold text-white">이음로그 홈페이지</p>
-                        <p className="text-[11px] text-white/40">공식 웹사이트</p>
+                        <p className="text-[13px] font-bold text-gray-900">이음로그 홈페이지</p>
+                        <p className="text-[11px] text-gray-400">공식 웹사이트</p>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-white/30" />
+                    <ChevronRight className="w-4 h-4 text-gray-300" />
                 </Link>
             </div>
 
