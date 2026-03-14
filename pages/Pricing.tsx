@@ -196,18 +196,18 @@ const PricingPage = () => (
                 </p>
              </div>
              
-             <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
-                <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
-                    <div className="text-xs text-gray-400 font-bold mb-1">라이트</div>
-                    <div className="text-lg font-black text-eum-dark">40,000원</div>
+             <div className="grid grid-cols-3 gap-2 md:gap-4 max-w-lg mx-auto">
+                <div className="bg-white p-2 md:p-4 rounded-xl md:rounded-2xl border border-gray-200 shadow-sm">
+                    <div className="text-[10px] md:text-xs text-gray-400 font-bold mb-1">라이트</div>
+                    <div className="text-sm md:text-lg font-black text-eum-dark">40,000원</div>
                 </div>
-                <div className="bg-white p-4 rounded-2xl border border-eum-accent/30 shadow-sm">
-                    <div className="text-xs text-eum-accent font-bold mb-1">스탠다드</div>
-                    <div className="text-lg font-black text-eum-accent">30,000원</div>
+                <div className="bg-white p-2 md:p-4 rounded-xl md:rounded-2xl border border-eum-accent/30 shadow-sm">
+                    <div className="text-[10px] md:text-xs text-eum-accent font-bold mb-1">스탠다드</div>
+                    <div className="text-sm md:text-lg font-black text-eum-accent">30,000원</div>
                 </div>
-                <div className="bg-eum-dark p-4 rounded-2xl shadow-sm">
-                    <div className="text-xs text-gray-400 font-bold mb-1">프리미엄</div>
-                    <div className="text-lg font-black text-white">20,000원</div>
+                <div className="bg-eum-dark p-2 md:p-4 rounded-xl md:rounded-2xl shadow-sm">
+                    <div className="text-[10px] md:text-xs text-gray-400 font-bold mb-1">프리미엄</div>
+                    <div className="text-sm md:text-lg font-black text-white">20,000원</div>
                 </div>
              </div>
              <p className="text-xs text-gray-400 mt-6 font-medium">* 1회 매칭 성사 시 발생하는 비용입니다.</p>
