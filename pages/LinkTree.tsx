@@ -71,14 +71,12 @@ const LinkTree = () => {
                         지인 차단 100% · 3개월 무제한 소개<br />
                         매니저가 직접 맞는 사람을 찾아드립니다
                     </p>
-                    <a
-                        href="https://m.site.naver.com/1Pznd"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center w-full bg-white text-gray-900 font-bold text-[14px] py-4 rounded-xl"
+                    <button
+                        onClick={() => document.getElementById('read-before-apply')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="flex items-center justify-center w-full bg-white text-gray-900 font-bold text-[14px] py-4 rounded-xl transition-transform active:scale-95"
                     >
                         소개팅 신청서 작성하기 →
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -161,14 +159,14 @@ const LinkTree = () => {
             </div>
 
             {/* ── 6. 블로그 카드 ── */}
-            <div className="px-6 py-6 bg-[#faf7f5] border-b border-gray-100">
+            <div id="read-before-apply" className="px-6 py-6 bg-[#faf7f5] border-b border-gray-100 scroll-mt-16">
                 <p className="text-[10px] font-bold text-[#b8856a] tracking-widest mb-3">READ BEFORE APPLY</p>
                 <a
                     href="https://m.site.naver.com/22ZhB"
-                    className="block bg-white border border-[#e8e0d8] rounded-xl p-5 relative overflow-hidden"
+                    className="block bg-white border border-[#e8e0d8] rounded-xl p-5 relative overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-md"
                 >
                     <div className="absolute top-0 left-0 w-[3px] h-full bg-[#b8856a]" />
-                    <p className="text-[16px] font-black text-gray-900 mb-2 leading-snug">신청 전에 꼭 읽어보세요</p>
+                    <p className="text-[18px] md:text-[20px] font-black text-gray-900 mb-2 leading-snug">신청 전에 꼭 읽어보세요</p>
                     <p className="text-[12px] text-gray-400 leading-relaxed mb-4">
                         950명이 넘는 신청자 데이터, 매주 성사되는 실제 커플,<br />
                         그리고 왜 이 서비스를 만들었는지까지 담았습니다.
