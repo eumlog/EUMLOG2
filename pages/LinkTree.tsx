@@ -1,31 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Share2, Home, FileText, ChevronRight, ClipboardList, ExternalLink, MapPin, Lock, CheckCircle, X, Users } from 'lucide-react';
-
-const AnimatedCounter = ({ end, duration = 2000 }: { end: number, duration?: number }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-        let startTime: number | null = null;
-        let animationFrameId: number;
-
-        const animate = (currentTime: number) => {
-            if (!startTime) startTime = currentTime;
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-            setCount(Math.floor(easeProgress * end));
-            
-            if (progress < 1) {
-                animationFrameId = requestAnimationFrame(animate);
-            }
-        };
-        animationFrameId = requestAnimationFrame(animate);
-
-        return () => cancelAnimationFrame(animationFrameId);
-    }, [end, duration]);
-
-    return <span>{count}</span>;
-};
 
 const IMG_HERO = "https://wooban.co.kr/wp-content/uploads/2026/01/c444221dcc16c2149c5b0ad510f6c3a4-768x1023.jpg";
 const IMG_BREAK = "https://wooban.co.kr/wp-content/uploads/2026/01/%EC%9D%B4%EC%9D%8C%EB%A1%9C%EA%B7%B8%EB%9E%80v2_%EB%B3%B5%EC%82%AC%EB%B3%B8-_1_-002-819x1024.png";
@@ -96,122 +71,18 @@ const LinkTree = () => {
                         지인 차단 100% · 3개월 무제한 소개<br />
                         매니저가 직접 맞는 사람을 찾아드립니다
                     </p>
-                    <button
-                        onClick={() => document.getElementById('read-before-apply')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="flex items-center justify-center w-full bg-white text-gray-900 font-bold text-[14px] py-4 rounded-xl transition-transform active:scale-95"
-                    >
-                        소개팅 신청서 작성하기 →
-                    </button>
                 </div>
             </div>
 
-            {/* ── 2. 서비스 특징 ── */}
-            <div className="px-6 py-7 border-b border-gray-100">
-                <p className="text-[10px] font-bold text-[#b8856a] tracking-widest mb-3">SERVICE</p>
-                <div className="grid grid-cols-2 gap-2">
-                    {[
-                        { num: '100%', label: '지인 차단', sub: '초성·지역 사전 확인, 아는 사람 매칭 없음' },
-                        { num: '3개월', label: '무제한 소개', sub: '주 1명씩, 횟수 제한 없이 계속' },
-                        { num: '950+', label: '누적 신청자', sub: '매주 실제 커플 성사 중' },
-                        { num: '승인제', label: '검증된 회원만', sub: '신청자 중 일부만 선정', accent: true },
-                    ].map((item) => (
-                        <div key={item.label} className="bg-[#faf7f5] rounded-xl p-4">
-                            <div className={`text-[22px] font-black leading-none mb-1 ${item.accent ? 'text-[#b8856a] text-[16px]' : 'text-gray-900'}`}>
-                                {item.num === '950+' ? <><AnimatedCounter end={950} />+</> : item.num}
-                            </div>
-                            <div className="text-[12px] font-bold text-gray-900 mb-1">{item.label}</div>
-                            <div className="text-[11px] text-gray-400 leading-snug">{item.sub}</div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* ── 3. 선정 기준 ── */}
-            <div className="px-6 py-7 border-b border-gray-100">
-                <div className="bg-[#181614] rounded-2xl p-5">
-                    <p className="text-[18px] font-black text-white mb-3">아무나 받지 않습니다</p>
-                    <p className="text-[13px] text-white/45 leading-[1.9]">
-                        <span className="text-white/85 font-medium">기본적인 외모·스타일 관리가 되어 있는 분,<br />
-                        진지한 만남을 준비하신 분을 선정합니다.</span><br />
-                        신청자의 절반 정도만 통과하는 이유가 여기 있어요.<br /><br />
-                        가벼운 설렘을 찾는 분이라면 솔직히 여기가 맞지 않을 수 있습니다.<br />
-                        <span className="text-white/85 font-medium">괜찮은 사람과의 만남, 이음로그에서 시작해보세요.</span>
-                    </p>
-                </div>
-            </div>
-
-            {/* ── 4. 이미지 브레이크 ── */}
-            <div className="relative w-full h-[220px] overflow-hidden">
-                <img
-                    src={IMG_BREAK}
-                    alt=""
-                    className="w-full h-full object-cover object-[center_30%]"
-                    style={{ filter: 'brightness(0.72) contrast(1.02)' }}
-                />
-                <div className="absolute inset-0 bg-black/18 flex items-center justify-center px-6">
-                    <p className="text-[22px] font-black text-white text-center leading-snug tracking-tight" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}>
-                        매주 새로운 인연이<br />
-                        <span className="text-[#f0c8b0]">이음로그에서 시작됩니다</span>
-                    </p>
-                </div>
-            </div>
-
-            {/* ── 5. 진행 과정 ── */}
-            <div className="px-6 py-7 border-b border-gray-100">
-                <p className="text-[10px] font-bold text-[#b8856a] tracking-widest mb-4">PROCESS</p>
-                <div className="flex flex-col">
-                    {[
-                        { n: '1', title: '신청서 작성', desc: '네이버폼으로 기본 정보 입력 (1분)' },
-                        { n: '2', title: '1:1 카톡 상담', desc: '' },
-                        { n: '3', title: '지인 차단 시스템', desc: '초성·지역 정보로 아는 사람 여부 사전 확인' },
-                        { n: '4', title: '매주 1명 프로필 제공', desc: '3개월간 조건에 맞는 분을 순차 소개' },
-                        { n: '5', title: '쌍방 수락 → 소개팅 진행', desc: '' },
-                    ].map((step, i, arr) => (
-                        <div key={step.n} className="flex gap-4 py-2">
-                            <div className="flex flex-col items-center">
-                                <div className="w-[26px] h-[26px] rounded-full bg-[#181614] text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0">
-                                    {step.n}
-                                </div>
-                                {i < arr.length - 1 && <div className="w-px flex-1 bg-gray-200 my-1 min-h-[12px]" />}
-                            </div>
-                            <div className="pb-1">
-                                <p className="text-[13px] font-bold text-gray-900 mb-0.5">{step.title}</p>
-                                {step.desc && <p className="text-[12px] text-gray-400 leading-snug">{step.desc}</p>}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* ── 6. 블로그 카드 ── */}
-            <div id="read-before-apply" className="px-6 py-6 bg-[#faf7f5] border-b border-gray-100 scroll-mt-16">
-                <p className="text-[10px] font-bold text-[#b8856a] tracking-widest mb-3">READ BEFORE APPLY</p>
-                <a
-                    href="https://m.site.naver.com/22ZhB"
-                    className="block bg-white border border-[#e8e0d8] rounded-xl p-5 relative overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-md"
-                >
-                    <div className="absolute top-0 left-0 w-[3px] h-full bg-[#b8856a]" />
-                    <p className="text-[18px] md:text-[20px] font-black text-gray-900 mb-2 leading-snug">신청 전에 꼭 읽어보세요</p>
-                    <p className="text-[12px] text-gray-400 leading-relaxed mb-4">
-                        950명이 넘는 신청자 데이터, 매주 성사되는 실제 커플,<br />
-                        그리고 왜 이 서비스를 만들었는지까지 담았습니다.
-                    </p>
-                    <div className="flex items-center justify-between bg-[#181614] rounded-lg px-4 py-3">
-                        <span className="text-[13px] font-bold text-white">이음로그 소개글 보러가기</span>
-                        <span className="text-[#f0c8b0] text-[14px]">→</span>
-                    </div>
-                </a>
-            </div>
-
-            {/* ── 7. 링크 버튼들 ── */}
-            <div className="px-6 py-6 flex flex-col gap-2">
+            {/* ── 2. 링크 버튼들 ── */}
+            <div className="px-6 py-6 flex flex-col gap-3">
                 <a
                     href="https://m.site.naver.com/1Pznd"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#faf7f5] border border-[#8a6b5d] rounded-xl px-4 py-4 shadow-sm transition-transform hover:-translate-y-0.5"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-4 shadow-sm transition-transform hover:-translate-y-0.5"
                 >
-                    <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center text-[14px] flex-shrink-0">📝</div>
+                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📝</div>
                     <div className="flex-1">
                         <p className="text-[13px] font-bold text-gray-900">소개팅 신청서 작성</p>
                         <p className="text-[11px] text-gray-500 font-medium">네이버폼 · 1분 완료</p>
@@ -220,46 +91,60 @@ const LinkTree = () => {
                 </a>
 
                 <Link
-                    to="/service"
-                    className="flex items-center gap-3 w-full bg-[#faf7f5] border border-transparent rounded-xl px-4 py-4"
+                    to="/weekly"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
                 >
-                    <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center text-[14px] flex-shrink-0">📌</div>
-                    <div className="flex-1">
-                        <p className="text-[13px] font-bold text-gray-900">진행 방식</p>
-                        <p className="text-[11px] text-gray-400">어떻게 진행되나요?</p>
+                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">👥</div>
+                    <div className="flex-1 flex items-center gap-2">
+                        <p className="text-[13px] font-bold text-gray-900">이번주 참가자 명단</p>
+                        <span className="border border-[#b8856a] text-[#b8856a] text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wider bg-white/50">NEW</span>
                     </div>
                     <ChevronRight className="w-4 h-4 text-gray-300" />
                 </Link>
 
                 <Link
-                    to="/weekly"
-                    className="flex items-center gap-3 w-full bg-[#faf7f5] border border-transparent rounded-xl px-4 py-4"
+                    to="/service"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
                 >
-                    <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center text-[14px] flex-shrink-0">👥</div>
+                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📌</div>
                     <div className="flex-1">
-                        <p className="text-[13px] font-bold text-gray-900">이번주 참가자 명단</p>
-                        <p className="text-[11px] text-gray-400">실제 참가자 현황</p>
+                        <p className="text-[13px] font-bold text-gray-900">진행 방식</p>
+                        <p className="text-[11px] text-gray-500">어떻게 진행되나요?</p>
                     </div>
                     <ChevronRight className="w-4 h-4 text-gray-300" />
                 </Link>
 
                 <div className="flex justify-center my-4">
-                    <div className="w-12 h-px bg-gray-300"></div>
+                    <div className="w-12 h-px bg-gray-200"></div>
                 </div>
 
                 <Link
                     to="/"
-                    className="flex items-center gap-3 w-full bg-[#faf7f5] border border-transparent rounded-xl px-4 py-4"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
                 >
-                    <div className="w-8 h-8 rounded-lg bg-[#ede8e3] flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center flex-shrink-0">
                         <Home className="w-4 h-4 text-gray-500" />
                     </div>
                     <div className="flex-1">
                         <p className="text-[13px] font-bold text-gray-900">이음로그 홈페이지</p>
-                        <p className="text-[11px] text-gray-400">공식 웹사이트</p>
+                        <p className="text-[11px] text-gray-500">공식 웹사이트</p>
                     </div>
                     <ChevronRight className="w-4 h-4 text-gray-300" />
                 </Link>
+
+                <a
+                    href="https://m.site.naver.com/22ZhB"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
+                >
+                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📖</div>
+                    <div className="flex-1">
+                        <p className="text-[13px] font-bold text-gray-900">이음로그가 처음이라면</p>
+                        <p className="text-[11px] text-gray-500">신청 전 꼭 읽어보세요</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-gray-300" />
+                </a>
             </div>
 
             {/* ── 8. 하단 브랜딩 ── */}
