@@ -39,6 +39,13 @@ const AppContent = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const isFirstMount = useRef(true);
+    const [hashPath, setHashPath] = useState(window.location.hash);
+
+    useEffect(() => {
+        const handleHashChange = () => setHashPath(window.location.hash);
+        window.addEventListener('hashchange', handleHashChange);
+        return () => window.removeEventListener('hashchange', handleHashChange);
+    }, []);
 
     useEffect(() => {
         if (isFirstMount.current) {
@@ -57,6 +64,15 @@ const AppContent = () => {
             // 해당 경로로 이동 (BrowserRouter 내부 상태 업데이트)
             // navigate는 자동으로 쿼리 파라미터가 없는 깔끔한 URL로 변경해 줍니다.
             navigate(`/${redirectPath}`, { replace: true });
+        }
+
+        // 기존 HashRouter 형식(#/pricing)으로 접근 시 깔끔한 URL(/pricing)로 리다이렉트
+        // 단, survey와 policy2는 해시 URL을 유지하도록 예외 처리
+        if (window.location.hash && window.location.hash.startsWith('#/')) {
+            const path = window.location.hash.replace('#', '');
+            if (path !== '/survey' && path !== '/policy2') {
+                navigate(path, { replace: true });
+            }
         }
     }, [navigate]);
 
@@ -111,9 +127,13 @@ const AppContent = () => {
     }, [location.pathname]);
 
     // 플로팅 메뉴 표시 조건 (WeeklyList 포함)
-    const showFloatingBanner = location.pathname !== '/contact' && location.pathname !== '/admin' && location.pathname !== '/profile' && location.pathname !== '/landing' && location.pathname !== '/landing2' && location.pathname !== '/links' && location.pathname !== '/insta-links' && location.pathname !== '/survey';
+    const currentPath = location.pathname === '/' && hashPath.startsWith('#/') 
+        ? hashPath.replace('#', '') 
+        : location.pathname;
+
+    const showFloatingBanner = currentPath !== '/contact' && currentPath !== '/admin' && currentPath !== '/profile' && currentPath !== '/landing' && currentPath !== '/landing2' && currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/survey';
     
-    const showNavbar = location.pathname !== '/links' && location.pathname !== '/insta-links';
+    const showNavbar = currentPath !== '/links' && currentPath !== '/insta-links';
 
     return (
         <>
@@ -128,7 +148,11 @@ const AppContent = () => {
                 {showFloatingBanner && <FloatingMenu />}
                 <main className="flex-1">
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <Route path="/" element={
+                            hashPath === '#/survey' ? <SurveyLinks /> :
+                            hashPath === '#/policy2' ? <PolicyPage2 /> :
+                            <Home />
+                        } />
                         <Route path="/about" element={<About />} />
                         <Route path="/service" element={<Service />} />
                         <Route path="/criteria" element={<CriteriaPage />} />
