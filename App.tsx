@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from './components/Navbar';
@@ -54,13 +54,9 @@ const AppContent = () => {
         const redirectPath = params.get('go') || params.get('path');
         
         if (redirectPath) {
-            // 1. 해당 경로로 이동 (HashRouter 내부 상태 업데이트)
+            // 해당 경로로 이동 (BrowserRouter 내부 상태 업데이트)
+            // navigate는 자동으로 쿼리 파라미터가 없는 깔끔한 URL로 변경해 줍니다.
             navigate(`/${redirectPath}`, { replace: true });
-            
-            // 2. 주소창의 ?go=... 쿼리 파라미터를 제거하여 깔끔한 URL(#/path)로 변경
-            // 이를 통해 새로고침 시 다시 리다이렉트되거나 내부 링크 이동 시 쿼리가 따라붙는 문제를 방지
-            const cleanUrl = `${window.location.pathname}#/${redirectPath}`;
-            window.history.replaceState({}, '', cleanUrl);
         }
     }, [navigate]);
 

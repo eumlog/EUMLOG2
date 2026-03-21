@@ -120,6 +120,10 @@ const PolicyPage2: React.FC = () => {
                    </tr>
                 </tbody>
               </table>
+              <div className="mt-3 space-y-1.5 text-[10px] md:text-xs text-gray-500 font-medium bg-gray-50/50 p-3 rounded-xl border border-gray-100">
+                <p>※ <strong className="text-gray-700">라이트 멤버십</strong>은 1:1 상담 없이 간편하게 진행됩니다.</p>
+                <p>※ <strong className="text-gray-700">멤버십 변경</strong>은 상위 멤버십으로만 가능하며, 상위 이용권은 변경 시점의 이용권 가격 기준으로 재산정됩니다.</p>
+              </div>
             </div>
 
             {/* 2. 매칭비 */}
@@ -171,6 +175,12 @@ const PolicyPage2: React.FC = () => {
                      <td className="py-2.5 px-3 font-bold text-gray-500 bg-gray-50/30">보장 조건 변경</td>
                      <td className="py-2.5 px-3 font-medium">
                        보장 조건 변경은 1회에 한해 가능
+                     </td>
+                   </tr>
+                   <tr>
+                     <td className="py-2.5 px-3 font-bold text-gray-500 bg-gray-50/30">멤버십 변경</td>
+                     <td className="py-2.5 px-3 font-medium">
+                       상위 멤버십으로만 변경 가능 (상위 이용권은 변경 시점의 이용권 가격 기준으로 재산정)
                      </td>
                    </tr>
                    <tr>
