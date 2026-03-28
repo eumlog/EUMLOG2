@@ -140,7 +140,10 @@ const LinkTree = () => {
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📖</div>
                     <div className="flex-1">
-                        <p className="text-[13px] font-bold text-gray-900">이음로그가 처음이라면</p>
+                        <div className="flex items-center gap-2 mb-0.5">
+                            <p className="text-[13px] font-bold text-gray-900">이음로그가 처음이라면</p>
+                            <span className="bg-[#8a6b5d] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wider">필독</span>
+                        </div>
                         <p className="text-[11px] text-gray-500">신청 전 꼭 읽어보세요</p>
                     </div>
                     <ChevronRight className="w-4 h-4 text-gray-300" />
