@@ -118,20 +118,6 @@ const LinkTree = () => {
                     <div className="w-12 h-px bg-gray-200"></div>
                 </div>
 
-                <Link
-                    to="/"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
-                >
-                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center flex-shrink-0">
-                        <Home className="w-4 h-4 text-gray-500" />
-                    </div>
-                    <div className="flex-1">
-                        <p className="text-[13px] font-bold text-gray-900">이음로그 홈페이지</p>
-                        <p className="text-[11px] text-gray-500">공식 웹사이트</p>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-gray-300" />
-                </Link>
-
                 <a
                     href="https://m.site.naver.com/22ZhB"
                     target="_blank"
@@ -148,6 +134,20 @@ const LinkTree = () => {
                     </div>
                     <ChevronRight className="w-4 h-4 text-gray-300" />
                 </a>
+
+                <Link
+                    to="/"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
+                >
+                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center flex-shrink-0">
+                        <Home className="w-4 h-4 text-gray-500" />
+                    </div>
+                    <div className="flex-1">
+                        <p className="text-[13px] font-bold text-gray-900">이음로그 홈페이지</p>
+                        <p className="text-[11px] text-gray-500">공식 웹사이트</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-gray-300" />
+                </Link>
             </div>
 
             {/* ── 8. 하단 브랜딩 ── */}
