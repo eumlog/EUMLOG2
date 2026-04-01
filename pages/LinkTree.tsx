@@ -90,8 +90,10 @@ const LinkTree = () => {
                     <ChevronRight className="w-4 h-4 text-gray-400" />
                 </a>
 
-                <Link
-                    to="/weekly"
+                <a
+                    href="https://m.site.naver.com/20ZdO"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">👥</div>
@@ -100,7 +102,7 @@ const LinkTree = () => {
                         <span className="border border-[#b8856a] text-[#b8856a] text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wider bg-white/50">NEW</span>
                     </div>
                     <ChevronRight className="w-4 h-4 text-gray-300" />
-                </Link>
+                </a>
 
                 <Link
                     to="/service"
