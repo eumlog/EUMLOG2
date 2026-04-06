@@ -20,6 +20,7 @@ import AdminPage from './pages/Admin';
 import InstagramRegionsPage from './pages/Instagram';
 import PolicyPage from './pages/Policy';
 import PolicyPage2 from './pages/Policy2';
+import PolicyPage3 from './pages/Policy3';
 import ProfilePage from './pages/Profile';
 import ServiceDetail from './pages/ServiceDetail';
 import Landing from './pages/Landing';
@@ -67,10 +68,10 @@ const AppContent = () => {
         }
 
         // 기존 HashRouter 형식(#/pricing)으로 접근 시 깔끔한 URL(/pricing)로 리다이렉트
-        // 단, survey와 policy2는 해시 URL을 유지하도록 예외 처리
+        // 단, survey와 policy2, policy3는 해시 URL을 유지하도록 예외 처리
         if (window.location.hash && window.location.hash.startsWith('#/')) {
             const path = window.location.hash.replace('#', '');
-            if (path !== '/survey' && path !== '/policy2') {
+            if (path !== '/survey' && path !== '/policy2' && path !== '/policy3') {
                 navigate(path, { replace: true });
             }
         }
@@ -151,6 +152,7 @@ const AppContent = () => {
                         <Route path="/" element={
                             hashPath === '#/survey' ? <SurveyLinks /> :
                             hashPath === '#/policy2' ? <PolicyPage2 /> :
+                            hashPath === '#/policy3' ? <PolicyPage3 /> :
                             <Home />
                         } />
                         <Route path="/about" element={<About />} />
@@ -164,6 +166,7 @@ const AppContent = () => {
                         <Route path="/instagram" element={<InstagramRegionsPage />} />
                         <Route path="/policy" element={<PolicyPage />} />
                         <Route path="/policy2" element={<PolicyPage2 />} />
+                        <Route path="/policy3" element={<PolicyPage3 />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/survey" element={<SurveyLinks />} />
                         <Route path="/service-detail" element={<ServiceDetail />} />

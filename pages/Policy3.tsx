@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
 
-const PolicyPage2: React.FC = () => {
+const PolicyPage3: React.FC = () => {
   return (
     <div className="bg-eum-bg min-h-screen">
       <PageHeader 
@@ -142,7 +141,7 @@ const PolicyPage2: React.FC = () => {
                 <tbody className="divide-y divide-gray-50">
                    <tr>
                      <td className="py-3 px-2 font-bold bg-gray-50/50">매칭 성사비</td>
-                     <td className="py-3 px-2">40,000원</td>
+                     <td className="py-3 px-2">50,000원</td>
                      <td className="py-3 px-2 font-bold text-eum-accent">30,000원</td>
                      <td className="py-3 px-2 font-bold">20,000원</td>
                    </tr>
@@ -340,4 +339,4 @@ const PolicyPage2: React.FC = () => {
   );
 };
 
-export default PolicyPage2;
+export default PolicyPage3;

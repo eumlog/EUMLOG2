@@ -251,6 +251,7 @@ const AdminPage = () => {
                         <div className="mt-2 flex gap-4">
                              <Link to="/landing2" target="_blank" className="text-xs font-bold text-eum-accent underline">랜딩페이지 2 바로가기</Link>
                              <Link to="/policy2" target="_blank" className="text-xs font-bold text-eum-accent underline">운영규정 V2 바로가기</Link>
+                             <Link to="/policy3" target="_blank" className="text-xs font-bold text-eum-accent underline">운영규정 V3 바로가기</Link>
                              <Link to="/survey" target="_blank" className="text-xs font-bold text-eum-accent underline">설문/프로필작성 바로가기</Link>
                         </div>
                     </div>

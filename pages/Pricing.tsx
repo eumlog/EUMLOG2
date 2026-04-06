@@ -107,7 +107,7 @@ const PricingPage = () => (
               </li>
               <li className="flex items-center gap-2 text-gray-700 text-[13px] font-medium">
                 <Check className="w-3.5 h-3.5 text-eum-accent" />
-                <span>에프터 케어 포함</span>
+                <span>에프터 케어 포함 (기간 6개월)</span>
               </li>
             </ul>
 
@@ -146,7 +146,7 @@ const PricingPage = () => (
               </li>
               <li className="flex items-center gap-2 text-gray-300 text-[13px] font-medium">
                 <Check className="w-3.5 h-3.5 text-eum-accent" />
-                <span>에프터 케어 포함</span>
+                <span>에프터 케어 포함 (기간 6개월)</span>
               </li>
               <li className="flex items-center gap-2 text-amber-400 text-[13px] font-bold">
                 <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
@@ -170,16 +170,17 @@ const PricingPage = () => (
 
         {/* After Care & Meeting Guarantee Description */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 mb-20 md:mb-32 text-center">
-            <div className="flex items-center gap-2">
-                <BadgeCheck className="w-5 h-5 text-white fill-eum-dark" />
-                <p className="text-sm md:text-base font-bold text-gray-700">
+            <div className="flex items-start md:items-center gap-2">
+                <BadgeCheck className="w-5 h-5 text-white fill-eum-dark shrink-0 mt-0.5 md:mt-0" />
+                <p className="text-sm md:text-base font-bold text-gray-700 text-left">
                     <span className="text-eum-dark font-black">에프터케어</span> : 3개월 종료 후에도 나를 선택한 상대가 있다면 무료 연결
+                    <span className="block md:inline-block md:ml-2 text-[11px] md:text-xs text-gray-400 font-medium mt-0.5 md:mt-0">※ 서비스 제공 기간: 6개월</span>
                 </p>
             </div>
             <div className="hidden md:block w-px h-4 bg-gray-300"></div>
-            <div className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
-                <p className="text-sm md:text-base font-bold text-gray-700">
+            <div className="flex items-start md:items-center gap-2">
+                <Star className="w-5 h-5 text-amber-400 fill-amber-400 shrink-0 mt-0.5 md:mt-0" />
+                <p className="text-sm md:text-base font-bold text-gray-700 text-left">
                     <span className="text-amber-500 font-black">만남 보장</span> : 약속된 만남 횟수까지 기간 무제한 연장
                 </p>
             </div>
@@ -199,7 +200,7 @@ const PricingPage = () => (
              <div className="grid grid-cols-3 gap-2 md:gap-4 max-w-lg mx-auto">
                 <div className="bg-white p-2 md:p-4 rounded-xl md:rounded-2xl border border-gray-200 shadow-sm">
                     <div className="text-[10px] md:text-xs text-gray-400 font-bold mb-1">라이트</div>
-                    <div className="text-sm md:text-lg font-black text-eum-dark">40,000원</div>
+                    <div className="text-sm md:text-lg font-black text-eum-dark">50,000원</div>
                 </div>
                 <div className="bg-white p-2 md:p-4 rounded-xl md:rounded-2xl border border-eum-accent/30 shadow-sm">
                     <div className="text-[10px] md:text-xs text-eum-accent font-bold mb-1">스탠다드</div>
