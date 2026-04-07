@@ -96,7 +96,7 @@ const ServiceDetail = () => {
                             <ul className="list-disc list-inside space-y-2 text-sm md:text-base text-gray-700 bg-gray-50 p-5 rounded-xl">
                                 <li>총 3명의 <strong>초성 / 나이 / 거주지역</strong>을 안내드리며</li>
                                 <li>이 중 1명만 실제 소개 대상입니다 (2명은 랜덤 삽입)</li>
-                                <li>지인이라면 <strong>새로이 보내드립니다.</strong></li>
+                                <li>지인으로 의심되면 <strong>새로이 보내드립니다.</strong></li>
                             </ul>
                             <blockquote className="bg-gray-800 text-white p-4 rounded-xl text-sm font-mono">
                                 예시)<br />
