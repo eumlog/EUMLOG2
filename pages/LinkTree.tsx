@@ -56,11 +56,7 @@ const LinkTree = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/35 to-black/80" />
                 <div className="absolute bottom-0 left-0 right-0 px-6 pb-8">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 border border-white/20 rounded-full text-[10px] text-white/70 mb-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#e8b49a] animate-pulse" />
-                        MATCHING ACTIVE
-                    </div>
-                    <div className="inline-flex items-center px-2.5 py-1 bg-[#f0c8b0]/20 border border-[#f0c8b0]/50 rounded-md text-[11px] font-bold text-[#f0c8b0] mb-3 ml-2">
+                    <div className="inline-flex items-center px-2.5 py-1 bg-[#f0c8b0]/20 border border-[#f0c8b0]/50 rounded-md text-[11px] font-bold text-[#f0c8b0] mb-3">
                         광주 · 여수 · 순천 · 광양 · 목포
                     </div>
                     <h1 className="text-[28px] font-black text-white leading-snug tracking-tight mb-2">
