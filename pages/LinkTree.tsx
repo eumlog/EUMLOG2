@@ -73,6 +73,20 @@ const LinkTree = () => {
             {/* ── 2. 링크 버튼들 ── */}
             <div className="px-6 py-6 flex flex-col gap-3">
                 <a
+                    href="https://m.site.naver.com/1Pznd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-4 shadow-sm transition-transform hover:-translate-y-0.5"
+                >
+                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📝</div>
+                    <div className="flex-1">
+                        <p className="text-[13px] font-bold text-gray-900">소개팅 신청서 작성</p>
+                        <p className="text-[11px] text-gray-500 font-medium">네이버폼 · 1분 완료</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-gray-400" />
+                </a>
+
+                <a
                     href="https://m.site.naver.com/22ZhB"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -87,20 +101,6 @@ const LinkTree = () => {
                         <p className="text-[11px] text-gray-500">신청 전 꼭 읽어보세요</p>
                     </div>
                     <ChevronRight className="w-4 h-4 text-gray-300" />
-                </a>
-
-                <a
-                    href="https://m.site.naver.com/1Pznd"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-4 shadow-sm transition-transform hover:-translate-y-0.5"
-                >
-                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📝</div>
-                    <div className="flex-1">
-                        <p className="text-[13px] font-bold text-gray-900">소개팅 신청서 작성</p>
-                        <p className="text-[11px] text-gray-500 font-medium">네이버폼 · 1분 완료</p>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-gray-400" />
                 </a>
 
                 <div className="flex justify-center my-4">
