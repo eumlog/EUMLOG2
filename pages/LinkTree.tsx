@@ -120,18 +120,6 @@ const LinkTree = () => {
                     </div>
                     <ChevronRight className="w-4 h-4 text-gray-300" />
                 </a>
-
-                <Link
-                    to="/service"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
-                >
-                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📌</div>
-                    <div className="flex-1">
-                        <p className="text-[13px] font-bold text-gray-900">진행 방식</p>
-                        <p className="text-[11px] text-gray-500">어떻게 진행되나요?</p>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-gray-300" />
-                </Link>
             </div>
 
             {/* ── 8. 하단 브랜딩 ── */}
