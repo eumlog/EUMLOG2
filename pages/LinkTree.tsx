@@ -48,11 +48,11 @@ const LinkTree = () => {
             </div>
 
             {/* ── 1. HERO 이미지 ── */}
-            <div className="relative w-full h-[540px] overflow-hidden">
+            <div className="relative w-full h-[380px] overflow-hidden">
                 <img
                     src={IMG_HERO}
                     alt="이음로그"
-                    className="w-full h-full object-cover object-[center_15%]"
+                    className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/35 to-black/80" />
                 <div className="absolute bottom-0 left-0 right-0 px-6 pb-8">

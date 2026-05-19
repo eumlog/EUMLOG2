@@ -47,7 +47,6 @@ const PolicyPage2: React.FC = () => {
                      <td className="py-2 px-3 font-bold text-gray-500 bg-gray-50/30">소개 방식</td>
                      <td className="py-2 px-3">
                        3개월간 횟수 제한 없이 1명씩 순차 제공 (기본 5~7일 주기)<br/>
-                       <span className="text-[9px] md:text-xs text-gray-400 block mt-1">※ 신중한 매칭을 위해 주기는 유동적일 수 있으나, 주 1회 제공은 보장합니다.</span>
                        <span className="text-[9px] md:text-xs text-gray-400 block mt-1">※ 프로필은 주 1회 제공을 원칙으로 하나, 상황에 따라 지연될 수 있으며 총 12명 제공은 보장됩니다.</span>
                      </td>
                    </tr>
