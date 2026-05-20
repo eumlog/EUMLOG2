@@ -39,7 +39,7 @@ const PricingPage = () => (
                 </h3>
                 
                 <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-2xl mx-auto">
-                    {['나이', '지역', '키', '흡연여부', '종교', '직업', '연봉', '학력', '자녀계획'].map((item, i) => (
+                    {['나이', '키', '흡연여부', '종교', '직업', '연봉', '학력', '자녀계획'].map((item, i) => (
                         <span key={i} className="bg-white/20 text-white border border-white/30 px-4 py-2.5 rounded-2xl text-sm md:text-base font-bold shadow-lg backdrop-blur-sm">
                             {item}
                         </span>
@@ -75,12 +75,12 @@ const PricingPage = () => (
             <div className="mt-auto space-y-3 pt-6 border-t border-gray-100">
               <div className="flex justify-between items-center px-1">
                 <span className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Male</span>
-                <span className="text-lg font-black text-gray-900">180,000원</span>
+                <span className="text-lg font-black text-gray-900">260,000원</span>
               </div>
               <div className="w-full h-px bg-gray-100"></div>
               <div className="flex justify-between items-center px-1">
                 <span className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Female</span>
-                <span className="text-lg font-black text-gray-900">120,000원</span>
+                <span className="text-lg font-black text-gray-900">180,000원</span>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ const PricingPage = () => (
               </li>
               <li className="flex items-center gap-2 text-gray-700 text-[13px] font-medium">
                 <Check className="w-3.5 h-3.5 text-eum-accent" />
-                <span>에프터 케어 포함 (기간 6개월)</span>
+                <span>에프터 케어 포함 (기간 3개월)</span>
               </li>
             </ul>
 
@@ -142,11 +142,11 @@ const PricingPage = () => (
               </li>
               <li className="flex items-center gap-2 text-white font-bold text-[13px] bg-white/10 p-2 rounded-lg border border-white/5">
                 <BadgeCheck className="w-4 h-4 text-eum-accent" />
-                <span>조건 5개 완벽 보장</span>
+                <span>조건 4개 완벽 보장</span>
               </li>
               <li className="flex items-center gap-2 text-gray-300 text-[13px] font-medium">
                 <Check className="w-3.5 h-3.5 text-eum-accent" />
-                <span>에프터 케어 포함 (기간 6개월)</span>
+                <span>에프터 케어 포함 (기간 3개월)</span>
               </li>
               <li className="flex items-center gap-2 text-amber-400 text-[13px] font-bold">
                 <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
@@ -174,7 +174,7 @@ const PricingPage = () => (
                 <BadgeCheck className="w-5 h-5 text-white fill-eum-dark shrink-0 mt-0.5 md:mt-0" />
                 <p className="text-sm md:text-base font-bold text-gray-700 text-left">
                     <span className="text-eum-dark font-black">에프터케어</span> : 3개월 종료 후에도 나를 선택한 상대가 있다면 무료 연결
-                    <span className="block md:inline-block md:ml-2 text-[11px] md:text-xs text-gray-400 font-medium mt-0.5 md:mt-0">※ 서비스 제공 기간: 6개월</span>
+                    <span className="block md:inline-block md:ml-2 text-[11px] md:text-xs text-gray-400 font-medium mt-0.5 md:mt-0">※ 서비스 제공 기간: 3개월</span>
                 </p>
             </div>
             <div className="hidden md:block w-px h-4 bg-gray-300"></div>

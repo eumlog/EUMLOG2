@@ -20,7 +20,7 @@ const SurveyLinks = () => {
 
           {/* 상세 설문 작성 (크게) */}
           <a 
-            href="https://tally.so/r/KYoR4D" 
+            href="https://tally.so/r/kdJB7d" 
             target="_blank" 
             rel="noopener noreferrer"
             className="block w-full bg-eum-dark text-white rounded-[2rem] p-6 md:p-8 text-center shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-800"
