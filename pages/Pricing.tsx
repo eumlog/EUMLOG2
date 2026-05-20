@@ -75,12 +75,12 @@ const PricingPage = () => (
             <div className="mt-auto space-y-3 pt-6 border-t border-gray-100">
               <div className="flex justify-between items-center px-1">
                 <span className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Male</span>
-                <span className="text-lg font-black text-gray-900">260,000원</span>
+                <span className="text-lg font-black text-gray-900">240,000원</span>
               </div>
               <div className="w-full h-px bg-gray-100"></div>
               <div className="flex justify-between items-center px-1">
                 <span className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Female</span>
-                <span className="text-lg font-black text-gray-900">180,000원</span>
+                <span className="text-lg font-black text-gray-900">160,000원</span>
               </div>
             </div>
           </div>

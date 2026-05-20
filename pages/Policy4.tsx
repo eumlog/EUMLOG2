@@ -101,13 +101,13 @@ const PolicyPage4: React.FC = () => {
                    </tr>
                    <tr>
                      <td className="py-3 px-2 font-bold bg-gray-50/50">남성 이용권</td>
-                     <td className="py-3 px-2">260,000원</td>
+                     <td className="py-3 px-2">240,000원</td>
                      <td className="py-3 px-2 font-bold text-eum-accent">320,000원</td>
                      <td className="py-3 px-2 font-bold">480,000원</td>
                    </tr>
                    <tr>
                      <td className="py-3 px-2 font-bold bg-gray-50/50">여성 이용권</td>
-                     <td className="py-3 px-2">180,000원</td>
+                     <td className="py-3 px-2">160,000원</td>
                      <td className="py-3 px-2 font-bold text-eum-accent">230,000원</td>
                      <td className="py-3 px-2 font-bold">360,000원</td>
                    </tr>
