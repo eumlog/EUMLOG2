@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Check, Star, Users, Sparkles, Gift } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
@@ -58,13 +57,13 @@ const PricingPage = () => (
         </div>
 
         {/* 3. Pricing Cards (라이트 → 스탠다드 → 프리미엄) */}
-        <div className="flex flex-col gap-4 md:gap-5 mb-12 md:mb-20">
+        <div className="flex flex-col gap-4 md:grid md:grid-cols-3 md:gap-5 md:items-stretch mb-12 md:mb-20">
           
           {/* 라이트 카드 */}
-          <div className="bg-white border-[0.5px] border-black/[0.12] rounded-[1.4rem] md:rounded-[2rem] p-7 md:p-10">
+          <div className="bg-white border-[1.5px] border-black/[0.18] rounded-[1.4rem] md:rounded-[2rem] p-7 md:p-10 flex flex-col">
             <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-7">라이트</h4>
             
-            <ul className="space-y-3.5 mb-7">
+            <ul className="space-y-3.5 mb-7 flex-1">
               <li className="flex items-center gap-3 text-sm md:text-base text-gray-600 font-medium">
                 <Check className="w-[17px] h-[17px] text-gray-400 shrink-0" strokeWidth={2.5} />
                 <span>3개월 무제한 소개</span>
@@ -89,13 +88,13 @@ const PricingPage = () => (
           </div>
 
           {/* 스탠다드 카드 (POPULAR) */}
-          <div className="bg-white border-[0.5px] border-black/[0.12] rounded-[1.4rem] md:rounded-[2rem] p-7 md:p-10 relative">
+          <div className="bg-white border-[1.5px] border-[#6E8264]/50 rounded-[1.4rem] md:rounded-[2rem] p-7 md:p-10 relative flex flex-col">
             <div className="absolute top-5 right-[-2px] bg-[#6E8264] text-white text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-l-full">
               POPULAR
             </div>
             <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-7">스탠다드</h4>
             
-            <ul className="space-y-3.5 mb-7">
+            <ul className="space-y-3.5 mb-7 flex-1">
               <li className="flex items-center gap-3 text-sm md:text-base text-gray-600 font-medium">
                 <Check className="w-[17px] h-[17px] text-[#6E8264] shrink-0" strokeWidth={2.5} />
                 <span>3개월 무제한 소개</span>
@@ -125,13 +124,13 @@ const PricingPage = () => (
           </div>
 
           {/* 프리미엄 카드 (BEST) */}
-          <div className="bg-[#F5F0E5] border-[0.5px] border-[#B8956A]/40 rounded-[1.4rem] md:rounded-[2rem] p-7 md:p-10 relative">
+          <div className="bg-[#F5F0E5] border-[1.5px] border-[#B8956A]/55 rounded-[1.4rem] md:rounded-[2rem] p-7 md:p-10 relative flex flex-col">
             <div className="absolute top-5 right-[-2px] bg-[#B8956A] text-white text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-l-full">
               BEST
             </div>
             <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-7">프리미엄</h4>
             
-            <ul className="space-y-3.5 mb-4">
+            <ul className="space-y-3.5 mb-4 flex-1">
               <li className="flex items-center gap-3 text-sm md:text-base text-gray-600 font-medium">
                 <Check className="w-[17px] h-[17px] text-[#B8956A] shrink-0" strokeWidth={2.5} />
                 <span>3개월 무제한 소개</span>
@@ -151,7 +150,7 @@ const PricingPage = () => (
             <div className="bg-[#E8D5BC] border-[0.5px] border-[#8B6E3F]/25 rounded-xl px-3.5 py-3.5 mb-7 flex items-center gap-3">
               <Star className="w-[19px] h-[19px] fill-[#8B6E3F] text-[#8B6E3F] shrink-0" />
               <span className="text-sm md:text-base font-bold text-[#5C4929]">
-                만남 성사 <span className="text-[#8B6E3F]">3회 보장</span>
+                만남 <span className="text-[#8B6E3F]">3회 보장</span>
               </span>
               <Sparkles className="w-3.5 h-3.5 text-[#8B6E3F] ml-auto" />
             </div>
@@ -199,12 +198,12 @@ const PricingPage = () => (
           </div>
         </div>
 
-        {/* 5. 매칭 성사비 */}
+        {/* 5. 만남 성사비 */}
         <div className="max-w-[800px] mx-auto">
           <div className="bg-[#FAF6EE] rounded-[1.5rem] md:rounded-[2rem] p-7 md:p-12 text-center">
             <div className="flex flex-col items-center justify-center gap-3 mb-6 md:mb-8">
               <Users className="w-6 h-6 text-gray-900" />
-              <h3 className="text-base md:text-2xl font-bold text-gray-900">매칭 성사비란?</h3>
+              <h3 className="text-base md:text-2xl font-bold text-gray-900">만남 성사비란?</h3>
               <p className="text-gray-600 text-sm md:text-base font-medium keep-all max-w-lg mx-auto leading-relaxed">
                 서로의 프로필을 확인하고, <span className="text-gray-900 font-bold">실제 만남을 수락했을 때만</span> 발생하는 비용입니다.
               </p>
@@ -224,18 +223,40 @@ const PricingPage = () => (
                 <div className="text-[15px] md:text-lg font-black text-white leading-tight">20,000<span className="text-[11px] md:text-sm font-bold ml-0.5">원</span></div>
               </div>
             </div>
-            <p className="text-[11px] md:text-xs text-gray-400 mt-5 md:mt-6 font-medium">* 1회 매칭 성사 시 발생하는 비용입니다.</p>
+            <p className="text-[11px] md:text-xs text-gray-400 mt-5 md:mt-6 font-medium">* 1회 만남 성사 시 발생하는 비용입니다.</p>
           </div>
         </div>
         
-        {/* 6. CTA */}
-        <div className="text-center mt-16 md:mt-32 mb-10">
-          <Link to="/apply" className="group relative inline-flex items-center justify-center px-10 py-5 md:px-16 md:py-6 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
-            <span className="relative z-10 flex items-center gap-3 text-base md:text-lg">
-              지금 바로 신청하기 <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-eum-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </Link>
+        {/* 6. 클로징 카피 + CTA */}
+        <div className="mt-20 md:mt-32 mb-10">
+          {/* 클로징 메시지 */}
+          <div className="text-center mb-10 md:mb-12">
+            <h3 className="text-xl md:text-3xl font-black text-gray-900 mb-5 md:mb-7 leading-snug">
+              "평생의 인연을 위한 3개월"
+            </h3>
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed keep-all font-medium">
+              반신반의하면서 시작한 분들이<br />
+              지금은 연인으로 만나고 있어요.
+            </p>
+            <p className="text-base md:text-lg text-gray-900 font-bold mt-6 keep-all">
+              다음은 당신 차례입니다.
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <a 
+              href="https://www.eumlog.co.kr/links" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center px-10 py-5 md:px-16 md:py-6 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95"
+            >
+              <span className="relative z-10 flex items-center gap-3 text-base md:text-lg">
+                지금 바로 신청하기 <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-eum-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+          </div>
         </div>
 
       </div>
