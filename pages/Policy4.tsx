@@ -59,7 +59,7 @@ const PolicyPage4: React.FC = () => {
                    <tr>
                      <td className="py-2 px-3 font-bold text-gray-500 bg-gray-50/30">에프터 케어</td>
                      <td className="py-2 px-3">
-                       3개월 기간이 종료된 후에도, <span className="font-bold text-eum-dark">나를 선택한 상대가 있다면</span> 해당 프로필 무료 제공 (기간 3개월)<br/>
+                       3개월 기간이 종료된 후에도, <span className="font-bold text-eum-dark">나를 선택한 상대가 있다면</span> 해당 프로필 무료 제공 (기간 6개월)<br/>
                        <span className="text-[9px] md:text-xs text-gray-400">※ 기간 종료 후 매칭 기회를 놓치지 않도록 지원하는 서비스</span>
                      </td>
                    </tr>
@@ -114,8 +114,8 @@ const PolicyPage4: React.FC = () => {
                    <tr className="bg-eum-bg/20">
                      <td className="py-3 px-2 font-bold bg-gray-100/50">추가 혜택</td>
                      <td className="py-3 px-2 text-gray-400">-</td>
-                     <td className="py-3 px-2 text-[9px] md:text-xs font-bold text-eum-accent">에프터 케어 포함 (기간 3개월)</td>
-                     <td className="py-3 px-2 text-[9px] md:text-xs font-bold">에프터 케어(기간 3개월) + 만남 보장</td>
+                     <td className="py-3 px-2 text-[9px] md:text-xs font-bold text-eum-accent">에프터 케어 포함 (기간 6개월)</td>
+                     <td className="py-3 px-2 text-[9px] md:text-xs font-bold">에프터 케어(기간 6개월) + 만남 보장</td>
                    </tr>
                 </tbody>
               </table>
