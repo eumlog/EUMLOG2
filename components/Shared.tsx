@@ -73,11 +73,11 @@ export const PageHeader = ({ title, subtitle }: { title: string; subtitle: strin
 
 export const FloatingMenu = () => {
     const location = useLocation();
-    // blocking-system 페이지에서는 기본적으로 닫혀있도록 설정
-    const [isOpen, setIsOpen] = useState(location.pathname !== '/blocking-system');
+    // blocking-system, pricing 페이지에서는 기본적으로 닫혀있도록 설정
+    const [isOpen, setIsOpen] = useState(location.pathname !== '/blocking-system' && location.pathname !== '/pricing');
 
     useEffect(() => {
-        if (location.pathname === '/blocking-system') {
+        if (location.pathname === '/blocking-system' || location.pathname === '/pricing') {
             setIsOpen(false);
         } else {
             setIsOpen(true);

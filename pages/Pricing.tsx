@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Star, Users, Sparkles, Gift } from 'lucide-react';
+import { Check, Star, Sparkles, Gift } from 'lucide-react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
 
@@ -7,57 +7,71 @@ const PricingPage = () => (
   <div className="bg-white min-h-screen">
     <PageHeader title="멤버십 안내" subtitle="Pricing Plan" />
     
+    {/* 🔥 매칭 조건 floating banner (스크롤 시 상단 플로팅, Navbar 아래 고정) */}
+    <div className="sticky top-[80px] md:top-[90px] z-40 w-full px-4 mb-4 md:mb-8 pointer-events-none">
+      <div className="max-w-fit mx-auto pointer-events-auto">
+        <div className="bg-white/95 backdrop-blur-md shadow-[0_2px_12px_rgb(0,0,0,0.06)] border border-[#E4E0D6] rounded-full px-2.5 py-1.5 md:px-3 flex items-center justify-center gap-1.5 md:gap-2">
+          <div className="text-[10px] md:text-[11px] text-[#6E8264] font-extrabold tracking-tight whitespace-nowrap shrink-0 pl-1.5">매칭조건</div>
+          <div className="flex gap-1 shrink-0 overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            {['나이', '키', '흡연', '종교', '직업', '연봉', '학력', '자녀'].map((item, i) => (
+              <span key={i} className="bg-[#FAF6EE]/70 text-gray-700 px-1.5 md:px-2 py-[1px] md:py-[1.5px] rounded-[5px] text-[9.5px] md:text-[10.5px] font-bold border border-[#E4E0D6] whitespace-nowrap">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <section id="pricing" className="bg-white">
-      <div className="py-16 md:py-32 px-0 max-w-[800px] w-[88%] md:w-full mx-auto">
+      <div className="py-12 md:py-32 px-0 max-w-[800px] w-[84%] md:w-full mx-auto">
         
-        {/* 1. Header & Description */}
-        <div className="text-center mb-12 md:mb-20">
+        {/* 1. Header */}
+        <div className="text-center mb-10 md:mb-14">
           <h2 className="font-eng text-2xl md:text-4xl font-bold text-eum-accent mb-3 uppercase tracking-widest">
             Membership
           </h2>
           <h3 className="font-sans text-xl md:text-3xl font-bold text-gray-900 leading-tight">
-            3개월 구독제 솔루션<br />
-            <span className="text-[13px] font-bold text-eum-accent mt-3 inline-block px-3 py-1 bg-eum-accent/10 rounded-full">
-              최소 12명 이상의 프로필 제공 보장
-            </span>
+            3개월 구독제 솔루션
           </h3>
-          <p className="mt-6 text-gray-500 max-w-xl mx-auto text-sm md:text-base leading-relaxed keep-all font-medium">
-            단순히 횟수만 채우는 만남이 아닙니다.<br />
-            3개월 동안 매니저가 이상형에 가까운 인연을 <br className="hidden md:block" />
-            찾을 때까지 함께합니다.
-          </p>
         </div>
 
-        {/* 2. Conditions Section (카키 테두리 + 베이지 박스) */}
-        <div className="max-w-[800px] mx-auto mb-12 md:mb-20">
-          <div className="bg-white border-[1.5px] border-[#6E8264] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-10 text-center">
-            <h3 className="text-base md:text-2xl font-bold text-gray-900 mb-5 md:mb-8 flex items-center justify-center gap-2">
-              <div className="w-1.5 h-1.5 bg-[#6E8264] rounded-full"></div>
-              매칭 조건 항목
-              <div className="w-1.5 h-1.5 bg-[#6E8264] rounded-full"></div>
-            </h3>
-            
-            {/* 모바일: 4x2 그리드 */}
-            <div className="grid grid-cols-4 gap-2 md:hidden">
-              {['나이', '키', '흡연', '종교', '직업', '연봉', '학력', '자녀'].map((item, i) => (
-                <span key={i} className="bg-[#FAF6EE] text-gray-900 border border-black/10 px-2 py-2.5 rounded-xl text-[12px] font-bold whitespace-nowrap">
-                  {item}
-                </span>
-              ))}
+        {/* 2. 약속 카드 (소개 주기 + 최소 보장) */}
+        <div className="max-w-[600px] mx-auto px-5 md:px-0 mb-10 md:mb-14">
+          <div className="bg-[#FAF6EE] rounded-2xl p-5 md:p-7 grid grid-cols-[1fr_1px_1fr] gap-4 md:gap-6 items-center">
+            <div className="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6E8264" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+              <div className="text-[11px] md:text-xs text-gray-500 mt-2">소개 주기</div>
+              <div className="text-base md:text-xl font-bold text-gray-900 mt-0.5">5~7일마다</div>
             </div>
-            {/* 데스크탑: flex wrap */}
-            <div className="hidden md:flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
-              {['나이', '키', '흡연여부', '종교', '직업', '연봉', '학력', '자녀계획'].map((item, i) => (
-                <span key={i} className="bg-[#FAF6EE] text-gray-900 border border-black/10 px-4 py-2.5 rounded-2xl text-base font-bold">
-                  {item}
-                </span>
-              ))}
+            <div className="w-px h-14 bg-[#6E8264]/15"></div>
+            <div className="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6E8264" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <div className="text-[11px] md:text-xs text-gray-500 mt-2">최소 보장</div>
+              <div className="text-base md:text-xl font-bold text-gray-900 mt-0.5">12명+</div>
             </div>
           </div>
         </div>
 
-        {/* 3. Pricing Cards (라이트 → 스탠다드 → 프리미엄) */}
-        <div className="flex flex-col gap-4 md:grid md:grid-cols-3 md:gap-5 md:items-stretch mb-12 md:mb-20">
+        {/* 3. 비용 안내 카피 */}
+        <div className="max-w-[600px] mx-auto mb-10 md:mb-14 text-center px-2">
+          <p className="text-sm md:text-base text-gray-900 font-medium leading-relaxed">
+            이음로그 비용은<br />
+            <span className="font-bold text-base md:text-xl">2단계 입니다.</span>
+          </p>
+        </div>
+
+        {/* 4. ① 3개월 구독료 섹션 헤더 */}
+        <div className="max-w-[760px] mx-auto flex items-center gap-3 mb-5 md:mb-7 px-5 md:px-1">
+          <div className="bg-[#6E8264] text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0">1</div>
+          <div className="flex-1">
+            <div className="text-base md:text-xl font-bold text-gray-900 leading-tight">3개월 구독료</div>
+            <div className="text-[11px] md:text-sm text-gray-500 mt-0.5">아래 3가지 멤버십 중 선택하세요</div>
+          </div>
+        </div>
+
+        {/* 5. Pricing Cards (라이트 → 스탠다드 → 프리미엄) */}
+        <div className="flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-5 md:items-stretch max-w-[760px] mx-auto px-5 md:px-0 mb-14 md:mb-20">
           
           {/* 라이트 카드 */}
           <div className="bg-white border-[1.5px] border-black/[0.18] rounded-[1.4rem] md:rounded-[2rem] p-7 md:p-10 flex flex-col">
@@ -198,16 +212,22 @@ const PricingPage = () => (
           </div>
         </div>
 
-        {/* 5. 만남 성사비 */}
+        {/* 5. ② 만남 성사비 섹션 헤더 */}
+        <div className="flex items-center gap-3 mb-5 md:mb-7 px-1">
+          <div className="bg-[#B8956A] text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0">2</div>
+          <div className="flex-1">
+            <div className="text-base md:text-xl font-bold text-gray-900 leading-tight">만남 성사비</div>
+            <div className="text-[11px] md:text-sm text-gray-500 mt-0.5">실제 만남을 수락했을 때만 발생해요</div>
+          </div>
+          <div className="text-[10px] md:text-xs text-[#B8956A] bg-[#B8956A]/18 px-2.5 py-1 rounded-full font-bold whitespace-nowrap">1회당</div>
+        </div>
+
+        {/* 만남 성사비 박스 */}
         <div className="max-w-[800px] mx-auto">
           <div className="bg-[#FAF6EE] rounded-[1.5rem] md:rounded-[2rem] p-7 md:p-12 text-center">
-            <div className="flex flex-col items-center justify-center gap-3 mb-6 md:mb-8">
-              <Users className="w-6 h-6 text-gray-900" />
-              <h3 className="text-base md:text-2xl font-bold text-gray-900">만남 성사비란?</h3>
-              <p className="text-gray-600 text-sm md:text-base font-medium keep-all max-w-lg mx-auto leading-relaxed">
-                서로의 프로필을 확인하고, <span className="text-gray-900 font-bold">실제 만남을 수락했을 때만</span> 발생하는 비용입니다.
-              </p>
-            </div>
+            <p className="text-gray-600 text-sm md:text-base font-medium keep-all max-w-lg mx-auto leading-relaxed mb-6 md:mb-8">
+              서로의 프로필을 확인하고, <span className="text-gray-900 font-bold">실제 만남을 수락했을 때만</span> 발생하는 비용입니다.
+            </p>
             
             <div className="grid grid-cols-3 gap-2.5 md:gap-4 max-w-lg mx-auto">
               <div className="bg-white p-3.5 md:p-4 rounded-2xl border border-black/[0.08]">
@@ -262,8 +282,25 @@ const PricingPage = () => (
       </div>
     </section>
 
-    <div className="bg-[#0f0f0f] text-white">
+    <div className="bg-[#0f0f0f] text-white pb-24 md:pb-0">
       <Footer />
+    </div>
+
+    {/* 🔥 하단 플로팅 CTA (페이지 어디서든 항상 보임) */}
+    <div className="fixed bottom-0 left-0 right-0 z-50 pointer-events-none">
+      <div className="bg-gradient-to-t from-white via-white/95 to-white/0 pt-8 pb-4 md:pb-5 px-4 md:px-6">
+        <div className="max-w-[600px] mx-auto pointer-events-auto">
+          <a 
+            href="https://www.eumlog.co.kr/links" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2.5 bg-eum-dark text-white font-bold rounded-full py-4 md:py-5 shadow-2xl active:scale-95 transition-transform hover:bg-black"
+          >
+            <span className="text-[15px] md:text-base">지금 바로 신청하기</span>
+            <Sparkles className="w-[18px] h-[18px] md:w-5 md:h-5" />
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 );
