@@ -31,11 +31,11 @@ const PricingPage = () => (
 
         {/* 2. Conditions Section (카키 테두리 + 베이지 박스) */}
         <div className="max-w-[800px] mx-auto mb-12 md:mb-20">
-          <div className="bg-white border-[1.5px] border-eum-accent rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-10 text-center">
+          <div className="bg-white border-[1.5px] border-[#6E8264] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-10 text-center">
             <h3 className="text-base md:text-2xl font-bold text-gray-900 mb-5 md:mb-8 flex items-center justify-center gap-2">
-              <div className="w-1.5 h-1.5 bg-eum-accent rounded-full"></div>
+              <div className="w-1.5 h-1.5 bg-[#6E8264] rounded-full"></div>
               매칭 조건 항목
-              <div className="w-1.5 h-1.5 bg-eum-accent rounded-full"></div>
+              <div className="w-1.5 h-1.5 bg-[#6E8264] rounded-full"></div>
             </h3>
             
             {/* 모바일: 4x2 그리드 */}
@@ -90,35 +90,35 @@ const PricingPage = () => (
 
           {/* 스탠다드 카드 (POPULAR) */}
           <div className="bg-white border-[0.5px] border-black/[0.12] rounded-[1.4rem] md:rounded-[2rem] p-7 md:p-10 relative">
-            <div className="absolute top-5 right-[-2px] bg-eum-accent text-white text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-l-full">
+            <div className="absolute top-5 right-[-2px] bg-[#6E8264] text-white text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-l-full">
               POPULAR
             </div>
             <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-7">스탠다드</h4>
             
             <ul className="space-y-3.5 mb-7">
               <li className="flex items-center gap-3 text-sm md:text-base text-gray-600 font-medium">
-                <Check className="w-[17px] h-[17px] text-eum-accent shrink-0" strokeWidth={2.5} />
+                <Check className="w-[17px] h-[17px] text-[#6E8264] shrink-0" strokeWidth={2.5} />
                 <span>3개월 무제한 소개</span>
               </li>
               <li className="flex items-center gap-3 text-sm md:text-base text-gray-600 font-medium">
-                <Check className="w-[17px] h-[17px] text-eum-accent shrink-0" strokeWidth={2.5} />
+                <Check className="w-[17px] h-[17px] text-[#6E8264] shrink-0" strokeWidth={2.5} />
                 <span>조건 <strong className="font-bold text-gray-900">2개</strong> 보장</span>
               </li>
               <li className="flex items-center gap-3 text-sm md:text-base text-gray-900 font-bold">
-                <Gift className="w-[17px] h-[17px] text-eum-accent shrink-0" />
+                <Gift className="w-[17px] h-[17px] text-[#6E8264] shrink-0" />
                 <span>에프터 케어 추가</span>
-                <span className="text-[10px] text-eum-accent bg-eum-accent/10 px-2 py-0.5 rounded-full ml-auto whitespace-nowrap font-bold">6개월</span>
+                <span className="text-[10px] text-[#6E8264] bg-[#6E8264]/10 px-2 py-0.5 rounded-full ml-auto whitespace-nowrap font-bold">6개월</span>
               </li>
             </ul>
 
-            <div className="border-t border-eum-accent/20 pt-5">
+            <div className="border-t border-[#6E8264]/20 pt-5">
               <div className="flex justify-between items-center">
-                <span className="text-[10px] text-eum-accent/70 font-bold tracking-wider">MALE</span>
+                <span className="text-[10px] text-[#6E8264]/70 font-bold tracking-wider">MALE</span>
                 <span className="text-lg md:text-xl font-black text-gray-900">320,000원</span>
               </div>
-              <div className="w-full h-px bg-eum-accent/15 my-3"></div>
+              <div className="w-full h-px bg-[#6E8264]/15 my-3"></div>
               <div className="flex justify-between items-center">
-                <span className="text-[10px] text-eum-accent/70 font-bold tracking-wider">FEMALE</span>
+                <span className="text-[10px] text-[#6E8264]/70 font-bold tracking-wider">FEMALE</span>
                 <span className="text-lg md:text-xl font-black text-gray-900">230,000원</span>
               </div>
             </div>
@@ -174,11 +174,11 @@ const PricingPage = () => (
         {/* 4. 에프터케어 / 만남보장 안내 */}
         <div className="max-w-[600px] mx-auto mb-12 md:mb-20 px-1">
           <div className="flex items-start gap-3 mb-4">
-            <Gift className="w-[18px] h-[18px] text-eum-accent mt-0.5 shrink-0" />
+            <Gift className="w-[18px] h-[18px] text-[#6E8264] mt-0.5 shrink-0" />
             <div className="flex-1">
               <div className="text-[13px] md:text-base leading-relaxed">
                 <strong className="font-bold text-gray-900">에프터케어</strong>
-                <span className="text-[10px] md:text-xs text-eum-accent bg-eum-accent/10 px-2 py-0.5 rounded-full ml-1.5 font-bold align-[1px]">6개월</span>
+                <span className="text-[10px] md:text-xs text-[#6E8264] bg-[#6E8264]/10 px-2 py-0.5 rounded-full ml-1.5 font-bold align-[1px]">6개월</span>
               </div>
               <div className="text-[13px] md:text-base text-gray-600 mt-1 leading-relaxed">
                 3개월 종료 후에도 나를 선택한 상대가 있다면 무료 연결
@@ -215,9 +215,9 @@ const PricingPage = () => (
                 <div className="text-[11px] md:text-xs text-gray-500 font-bold mb-1.5">라이트</div>
                 <div className="text-[15px] md:text-lg font-black text-gray-900 leading-tight">50,000<span className="text-[11px] md:text-sm font-bold ml-0.5">원</span></div>
               </div>
-              <div className="bg-white p-3.5 md:p-4 rounded-2xl border-2 border-eum-accent">
-                <div className="text-[11px] md:text-xs text-eum-accent font-bold mb-1.5">스탠다드</div>
-                <div className="text-[15px] md:text-lg font-black text-eum-accent leading-tight">30,000<span className="text-[11px] md:text-sm font-bold ml-0.5">원</span></div>
+              <div className="bg-white p-3.5 md:p-4 rounded-2xl border-2 border-[#6E8264]">
+                <div className="text-[11px] md:text-xs text-[#6E8264] font-bold mb-1.5">스탠다드</div>
+                <div className="text-[15px] md:text-lg font-black text-[#6E8264] leading-tight">30,000<span className="text-[11px] md:text-sm font-bold ml-0.5">원</span></div>
               </div>
               <div className="bg-[#B8956A] p-3.5 md:p-4 rounded-2xl">
                 <div className="text-[11px] md:text-xs text-[#FFE7BB] font-bold mb-1.5">프리미엄</div>
