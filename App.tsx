@@ -32,6 +32,7 @@ import BlockingSystem from './pages/BlockingSystem';
 import LinkTree from './pages/LinkTree';
 import InstaLinks from './pages/InstaLinks';
 import WeeklyList from './pages/WeeklyList';
+import Wooban from './pages/Wooban';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,7 +74,7 @@ const AppContent = () => {
         // 단, survey와 policy2, policy3는 해시 URL을 유지하도록 예외 처리
         if (window.location.hash && window.location.hash.startsWith('#/')) {
             const path = window.location.hash.replace('#', '');
-            if (path !== '/survey' && path !== '/policy2' && path !== '/policy3' && path !== '/policy4' && path !== '/policy5') {
+            if (path !== '/survey' && path !== '/policy2' && path !== '/policy3' && path !== '/policy4' && path !== '/policy5' && path !== '/wooban') {
                 navigate(path, { replace: true });
             }
         }
@@ -134,9 +135,9 @@ const AppContent = () => {
         ? hashPath.replace('#', '') 
         : location.pathname;
 
-    const showFloatingBanner = currentPath !== '/contact' && currentPath !== '/admin' && currentPath !== '/profile' && currentPath !== '/landing' && currentPath !== '/landing2' && currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/survey';
+    const showFloatingBanner = currentPath !== '/contact' && currentPath !== '/admin' && currentPath !== '/profile' && currentPath !== '/landing' && currentPath !== '/landing2' && currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/survey' && currentPath !== '/wooban';
     
-    const showNavbar = currentPath !== '/links' && currentPath !== '/insta-links';
+    const showNavbar = currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/wooban';
 
     return (
         <>
@@ -152,6 +153,7 @@ const AppContent = () => {
                 <main className="flex-1">
                     <Routes>
                         <Route path="/" element={
+                            hashPath === '#/wooban' ? <Wooban /> :
                             hashPath === '#/survey' ? <SurveyLinks /> :
                             hashPath === '#/policy2' ? <PolicyPage2 /> :
                             hashPath === '#/policy3' ? <PolicyPage3 /> :
@@ -175,6 +177,7 @@ const AppContent = () => {
                         <Route path="/policy5" element={<PolicyPage5 />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/survey" element={<SurveyLinks />} />
+                        <Route path="/wooban" element={<Wooban />} />
                         <Route path="/service-detail" element={<ServiceDetail />} />
                         <Route path="/blocking-system" element={<BlockingSystem />} />
                         <Route path="/landing" element={<Landing />} />
