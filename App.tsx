@@ -22,6 +22,7 @@ import PolicyPage from './pages/Policy';
 import PolicyPage2 from './pages/Policy2';
 import PolicyPage3 from './pages/Policy3';
 import PolicyPage4 from './pages/Policy4';
+import PolicyPage5 from './pages/Policy5';
 import ProfilePage from './pages/Profile';
 import ServiceDetail from './pages/ServiceDetail';
 import Landing from './pages/Landing';
@@ -72,7 +73,7 @@ const AppContent = () => {
         // 단, survey와 policy2, policy3는 해시 URL을 유지하도록 예외 처리
         if (window.location.hash && window.location.hash.startsWith('#/')) {
             const path = window.location.hash.replace('#', '');
-            if (path !== '/survey' && path !== '/policy2' && path !== '/policy3' && path !== '/policy4') {
+            if (path !== '/survey' && path !== '/policy2' && path !== '/policy3' && path !== '/policy4' && path !== '/policy5') {
                 navigate(path, { replace: true });
             }
         }
@@ -155,6 +156,7 @@ const AppContent = () => {
                             hashPath === '#/policy2' ? <PolicyPage2 /> :
                             hashPath === '#/policy3' ? <PolicyPage3 /> :
                             hashPath === '#/policy4' ? <PolicyPage4 /> :
+                            hashPath === '#/policy5' ? <PolicyPage5 /> :
                             <Home />
                         } />
                         <Route path="/about" element={<About />} />
@@ -170,6 +172,7 @@ const AppContent = () => {
                         <Route path="/policy2" element={<PolicyPage2 />} />
                         <Route path="/policy3" element={<PolicyPage3 />} />
                         <Route path="/policy4" element={<PolicyPage4 />} />
+                        <Route path="/policy5" element={<PolicyPage5 />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/survey" element={<SurveyLinks />} />
                         <Route path="/service-detail" element={<ServiceDetail />} />

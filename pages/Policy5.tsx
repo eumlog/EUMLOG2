@@ -2,7 +2,7 @@ import React from 'react';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
 
-const PolicyPage4: React.FC = () => {
+const PolicyPage5: React.FC = () => {
   return (
     <div className="bg-eum-bg min-h-screen">
       <PageHeader 
@@ -23,7 +23,7 @@ const PolicyPage4: React.FC = () => {
           {/* I. 서비스 개요 및 기간 */}
           <div className="mb-10 md:mb-16">
             <h3 className="text-lg md:text-2xl font-black text-eum-dark mb-2">I. 서비스 개요 및 기간 (Service Overview)</h3>
-            <p className="text-gray-500 mb-4 md:mb-6 font-medium text-[10px] md:text-sm">저희는 '횟수'만 채우고 끝나는 서비스가 아닙니다. 3개월(90일) 동안 매니저가 함께 완주합니다.</p>
+            <p className="text-gray-500 mb-4 md:mb-6 font-medium text-[10px] md:text-sm">기본 진행은 월 평균 4회, 총 12회 프로필 제공을 기준으로 진행됩니다. (일반적으로 약 3개월 소요)</p>
             
             <div className="overflow-x-auto -mx-2 px-2 pb-2">
               <table className="w-full text-[10px] md:text-sm border-t border-gray-200 min-w-[320px]">
@@ -35,32 +35,28 @@ const PolicyPage4: React.FC = () => {
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                    <tr>
-                     <td className="py-2 px-3 font-bold text-gray-500 bg-gray-50/30">서비스 모델</td>
-                     <td className="py-2 px-3">3개월 기간제 책임 솔루션 (구독형 모델)</td>
-                   </tr>
-                   <tr>
-                     <td className="py-2 px-3 font-bold text-gray-500 bg-gray-50/30">이용 기간</td>
-                     <td className="py-2 px-3 font-bold text-eum-dark">결제일로부터 3개월 (90일)</td>
+                     <td className="py-2 px-3 font-bold text-gray-500 bg-gray-50/30">기본 진행 내역</td>
+                     <td className="py-2 px-3 font-bold text-eum-dark">총 12회 프로필 제공 완료 시까지 <span className="text-[10px] md:text-xs text-gray-400 font-normal ml-1">(일반적으로 약 3개월 소요)</span></td>
                    </tr>
                    <tr>
                      <td className="py-2 px-3 font-bold text-gray-500 bg-gray-50/30">소개 방식</td>
                      <td className="py-2 px-3">
-                       3개월간 횟수 제한 없이 1명씩 순차 제공 (기본 5~7일 주기)<br/>
-                       <span className="text-[9px] md:text-xs text-gray-400 block mt-1">※ 프로필은 주 1회 제공을 원칙으로 하나, 상황에 따라 지연될 수 있으며 총 12명 제공은 보장됩니다.</span>
+                       월 평균 4회, 총 12회 프로필 순차 제공 (기본 5~7일 주기)<br/>
+                       <span className="text-[9px] md:text-xs text-gray-400 block mt-1">※ 상황에 따라 지연될 수 있으나, 총 12명 제공은 보장됩니다.</span>
                      </td>
                    </tr>
                    <tr>
                      <td className="py-2 px-3 font-bold text-gray-500 bg-gray-50/30">만남 보장</td>
                      <td className="py-2 px-3">
                        약속된 만남 횟수(프리미엄 3회)가 성사될 때까지 <span className="font-bold text-amber-600">서비스 기간 무제한 연장</span><br/>
-                       <span className="text-[9px] md:text-xs text-gray-400">(기간 종료 후에도 만남 횟수를 채울 때까지 프로필 지속 제공)</span>
+                       <span className="text-[9px] md:text-xs text-gray-400">(횟수 제공이 끝난 후에도 만남 횟수를 채울 때까지 프로필 지속 제공)</span>
                      </td>
                    </tr>
                    <tr>
-                     <td className="py-2 px-3 font-bold text-gray-500 bg-gray-50/30">에프터 케어</td>
+                     <td className="py-2 px-3 font-bold text-gray-500 bg-gray-50/30">애프터케어</td>
                      <td className="py-2 px-3">
-                       3개월 기간이 종료된 후에도, <span className="font-bold text-eum-dark">나를 선택한 상대가 있다면</span> 해당 프로필 무료 제공 (기간 6개월)<br/>
-                       <span className="text-[9px] md:text-xs text-gray-400">※ 기간 종료 후 매칭 기회를 놓치지 않도록 지원하는 서비스</span>
+                       기본 횟수 제공이 종료된 후에도, <span className="font-bold text-eum-dark">나를 선택한 상대가 있다면</span> 해당 프로필 무료 제공<br/>
+                       <span className="text-[9px] md:text-xs text-gray-400">※ 진행 횟수: 총 24회 (약 6개월)</span>
                      </td>
                    </tr>
                    <tr className="bg-amber-50/30">
@@ -80,7 +76,7 @@ const PolicyPage4: React.FC = () => {
             <h3 className="text-lg md:text-2xl font-black text-eum-dark mb-4 md:mb-6">II. 플랜별 가격 및 보장 (Pricing)</h3>
             
             {/* 1. 멤버십 */}
-            <h4 className="font-bold text-sm md:text-lg mb-3 text-gray-800 border-l-4 border-eum-accent pl-2.5 md:pl-3">1. 멤버십 구독권 (3개월 이용료)</h4>
+            <h4 className="font-bold text-sm md:text-lg mb-3 text-gray-800 border-l-4 border-eum-accent pl-2.5 md:pl-3">1. 멤버십 구독권 (기본 12회 진행)</h4>
             <p className="text-[10px] md:text-sm text-gray-500 mb-3">고객님의 '보장 카테고리(조건)' 개수에 따라 비용이 차등 적용됩니다.</p>
             <div className="overflow-x-auto -mx-2 px-2 pb-4">
               <table className="w-full text-[10px] md:text-sm border-t border-gray-200 text-center min-w-[320px]">
@@ -97,14 +93,14 @@ const PolicyPage4: React.FC = () => {
                      <td className="py-3 px-2 font-bold bg-gray-50/50">보장 조건</td>
                      <td className="py-3 px-2">조건 보장 없음</td>
                      <td className="py-3 px-2 font-bold text-eum-accent">필수 조건 2가지 보장</td>
-                     <td className="py-3 px-2 font-bold">조건 4가지 + 만남 3회</td>
+                     <td className="py-3 px-2 font-bold">조건 5가지 + 만남 3회</td>
                    </tr>
                    <tr>
                      <td className="py-3 px-2 font-bold bg-gray-50/50">남성 이용권</td>
                      <td className="py-3 px-2">180,000원</td>
                      <td className="py-3 px-2 font-bold text-eum-accent">320,000원</td>
                      <td className="py-3 px-2 font-bold">480,000원</td>
-                   </tr>
+                     </tr>
                    <tr>
                      <td className="py-3 px-2 font-bold bg-gray-50/50">여성 이용권</td>
                      <td className="py-3 px-2">120,000원</td>
@@ -114,14 +110,14 @@ const PolicyPage4: React.FC = () => {
                    <tr className="bg-eum-bg/20">
                      <td className="py-3 px-2 font-bold bg-gray-100/50">추가 혜택</td>
                      <td className="py-3 px-2 text-gray-400">-</td>
-                     <td className="py-3 px-2 text-[9px] md:text-xs font-bold text-eum-accent">에프터 케어 포함 (기간 6개월)</td>
-                     <td className="py-3 px-2 text-[9px] md:text-xs font-bold">에프터 케어(기간 6개월) + 만남 보장</td>
+                     <td className="py-3 px-2 text-[9px] md:text-xs font-bold text-eum-accent">애프터케어 24회 (약 6개월)</td>
+                     <td className="py-3 px-2 text-[9px] md:text-xs font-bold">애프터케어 24회 (약 6개월)<br/>+ 만남 보장</td>
                    </tr>
                 </tbody>
               </table>
               <div className="mt-3 space-y-1.5 text-[10px] md:text-xs text-gray-500 font-medium bg-gray-50/50 p-3 rounded-xl border border-gray-100">
                 <p>※ <strong className="text-gray-700">라이트 멤버십</strong>은 1:1 상담 없이 간편하게 진행됩니다.</p>
-                <p>※ <strong className="text-gray-700">멤버십 변경</strong>은 상위 멤버십으로만 가능하며, 상위 이용권은 변경 시점의 이용권 가격 기준으로 재산정됩니다.</p>
+                <p>※ <strong className="text-gray-700">멤버십 업그레이드(차액 지불)</strong>는 불가합니다. 기간 종료 후 새로 가입하거나, 중도 변경 시 기존 멤버십은 환불 규정에 따라 환불 처리되며 새로운 멤버십으로 신규 결제를 진행하셔야 합니다.</p>
               </div>
             </div>
 
@@ -176,10 +172,19 @@ const PolicyPage4: React.FC = () => {
                        보장 조건 변경은 1회에 한해 가능
                      </td>
                    </tr>
+                   <tr className="bg-blue-50/20">
+                     <td className="py-2.5 px-3 font-bold text-blue-800 bg-blue-50/40">키 조건 설정<br/><span className="text-[9px] font-normal tracking-tight text-blue-600/80">(남녀 규정)</span></td>
+                     <td className="py-2.5 px-3 font-medium text-gray-700 leading-relaxed">
+                       <div className="mb-2"><span className="font-bold text-blue-700 mr-1">여성:</span>최소 키를 설정할 때 <strong className="border-b border-gray-400">본인 키의 +15cm</strong>까지만 가능<br/>
+                       <span className="text-[10px] md:text-xs text-blue-800/70">(예: 키가 160cm인 여성은 175cm 이상으로만 조건 설정 가능, 178cm/180cm도 정상 소개받습니다.)</span></div>
+                       <div><span className="font-bold text-blue-700 mr-1">남성:</span>최대 키나 최소 키를 설정할 때 <strong className="border-b border-gray-400">본인 키의 -10cm</strong>까지만 가능<br/>
+                       <span className="text-[10px] md:text-xs text-blue-800/70">(예: 키가 173cm인 남성은 163cm까지만 기준 설정이 가능하며, 162cm나 160cm 이하로는 설정할 수 없습니다.)</span></div>
+                     </td>
+                   </tr>
                    <tr>
                      <td className="py-2.5 px-3 font-bold text-gray-500 bg-gray-50/30">멤버십 변경</td>
                      <td className="py-2.5 px-3 font-medium">
-                       상위 멤버십으로만 변경 가능 (상위 이용권은 변경 시점의 이용권 가격 기준으로 재산정)
+                       차액 지불 업그레이드 불가. 환불 규정에 따라 기존 멤버십 환불 후 새로운 멤버십 신규 결제
                      </td>
                    </tr>
                    <tr>
@@ -339,4 +344,4 @@ const PolicyPage4: React.FC = () => {
   );
 };
 
-export default PolicyPage4;
+export default PolicyPage5;
