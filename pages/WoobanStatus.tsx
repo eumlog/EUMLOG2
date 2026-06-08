@@ -44,7 +44,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
       {/* Header (Clickable) */}
       <button 
         onClick={() => setExpanded(!expanded)} 
-        className={`w-full px-4 py-3 md:px-6 md:py-4 border-b flex flex-col gap-2 cursor-pointer transition-colors text-left ${isFullyClosed ? 'border-gray-100 bg-gray-50/50 hover:bg-gray-100/50' : 'border-[#EBE4FF] bg-[#F3EDFF] hover:bg-[#EBE2FF]'}`}
+        className={`w-full px-4 py-3 md:px-6 md:py-4 border-b flex flex-col gap-2 cursor-pointer transition-colors text-left ${isFullyClosed ? 'border-gray-100 bg-gray-50/50 hover:bg-gray-100/50' : 'border-[#EBE4FF] bg-[#F8F6FF] hover:bg-[#F3EDFF]'}`}
       >
          {badge && (
            <div>
@@ -107,7 +107,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                    <span className="text-blue-600 font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-widest bg-blue-50 ml-auto">모집중</span>
                  )}
               </div>
-              <div className={`flex flex-col gap-1.5 ${isMenClosed ? 'opacity-60' : ''}`}>
+              <div className={`flex flex-col gap-0 ${isMenClosed ? 'opacity-60' : ''}`}>
                 {cohort.menList.map((item: string, i: number) => {
                    if (!item) return null;
                    const match = item.match(/^([①-⑩])\s*(.*)$/);
@@ -118,7 +118,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
 
                    if (isEmpty) {
                      return (
-                       <div key={i} className="flex items-center gap-2 py-1">
+                       <div key={i} className="flex items-center gap-2">
                          <span className="w-5 text-center font-bold text-gray-300">{num}</span>
                          <span className={`font-medium tracking-tight ${isMenClosed ? 'text-gray-400' : 'text-blue-500'}`}>
                            {isMenClosed ? '(공석)' : '신청 가능'}
@@ -128,7 +128,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                    }
 
                    return (
-                     <div key={i} className="flex items-center gap-2 py-1">
+                     <div key={i} className="flex items-center gap-2">
                        <span className="w-5 text-center font-bold text-gray-400">{num}</span>
                        <span className="font-medium tracking-tight text-gray-800">{desc}</span>
                      </div>
@@ -147,7 +147,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                    <span className="text-pink-600 font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-widest bg-pink-50 ml-auto">모집중</span>
                  )}
               </div>
-              <div className={`flex flex-col gap-1.5 ${isWomenClosed ? 'opacity-60' : ''}`}>
+              <div className={`flex flex-col gap-0 ${isWomenClosed ? 'opacity-60' : ''}`}>
                 {cohort.womenList.map((item: string, i: number) => {
                    if (!item) return null;
                    const match = item.match(/^([①-⑩])\s*(.*)$/);
@@ -158,7 +158,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
 
                    if (isEmpty) {
                      return (
-                        <div key={i} className="flex items-center gap-2 py-1">
+                        <div key={i} className="flex items-center gap-2">
                           <span className="w-5 text-center font-bold text-gray-300">{num}</span>
                           <span className={`font-medium tracking-tight ${isWomenClosed ? 'text-gray-400' : 'text-pink-500'}`}>
                             {isWomenClosed ? '(공석)' : '신청 가능'}
@@ -168,7 +168,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                    }
 
                    return (
-                     <div key={i} className="flex items-center gap-2 py-1">
+                     <div key={i} className="flex items-center gap-2">
                        <span className="w-5 text-center font-bold text-gray-400">{num}</span>
                        <span className="font-medium tracking-tight text-gray-800">{desc}</span>
                      </div>
