@@ -44,26 +44,26 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
       {/* Header (Clickable) */}
       <button 
         onClick={() => setExpanded(!expanded)} 
-        className={`w-full px-5 py-4 border-b flex flex-col gap-2.5 cursor-pointer transition-colors text-left ${isFullyClosed ? 'border-gray-100 bg-gray-50/50 hover:bg-gray-100/50' : 'border-[#F4F0FF] bg-[#FCFBFF] hover:bg-[#F8F5FF]'}`}
+        className={`w-full px-4 py-3 md:px-6 md:py-4 border-b flex flex-col gap-2 cursor-pointer transition-colors text-left ${isFullyClosed ? 'border-gray-100 bg-gray-50/50 hover:bg-gray-100/50' : 'border-[#F4F0FF] bg-[#FCFBFF] hover:bg-[#F8F5FF]'}`}
       >
          {badge && (
            <div>
-             <span className={`inline-flex items-center justify-center border font-extrabold text-[12px] px-2.5 py-1 rounded-md tracking-wide ${isFullyClosed ? 'border-gray-300 text-gray-500 bg-white' : 'border-[#8A6EE5] text-[#8A6EE5] bg-white shadow-sm'}`}>
+             <span className={`inline-flex items-center justify-center border font-bold text-[11px] px-2 py-1 rounded-md tracking-wide ${isFullyClosed ? 'border-gray-300 text-gray-400 bg-white' : 'border-[#8A6EE5] text-[#8A6EE5] bg-white shadow-sm'}`}>
                {badge}
              </span>
            </div>
          )}
          <div className="flex flex-wrap items-center gap-2 w-full">
-           <span className={`font-black text-[17px] md:text-[18px] tracking-tight whitespace-nowrap ${isFullyClosed ? 'text-gray-500' : 'text-gray-900'}`}>{schedule}</span>
-           {age && <span className="text-gray-300 font-bold mx-0.5">|</span>}
+           <span className={`font-bold text-[15px] md:text-[16px] tracking-tight whitespace-nowrap ${isFullyClosed ? 'text-gray-500' : 'text-gray-900'}`}>{schedule}</span>
+           {age && <span className="text-gray-300 font-medium mx-0.5">|</span>}
            {age && (
-              <span className={`font-bold text-[15px] md:text-[16px] tracking-tight ${isFullyClosed ? 'text-gray-400' : 'text-[#6B21A8]'}`}>
+              <span className={`font-semibold text-[14px] md:text-[15px] tracking-tight ${isFullyClosed ? 'text-gray-400' : 'text-[#6B21A8]'}`}>
                 {age}
               </span>
            )}
            
            <div className={`ml-auto transition-transform duration-300 ${isFullyClosed ? 'text-gray-400' : 'text-[#8A6EE5]'}`}>
-             {expanded ? <ChevronUp size={20} strokeWidth={2.5} /> : <ChevronDown size={20} strokeWidth={2.5} />}
+             {expanded ? <ChevronUp size={18} strokeWidth={2.5} /> : <ChevronDown size={18} strokeWidth={2.5} />}
            </div>
          </div>
          
@@ -71,22 +71,22 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
          {!expanded && (
            <div className="flex flex-wrap gap-2 mt-1">
              {isFullyClosed ? (
-               <span className="text-[12px] md:text-[13px] font-bold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">모집 마감</span>
+               <span className="text-[11px] md:text-[12px] font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">모집 마감</span>
              ) : (
                <>
                  {isMenClosed ? (
-                   <span className="text-[12px] md:text-[13px] font-bold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">남성 마감</span>
+                   <span className="text-[11px] md:text-[12px] font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">남성 마감</span>
                  ) : menAvailable <= 2 ? (
-                   <span className="text-[12px] md:text-[13px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 whitespace-nowrap">남성 {menAvailable}자리</span>
+                   <span className="text-[11px] md:text-[12px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 whitespace-nowrap">남성 {menAvailable}자리</span>
                  ) : (
-                   <span className="text-[12px] md:text-[13px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 whitespace-nowrap">남성 모집중</span>
+                   <span className="text-[11px] md:text-[12px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 whitespace-nowrap">남성 모집중</span>
                  )}
                  {isWomenClosed ? (
-                   <span className="text-[12px] md:text-[13px] font-bold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">여성 마감</span>
+                   <span className="text-[11px] md:text-[12px] font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">여성 마감</span>
                  ) : womenAvailable <= 2 ? (
-                   <span className="text-[12px] md:text-[13px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-md border border-pink-100 whitespace-nowrap">여성 {womenAvailable}자리</span>
+                   <span className="text-[11px] md:text-[12px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-md border border-pink-100 whitespace-nowrap">여성 {womenAvailable}자리</span>
                  ) : (
-                   <span className="text-[12px] md:text-[13px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-md border border-pink-100 whitespace-nowrap">여성 모집중</span>
+                   <span className="text-[11px] md:text-[12px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-md border border-pink-100 whitespace-nowrap">여성 모집중</span>
                  )}
                </>
              )}
@@ -96,15 +96,15 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
       
       {/* Body grid */}
       <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="flex flex-col md:flex-row p-5 md:p-6 text-[14.5px] md:text-[15px]">
+        <div className="flex flex-col md:flex-row p-4 md:p-6 text-[13.5px] md:text-[14px]">
            {/* Men List */}
            <div className="flex-1 md:pr-5 md:border-r border-gray-100 pb-5 md:pb-0 mb-5 md:mb-0 border-b md:border-b-0">
-              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-100">
+              <div className="flex items-center gap-2 mb-3 pb-2 border-b border-gray-100">
                  <span className="font-bold text-gray-800">남성 참가자</span>
                  {isMenClosed ? (
-                   <span className="text-white font-bold text-[11px] px-2 py-0.5 rounded uppercase tracking-wider bg-gray-400 ml-auto">마감</span>
+                   <span className="text-white font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-wider bg-gray-400 ml-auto">마감</span>
                  ) : (
-                   <span className="text-blue-600 font-bold text-[11px] px-2 py-0.5 rounded uppercase tracking-widest bg-blue-50 ml-auto">모집중</span>
+                   <span className="text-blue-600 font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-widest bg-blue-50 ml-auto">모집중</span>
                  )}
               </div>
               <div className={`flex flex-col gap-1.5 ${isMenClosed ? 'opacity-60' : ''}`}>
@@ -120,7 +120,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                      return (
                        <div key={i} className="flex items-center gap-2 py-1">
                          <span className="w-5 text-center font-bold text-gray-300">{num}</span>
-                         <span className={`font-semibold tracking-tight ${isMenClosed ? 'text-gray-400' : 'text-blue-500'}`}>
+                         <span className={`font-medium tracking-tight ${isMenClosed ? 'text-gray-400' : 'text-blue-500'}`}>
                            {isMenClosed ? '(공석)' : '신청 가능'}
                          </span>
                        </div>
@@ -130,7 +130,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                    return (
                      <div key={i} className="flex items-center gap-2 py-1">
                        <span className="w-5 text-center font-bold text-gray-400">{num}</span>
-                       <span className="font-semibold tracking-tight text-gray-800">{desc}</span>
+                       <span className="font-medium tracking-tight text-gray-800">{desc}</span>
                      </div>
                    );
                 })}
@@ -139,12 +139,12 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
 
            {/* Women List */}
            <div className="flex-1 md:pl-5">
-              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-gray-100">
+              <div className="flex items-center gap-2 mb-3 pb-2 border-b border-gray-100">
                  <span className="font-bold text-gray-800">여성 참가자</span>
                  {isWomenClosed ? (
-                   <span className="text-white font-bold text-[11px] px-2 py-0.5 rounded uppercase tracking-wider bg-gray-400 ml-auto">마감</span>
+                   <span className="text-white font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-wider bg-gray-400 ml-auto">마감</span>
                  ) : (
-                   <span className="text-pink-600 font-bold text-[11px] px-2 py-0.5 rounded uppercase tracking-widest bg-pink-50 ml-auto">모집중</span>
+                   <span className="text-pink-600 font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-widest bg-pink-50 ml-auto">모집중</span>
                  )}
               </div>
               <div className={`flex flex-col gap-1.5 ${isWomenClosed ? 'opacity-60' : ''}`}>
@@ -160,7 +160,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                      return (
                         <div key={i} className="flex items-center gap-2 py-1">
                           <span className="w-5 text-center font-bold text-gray-300">{num}</span>
-                          <span className={`font-semibold tracking-tight ${isWomenClosed ? 'text-gray-400' : 'text-pink-500'}`}>
+                          <span className={`font-medium tracking-tight ${isWomenClosed ? 'text-gray-400' : 'text-pink-500'}`}>
                             {isWomenClosed ? '(공석)' : '신청 가능'}
                           </span>
                         </div>
@@ -170,7 +170,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                    return (
                      <div key={i} className="flex items-center gap-2 py-1">
                        <span className="w-5 text-center font-bold text-gray-400">{num}</span>
-                       <span className="font-semibold tracking-tight text-gray-800">{desc}</span>
+                       <span className="font-medium tracking-tight text-gray-800">{desc}</span>
                      </div>
                    );
                 })}
@@ -394,25 +394,25 @@ export default function WoobanStatus() {
         
         {/* INTRO */}
         {introBody.length > 0 && (
-          <div className="bg-white rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900 border border-[#EBE4FF] relative overflow-hidden">
+          <div className="bg-white rounded-[24px] p-5 md:p-6 shadow-sm text-gray-900 border border-[#EBE4FF] relative overflow-hidden">
             <div className="absolute top-0 left-0 w-2 h-full bg-[#8A6EE5]"></div>
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {introBody.map((line, i) => {
                   if (line.startsWith('✔️')) {
                     return (
-                      <div key={i} className="flex items-start gap-2.5">
-                        <span className="text-[#8A6EE5] mt-0.5">✔️</span>
-                        <span className="text-[15px] md:text-[16px] font-bold tracking-tight text-gray-800 break-keep leading-tight">
+                      <div key={i} className="flex items-start gap-2">
+                        <span className="text-[#8A6EE5] mt-0.5 text-[14px]">✔️</span>
+                        <span className="text-[14px] md:text-[15px] font-bold tracking-tight text-gray-800 break-keep leading-tight">
                           {line.replace('✔️', '').trim()}
                         </span>
                       </div>
                     );
                   }
                   if (line.startsWith('(동반자는')) {
-                    return <p key={i} className="text-[13.5px] font-medium text-gray-400 ml-7 break-keep">{line}</p>;
+                    return <p key={i} className="text-[12.5px] font-medium text-gray-400 ml-6 break-keep">{line}</p>;
                   }
                   if (!line) return null;
-                  return <p key={i} className="text-[15px] md:text-[16px] font-medium leading-normal break-keep text-gray-600">{line}</p>;
+                  return <p key={i} className="text-[14px] md:text-[15px] font-medium leading-normal break-keep text-gray-600">{line}</p>;
                 })}
               </div>
             </div>
@@ -429,28 +429,28 @@ export default function WoobanStatus() {
 
         {/* FOOTER */}
         {footerText.length > 0 && (
-          <div className="pt-8 border-t border-gray-100 pb-10">
+          <div className="pt-6 border-t border-gray-100 pb-8">
             {footerText.map((line, i) => {
               if (!line) return <div key={i} className="h-4" />;
               if (line.startsWith('✅')) {
                 return (
-                  <div key={i} className="bg-[#FAF9FF] border border-[#EBE4FF] text-[#6B21A8] font-bold text-[15px] p-5 rounded-2xl mb-8 shadow-sm break-keep flex items-center justify-center text-center">
+                  <div key={i} className="bg-[#FAF9FF] border border-[#EBE4FF] text-[#6B21A8] font-bold text-[14px] p-4 rounded-2xl mb-6 shadow-sm break-keep flex items-center justify-center text-center">
                     {line.replace('✅', '').trim()}
                   </div>
                 );
               }
               if (line.startsWith('📍')) {
                 return (
-                  <h4 key={i} className="font-bold text-gray-900 text-[17px] mt-2 mb-4 tracking-tight flex items-center gap-2">
+                  <h4 key={i} className="font-bold text-gray-900 text-[15px] md:text-[16px] mt-2 mb-3 tracking-tight flex items-center gap-1.5">
                     📍 {line.replace('📍', '').trim()}
                   </h4>
                 );
               }
               if (line.startsWith('-')) {
                 return (
-                  <div key={i} className="flex items-start gap-2 ml-1 mb-2">
-                    <span className="text-gray-400 font-bold">-</span>
-                    <p className="text-[15px] text-gray-600 font-medium break-keep">
+                  <div key={i} className="flex items-start gap-2 ml-1 mb-1.5">
+                    <span className="text-gray-400 font-bold text-[14px]">-</span>
+                    <p className="text-[14px] text-gray-600 font-medium break-keep">
                       {line.replace('-', '').trim()}
                     </p>
                   </div>
@@ -459,7 +459,7 @@ export default function WoobanStatus() {
               if (line.includes('신청은👉')) {
                 return null;
               }
-              return <p key={i} className="text-[15px] text-gray-500 font-medium mb-1 break-keep">{line}</p>;
+              return <p key={i} className="text-[14px] text-gray-500 font-medium mb-1 break-keep">{line}</p>;
             })}
           </div>
         )}
@@ -479,16 +479,16 @@ export default function WoobanStatus() {
   return (
     <div className="bg-gray-50 min-h-screen pb-24 font-sans selection:bg-[#EBE4FF]">
       {/* Header */}
-      <div className="bg-white border-b border-gray-100 pt-16 pb-8 px-6 text-center">
+      <div className="bg-white border-b border-gray-100 pt-16 pb-8 px-8 text-center">
         <div className="max-w-2xl mx-auto">
-           <h1 className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">
+           <h1 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">
              WOOBAN 참가자 현황
            </h1>
-           <p className="text-[#8A6EE5] font-semibold text-sm mt-2">실시간으로 업데이트 됩니다.</p>
+           <p className="text-[#8A6EE5] font-semibold text-xs md:text-sm mt-2">실시간으로 업데이트 됩니다.</p>
         </div>
       </div>
 
-      <div className="flex-1 max-w-2xl w-full mx-auto px-4 md:px-6 py-8">
+      <div className="flex-1 max-w-2xl w-full mx-auto px-6 md:px-10 py-10">
         {/* Content Area */}
         {renderFormattedContent(content || "등록된 현황이 없습니다.")}
       </div>
@@ -499,7 +499,7 @@ export default function WoobanStatus() {
           <div className="absolute -inset-1 bg-gradient-to-r from-[#8A6EE5] to-[#D8B4FE] rounded-[20px] blur opacity-40 group-hover:opacity-60 transition duration-1000 animate-pulse"></div>
           <a
             href="#/wooban"
-            className="relative block w-full bg-gradient-to-r from-[#8A6EE5] to-[#7C5EE0] text-white py-4 rounded-2xl text-center font-bold text-[17px] shadow-md hover:shadow-lg active:scale-[0.98] transition-all overflow-hidden"
+            className="relative block w-full bg-gradient-to-r from-[#8A6EE5] to-[#7C5EE0] text-white py-3.5 rounded-2xl text-center font-bold text-[16px] shadow-md hover:shadow-lg active:scale-[0.98] transition-all overflow-hidden"
           >
             <div 
               className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white/30" 

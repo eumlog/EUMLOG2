@@ -245,8 +245,19 @@ export default function WoobanAdmin() {
             />
           )}
           <p className="text-xs text-gray-500 mt-4 text-center">
-            수정 후 우측 상단의 저장 버튼을 누르면 /wooban/status 에 즉시 반영됩니다.
+            수정 후 우측 상단의 저장 버튼을 누르면 즉시 반영됩니다.
           </p>
+          <div className="mt-6 bg-[#FCFBFF] border border-purple-100 rounded-xl p-5 text-[13px] text-gray-600 leading-relaxed">
+            <h3 className="font-bold text-gray-900 mb-2">💡 작성 가이드 (필수 양식)</h3>
+            <p className="mb-2">아래 기호들을 <strong>반드시</strong> 지켜주셔야 카드가 정상적으로 만들어집니다.</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong>✨[기수명] 요일/시간 / 나이</strong> : 이 줄을 기준으로 개별 기수 카드가 생성됩니다. <em>(예: ✨[160기] 6/5(금) 20시 / 97-89년생)</em></li>
+              <li><strong>👨남 (모집상태)</strong> : 남성 리스트의 시작을 알립니다.</li>
+              <li><strong>👩여 (모집상태)</strong> : 여성 리스트의 시작을 알립니다.</li>
+              <li><strong>① ~ ⑩ (공석) 또는 내용</strong> : 남/여 참가자 정보를 넣습니다.</li>
+              <li>상단의 <strong>✔️</strong> 표시는 안내문, 하단의 <strong>✅, 📍, -</strong> 표시는 하단 푸터로 나타납니다.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
