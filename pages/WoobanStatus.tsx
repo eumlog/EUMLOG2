@@ -44,7 +44,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
       {/* Header (Clickable) */}
       <button 
         onClick={() => setExpanded(!expanded)} 
-        className={`w-full px-4 py-3 md:px-6 md:py-4 border-b flex flex-col gap-2 cursor-pointer transition-colors text-left ${isFullyClosed ? 'border-gray-100 bg-gray-50/50 hover:bg-gray-100/50' : 'border-[#F4F0FF] bg-[#FCFBFF] hover:bg-[#F8F5FF]'}`}
+        className={`w-full px-4 py-3 md:px-6 md:py-4 border-b flex flex-col gap-2 cursor-pointer transition-colors text-left ${isFullyClosed ? 'border-gray-100 bg-gray-50/50 hover:bg-gray-100/50' : 'border-[#EBE4FF] bg-[#F3EDFF] hover:bg-[#EBE2FF]'}`}
       >
          {badge && (
            <div>
@@ -390,11 +390,11 @@ export default function WoobanStatus() {
     }
 
     return (
-      <div className="space-y-10">
+      <div className="space-y-6">
         
         {/* INTRO */}
         {introBody.length > 0 && (
-          <div className="bg-white rounded-[24px] p-5 md:p-6 shadow-sm text-gray-900 border border-[#EBE4FF] relative overflow-hidden">
+          <div className="bg-white rounded-[24px] p-4 md:p-5 shadow-sm text-gray-900 border border-[#EBE4FF] relative overflow-hidden">
             <div className="absolute top-0 left-0 w-2 h-full bg-[#8A6EE5]"></div>
             <div className="space-y-1.5">
               {introBody.map((line, i) => {
@@ -479,7 +479,7 @@ export default function WoobanStatus() {
   return (
     <div className="bg-gray-50 min-h-screen pb-24 font-sans selection:bg-[#EBE4FF]">
       {/* Header */}
-      <div className="bg-white border-b border-gray-100 pt-16 pb-8 px-8 text-center">
+      <div className="bg-white border-b border-gray-100 pt-10 pb-5 px-8 text-center">
         <div className="max-w-2xl mx-auto">
            <h1 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">
              WOOBAN 참가자 현황
@@ -488,7 +488,7 @@ export default function WoobanStatus() {
         </div>
       </div>
 
-      <div className="flex-1 max-w-2xl w-full mx-auto px-6 md:px-10 py-10">
+      <div className="flex-1 max-w-2xl w-full mx-auto px-6 md:px-10 py-6">
         {/* Content Area */}
         {renderFormattedContent(content || "등록된 현황이 없습니다.")}
       </div>
