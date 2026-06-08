@@ -33,13 +33,15 @@ import LinkTree from './pages/LinkTree';
 import InstaLinks from './pages/InstaLinks';
 import WeeklyList from './pages/WeeklyList';
 import Wooban from './pages/Wooban';
+import WoobanStatus from './pages/WoobanStatus';
+import WoobanAdmin from './pages/WoobanAdmin';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AppContent = () => {
     const [loading, setLoading] = useState(() => {
         const path = window.location.hash.replace('#', '') || window.location.pathname;
-        return path !== '/wooban';
+        return path !== '/wooban' && path !== '/wooban/status' && path !== '/wooban/admin';
     });
     const [, setUpdateTick] = useState(0);
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -77,7 +79,7 @@ const AppContent = () => {
         // 단, survey와 policy2, policy3는 해시 URL을 유지하도록 예외 처리
         if (window.location.hash && window.location.hash.startsWith('#/')) {
             const path = window.location.hash.replace('#', '');
-            if (path !== '/survey' && path !== '/policy2' && path !== '/policy3' && path !== '/policy4' && path !== '/policy5' && path !== '/wooban') {
+            if (path !== '/survey' && path !== '/policy2' && path !== '/policy3' && path !== '/policy4' && path !== '/policy5' && path !== '/wooban' && path !== '/wooban/status' && path !== '/wooban/admin') {
                 navigate(path, { replace: true });
             }
         }
@@ -138,9 +140,9 @@ const AppContent = () => {
         ? hashPath.replace('#', '') 
         : location.pathname;
 
-    const showFloatingBanner = currentPath !== '/contact' && currentPath !== '/admin' && currentPath !== '/profile' && currentPath !== '/landing' && currentPath !== '/landing2' && currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/survey' && currentPath !== '/wooban';
+    const showFloatingBanner = currentPath !== '/contact' && currentPath !== '/admin' && currentPath !== '/profile' && currentPath !== '/landing' && currentPath !== '/landing2' && currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/survey' && currentPath !== '/wooban' && currentPath !== '/wooban/status' && currentPath !== '/wooban/admin';
     
-    const showNavbar = currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/wooban';
+    const showNavbar = currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/wooban' && currentPath !== '/wooban/status' && currentPath !== '/wooban/admin';
 
     return (
         <>
@@ -156,6 +158,8 @@ const AppContent = () => {
                 <main className="flex-1">
                     <Routes>
                         <Route path="/" element={
+                            hashPath === '#/wooban/admin' ? <WoobanAdmin /> :
+                            hashPath === '#/wooban/status' ? <WoobanStatus /> :
                             hashPath === '#/wooban' ? <Wooban /> :
                             hashPath === '#/survey' ? <SurveyLinks /> :
                             hashPath === '#/policy2' ? <PolicyPage2 /> :
@@ -181,6 +185,8 @@ const AppContent = () => {
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/survey" element={<SurveyLinks />} />
                         <Route path="/wooban" element={<Wooban />} />
+                        <Route path="/wooban/status" element={<WoobanStatus />} />
+                        <Route path="/wooban/admin" element={<WoobanAdmin />} />
                         <Route path="/service-detail" element={<ServiceDetail />} />
                         <Route path="/blocking-system" element={<BlockingSystem />} />
                         <Route path="/landing" element={<Landing />} />

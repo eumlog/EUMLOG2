@@ -9,12 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^12.14.0",
+    "gsap": "3.12.5",
+    "html2canvas": "1.4.1",
+    "lucide-react": "0.471.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "gsap": "3.12.5",
-    "react-router-dom": "7.1.1",
-    "lucide-react": "0.471.0",
-    "html2canvas": "1.4.1"
+    "react-router-dom": "7.1.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

@@ -1,0 +1,26 @@
+{
+  "entities": {
+    "WoobanStatus": {
+      "title": "WoobanStatus",
+      "description": "Status text for Wooban applicants",
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The raw text content of the status"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["content"]
+    }
+  },
+  "firestore": {
+    "/wooban/status": {
+      "schema": { "$ref": "#/entities/WoobanStatus" },
+      "description": "Stores the single status text document for Wooban."
+    }
+  }
+}
