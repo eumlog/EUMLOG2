@@ -37,7 +37,10 @@ import Wooban from './pages/Wooban';
 gsap.registerPlugin(ScrollTrigger);
 
 const AppContent = () => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(() => {
+        const path = window.location.hash.replace('#', '') || window.location.pathname;
+        return path !== '/wooban';
+    });
     const [, setUpdateTick] = useState(0);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const location = useLocation();
