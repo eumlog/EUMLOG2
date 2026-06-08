@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { db } from '../lib/firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { Loader2, ChevronDown, ChevronUp } from 'lucide-react';
@@ -308,6 +309,7 @@ const defaultStatusText = `여순광 6:6 로테이션 소개팅💖참가자 현
 export default function WoobanStatus() {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsub = onSnapshot(doc(db, 'wooban', 'status'), (docSnap) => {
@@ -497,8 +499,8 @@ export default function WoobanStatus() {
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-[#EBE4FF] shadow-[0_-10px_30px_-15px_rgba(138,110,229,0.2)] z-50">
         <div className="max-w-2xl mx-auto relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-[#8A6EE5] to-[#D8B4FE] rounded-[20px] blur opacity-40 group-hover:opacity-60 transition duration-1000 animate-pulse"></div>
-          <a
-            href="#/wooban"
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'auto' }) || navigate('/wooban')}
             className="relative block w-full bg-gradient-to-r from-[#8A6EE5] to-[#7C5EE0] text-white py-3.5 rounded-2xl text-center font-bold text-[16px] shadow-md hover:shadow-lg active:scale-[0.98] transition-all overflow-hidden"
           >
             <div 
@@ -515,7 +517,7 @@ export default function WoobanStatus() {
             <div className="relative z-10 flex items-center justify-center gap-2">
               <span>6:6 소개팅 신청하기</span>
             </div>
-          </a>
+          </button>
         </div>
       </div>
     </div>
