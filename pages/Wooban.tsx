@@ -23,7 +23,7 @@ const Wooban = () => {
           <div className="space-y-4">
             {/* New Participant Button (Larger) */}
             <a 
-              href="https://moaform.com/q/w0B1qj"
+              href="https://m.site.naver.com/1nLMG"
               target="_blank"
               rel="noopener noreferrer"
               className="group block w-full bg-[#8A6EE5] text-white rounded-[2rem] p-8 text-center shadow-lg shadow-purple-500/20 hover:bg-[#775BD1] hover:-translate-y-1 transition-all duration-300"
@@ -35,7 +35,7 @@ const Wooban = () => {
 
             {/* Re-participant Button (Smaller) */}
             <a 
-              href="https://moaform.com/q/2gTf51"
+              href="https://m.site.naver.com/29PBf"
               target="_blank"
               rel="noopener noreferrer"
               className="group block w-full bg-white border-2 border-[#EAE3FA] text-gray-800 rounded-[1.5rem] p-5 text-center shadow-sm hover:border-[#8A6EE5] hover:text-[#8A6EE5] transition-all duration-300"
