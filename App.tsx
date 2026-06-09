@@ -99,9 +99,30 @@ const AppContent = () => {
     }, [loading]);
 
     useEffect(() => {
+        const baseTitle = TEXTS.siteTitle || "이음로그 | 광주·전남 1:1 맞춤 소개팅";
+        let pageTitle = baseTitle;
+
+        switch (location.pathname) {
+            case '/about': pageTitle = "이음로그 이야기 | 이음로그"; break;
+            case '/service': pageTitle = "진행 방식 | 이음로그"; break;
+            case '/criteria': pageTitle = "가입 기준 | 이음로그"; break;
+            case '/pricing': pageTitle = "멤버십 안내 | 이음로그"; break;
+            case '/gallery': pageTitle = "소개팅 갤러리 | 이음로그"; break;
+            case '/faq': pageTitle = "FAQ | 이음로그"; break;
+            case '/contact': pageTitle = "문의하기 | 이음로그"; break;
+            case '/apply': pageTitle = "매칭 신청하기 | 이음로그"; break;
+            default: pageTitle = baseTitle;
+        }
+        
+        document.title = pageTitle;
+    }, [location.pathname]);
+
+    useEffect(() => {
         const handleAssetUpdate = () => {
             setUpdateTick(prev => prev + 1);
-            document.title = TEXTS.siteTitle || "E.UM LOG";
+            if (location.pathname === '/') {
+                document.title = TEXTS.siteTitle || "이음로그 | 광주·전남 1:1 맞춤 소개팅";
+            }
             const faviconUrl = IMAGES.favicon;
             if (faviconUrl) {
                 let link = document.getElementById("dynamic-favicon") as HTMLLinkElement;
