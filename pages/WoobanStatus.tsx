@@ -7,7 +7,7 @@ import { Loader2, ChevronDown, ChevronUp } from 'lucide-react';
 function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultExpanded?: boolean }) {
   const [expanded, setExpanded] = useState(defaultExpanded);
 
-  const titleMatch = cohort.titleLine.match(/✨\[(.*?)\]\s*(.*)/);
+  const titleMatch = cohort.titleLine.match(/✨\s*\[(.*?)\]\s*(.*)/);
   let badge = '';
   let schedule = '';
   let age = '';
