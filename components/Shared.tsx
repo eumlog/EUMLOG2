@@ -88,7 +88,7 @@ export const FloatingMenu = () => {
         { name: '멤버십 안내', icon: CreditCard, href: '/pricing' },
         { name: '진행방식', icon: ClipboardList, href: '/service' },
         { name: '가입기준', icon: UserCheck, href: '/criteria' },
-        { name: '신청하기', icon: PenLine, href: '/apply' },
+        { name: '신청하기', icon: PenLine, href: 'https://naver.me/G4GlQVbi' },
     ];
 
     return (
@@ -106,18 +106,37 @@ export const FloatingMenu = () => {
 
             {/* Menu Items */}
             <div className="flex flex-col bg-[#7d7d7d]/70 backdrop-blur-md shadow-2xl border-l border-white/10 overflow-hidden rounded-l-[1.2rem] md:rounded-l-[1.8rem]">
-                {items.map((item, idx) => (
-                    <Link 
-                        key={idx} 
-                        to={item.href} 
-                        className={`group flex flex-col items-center justify-center w-[48px] h-[58px] md:w-[58px] md:h-[70px] ${idx !== items.length - 1 ? 'border-b border-white/10' : ''} hover:bg-black/10 transition-all duration-300`}
-                    >
-                        <item.icon className="w-3.5 h-3.5 md:w-4.5 md:h-4.5 text-white/90 group-hover:text-white group-hover:scale-110 transition-all mb-1" />
-                        <span className="text-[8.5px] md:text-[10.5px] font-black text-white group-hover:text-white transition-colors tracking-tighter text-center leading-tight whitespace-pre-wrap">
-                            {item.name.includes(' ') ? item.name.split(' ').join('\n') : item.name}
-                        </span>
-                    </Link>
-                ))}
+                {items.map((item, idx) => {
+                    const isExternal = item.href.startsWith('http');
+                    if (isExternal) {
+                        return (
+                            <a 
+                                key={idx} 
+                                href={item.href} 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`group flex flex-col items-center justify-center w-[48px] h-[58px] md:w-[58px] md:h-[70px] ${idx !== items.length - 1 ? 'border-b border-white/10' : ''} hover:bg-black/10 transition-all duration-300`}
+                            >
+                                <item.icon className="w-3.5 h-3.5 md:w-4.5 md:h-4.5 text-white/90 group-hover:text-white group-hover:scale-110 transition-all mb-1" />
+                                <span className="text-[8.5px] md:text-[10.5px] font-black text-white group-hover:text-white transition-colors tracking-tighter text-center leading-tight whitespace-pre-wrap">
+                                    {item.name.includes(' ') ? item.name.split(' ').join('\n') : item.name}
+                                </span>
+                            </a>
+                        );
+                    }
+                    return (
+                        <Link 
+                            key={idx} 
+                            to={item.href} 
+                            className={`group flex flex-col items-center justify-center w-[48px] h-[58px] md:w-[58px] md:h-[70px] ${idx !== items.length - 1 ? 'border-b border-white/10' : ''} hover:bg-black/10 transition-all duration-300`}
+                        >
+                            <item.icon className="w-3.5 h-3.5 md:w-4.5 md:h-4.5 text-white/90 group-hover:text-white group-hover:scale-110 transition-all mb-1" />
+                            <span className="text-[8.5px] md:text-[10.5px] font-black text-white group-hover:text-white transition-colors tracking-tighter text-center leading-tight whitespace-pre-wrap">
+                                {item.name.includes(' ') ? item.name.split(' ').join('\n') : item.name}
+                            </span>
+                        </Link>
+                    );
+                })}
             </div>
         </div>
     );

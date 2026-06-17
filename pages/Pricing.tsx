@@ -1,296 +1,388 @@
 import React from 'react';
-import { Check, Star, Sparkles, Gift } from 'lucide-react';
-import { PageHeader } from '../components/Shared';
+import { Check, Sparkles } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const PricingPage = () => (
-  <div className="bg-white min-h-screen">
-    <PageHeader title="멤버십 안내" subtitle="Pricing Plan" />
+  <div className="bg-[#fdf8f1] min-h-screen">
     
-    {/* 매칭 조건은 플로팅 배너 대신 내용에 흡수됨 */}
-    
-    <section id="pricing" className="bg-white">
-      <div className="py-12 md:py-32 px-0 max-w-[800px] w-[84%] md:w-full mx-auto">
-        
-        {/* 1. Header */}
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="font-eng text-[13px] md:text-[14px] font-bold text-gray-400 mb-3 tracking-widest uppercase">
-            Membership
-          </h2>
-          <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-4 tracking-tight">
-            총 12회 프로필 제공 솔루션
-          </h3>
-          <p className="text-[15px] md:text-[17px] text-gray-600 font-medium leading-relaxed keep-all">
-            한 번 시작하면 평균 3개월 동안,<br className="md:hidden" />
-            5~7일마다 한 명씩,<br className="md:hidden" />
-            총 12명의 프로필을 제공받습니다.
-          </p>
-        </div>
+    <style>{`
+      :root{
+        --bg:#fdf8f1; --card:#ffffff; --border:#ebe3d6;
+        --text:#3a332e; --text-soft:#6b635b; --muted:#9a9088; --faint:#b8afa4;
+        --amber:#EF9F27; --amber-ink:#9a6411; --amber-tint:#fdf3e3; --amber-line:#f1ddb8;
+        --olive:#6f7350; --olive-tint:#eef0e6; --olive-tint-2:#fafbf6; --olive-line:#e0e3d5;
+        --rose-bg:#f8ece8; --rose:#c87f6e; --cream:#feefc5;
+      }
+      .pr-pg {
+        color: var(--text);
+        font-family: "Pretendard Variable",Pretendard,-apple-system,sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      .pr-pg * { box-sizing: border-box; }
+      .p-wrap { max-width: 480px; margin: 0 auto; padding: 0 22px; }
+      .p-section { padding: 40px 0; }
+      .p-section.p-major { padding: 54px 0 40px; border-top: 1px solid var(--border); }
+      .p-sec-title { font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -0.5px; line-height: 1.4; }
+      .p-sec-sub { font-size: 13.5px; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+      .p-center { text-align: center; }
+      .p-pillar { font-size: 26px; font-weight: 800; color: var(--text); letter-spacing: -0.8px; line-height: 1.3; }
+      .p-pillar .p-num { color: var(--amber); font-weight: 800; }
+      .p-pillar-sub { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.6; }
 
-        {/* 2. 비용은 두 단계 & 왜 이 가격일까요 */}
-        <div className="max-w-[640px] mx-auto px-5 md:px-0 mb-16 md:mb-28 space-y-16 md:space-y-20">
-            
-            {/* 두 단계 설명 */}
-            <div className="text-center">
-              <h3 className="text-[22px] md:text-[26px] font-black text-[#8B6E3F] mb-6">비용은 두 단계입니다</h3>
-              <div className="bg-[#FAF6EE]/50 border border-[#E8D5BC]/50 rounded-[1.5rem] p-7 md:p-10">
-                 <p className="text-[15px] md:text-[16px] text-gray-800 font-medium keep-all leading-relaxed mb-6">
-                   먼저 이것만 기억하시면 됩니다.
-                 </p>
-                 <p className="text-[15px] md:text-[16px] text-gray-800 font-medium keep-all leading-relaxed mb-8">
-                   <strong className="text-gray-900">멤버십</strong>을 한 번 결제하면 12회 소개가 진행됩니다.<br/>
-                   <strong className="text-[#8B6E3F]">성사비</strong>는 실제로 만나기로 정해졌을 때만 더해집니다.
-                 </p>
-                 <p className="text-[14px] md:text-[15px] text-gray-500 font-medium keep-all leading-relaxed pt-6 border-t border-[#E8D5BC]/60">
-                   소개만 받고 끝나면, 더 내는 돈은 없습니다.<br/>
-                   억지로 매칭시켜 비용을 쓰게 만들지 않습니다.
-                 </p>
-              </div>
-            </div>
+      /* HERO */
+      .p-hero { padding: 92px 0 16px; text-align: center; }
+      .p-hero .p-loc { font-size: 14px; color: var(--amber-ink); letter-spacing: 2px; font-weight: 700; margin-bottom: 18px; }
+      .p-hero h1 { font-size: 32px; font-weight: 800; color: var(--text); letter-spacing: -1px; line-height: 1.3; margin:0; }
+      .p-hero h1 .p-am { color: var(--amber); }
+      .p-hero p { font-size: 14px; color: var(--text-soft); margin-top: 18px; line-height: 1.85; }
+      .p-hero p b { color: var(--text); font-weight: 700; }
 
-            {/* 왜 이 가격일까요 */}
-            <div className="text-center">
-              <h3 className="text-[22px] md:text-[26px] font-black text-gray-900 mb-6">왜 이 가격일까요</h3>
-              <div className="bg-gray-50 border border-gray-100 rounded-[1.5rem] p-7 md:p-10">
-                 <p className="text-[15px] md:text-[16px] text-gray-800 font-medium keep-all leading-relaxed mb-6">
-                   결혼정보회사는 가입비만 수백만 원입니다.<br/>
-                   그 돈의 대부분은 매니저 영업 수당과 광고비예요.
-                 </p>
-                 <p className="text-[15px] md:text-[16px] text-gray-800 font-medium keep-all leading-relaxed mb-8">
-                   이음로그는 그 <strong className="text-gray-900 border-b border-gray-400 pb-[1px]">거품을 뺐습니다.</strong><br/>
-                   소개에 드는 실제 비용만 받고,<br/>
-                   나머지는 <strong className="text-[#8B6E3F] border-b border-[#E8D5BC] pb-[1px]">실제로 만났을 때만</strong> 받습니다.
-                 </p>
-                 <p className="text-[14px] md:text-[15px] text-gray-500 font-bold keep-all pt-6 border-t border-gray-200/80">
-                   데이팅 앱처럼 가볍지 않고,<br/>
-                   결혼정보회사처럼 부담스럽지도 않습니다.
-                 </p>
-              </div>
-            </div>
-            
-        </div>
+      /* PLAN CARDS */
+      .p-plans { display: flex; flex-direction: column; gap: 14px; margin-top: 26px; }
+      .p-plan { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 22px 20px; text-align: left; margin-top: 10px; }
+      .p-plan.p-std { background: var(--olive-tint-2); border-color: var(--olive-line); border-top: 3px solid var(--olive); }
+      .p-plan.p-prem { background: var(--amber-tint); border: 1.5px solid var(--amber-line); border-top: 3px solid var(--amber); }
+      .p-plan.p-lite { background: #f3efe8; border-color: #e6ddcf; opacity: 0.92; }
+      .p-pbadge.p-gray { background: transparent; border: 1px solid var(--faint); color: var(--muted); font-weight: 600; }
+      .p-pbadge { position: absolute; top: -11px; left: 22px; font-size: 11px; font-weight: 600; padding: 4px 13px; border-radius: 20px; }
+      .p-pbadge.p-olive { background: var(--olive); color: #fff; }
+      .p-pbadge.p-amber { background: var(--amber); color: #fff; }
+      .p-ptier { font-size: 22px; font-weight: 800; color: var(--muted); letter-spacing: -0.5px; line-height: 1.2; }
+      .p-plan.p-std .p-ptier { color: var(--olive); }
+      .p-plan.p-prem .p-ptier { color: var(--amber-ink); }
+      .p-pvalue { font-size: 15.5px; font-weight: 600; color: var(--text); line-height: 1.45; margin-top: 7px; }
+      .p-pvalue .p-am { color: var(--amber); font-weight: 700; }
+      .p-pbody { font-size: 12.5px; color: var(--text-soft); line-height: 1.7; margin-top: 8px; }
+      .p-pprice { display: flex; gap: 16px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 14px; font-weight: 600; }
+      .p-plan.p-prem .p-pprice { border-top-color: var(--amber-line); }
+      .p-pprice span { color: var(--text); }
+      .p-pprice span i { color: var(--muted); font-weight: 500; font-style: normal; font-size: 12px; margin-right: 4px; }
+      .p-pbase { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text-soft); background: #f6efe3; border: 1px solid var(--border); border-radius: 7px; padding: 7px 13px; margin-top: 14px; font-weight: 600; }
+      .p-pbase::before { content: "✓"; color: var(--amber); font-weight: 800; font-size: 11px; }
+      .p-pmeta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+      .p-chip { font-size: 11.5px; padding: 5px 11px; border-radius: 7px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+      .p-chip::before { font-weight: 800; font-size: 10px; }
+      .p-chip.p-on { background: #fff; border: 1px solid var(--olive-line); color: var(--olive); }
+      .p-chip.p-on::before { content: "✓"; }
+      .p-chip.p-gold { background: #fff; border: 1px solid var(--amber-line); color: var(--amber-ink); }
+      .p-chip.p-gold::before { content: "✓"; }
+      .p-chip.p-off { background: transparent; border: 1px dashed var(--border); color: var(--faint); font-weight: 500; }
+      .p-chip.p-off::before { content: "✕"; }
+      .p-pnote { margin-top: 20px; display: flex; flex-direction: column; gap: 11px; text-align: left; }
+      .p-pnote .p-row { display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; line-height: 1.6; }
+      .p-pnote .p-row .p-t { flex: 0 0 auto; font-weight: 700; color: var(--text); }
+      .p-pnote .p-row .p-d { color: var(--text-soft); }
 
-        {/* 3. 1. 멤버십 선택 */}
-        <div className="max-w-[760px] mx-auto px-5 md:px-0 mb-8 md:mb-10 text-center">
-            <h3 className="text-[22px] md:text-[28px] font-black text-gray-900 tracking-tight leading-tight mb-3">1. 멤버십 선택</h3>
-            <p className="text-[14px] md:text-[16px] text-gray-500 font-medium keep-all">
-              필요한 조건 보장 수준만 고르시면 됩니다.
-            </p>
-        </div>
+      /* FEE */
+      .p-grid-fee { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 24px; }
+      .p-fee { border-radius: 12px; padding: 26px 8px; text-align: center; background: var(--card); border: 1px solid var(--border); }
+      .p-fee.p-std { background: var(--olive-tint-2); border-color: var(--olive-line); }
+      .p-fee.p-prem { background: var(--amber-tint); border-color: var(--amber-line); }
+      .p-fee.p-lite { opacity: 0.85; }
+      .p-fee .p-fname { font-size: 15px; font-weight: 600; color: var(--text-soft); }
+      .p-fee.p-prem .p-fname { color: var(--amber-ink); }
+      .p-fee .p-fdiv { border-top: 1px solid var(--border); margin: 16px 0; }
+      .p-fee.p-prem .p-fdiv { border-top-color: var(--amber-line); }
+      .p-fee .p-famt { font-size: 17px; font-weight: 700; color: var(--text); word-break: keep-all; }
+      @media (min-width: 400px){ .p-fee .p-famt { font-size: 20px; } }
+      .p-fee.p-prem .p-famt { color: var(--amber); }
+      .p-fee-note { font-size: 13.5px; color: var(--text-soft); line-height: 1.9; text-align: center; margin-top: 22px; font-weight: 500; }
 
-        {/* 멤버십 Cards */}
-        <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-5 md:items-stretch max-w-[760px] mx-auto px-5 md:px-0 mb-14 md:mb-20">
+      /* CONDITIONS */
+      .p-cond-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 18px; text-align: center; margin-top: 20px; }
+      .p-cond-box .p-ttl { font-size: 13px; color: var(--olive); font-weight: 700; margin-bottom: 14px; }
+      .p-cond-box .p-items { font-size: 14px; color: var(--text); line-height: 2.2; font-weight: 500; }
+
+      /* SUBSCRIPTION INTRO BLOCK */
+      .p-subintro { margin-top: 24px; }
+      .p-subintro .p-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .p-subintro .p-duo .p-cell { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 14px; text-align: center; }
+      .p-subintro .p-duo .p-ic { color: var(--amber); margin-bottom: 10px; opacity: 0.9; display: flex; justify-content: center; }
+      .p-subintro .p-duo .p-big { font-size: 17px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
+      .p-subintro .p-duo .p-sm { font-size: 12px; color: var(--muted); margin-top: 5px; }
+
+      .p-vlist { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; }
+      .p-vcard { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px; display: flex; gap: 15px; align-items: flex-start; text-align: left; }
+      .p-vcard .p-vnum { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 9px; background: var(--amber-tint); border: 1px solid var(--amber-line); color: var(--amber-ink); font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+      .p-vcard .p-vbody { flex: 1; }
+      .p-vcard .p-vh { font-size: 16px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+      .p-vcard .p-vp { font-size: 13px; color: var(--text-soft); line-height: 1.7; margin-top: 6px; }
+      .p-vclose { text-align: center; font-size: 18px; color: var(--text); font-weight: 700; line-height: 1.6; margin-top: 36px; letter-spacing: -0.4px; }
+      .p-vclose .p-am { color: var(--amber); }
+
+      /* LOSS AVERSION */
+      .p-loss-box { background: var(--rose-bg); border-radius: 16px; padding: 40px 26px; text-align: center; }
+      .p-loss-box p { font-size: 19px; color: var(--text); font-weight: 700; line-height: 1.65; letter-spacing: -0.4px; margin: 0; }
+      .p-loss-box p .p-rs { color: var(--rose); }
+
+      /* CTA */
+      .p-cta { text-align: center; padding: 18px 0 64px; }
+      .p-cta .p-line { font-size: 13.5px; color: var(--text-soft); line-height: 1.9; }
+      .p-cta a.p-btn { display: inline-block; margin-top: 24px; background: var(--amber); color: #fff; font-size: 15px; font-weight: 700; text-decoration: none; padding: 16px 42px; border-radius: 11px; transition: transform .15s ease, box-shadow .15s ease; cursor: pointer; }
+      .p-cta a.p-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(239,159,39,0.28); }
+      .p-foot { font-size: 11px; color: var(--faint); margin-top: 26px; letter-spacing: 0.5px; }
+
+      @media (max-width:360px){
+        .p-hero h1 { font-size: 28px; }
+        .p-ptier { font-size: 20px; }
+        .p-fee .p-famt { font-size: 15px; }
+      }
+    `}</style>
+
+    <div className="pr-pg">
+      <header className="p-hero">
+        <div className="p-wrap">
           
-          {/* 라이트 카드 */}
-          <div className="bg-white border-[1.5px] border-black/[0.15] rounded-[1.4rem] md:rounded-[2rem] p-6 md:p-8 flex flex-col hover:border-gray-400 transition-colors">
-            
-            <div className="mb-7 md:mb-8 border-b border-black/[0.06] pb-7 md:pb-8">
-              <h4 className="text-[13px] md:text-[14px] font-bold text-gray-400 mb-3 tracking-widest uppercase">라이트</h4>
-              <div className="text-[24px] md:text-[28px] font-black text-gray-900 tracking-tight leading-tight mb-2.5 break-keep">조건 보장 없음</div>
-              <p className="text-[13px] md:text-[14px] text-gray-500 font-medium keep-all leading-relaxed">
-                정해진 조건 없이 폭넓게 소개받습니다.
-              </p>
-            </div>
-            
-            <div className="flex-1 flex flex-col">
-              <ul className="space-y-4 mb-8 flex-1">
-                <li className="flex items-start gap-3.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 shrink-0"></div>
-                  <div className="text-[14px] md:text-[15px] text-gray-700 font-medium keep-all leading-snug">
-                    <strong className="text-gray-900">총 12회 프로필 제공</strong> (5~7일마다)
-                  </div>
-                </li>
-                <li className="flex items-start gap-3.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 shrink-0"></div>
-                  <div className="text-[14px] md:text-[15px] text-gray-400 font-medium keep-all leading-snug line-through decoration-gray-300">
-                    애프터케어 없음
-                  </div>
-                </li>
-              </ul>
+          <div className="bg-[#1A1A1A] rounded-[2rem] px-5 py-12 md:p-14 mb-16 mx-auto max-w-[640px] text-white relative flex flex-col items-center border border-[#333] shadow-2xl">
+            <div className="relative z-10 w-full text-left md:text-center">
+              <div className="text-center mb-10 md:mb-12">
+                <h3 className="text-[24px] md:text-[28px] font-black mb-4 tracking-tight">이음로그는 이런 곳이에요.</h3>
+                <p className="text-[15px] md:text-[17px] text-gray-300 font-medium keep-all leading-relaxed">
+                  수도권이 아닌 <strong className="text-white border-b border-gray-500 pb-0.5">광주·전남 지역</strong>에서<br/>
+                  3개월 동안 1:1로 소개 해드려요.
+                </p>
+              </div>
 
-              <div className="border-t border-black/[0.08] pt-6">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs text-gray-400 font-bold tracking-wider">남성 MALE</span>
-                  <span className="text-[22px] md:text-[26px] font-black text-gray-900 tracking-tight">180,000<span className="text-[14px] md:text-[15px] font-bold text-gray-500 ml-1">원</span></span>
+              <div className="grid grid-cols-2 gap-3 md:gap-5 mb-5 md:mb-6">
+                <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-5 md:p-7 text-center backdrop-blur-sm">
+                  <h4 className="text-[15px] md:text-[17px] font-bold text-gray-300 mb-4">소개팅 앱</h4>
+                  <ul className="space-y-2 text-[13px] md:text-[14px] text-gray-400 font-medium text-left inline-block">
+                    <li>• 신원인증 없음</li>
+                    <li>• 가벼운 만남</li>
+                  </ul>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-xs text-gray-400 font-bold tracking-wider">여성 FEMALE</span>
-                  <span className="text-[22px] md:text-[26px] font-black text-gray-900 tracking-tight">120,000<span className="text-[14px] md:text-[15px] font-bold text-gray-500 ml-1">원</span></span>
+
+                <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-5 md:p-7 text-center backdrop-blur-sm">
+                  <h4 className="text-[15px] md:text-[17px] font-bold text-gray-300 mb-4">결정사</h4>
+                  <ul className="space-y-2 text-[13px] md:text-[14px] text-gray-400 font-medium text-left inline-block">
+                    <li>• 300~1,500만원</li>
+                    <li>• 지나친 결혼 목적</li>
+                  </ul>
                 </div>
+              </div>
+
+              <div className="flex justify-center -my-9 md:-my-10 relative z-20">
+                <div className="bg-[#E8D5BC] text-[#5C4929] text-[13px] md:text-[15px] font-black px-4 py-2 md:px-5 md:py-2.5 rounded-full ring-4 ring-[#1A1A1A] shadow-lg">
+                  VS
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-b from-[#2A2A2A] to-[#1A1A1A] border border-[#E8D5BC]/40 rounded-[1.5rem] p-8 md:p-10 mt-5 md:mt-6 text-center shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#E8D5BC]/50 to-transparent"></div>
+                <h4 className="text-[22px] md:text-[26px] font-black text-[#E8D5BC] mb-7 tracking-tight">이음로그</h4>
+                <ul className="space-y-4 md:space-y-5 text-[15px] md:text-[17px] text-white font-medium inline-block text-left">
+                  <li className="flex items-center gap-3.5">
+                    <div className="w-5 h-5 rounded-full bg-[#E8D5BC] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(232,213,188,0.3)]">
+                      <Check className="w-3.5 h-3.5 text-[#5C4929] stroke-[3]" />
+                    </div>
+                    <span className="tracking-tight">1:1 상담 후 매칭</span>
+                  </li>
+                  <li className="flex items-center gap-3.5">
+                     <div className="w-5 h-5 rounded-full bg-[#E8D5BC] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(232,213,188,0.3)]">
+                      <Check className="w-3.5 h-3.5 text-[#5C4929] stroke-[3]" />
+                    </div>
+                    <span className="tracking-tight">100% 지인 차단</span>
+                  </li>
+                  <li className="flex items-center gap-3.5">
+                     <div className="w-5 h-5 rounded-full bg-[#E8D5BC] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(232,213,188,0.3)]">
+                      <Check className="w-3.5 h-3.5 text-[#5C4929] stroke-[3]" />
+                    </div>
+                    <span className="tracking-tight">결정사의 <strong className="text-[#E8D5BC]">1/10 비용</strong></span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
 
-          {/* 스탠다드 카드 */}
-          <div className="bg-white border-[2.5px] border-[#6E8264] shadow-[0_12px_40px_rgb(110,130,100,0.16)] rounded-[1.4rem] md:rounded-[2rem] p-6 md:p-8 relative flex flex-col scale-[1.02] md:scale-105 z-10">
-            <div className="absolute -top-4 right-6 bg-[#6E8264] text-white text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full shadow-md z-10">
-              가장 많이 선택합니다
-            </div>
-            
-            <div className="mb-7 md:mb-8 border-b border-[#6E8264]/10 pb-7 md:pb-8">
-              <h4 className="text-[13px] md:text-[14px] font-bold text-[#6E8264]/80 mb-3 tracking-widest uppercase">스탠다드</h4>
-              <div className="text-[24px] md:text-[28px] font-black text-[#2e3b29] tracking-tight leading-tight mb-2.5 break-keep">
-                필수 조건 <span className="text-[#6E8264]">2개 보장</span>
+          <div className="p-loc">광주 · 전남 1:1 소개팅</div>
+          <h1><span className="p-am">멤버십</span> 비용</h1>
+          <p>앱처럼 가볍지 않고, 결혼정보회사처럼 부담스럽지 않게.<br/>
+             비용은 <b>구독료</b>와 <b>성사비</b>, 두 가지입니다.</p>
+        </div>
+      </header>
+
+      <section className="p-section p-major">
+        <div className="p-wrap">
+          <div className="p-center">
+            <div className="p-pillar"><span className="p-num">①</span> 3개월 구독료</div>
+            <div className="p-pillar-sub">가입할 때 한 번 결제</div>
+          </div>
+
+          <div className="p-subintro">
+            <div className="p-duo">
+              <div className="p-cell">
+                <div className="p-ic">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+                </div>
+                <div className="p-big">5~7일마다</div>
+                <div className="p-sm">새로운 프로필 제공</div>
               </div>
-              <p className="text-[13px] md:text-[14px] text-[#5c6b54] font-medium keep-all leading-relaxed">
-                나이·직업·키처럼 양보할 수 없는 조건 2가지를 100% 반영합니다.
-              </p>
-            </div>
-
-            <div className="flex-1 flex flex-col">
-              <ul className="space-y-4 mb-8 flex-1">
-                <li className="flex items-start gap-3.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#6E8264] mt-2 shrink-0"></div>
-                  <div className="text-[14px] md:text-[15px] text-gray-800 font-medium keep-all leading-snug">
-                    <strong className="text-gray-900">총 12회 프로필 제공</strong> (5~7일마다)
-                  </div>
-                </li>
-                <li className="flex items-start gap-3.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#6E8264] mt-2 shrink-0"></div>
-                  <div className="text-[14px] md:text-[15px] text-gray-800 font-medium keep-all leading-snug">
-                    <strong className="text-gray-900">애프터케어 24회 보장 (약 6개월)</strong><br/>
-                    <span className="text-[12px] md:text-[13px] text-gray-500 mt-1 block">종료 후에도 나를 선택한 분과 무료로 연결</span>
-                  </div>
-                </li>
-              </ul>
-
-              <div className="border-t border-[#6E8264]/20 pt-6">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs text-[#6E8264]/80 font-bold tracking-wider">남성 MALE</span>
-                  <span className="text-[22px] md:text-[26px] font-black text-gray-900 tracking-tight">320,000<span className="text-[14px] md:text-[15px] font-bold text-gray-500 ml-1">원</span></span>
+              <div className="p-cell">
+                <div className="p-ic">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-xs text-[#6E8264]/80 font-bold tracking-wider">여성 FEMALE</span>
-                  <span className="text-[22px] md:text-[26px] font-black text-gray-900 tracking-tight">230,000<span className="text-[14px] md:text-[15px] font-bold text-gray-500 ml-1">원</span></span>
-                </div>
+                <div className="p-big">최소 12명 이상</div>
+                <div className="p-sm">소개 보장</div>
               </div>
             </div>
           </div>
 
-          {/* 프리미엄 카드 */}
-          <div className="bg-gradient-to-b from-[#FDFBF7] to-[#F5F0E5] border-[2px] border-[#B8956A]/60 shadow-[0_8px_30px_rgb(184,149,106,0.15)] rounded-[1.4rem] md:rounded-[2rem] p-6 md:p-8 relative flex flex-col">
-            <div className="absolute -top-4 right-6 bg-[#B8956A] text-white text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full shadow-md z-10">
-              추천
-            </div>
-            
-            <div className="mb-7 md:mb-8 border-b border-[#B8956A]/20 pb-7 md:pb-8">
-              <h4 className="text-[13px] md:text-[14px] font-bold text-[#B8956A]/80 mb-3 tracking-widest uppercase">프리미엄</h4>
-              <div className="text-[24px] md:text-[28px] font-black text-[#5C4929] tracking-tight leading-tight mb-2.5 break-keep">
-                조건 <span className="text-[#B8956A]">5개</span> 보장<br/>
-                <span className="text-[18px] md:text-[20px] text-[#8B6E3F]">+ 만남 <span className="underline underline-offset-2">3회</span> 보장</span>
+          <div className="p-plans">
+            {/* LITE */}
+            <div className="p-plan p-lite">
+              <div className="p-ptier">라이트</div>
+              <div className="p-pvalue">조건 보장 없음</div>
+              <div className="p-pbody">정해진 조건 없이 폭넓게 소개받는 최소 구성입니다.</div>
+              <div className="p-pprice"><span><i>남</i>180,000원</span><span><i>여</i>120,000원</span></div>
+              <div className="p-pbase">12회 프로필 제공</div>
+              <div className="p-pmeta">
+                <span className="p-chip p-off">애프터케어</span>
+                <span className="p-chip p-off">만남 보장</span>
               </div>
-              <p className="text-[13px] md:text-[14px] text-[#8B6E3F]/90 font-medium keep-all leading-relaxed mt-3">
-                원하는 조건을 깊이 반영해 이상형에 가장 가까운 매칭을 진행합니다.<br/>
-                <span className="font-bold text-[#5C4929]">12회 제공 내에 실제 만남 3회를 보장</span>하고, 채워질 때까지 제공 기간을 연장합니다.
-              </p>
             </div>
-
-            <div className="flex-1 flex flex-col">
-              <ul className="space-y-4 mb-8 flex-1">
-                <li className="flex items-start gap-3.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#B8956A] mt-2 shrink-0"></div>
-                  <div className="text-[14px] md:text-[15px] text-gray-900 font-medium keep-all leading-snug">
-                    <strong className="text-gray-900">총 12회 프로필 제공</strong> (5~7일마다)
-                  </div>
-                </li>
-                <li className="flex items-start gap-3.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#B8956A] mt-2 shrink-0"></div>
-                  <div className="text-[14px] md:text-[15px] text-gray-900 font-medium keep-all leading-snug">
-                    <strong className="text-gray-900">애프터케어 24회 보장 (약 6개월)</strong><br/>
-                    <span className="text-[12px] md:text-[13px] text-[#8B6E3F] mt-1 block">(프리미엄 무료 연결)</span>
-                  </div>
-                </li>
-              </ul>
-
-              <div className="border-t border-[#B8956A]/30 pt-6">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs text-[#8B6E3F]/80 font-bold tracking-wider">남성 MALE</span>
-                  <span className="text-[22px] md:text-[26px] font-black text-[#5C4929] tracking-tight">480,000<span className="text-[14px] md:text-[15px] font-bold text-[#8B6E3F] ml-1">원</span></span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-xs text-[#8B6E3F]/80 font-bold tracking-wider">여성 FEMALE</span>
-                  <span className="text-[22px] md:text-[26px] font-black text-[#5C4929] tracking-tight">360,000<span className="text-[14px] md:text-[15px] font-bold text-[#8B6E3F] ml-1">원</span></span>
-                </div>
+            {/* STANDARD */}
+            <div className="p-plan p-std">
+              <span className="p-pbadge p-olive">합리적인 선택</span>
+              <div className="p-ptier">스탠다드</div>
+              <div className="p-pvalue">조건 2개 보장</div>
+              <div className="p-pbody">나이·직업·키처럼 양보할 수 없는 조건 2가지를 100% 반영합니다.</div>
+              <div className="p-pprice"><span><i>남</i>320,000원</span><span><i>여</i>230,000원</span></div>
+              <div className="p-pbase">12회 프로필 제공</div>
+              <div className="p-pmeta">
+                <span className="p-chip p-on">애프터케어 6개월</span>
+                <span className="p-chip p-off">만남 보장</span>
+              </div>
+            </div>
+            {/* PREMIUM */}
+            <div className="p-plan p-prem">
+              <span className="p-pbadge p-amber">확실한 만남을 위한</span>
+              <div className="p-ptier">프리미엄</div>
+              <div className="p-pvalue">조건 4개 보장 <span className="p-am">+ 만남 3회 보장</span></div>
+              <div className="p-pbody">조건 4개까지 깊이 반영하고, 3개월 안에 실제 만남 3회를 보장합니다.</div>
+              <div className="p-pprice"><span><i>남</i>480,000원</span><span><i>여</i>360,000원</span></div>
+              <div className="p-pbase">12회 프로필 제공</div>
+              <div className="p-pmeta">
+                <span className="p-chip p-gold">애프터케어 6개월</span>
+                <span className="p-chip p-gold">만남 3회 보장</span>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* 4. 2. 만남 성사비 */}
-        <div className="max-w-[760px] mx-auto px-5 md:px-0 mb-16 md:mb-24">
-            <div className="text-center mb-8">
-              <h3 className="text-[22px] md:text-[28px] font-black text-gray-900 mb-3">2. 만남 성사비</h3>
-              <p className="text-[14px] md:text-[16px] text-gray-500 font-medium keep-all">
-                실제로 만나기로 확정됐을 때만, 1회당 한 번 결제합니다.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-3 gap-3 md:gap-5 max-w-[600px] mx-auto">
-              {/* 라이트 성사비 */}
-              <div className="bg-white p-4 md:p-6 rounded-[1.2rem] border border-gray-200 shadow-[0_2px_12px_rgb(0,0,0,0.03)] flex flex-col items-center justify-center">
-                <div className="text-[12px] md:text-[13px] text-gray-500 font-bold mb-1.5 md:mb-2 whitespace-nowrap">라이트</div>
-                <div className="flex items-baseline gap-0.5">
-                  <div className="text-[18px] md:text-[24px] font-black text-gray-900 tracking-tight leading-none whitespace-nowrap">50,000</div>
-                  <div className="text-[12px] md:text-[14px] font-bold text-gray-900">원</div>
-                </div>
-              </div>
-              {/* 스탠다드 성사비 */}
-              <div className="bg-white p-4 md:p-6 rounded-[1.2rem] border-[2px] border-[#6E8264] shadow-md relative scale-105 z-10 flex flex-col items-center justify-center">
-                <div className="text-[12px] md:text-[13px] text-[#6E8264] font-bold mb-1.5 md:mb-2 whitespace-nowrap">스탠다드</div>
-                <div className="flex items-baseline gap-0.5">
-                  <div className="text-[18px] md:text-[24px] font-black text-[#6E8264] tracking-tight leading-none whitespace-nowrap">30,000</div>
-                  <div className="text-[12px] md:text-[14px] font-bold text-[#6E8264]">원</div>
-                </div>
-              </div>
-              {/* 프리미엄 성사비 */}
-              <div className="bg-[#B8956A] p-4 md:p-6 rounded-[1.2rem] shadow-md text-white flex flex-col items-center justify-center relative">
-                <div className="text-[12px] md:text-[13px] text-[#FFE7BB] font-bold mb-1.5 md:mb-2 whitespace-nowrap">프리미엄</div>
-                <div className="flex items-baseline gap-0.5">
-                  <div className="text-[18px] md:text-[24px] font-black tracking-tight leading-none whitespace-nowrap">20,000</div>
-                  <div className="text-[12px] md:text-[14px] font-bold">원</div>
-                </div>
-              </div>
-            </div>
+          <div className="p-pnote">
+            <div className="p-row"><span className="p-t">애프터케어</span><span className="p-d">서비스가 끝난 뒤에도 나를 선택한 상대가 생기면 무료로 소개합니다. (스탠다드·프리미엄, 6개월)</span></div>
+            <div className="p-row"><span className="p-t">만남 3회 보장</span><span className="p-d">3개월 안에 실제 만남 3회를 보장하고, 채워지지 않으면 채워질 때까지 기간을 연장합니다. (프리미엄)</span></div>
+          </div>
         </div>
-        
-        {/* 5. 클로징 카피 + CTA */}
-        <div className="text-center bg-[#FAF6EE]/50 rounded-[2rem] p-10 md:p-14 max-w-[760px] mx-auto mx-5 md:mx-auto border border-[#E8D5BC]/50 mt-20 mb-10">
-            <p className="text-[16px] md:text-[18px] text-gray-800 font-medium keep-all leading-relaxed mb-8 md:mb-10">
-              반신반의하며 시작한 분들이<br/>
-              지금은 연인으로 만나고 있어요.<br/><br/>
-              <strong className="text-xl md:text-2xl font-black text-[#8B6E3F]">다음은 당신 차례입니다.</strong>
-            </p>
-            <a 
-              href="https://www.eumlog.co.kr/links" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-4 md:px-12 md:py-5 bg-[#8B6E3F] text-white rounded-full font-bold text-[16px] md:text-lg hover:bg-[#7A6037] transition-all shadow-xl active:scale-95"
-            >
-              지금 신청하기 <Sparkles className="w-5 h-5 ml-2" />
-            </a>
-        </div>
+      </section>
 
-      </div>
-    </section>
+      <section className="p-section p-major">
+        <div className="p-wrap">
+          <div className="p-center">
+            <div className="p-pillar"><span className="p-num">②</span> 성사비</div>
+            <div className="p-pillar-sub">서로 수락해 만남이 잡힐 때만 · 소개만 받으면 추가 비용 없음</div>
+          </div>
+          <div className="p-grid-fee">
+            <div className="p-fee p-lite"><div className="p-fname">라이트</div><div className="p-fdiv"></div><div className="p-famt">50,000원</div></div>
+            <div className="p-fee p-std"><div className="p-fname">스탠다드</div><div className="p-fdiv"></div><div className="p-famt">30,000원</div></div>
+            <div className="p-fee p-prem"><div className="p-fname">프리미엄</div><div className="p-fdiv"></div><div className="p-famt">20,000원</div></div>
+          </div>
+          <div className="p-fee-note">성사비는 진지한 만남을 위한 장치입니다.<br/>이음로그는 가벼운 만남을 만들지 않으려 합니다.</div>
+        </div>
+      </section>
+
+      <section className="p-section">
+        <div className="p-wrap">
+          <div className="p-center">
+            <div className="p-sec-title">조건 보장 항목</div>
+            <div className="p-sec-sub">스탠다드 2개, 프리미엄 4개까지 보장</div>
+          </div>
+          <div className="p-cond-box">
+            <div className="p-ttl">조건 8가지</div>
+            <div className="p-items">나이 &nbsp;·&nbsp; 키 &nbsp;·&nbsp; 종교 &nbsp;·&nbsp; 흡연여부<br/>직업 &nbsp;·&nbsp; 연봉 &nbsp;·&nbsp; 학력 &nbsp;·&nbsp; 자녀계획</div>
+          </div>
+        </div>
+      </section>
+
+      <section className="p-section" style={{ paddingBottom: '22px' }}>
+        <div className="p-wrap">
+          <div className="p-center">
+            <div className="p-sec-title">아무나 만나는 곳이<br/>아닙니다</div>
+            <div className="p-sec-sub">괜찮은 사람만, 진지한 사람만 모았습니다</div>
+          </div>
+
+          <div className="p-vlist">
+            <div className="p-vcard">
+              <div className="p-vnum">1</div>
+              <div className="p-vbody">
+                <div className="p-vh">검증된 사람만 들어옵니다</div>
+                <div className="p-vp">외모·스타일·상담까지 보고 선정합니다.</div>
+              </div>
+            </div>
+            <div className="p-vcard">
+              <div className="p-vnum">2</div>
+              <div className="p-vbody">
+                <div className="p-vh">지인은 만나지 않습니다</div>
+                <div className="p-vp">2단계 시스템으로 지인을 확실하게 차단합니다.</div>
+              </div>
+            </div>
+            <div className="p-vcard">
+              <div className="p-vnum">3</div>
+              <div className="p-vbody">
+                <div className="p-vh">가벼운 만남은 없습니다</div>
+                <div className="p-vp">성사비가 있어 가벼운 사람은 걸러집니다.</div>
+              </div>
+            </div>
+            <div className="p-vcard">
+              <div className="p-vnum">4</div>
+              <div className="p-vbody">
+                <div className="p-vh">3개월 동안 함께합니다</div>
+                <div className="p-vp">3개월 동안 꾸준히 소개를 진행합니다.</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-vclose">괜찮은 사람을, 진지하게,<br/><span className="p-am">3개월 내내</span> 만날 수 있는 자리입니다.</div>
+        </div>
+      </section>
+
+      <section className="p-section" style={{ padding: '22px 0 18px' }}>
+        <div className="p-wrap">
+          <div className="p-loss-box">
+            <p>괜찮은 사람을 못 만난 채<br/><span className="p-rs">흘려보낸 시간</span>은<br/>어떤 비용으로도 되돌릴 수 없습니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="p-cta">
+        <div className="p-wrap">
+          <div className="p-line">
+            매주 실제 매칭결과와 커플 후기를 올리고 있습니다.<br/>
+            먼저 충분히 보고 결정하셔도 됩니다.<br/>
+            고민하는 동안 자리는 계속 채워집니다.
+          </div>
+          <a className="p-btn" href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">이음로그 신청하기</a>
+          <div className="p-foot">광주 · 여수 · 순천 · 광양 — 이음로그</div>
+        </div>
+      </section>
+    </div>
 
     <div className="bg-[#0f0f0f] text-white pb-24 md:pb-0">
       <Footer />
     </div>
 
-    {/* 🔥 하단 플로팅 CTA (페이지 어디서든 항상 보임) */}
+    {/* 하단 플로팅 CTA */}
     <div className="fixed bottom-0 left-0 right-0 z-50 pointer-events-none">
-      <div className="bg-gradient-to-t from-white via-white/95 to-white/0 pt-8 pb-4 md:pb-5 px-4 md:px-6">
-        <div className="max-w-[600px] mx-auto pointer-events-auto">
-          <a 
-            href="https://www.eumlog.co.kr/links" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2.5 bg-eum-dark text-white font-bold rounded-full py-4 md:py-5 shadow-2xl active:scale-95 transition-transform hover:bg-black"
-          >
-            <span className="text-[15px] md:text-base">지금 바로 신청하기</span>
-            <Sparkles className="w-[18px] h-[18px] md:w-5 md:h-5" />
-          </a>
-        </div>
+      <div className="bg-gradient-to-t from-white via-white/95 to-white/0 pt-8 pb-4 md:pb-5 px-4 md:px-6 flex justify-center">
+        <a 
+          href="https://naver.me/G4GlQVbi" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="pointer-events-auto flex w-full max-w-[400px] md:max-w-[600px] items-center justify-center gap-2.5 bg-[#3a332e] hover:bg-black text-white font-bold rounded-full py-4 shadow-2xl active:scale-95 transition-transform"
+        >
+          <span className="text-[15px] md:text-[16px]">지금 바로 신청하기</span>
+          <Sparkles className="w-[18px] h-[18px]" />
+        </a>
       </div>
     </div>
   </div>

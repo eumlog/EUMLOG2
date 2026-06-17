@@ -8,10 +8,10 @@ const Footer = () => (
     <div id="contact" className="relative w-full flex flex-col justify-center items-center footer-content py-20 md:py-32 px-0 bg-[#0f0f0f] text-white">
         <div className="relative z-10 text-center w-[92%] mx-auto max-w-6xl">
             <div className="font-eng text-[10px] md:text-lg font-bold tracking-[0.2em] mb-4 md:mb-6 mt-8 text-gray-500 uppercase">만남을 시작하세요</div>
-            <Link to="/apply" className="group relative inline-block">
+            <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer" className="group relative inline-block">
                 <span className="block font-sans text-3xl md:text-7xl font-black leading-none text-white group-hover:text-gray-400 transition-colors tracking-tighter">매칭 신청하기</span>
                 <span className="block text-xs md:text-lg font-medium text-gray-500 mt-4 md:mt-6 group-hover:text-white transition-colors flex items-center justify-center gap-1">지금 바로 프로필 등록하기 <ArrowRight className="w-3 h-3 md:w-4 md:h-4" /></span>
-            </Link>
+            </a>
             <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-8 gap-y-4 mt-16 md:mt-24 text-[10px] md:text-sm font-semibold tracking-wider text-gray-400">
                 <Link to="/instagram" className="hover:text-white transition-colors">인스타그램</Link>
                 <Link to="/contact" className="hover:text-white transition-colors">카카오톡 문의</Link>

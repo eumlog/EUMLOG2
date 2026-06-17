@@ -148,12 +148,12 @@ const WeeklyList = () => {
                         <h3 className="text-xl md:text-2xl font-black text-eum-dark mb-6 leading-tight">
                             이번주 명단의<br/>주인공이 되어보세요
                         </h3>
-                        <Link to="/links" className="group relative inline-flex items-center justify-center px-12 py-5 md:px-16 md:py-6 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
+                        <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center px-12 py-5 md:px-16 md:py-6 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
                             <span className="relative z-10 flex items-center gap-3 text-base md:text-lg">
                                 매칭 신청하기 <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
                             </span>
                             <div className="absolute inset-0 bg-gradient-to-r from-eum-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        </Link>
+                        </a>
                     </div>
 
                 </div>
