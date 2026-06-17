@@ -133,68 +133,6 @@ const PricingPage = () => (
     <div className="pr-pg">
       <header className="p-hero">
         <div className="p-wrap">
-          
-          <div className="bg-[#1A1A1A] rounded-[2rem] px-5 py-12 md:p-14 mb-16 mx-auto max-w-[640px] text-white relative flex flex-col items-center border border-[#333] shadow-2xl">
-            <div className="relative z-10 w-full text-left md:text-center">
-              <div className="text-center mb-10 md:mb-12">
-                <h3 className="text-[24px] md:text-[28px] font-black mb-4 tracking-tight">이음로그는 이런 곳이에요.</h3>
-                <p className="text-[15px] md:text-[17px] text-gray-300 font-medium keep-all leading-relaxed">
-                  수도권이 아닌 <strong className="text-white border-b border-gray-500 pb-0.5">광주·전남 지역</strong>에서<br/>
-                  3개월 동안 1:1로 소개 해드려요.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 md:gap-5 mb-5 md:mb-6">
-                <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-5 md:p-7 text-center backdrop-blur-sm">
-                  <h4 className="text-[15px] md:text-[17px] font-bold text-gray-300 mb-4">소개팅 앱</h4>
-                  <ul className="space-y-2 text-[13px] md:text-[14px] text-gray-400 font-medium text-left inline-block">
-                    <li>• 신원인증 없음</li>
-                    <li>• 가벼운 만남</li>
-                  </ul>
-                </div>
-
-                <div className="bg-white/5 border border-white/10 rounded-[1.5rem] p-5 md:p-7 text-center backdrop-blur-sm">
-                  <h4 className="text-[15px] md:text-[17px] font-bold text-gray-300 mb-4">결정사</h4>
-                  <ul className="space-y-2 text-[13px] md:text-[14px] text-gray-400 font-medium text-left inline-block">
-                    <li>• 300~1,500만원</li>
-                    <li>• 지나친 결혼 목적</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex justify-center -my-9 md:-my-10 relative z-20">
-                <div className="bg-[#E8D5BC] text-[#5C4929] text-[13px] md:text-[15px] font-black px-4 py-2 md:px-5 md:py-2.5 rounded-full ring-4 ring-[#1A1A1A] shadow-lg">
-                  VS
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-b from-[#2A2A2A] to-[#1A1A1A] border border-[#E8D5BC]/40 rounded-[1.5rem] p-8 md:p-10 mt-5 md:mt-6 text-center shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#E8D5BC]/50 to-transparent"></div>
-                <h4 className="text-[22px] md:text-[26px] font-black text-[#E8D5BC] mb-7 tracking-tight">이음로그</h4>
-                <ul className="space-y-4 md:space-y-5 text-[15px] md:text-[17px] text-white font-medium inline-block text-left">
-                  <li className="flex items-center gap-3.5">
-                    <div className="w-5 h-5 rounded-full bg-[#E8D5BC] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(232,213,188,0.3)]">
-                      <Check className="w-3.5 h-3.5 text-[#5C4929] stroke-[3]" />
-                    </div>
-                    <span className="tracking-tight">1:1 상담 후 매칭</span>
-                  </li>
-                  <li className="flex items-center gap-3.5">
-                     <div className="w-5 h-5 rounded-full bg-[#E8D5BC] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(232,213,188,0.3)]">
-                      <Check className="w-3.5 h-3.5 text-[#5C4929] stroke-[3]" />
-                    </div>
-                    <span className="tracking-tight">100% 지인 차단</span>
-                  </li>
-                  <li className="flex items-center gap-3.5">
-                     <div className="w-5 h-5 rounded-full bg-[#E8D5BC] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(232,213,188,0.3)]">
-                      <Check className="w-3.5 h-3.5 text-[#5C4929] stroke-[3]" />
-                    </div>
-                    <span className="tracking-tight">결정사의 <strong className="text-[#E8D5BC]">1/10 비용</strong></span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
           <div className="p-loc">광주 · 전남 1:1 소개팅</div>
           <h1><span className="p-am">멤버십</span> 비용</h1>
           <p>앱처럼 가볍지 않고, 결혼정보회사처럼 부담스럽지 않게.<br/>
