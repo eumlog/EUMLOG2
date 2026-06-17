@@ -1,264 +1,718 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../components/Footer';
-import { ArrowRight, Check, X, Shield, MessageCircle, Coins } from 'lucide-react';
-import { PageHeader } from '../components/Shared';
 
 const Landing = () => {
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css';
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+
   return (
-    <div className="bg-white min-h-screen font-sans">
-        
-        {/* Page Header */}
-        <PageHeader title="광주·전남 1:1 매칭" subtitle="Local Private Matching" />
+    <div className="landing-container">
+      <style>{`
+        .landing-container {
+          --bg: #fffaf7;
+          --paper: #ffffff;
+          --ink: #28221f;
+          --sub: #766c64;
+          --muted: #a79c94;
+          --line: #efe6df;
+          --soft: #fbefed;
+          --soft2: #f7e3df;
+          --accent: #c98f86;
+          --deep: #4a3733;
+          --btn: #1d1815;
+          font-family: "Pretendard", sans-serif;
+          background: #e9e2db;
+          color: var(--ink);
+          line-height: 1.65;
+          -webkit-font-smoothing: antialiased;
+          min-height: 100vh;
+          width: 100%;
+        }
+        .landing-container * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+        .landing-container .wrap {
+          max-width: 430px;
+          margin: 0 auto;
+          background: var(--paper);
+          min-height: 100vh;
+          padding-bottom: 82px;
+          overflow: hidden;
+          position: relative;
+        }
+        .landing-container .hero {
+          position: relative;
+          min-height: 420px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          color: #fff;
+          overflow: hidden;
+          background: linear-gradient(180deg, rgba(28,26,23,0.20) 0%, rgba(28,26,23,0.30) 45%, rgba(28,26,23,0.90) 100%), url('https://wooban.co.kr/wp-content/uploads/2026/06/ChatGPT-Image-2026년-6월-17일-오후-05_29_37.png') center/cover no-repeat, #2a2320;
+        }
+        .landing-container .hero .eyebrow {
+          display: inline-block;
+          background: rgba(245,221,214,0.20);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          border: 1px solid rgba(255,255,255,0.32);
+          color: #fff;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.2px;
+          padding: 7px 13px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        }
+        .landing-container .brand-pink { color: #efb1a4; }
+        .landing-container .hero-photo-hint {
+          position: absolute;
+          top: 38%;
+          left: 0;
+          right: 0;
+          text-align: center;
+          font-size: 11px;
+          color: rgba(255,255,255,0.35);
+          letter-spacing: 0.5px;
+          z-index: 1;
+        }
+        .landing-container .hero-nav {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 3;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 18px 22px;
+        }
+        .landing-container .hero-nav .brand {
+          font-weight: 850;
+          letter-spacing: 2.2px;
+          font-size: 15px;
+          color: #fff;
+        }
+        .landing-container .hero-nav .brand span { color: var(--accent); }
+        .landing-container .hero-nav .menu { display: flex; gap: 18px; }
+        .landing-container .hero-nav .menu a {
+          color: rgba(255,255,255,0.88);
+          text-decoration: none;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.3px;
+        }
+        .landing-container .hero-content {
+          position: relative;
+          z-index: 2;
+          padding: 0 24px 32px;
+        }
+        .landing-container .hero h1 {
+          color: #fff;
+          margin-bottom: 14px;
+        }
+        .landing-container .hero-btns {
+          margin-top: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 9px;
+        }
+        .landing-container .hero-cta {
+          display: block;
+          width: 100%;
+          background: #fff;
+          color: var(--deep);
+          text-align: center;
+          text-decoration: none;
+          border-radius: 999px;
+          padding: 16px;
+          font-size: 15px;
+          font-weight: 850;
+          letter-spacing: -0.3px;
+        }
+        .landing-container .hero-sub {
+          display: block;
+          width: 100%;
+          background: rgba(255,255,255,0.08);
+          color: #fff;
+          text-align: center;
+          text-decoration: none;
+          border: 1.5px solid rgba(255,255,255,0.5);
+          border-radius: 999px;
+          padding: 14px;
+          font-size: 14px;
+          font-weight: 750;
+          letter-spacing: -0.2px;
+        }
+        .landing-container .statstrip { padding: 22px 24px 6px; }
+        .landing-container .stats-src {
+          text-align: center;
+          font-size: 11px;
+          color: var(--muted);
+          margin-top: 11px;
+          letter-spacing: -0.1px;
+        }
+        .landing-container .hero-photo {
+          height: 245px;
+          border-radius: 26px;
+          background: linear-gradient(180deg, rgba(39,28,22,0.12), rgba(39,28,22,0.58)), #d8cec4;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          text-align: center;
+          color: #fff;
+          padding: 22px;
+          margin-bottom: 26px;
+          overflow: hidden;
+        }
+        .landing-container .hero-photo .cap {
+          font-size: 11px;
+          line-height: 1.6;
+          opacity: 0.9;
+          letter-spacing: -0.1px;
+        }
+        .landing-container .eyebrow {
+          font-size: 12px;
+          color: var(--accent);
+          font-weight: 800;
+          letter-spacing: 1.8px;
+          margin-bottom: 12px;
+        }
+        .landing-container h1 {
+          font-size: 27px;
+          line-height: 1.36;
+          letter-spacing: -0.9px;
+          font-weight: 900;
+          margin-bottom: 14px;
+        }
+        .landing-container .lead {
+          font-size: 15px;
+          color: var(--sub);
+          line-height: 1.75;
+          letter-spacing: -0.25px;
+          margin-bottom: 18px;
+        }
+        .landing-container .stats {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 7px;
+          margin: 20px 0 18px;
+        }
+        .landing-container .stat {
+          background: var(--soft);
+          border-radius: 16px;
+          text-align: center;
+          padding: 13px 3px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 6px;
+        }
+        .landing-container .stat b {
+          display: block;
+          font-size: 18px;
+          line-height: 1;
+          font-weight: 900;
+          color: var(--deep);
+          letter-spacing: -0.5px;
+          white-space: nowrap;
+        }
+        .landing-container .stat span {
+          display: block;
+          font-size: 11.5px;
+          font-weight: 700;
+          color: var(--sub);
+          letter-spacing: -0.3px;
+          line-height: 1.3;
+        }
+        .landing-container .cta {
+          display: block;
+          width: 100%;
+          background: var(--btn);
+          color: #fff;
+          text-align: center;
+          text-decoration: none;
+          border-radius: 999px;
+          padding: 17px 18px;
+          font-size: 15px;
+          font-weight: 850;
+          margin-top: 12px;
+        }
+        .landing-container .subcta {
+          display: block;
+          text-align: center;
+          color: var(--deep);
+          font-weight: 750;
+          font-size: 13px;
+          text-decoration: none;
+          margin-top: 12px;
+        }
+        .landing-container .cta-line {
+          display: block;
+          width: 100%;
+          background: transparent;
+          color: var(--deep);
+          text-align: center;
+          text-decoration: none;
+          border: 1.5px solid var(--accent);
+          border-radius: 999px;
+          padding: 15px 18px;
+          font-size: 14.5px;
+          font-weight: 800;
+          margin-top: 14px;
+          letter-spacing: -0.2px;
+        }
+        .landing-container .section {
+          padding: 34px 24px;
+          border-top: 1px solid var(--line);
+        }
+        .landing-container .section.compact {
+          padding-top: 28px;
+          padding-bottom: 28px;
+        }
+        .landing-container .title {
+          font-size: 21px;
+          line-height: 1.45;
+          letter-spacing: -0.6px;
+          font-weight: 900;
+          margin-bottom: 13px;
+        }
+        .landing-container .text {
+          font-size: 14.5px;
+          color: var(--sub);
+          line-height: 1.85;
+          letter-spacing: -0.2px;
+        }
+        .landing-container .reason-box {
+          background: var(--soft);
+          border-radius: 24px;
+          padding: 23px 21px;
+          margin-top: 18px;
+        }
+        .landing-container .story {
+          position: relative;
+          overflow: hidden;
+          background: url('https://wooban.co.kr/wp-content/uploads/2026/06/서술3_복사본-_4_-002-1.png') center/cover no-repeat, var(--soft);
+          border-top: 1px solid var(--line);
+        }
+        .landing-container .story::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(28,26,23,0.7), rgba(28,26,23,0.85));
+          z-index: 1;
+        }
+        .landing-container .story > * {
+          position: relative;
+          z-index: 2;
+        }
+        .landing-container .story-photo-hint {
+          position: absolute;
+          top: 14px;
+          left: 0;
+          right: 0;
+          text-align: center;
+          font-size: 10.5px;
+          color: rgba(255,255,255,0.4);
+          letter-spacing: 0.4px;
+        }
+        .landing-container .story-label {
+          display: inline-block;
+          font-size: 11px;
+          font-weight: 800;
+          color: #efb1a4;
+          letter-spacing: 1.5px;
+          margin-bottom: 16px;
+        }
+        .landing-container .story-lead {
+          font-size: 21px;
+          font-weight: 900;
+          line-height: 1.5;
+          letter-spacing: -0.6px;
+          color: #ffffff;
+          margin-bottom: 18px;
+        }
+        .landing-container .story-body {
+          font-size: 14.5px;
+          color: rgba(255,255,255,0.85);
+          line-height: 1.85;
+          letter-spacing: -0.2px;
+          margin-bottom: 16px;
+        }
+        .landing-container .story-close {
+          font-size: 15.5px;
+          color: rgba(255,255,255,0.95);
+          line-height: 1.7;
+          letter-spacing: -0.3px;
+          font-weight: 600;
+        }
+        .landing-container .story-close b {
+          font-weight: 900;
+          color: #ffffff;
+        }
+        .landing-container .reason-title {
+          font-size: 19px;
+          font-weight: 900;
+          line-height: 1.45;
+          letter-spacing: -0.55px;
+          margin-bottom: 16px;
+          color: var(--deep);
+        }
+        .landing-container .reason {
+          display: flex;
+          gap: 11px;
+          padding: 10px 0;
+          border-bottom: 1px solid rgba(201,143,134,0.18);
+        }
+        .landing-container .reason:last-child {
+          border-bottom: 0;
+          padding-bottom: 2px;
+        }
+        .landing-container .reason .num {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: var(--accent);
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          font-weight: 900;
+          flex: none;
+          margin-top: 1px;
+        }
+        .landing-container .reason p {
+          font-size: 15px;
+          color: var(--ink);
+          line-height: 1.62;
+          font-weight: 750;
+          letter-spacing: -0.35px;
+        }
+        .landing-container .proof-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          margin-top: 18px;
+        }
+        .landing-container .proof {
+          height: 150px;
+          border-radius: 20px;
+          background-color: #eee6df;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: #aaa096;
+          font-size: 11px;
+          line-height: 1.5;
+        }
+        .landing-container .proof-1 { background-image: url('https://wooban.co.kr/wp-content/uploads/2026/06/커플인증10-001.png'); }
+        .landing-container .proof-2 { background-image: url('https://wooban.co.kr/wp-content/uploads/2026/06/커플인증9_복사본-_2_-001.png'); }
+        .landing-container .proof-3 { background-image: url('https://wooban.co.kr/wp-content/uploads/2026/06/커플인증9_복사본-_1_-001.png'); }
+        .landing-container .proof-4 { background-image: url('https://wooban.co.kr/wp-content/uploads/2026/06/커플인증9_복사본-001.png'); }
+        .landing-container .quote {
+          background: var(--soft);
+          border-radius: 20px;
+          padding: 19px 20px;
+          font-size: 14px;
+          color: var(--ink);
+          line-height: 1.75;
+          letter-spacing: -0.25px;
+          margin-top: 12px;
+        }
+        .landing-container .quote span {
+          display: block;
+          color: var(--muted);
+          font-size: 12px;
+          margin-top: 10px;
+        }
+        .landing-container .cards {
+          display: grid;
+          gap: 10px;
+          margin-top: 17px;
+        }
+        .landing-container .card {
+          border: 1px solid var(--line);
+          border-radius: 20px;
+          padding: 18px;
+        }
+        .landing-container .card.key-card {
+           background: #fdf3f0;
+           border-color: rgba(201,143,134,0.28);
+        }
+        .landing-container .card b {
+          display: block;
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+        .landing-container .key {
+          display: inline-block;
+          font-size: 10.5px;
+          font-weight: 700;
+          color: #a85f54;
+          background: transparent;
+          border: 1px solid rgba(187,106,93,0.5);
+          border-radius: 6px;
+          padding: 2px 8px;
+          margin-left: 7px;
+          letter-spacing: 0.8px;
+          vertical-align: middle;
+        }
+        .landing-container .ex {
+          display: inline-block;
+          font-size: 12.5px;
+          font-weight: 700;
+          color: var(--deep);
+          background: #fff;
+          border: 1px solid var(--line);
+          border-radius: 7px;
+          padding: 1px 8px;
+          letter-spacing: 0.3px;
+        }
+        .landing-container .card p {
+          font-size: 13.5px;
+          color: var(--sub);
+          line-height: 1.7;
+        }
+        .landing-container .shield {
+           background: var(--soft);
+           border-radius: 22px;
+           padding: 19px;
+           margin-top: 17px;
+        }
+        .landing-container .shield p {
+          font-size: 14px;
+          color: var(--sub);
+          line-height: 1.7;
+          padding: 8px 0;
+        }
+        .landing-container .shield b {
+          color: var(--ink);
+          font-weight: 800;
+        }
+        .landing-container .price {
+          margin-top: 17px;
+          border-top: 1px solid var(--line);
+        }
+        .landing-container .price-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 15px 0;
+          border-bottom: 1px solid var(--line);
+          font-size: 14px;
+        }
+        .landing-container .price-row b {
+          font-size: 15px;
+        }
+        .landing-container .price-row .tag {
+          font-size: 10px;
+          background: var(--accent);
+          color: #fff;
+          border-radius: 999px;
+          padding: 3px 7px;
+          margin-left: 5px;
+        }
+        .landing-container .price-row strong {
+          font-size: 15px;
+        }
+        .landing-container .closing {
+          background: var(--deep);
+          color: #fff;
+          text-align: center;
+          padding: 43px 24px;
+        }
+        .landing-container .closing h2 {
+          font-size: 22px;
+          line-height: 1.45;
+          letter-spacing: -0.6px;
+          margin-bottom: 12px;
+        }
+        .landing-container .closing p {
+          font-size: 14px;
+          color: #eadfd8;
+          line-height: 1.75;
+        }
+        .landing-container .footer-brand {
+          text-align: center;
+          padding: 28px 24px;
+          color: var(--muted);
+          font-size: 12px;
+          line-height: 1.7;
+        }
+        .landing-container .sticky-nav {
+          position: fixed;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          width: 100%;
+          max-width: 430px;
+          background: rgba(255,255,255,0.96);
+          backdrop-filter: blur(10px);
+          padding: 11px 16px inset(env(safe-area-inset-bottom, 0px) + 11px);
+          border-top: 1px solid var(--line);
+          z-index: 100;
+        }
+        .landing-container .sticky-nav a {
+          position: relative;
+          display: block;
+          background: linear-gradient(135deg, #d6a094, #c5847a);
+          color: #fff;
+          text-decoration: none;
+          text-align: center;
+          border-radius: 999px;
+          padding: 15px;
+          font-size: 14.5px;
+          font-weight: 850;
+          overflow: hidden;
+          box-shadow: 0 6px 18px rgba(197,132,122,0.30), inset 0 0 0 1px rgba(255,255,255,0.25);
+        }
+        .landing-container .sticky-nav a span {
+          position: relative;
+          z-index: 1;
+        }
+        .landing-container .sticky-nav a::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -60%;
+          width: 45%;
+          height: 100%;
+          background: linear-gradient(100deg, transparent, rgba(255,255,255,0.45), transparent);
+          transform: skewX(-20deg);
+          animation: shine 4.5s ease-in-out infinite;
+        }
+        @keyframes shine {
+          0% { left: -60% }
+          28% { left: 130% }
+          100% { left: 130% }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .landing-container .sticky-nav a::before {
+            animation: none;
+            display: none;
+          }
+        }
+      `}</style>
 
-        {/* Hero Section */}
-        <section className="py-20 md:py-32 px-6 max-w-[900px] mx-auto text-center md:text-left">
-            <div className="inline-block bg-eum-bg text-eum-accent text-xs md:text-sm font-black px-4 py-2 rounded-full mb-8 border border-eum-accent/10">
-                지역 기반 1:1 소개팅
+      <div className="wrap">
+        <header className="hero" id="top">
+          <div className="hero-nav">
+            <div className="brand">E.UM&nbsp;<span>LOG</span></div>
+            <div className="menu"><a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">신청</a></div>
+          </div>
+          <div className="hero-content">
+            <div className="eyebrow">광주·전남 1:1 소개팅</div>
+            <h1>괜찮은 사람과의 만남,<br/><span className="brand-pink">이음로그</span>에서 시작됩니다.</h1>
+            <div className="hero-btns">
+              <a className="hero-cta" href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">소개팅 신청하기 →</a>
+              <Link className="hero-sub" to="/links">이번주 참가자 명단 보기</Link>
             </div>
-            <h1 className="text-4xl md:text-6xl font-black text-eum-dark leading-tight mb-8">
-                솔직히 말할게요.<br />
-                지방에서 연애하기<br />
-                <span className="text-eum-accent">진짜 힘들잖아요.</span>
-            </h1>
-            <p className="text-base md:text-xl text-gray-600 mb-10 leading-relaxed font-medium keep-all">
-                소개팅 앱? 지방은 사람이 없어서 의미가 없고,<br />
-                주변 소개? 다 아는 사람이라 부담스럽고,<br />
-                그냥 바쁘게 살다 보면 되겠지 하면서 또 1년.<br /><br />
-                6:6 단체 소개팅 100회 넘게 운영하며 400커플을 만들었습니다.<br />
-                이제 <strong className="text-eum-dark">1:1 매칭</strong>으로 더 확실하게 연결해드립니다.
-            </p>
-            <div className="flex flex-col md:flex-row gap-4">
-                 <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-eum-dark text-white text-lg font-bold px-10 py-5 rounded-full hover:bg-black transition-all shadow-lg">
-                    상담 신청하기 <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link to="/service-detail" className="inline-flex items-center justify-center gap-2 bg-gray-100 text-gray-600 text-lg font-bold px-10 py-5 rounded-full hover:bg-gray-200 transition-all">
-                    자세히 보기
-                </Link>
-            </div>
-            
-            <div className="flex flex-col md:flex-row gap-8 md:gap-16 mt-16 pt-10 border-t border-gray-100">
-                <div>
-                    <span className="block text-3xl md:text-4xl font-black text-eum-accent">400+</span>
-                    <span className="block text-sm text-gray-400 font-bold mt-1 uppercase tracking-wider">Matched Couples</span>
-                </div>
-                <div>
-                    <span className="block text-3xl md:text-4xl font-black text-eum-accent">100+</span>
-                    <span className="block text-sm text-gray-400 font-bold mt-1 uppercase tracking-wider">Events Held</span>
-                </div>
-                <div>
-                    <span className="block text-3xl md:text-4xl font-black text-eum-accent">100%</span>
-                    <span className="block text-sm text-gray-400 font-bold mt-1 uppercase tracking-wider">Local Verified</span>
-                </div>
-            </div>
-        </section>
+          </div>
+        </header>
 
-        {/* Sympathy Section */}
-        <section className="py-20 px-6 bg-gray-50">
-            <div className="max-w-[900px] mx-auto">
-                <p className="text-eum-accent text-sm font-black mb-4 tracking-widest uppercase">01. Empathy</p>
-                <h2 className="text-3xl md:text-4xl font-black text-eum-dark mb-10 leading-tight">
-                    이런 경험 있으면<br />손 들어보세요 ✋
-                </h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                        { msg: "회사랑 집만 왔다갔다 하는데 어디서 만나요", sub: "새로운 사람 만날 일이 진짜 없는 사람" },
-                        { msg: "소개해달라고 하기도 민망하고...", sub: "부탁하기도 애매하고, 어색해질까봐 걱정인 사람" },
-                        { msg: "주변에 괜찮은 사람은 다 연애 중임", sub: "만날 사람 풀 자체가 너무 좁은 사람" },
-                        { msg: "바쁘다는 핑계로 미루다가 벌써 몇 년째", sub: "언젠간 되겠지 하다가 시간만 가는 사람" }
-                    ].map((item, i) => (
-                        <div key={i} className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:border-eum-accent/30 transition-all group">
-                            <p className="text-lg md:text-xl font-bold text-gray-800 mb-3 group-hover:text-eum-dark">{`"${item.msg}"`}</p>
-                            <p className="text-sm md:text-base text-gray-500 font-medium">{item.sub}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        {/* Explanation Section */}
-        <section className="py-20 px-6 max-w-[900px] mx-auto">
-            <p className="text-eum-accent text-sm font-black mb-4 tracking-widest uppercase">02. Solution</p>
-            <h2 className="text-3xl md:text-4xl font-black text-eum-dark mb-6 leading-tight">
-                그래서 <span className="text-eum-accent">이음로그</span>가 뭔데?
-            </h2>
-            <p className="text-base md:text-xl text-gray-600 mb-12 leading-relaxed font-medium">
-                쉽게 말하면요.<br />
-                지방에서 제대로 된 사람 만나게 해주는 <strong className="text-eum-dark">1:1 프라이빗 소개팅</strong> 서비스예요.<br />
-                앱처럼 가볍지 않고, 결정사처럼 비싸지도 않아요.
-            </p>
-            <div className="bg-eum-bg/40 rounded-[2.5rem] p-8 md:p-12 border border-eum-accent/10">
-                <h3 className="text-xl md:text-2xl text-eum-dark font-black mb-8">솔직하게 말씀드리면</h3>
-                <ul className="space-y-4 md:space-y-5">
-                    {[
-                        "아무나 안 받아요. 상담하고 괜찮은 분만 등록됨",
-                        "지인차단 100% 됨. 초성+나이+지역으로 막아버림",
-                        "3개월 동안 맞는 사람 나올 때까지 계속 소개해줌",
-                        "가격은 결정사의 1/10. 부담 없이 시작 가능",
-                        "400커플 만들어본 사람이 직접 매칭함"
-                    ].map((text, i) => (
-                        <li key={i} className="flex items-start gap-3 text-base md:text-lg text-gray-700 font-bold">
-                            <Check className="w-5 h-5 md:w-6 md:h-6 text-eum-accent flex-shrink-0 mt-0.5" />
-                            <span>{text}</span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div className="mt-12 text-center md:text-left">
-                <Link to="/contact" className="inline-flex items-center justify-center gap-2 border-b-2 border-eum-dark pb-1 text-eum-dark text-lg font-bold hover:text-eum-accent hover:border-eum-accent transition-all">
-                    일단 상담받아보기 <ArrowRight className="w-5 h-5" />
-                </Link>
-            </div>
-        </section>
-
-        {/* Comparison Section */}
-        <div className="bg-white py-20 px-6 border-t border-gray-100">
-            <div className="max-w-[900px] mx-auto">
-                <p className="text-eum-accent text-sm font-black mb-4 tracking-widest uppercase">03. Comparison</p>
-                <h2 className="text-3xl md:text-4xl font-black text-eum-dark mb-10">비교해보면 답 나와요</h2>
-                <div className="overflow-x-auto border border-gray-200 rounded-3xl shadow-sm">
-                    <table className="w-full text-left border-collapse min-w-[600px]">
-                        <thead>
-                            <tr className="bg-gray-50 border-b border-gray-200">
-                                <th className="p-6 text-gray-500 font-bold text-sm uppercase tracking-wider">구분</th>
-                                <th className="p-6 text-gray-500 font-bold text-sm uppercase tracking-wider">소개팅 앱</th>
-                                <th className="p-6 text-gray-500 font-bold text-sm uppercase tracking-wider">결정사</th>
-                                <th className="p-6 text-eum-accent font-black text-sm uppercase tracking-wider bg-eum-accent/5">이음로그</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-100">
-                            {[
-                                { label: "지방 유저", app: "거의 없음", agency: "있긴 함", eum: "지역 특화", eumGood: true, appBad: true },
-                                { label: "가격", app: "무료~3만원", agency: "200~500만원", eum: "합리적", eumGood: true, agencyBad: true },
-                                { label: "지인차단", app: "안됨", agency: "일부 가능", eum: "100% 가능", eumGood: true, appBad: true },
-                                { label: "검증", app: "없음", agency: "있음", eum: "상담 후 선별", eumGood: true, appBad: true },
-                                { label: "진지함", app: "가벼움", agency: "너무 무거움", eum: "적당히 진지", eumGood: true, appBad: true }
-                            ].map((row, i) => (
-                                <tr key={i} className="hover:bg-gray-50 transition-colors">
-                                    <td className="p-6 text-gray-800 font-bold">{row.label}</td>
-                                    <td className={`p-6 font-medium ${row.appBad ? 'text-gray-400' : 'text-gray-600'}`}>{row.app}</td>
-                                    <td className={`p-6 font-medium ${row.agencyBad ? 'text-gray-400' : 'text-gray-600'}`}>{row.agency}</td>
-                                    <td className={`p-6 font-bold bg-eum-accent/5 ${row.eumGood ? 'text-eum-accent' : 'text-gray-600'}`}>{row.eum}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div className="statstrip">
+          <div className="stats">
+            <div className="stat"><span>네이버폼 신청</span><b>4,526</b></div>
+            <div className="stat"><span>매칭커플</span><b>720</b></div>
+            <div className="stat"><span>결혼</span><b>5쌍</b></div>
+          </div>
+          <p className="stats-src">우반·이음로그 누적 기준</p>
         </div>
 
-        {/* Matching Results */}
-        <section className="py-20 px-6 max-w-[900px] mx-auto">
-            <p className="text-eum-accent text-sm font-black mb-4 tracking-widest uppercase">04. Real Result</p>
-            <h2 className="text-3xl md:text-4xl font-black text-eum-dark mb-4">매주 올라오는 매칭 결과</h2>
-            <p className="text-base md:text-lg text-gray-500 mb-12 font-medium">인스타에서 실시간으로 확인 가능해요</p>
-            <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-                {[1, 2, 3, 4, 5].map((n) => (
-                    <div key={n} className="aspect-[9/16] bg-gray-100 border border-gray-200 rounded-2xl flex flex-col items-center justify-center text-gray-400 text-xs md:text-sm font-bold shadow-inner">
-                        <span className="text-2xl mb-2 grayscale opacity-50">📱</span>인증 {n}
-                    </div>
-                ))}
-            </div>
-            <div className="mt-8 text-center">
-                 <a href="https://www.instagram.com/e.um_log/" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-gray-400 hover:text-eum-dark transition-colors">
-                    인스타그램에서 더 보기 →
-                 </a>
-            </div>
+        <section className="section compact">
+          <div className="title">광주·전남에서 연애가<br/>어려운 이유는 단순합니다.</div>
+          <div className="reason-box">
+            <div className="reason-title">광주·전남은 생각보다 좁습니다.</div>
+            <div className="reason"><div className="num">1</div><p>소개는 점점 끊기고</p></div>
+            <div className="reason"><div className="num">2</div><p>생활반경은 늘 비슷하고</p></div>
+            <div className="reason"><div className="num">3</div><p>새로운 사람을 만날 기회는 적습니다</p></div>
+          </div>
         </section>
 
-        {/* Reviews */}
-        <section className="py-20 px-6 bg-gray-50">
-            <div className="max-w-[800px] mx-auto">
-                <p className="text-eum-accent text-sm font-black mb-4 tracking-widest uppercase">05. Reviews</p>
-                <h2 className="text-3xl md:text-4xl font-black text-eum-dark mb-4">실제 후기들</h2>
-                <p className="text-base md:text-lg text-gray-500 mb-12 font-medium">가감 없이 그대로 가져왔어요</p>
-                <div className="space-y-6">
-                    {[
-                        { msg: "반신반의했는데 첫 소개에서 만난 분이랑 지금 3개월째 만나고 있어요. 지인차단 되니까 마음 편하게 시작할 수 있었음", info: "광주 / 32세 여" },
-                        { msg: "솔직히 지방이라 기대 안 했는데 생각보다 괜찮은 분들 많더라고요. 매니저님이 진짜 신경 많이 써주심", info: "순천 / 34세 남" },
-                        { msg: "결정사 가격 보고 포기했었는데 여기는 합리적이어서 좋았어요. 지금 만나는 분이랑 잘 되고 있음 ㅎㅎ", info: "여수 / 29세 여" },
-                        { msg: "강요 없이 편하게 진행돼서 좋았음. 프로필 받아보고 제가 직접 선택하는 방식이라 부담 없었어요", info: "광주 / 31세 남" }
-                    ].map((item, i) => (
-                        <div key={i} className="bg-white rounded-3xl rounded-tl-sm p-8 max-w-[90%] md:max-w-[85%] border border-gray-100 shadow-sm relative">
-                            <div className="absolute top-0 left-0 -translate-y-1/2 translate-x-4 bg-eum-accent w-8 h-8 rounded-full flex items-center justify-center text-white">
-                                <MessageCircle className="w-4 h-4" />
-                            </div>
-                            <p className="text-base md:text-lg leading-relaxed mb-4 text-gray-700 font-medium keep-all">"{item.msg}"</p>
-                            <p className="text-xs md:text-sm text-gray-400 font-bold uppercase tracking-wider">{item.info}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
+        <section className="section compact story">
+          <div className="story-label">운영자 이야기</div>
+          <p className="story-lead">6:6 로테이션 소개팅을<br/>2년 동안 운영했습니다.</p>
+          <p className="story-body">2,500명이 신청했고, 360커플이 만났고,<br/>그중 5쌍은 결혼까지 했습니다.</p>
+          <p className="story-body">운영하면서 느낀 건, 사람들은 많은 만남보다 좋은 만남을 원한다는 것이었습니다. 로테이션 소개팅에 오는 분들도 가벼운 만남보다 진지한 만남을 원했고, 소개도 더 신중하길 바랐습니다.</p>
+          <p className="story-close">그래서 한 사람씩 신중하게 연결하는<br/>1:1 소개를 만들었습니다.<br/><b>이음로그입니다.</b></p>
         </section>
 
-        {/* Steps */}
-        <section className="py-20 px-6 max-w-[900px] mx-auto">
-            <p className="text-eum-accent text-sm font-black mb-4 tracking-widest uppercase">06. Process</p>
-            <h2 className="text-3xl md:text-4xl font-black text-eum-dark mb-4">어떻게 진행되나요?</h2>
-            <p className="text-base md:text-lg text-gray-500 mb-12 font-medium">복잡한 거 없어요. 3단계면 끝.</p>
-            <div className="grid md:grid-cols-3 gap-8">
-                {[
-                    { title: "카톡으로 상담 신청", desc: "간단한 조건 확인하고, 맞으면 다음 단계로" },
-                    { title: "설문 작성 + 지인차단", desc: "이상형 설문 쓰고, 차단할 지인 명단 등록" },
-                    { title: "3개월 동안 매칭", desc: "맞는 사람 나올 때까지 계속 프로필 보내드림" }
-                ].map((step, i) => (
-                    <div key={i} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm flex flex-col items-center text-center">
-                        <div className="w-14 h-14 bg-eum-bg text-eum-accent text-xl font-black rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                            {i + 1}
-                        </div>
-                        <h3 className="text-lg md:text-xl font-bold text-eum-dark mb-3">{step.title}</h3>
-                        <p className="text-sm md:text-base text-gray-600 leading-relaxed font-medium keep-all">{step.desc}</p>
-                    </div>
-                ))}
-            </div>
-            <div className="mt-16 text-center">
-                 <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-eum-dark text-white text-lg font-bold px-12 py-5 rounded-full hover:bg-black transition-all shadow-xl">
-                    상담 신청하기 <ArrowRight className="w-5 h-5" />
-                </Link>
-            </div>
+        <section className="section compact">
+          <div className="title">이음로그는<br/>한 명씩 봅니다.</div>
+          <p className="text">조건과 분위기를 보고 잘 맞을 사람을 한 명씩 소개합니다.</p>
+          <div className="cards">
+            <div className="card"><b>아무나 받지 않습니다</b><p>외모·스타일·상담까지 보고 선정합니다.</p></div>
+            <div className="card key-card"><b>지인부터 차단합니다 <span className="key">핵심</span></b><p>2단계 시스템으로 지인을 확실하게 차단합니다.</p></div>
+            <div className="card"><b>만남까지 조율합니다</b><p>수락하면 일정·장소를 조율하고, 피드백은 다음 매칭에 반영합니다.</p></div>
+          </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-20 px-6 max-w-[900px] mx-auto border-t border-gray-100">
-            <p className="text-eum-accent text-sm font-black mb-4 tracking-widest uppercase">07. Q&A</p>
-            <h2 className="text-3xl md:text-4xl font-black text-eum-dark mb-10">자주 묻는 것들</h2>
-            <div className="divide-y divide-gray-100">
-                {[
-                    { q: "진짜 지인한테 안 보여요?", a: "네. 초성+나이+지역으로 등록하면 100% 차단돼요. 이게 저희 핵심이에요." },
-                    { q: "가격이 얼마예요?", a: "결정사 대비 1/10 수준이에요. 정확한 금액은 상담 때 말씀드려요." },
-                    { q: "3개월 안에 안 되면요?", a: "커플 될 때까지 계속 소개해드려요. 기간 내에 어려우면 연장 상담 진행합니다." },
-                    { q: "어떤 사람들이 가입해요?", a: "20대 후반~30대 직장인이 제일 많아요. 진지하게 연애 상대 찾는 분들이요." }
-                ].map((item, i) => (
-                    <div key={i} className="py-6 md:py-8 group cursor-pointer">
-                        <h3 className="text-lg md:text-xl font-bold mb-3 flex items-start gap-3 text-gray-800 group-hover:text-eum-accent transition-colors">
-                            <span className="text-eum-accent">Q.</span>
-                            {item.q}
-                        </h3>
-                        <p className="text-sm md:text-base text-gray-600 leading-relaxed pl-8 font-medium">{item.a}</p>
-                    </div>
-                ))}
-            </div>
+        <section className="section compact">
+          <div className="title">실제로 만난 사람들이<br/>계속 나오고 있습니다.</div>
+          <p className="text">숫자보다 중요한 건, 실제로 광주·전남에서 연애가 시작되고 있다는 점입니다.</p>
+          <div className="proof-grid">
+            <div className="proof proof-1"></div>
+            <div className="proof proof-2"></div>
+            <div className="proof proof-3"></div>
+            <div className="proof proof-4"></div>
+          </div>
+          <div className="quote">처음엔 기대 안 했어요. 근데 첫 만남부터 대화가 잘 됐고, 자연스럽게 만나게 됐어요.<span>광주 30대 대기업 ♥ 광주 20대 공기업</span></div>
+          <a className="cta" href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">나도 신청하기 →</a>
+          <Link className="subcta" to="/links">이번주 참가자 명단 확인 →</Link>
         </section>
 
-        {/* Final CTA */}
-        <section className="py-24 px-6 text-center bg-eum-bg/30">
-            <div className="max-w-2xl mx-auto">
-                <h2 className="text-3xl md:text-5xl font-black text-eum-dark mb-6 leading-tight">고민만 하다가<br/>1년 지나요</h2>
-                <p className="text-lg md:text-xl text-gray-600 mb-10 font-medium">일단 상담은 무료니까,<br/>부담 없이 연락주세요.</p>
-                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-eum-dark text-white text-xl font-black px-14 py-6 rounded-full hover:bg-black transition-all mb-8 shadow-xl hover:-translate-y-1">
-                    무료 상담 신청 <ArrowRight className="w-6 h-6" />
-                </Link>
-                <p className="text-sm text-gray-500 font-bold">
-                    카카오톡: 이음로그 ㅣ 인스타: @e.um_log
-                </p>
-            </div>
+        <section className="section compact">
+          <div className="title">사진 유출과 지인 노출이<br/>걱정된다면.</div>
+          <p className="text">지역이 좁은 만큼, 가장 민감한 부분을 먼저 막습니다.</p>
+          <div className="shield">
+            <p>✓ <b>아는 사람은 차단</b> &nbsp;이름만 등록하면 소개에서 빠집니다</p>
+            <p>✓ <b>초성 미리 확인</b> &nbsp;<span className="ex">96 / ㄱㅇㅎ / 광주</span> 지인 같으면 다른 분으로</p>
+            <p>✓ <b>캡처하면 퇴출</b> &nbsp;자동 알림으로 바로 퇴출됩니다</p>
+          </div>
         </section>
 
-        {/* Global Footer (contains Admin link) */}
-        <Footer />
+        <section className="section compact">
+          <div className="title">3개월 동안<br/>꾸준히 소개받습니다.</div>
+          <p className="text">한 번 소개받고 끝나는 방식이 아니라, 3개월 동안 조건에 맞는 사람을 계속 받아보는 구독형 소개팅입니다.</p>
+          <div className="price">
+            <div className="price-row"><b>라이트</b><strong>남 18만 / 여 12만</strong></div>
+            <div className="price-row"><b>스탠다드 <span className="tag">추천</span></b><strong>남 32만 / 여 23만</strong></div>
+            <div className="price-row"><b>프리미엄</b><strong>남 48만 / 여 36만</strong></div>
+          </div>
+          <Link className="cta-line" id="price-detail" to="/pricing">멤버십 가격 자세히 보기 →</Link>
+        </section>
+
+        <section className="closing">
+          <h2>좋은 사람을 만나고 싶은데<br/>기회가 없었다면.</h2>
+          <p>가볍게 넘기는 만남보다,<br/>한 명을 제대로 만나고 싶은 분께 맞습니다.</p>
+        </section>
+
+        <div className="footer-brand">
+          <b>이음로그</b> · 광주·전남 1:1 소개팅<br/>
+          @e.um_log · eumlog.co.kr
+        </div>
+      </div>
+
+      <div className="sticky-nav">
+        <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer"><span>소개팅 신청하기 →</span></a>
+      </div>
     </div>
   );
 };
 
 export default Landing;
+

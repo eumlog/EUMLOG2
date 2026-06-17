@@ -163,7 +163,7 @@ const AppContent = () => {
 
     const showFloatingBanner = currentPath !== '/contact' && currentPath !== '/admin' && currentPath !== '/profile' && currentPath !== '/landing' && currentPath !== '/landing2' && currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/survey' && currentPath !== '/wooban' && currentPath !== '/wooban/status' && currentPath !== '/wooban/admin';
     
-    const showNavbar = currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/wooban' && currentPath !== '/wooban/status' && currentPath !== '/wooban/admin';
+    const showNavbar = currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/wooban' && currentPath !== '/wooban/status' && currentPath !== '/wooban/admin' && currentPath !== '/landing';
 
     return (
         <>
