@@ -309,7 +309,7 @@ const Landing = () => {
           content: "";
           position: absolute;
           inset: 0;
-          background: linear-gradient(180deg, rgba(28,26,23,0.7), rgba(28,26,23,0.85));
+          background: linear-gradient(180deg, rgba(28,26,23,0.55), rgba(28,26,23,0.75));
           z-index: 1;
         }
         .landing-container .story > * {
@@ -652,8 +652,7 @@ const Landing = () => {
         </section>
 
         <section className="section compact">
-          <div className="title">이음로그는<br/>한 명씩 봅니다.</div>
-          <p className="text">조건과 분위기를 보고 잘 맞을 사람을 한 명씩 소개합니다.</p>
+          <div className="title">이음로그는 한 명씩 봅니다.</div>
           <div className="cards">
             <div className="card"><b>아무나 받지 않습니다</b><p>외모·스타일·상담까지 보고 선정합니다.</p></div>
             <div className="card key-card"><b>지인부터 차단합니다 <span className="key">핵심</span></b><p>2단계 시스템으로 지인을 확실하게 차단합니다.</p></div>
@@ -663,7 +662,6 @@ const Landing = () => {
 
         <section className="section compact">
           <div className="title">실제로 만난 사람들이<br/>계속 나오고 있습니다.</div>
-          <p className="text">숫자보다 중요한 건, 실제로 광주·전남에서 연애가 시작되고 있다는 점입니다.</p>
           <div className="proof-grid">
             <div className="proof proof-1"></div>
             <div className="proof proof-2"></div>
@@ -677,7 +675,6 @@ const Landing = () => {
 
         <section className="section compact">
           <div className="title">사진 유출과 지인 노출이<br/>걱정된다면.</div>
-          <p className="text">지역이 좁은 만큼, 가장 민감한 부분을 먼저 막습니다.</p>
           <div className="shield">
             <p>✓ <b>아는 사람은 차단</b> &nbsp;이름만 등록하면 소개에서 빠집니다</p>
             <p>✓ <b>초성 미리 확인</b> &nbsp;<span className="ex">96 / ㄱㅇㅎ / 광주</span> 지인 같으면 다른 분으로</p>
@@ -687,7 +684,6 @@ const Landing = () => {
 
         <section className="section compact">
           <div className="title">3개월 동안<br/>꾸준히 소개받습니다.</div>
-          <p className="text">한 번 소개받고 끝나는 방식이 아니라, 3개월 동안 조건에 맞는 사람을 계속 받아보는 구독형 소개팅입니다.</p>
           <div className="price">
             <div className="price-row"><b>라이트</b><strong>남 18만 / 여 12만</strong></div>
             <div className="price-row"><b>스탠다드 <span className="tag">추천</span></b><strong>남 32만 / 여 23만</strong></div>
