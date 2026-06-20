@@ -30,23 +30,40 @@ const LinkTree = () => {
     return (
         <div className="min-h-screen bg-white font-sans relative">
 
+            {/* 상단 네비 */}
+            <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-md px-6 py-4 flex justify-between items-center border-b border-gray-100">
+                <Link to="/" className="text-lg font-black tracking-tighter text-gray-900">E.UM LOG</Link>
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={() => setIsRegionModalOpen(true)}
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 rounded-full text-[10px] font-bold text-gray-500 hover:bg-gray-200 transition-colors"
+                    >
+                        <MapPin className="w-3 h-3" />
+                        지역 선택
+                    </button>
+                    <button onClick={handleShare} className="p-2 bg-gray-100 rounded-full text-gray-500 hover:bg-gray-200 transition-colors">
+                        <Share2 className="w-4 h-4" />
+                    </button>
+                </div>
+            </div>
+
             {/* ── 1. HERO 이미지 ── */}
-            <div className="relative w-full h-[320px] overflow-hidden">
+            <div className="relative w-full h-[240px] overflow-hidden">
                 <img
                     src={IMG_HERO}
                     alt="이음로그"
                     className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/35 to-black/80" />
-                <div className="absolute bottom-0 left-0 right-0 px-6 pb-8">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-[#f0c8b0]/20 border border-[#f0c8b0]/50 rounded-md text-[13px] font-bold text-[#f0c8b0] mb-3">
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/90" />
+                <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
+                    <div className="inline-flex items-center px-2.5 py-1 bg-[#f0c8b0]/20 border border-[#f0c8b0]/50 rounded-md text-[11px] font-bold text-[#f0c8b0] mb-2">
                         광주 · 여수 · 순천 · 광양 · 목포
                     </div>
-                    <h1 className="text-[28px] font-black text-white leading-snug tracking-tight mb-2">
+                    <h1 className="text-[24px] font-black text-white leading-snug tracking-tight mb-2">
                         괜찮은 사람과의 만남,<br />
                         <span className="text-[#f0c8b0]">이음로그</span>에서 시작됩니다.
                     </h1>
-                    <p className="text-[13px] text-white/55 leading-relaxed mb-5">
+                    <p className="text-[12px] text-white/55 leading-relaxed mb-4">
                         지인 차단 100% · 3개월 무제한 소개<br />
                         매니저가 직접 맞는 사람을 찾아드립니다
                     </p>
@@ -54,12 +71,12 @@ const LinkTree = () => {
             </div>
 
             {/* ── 2. 링크 버튼들 ── */}
-            <div className="px-6 py-6 flex flex-col gap-3">
+            <div className="px-6 py-4 flex flex-col gap-3">
                 <a
                     href="https://naver.me/G4GlQVbi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-4 shadow-sm transition-transform hover:-translate-y-0.5"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-3.5 shadow-sm transition-transform hover:-translate-y-0.5"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📝</div>
                     <div className="flex-1">
@@ -73,7 +90,7 @@ const LinkTree = () => {
                     href="https://m.site.naver.com/22ZhB"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3.5 shadow-sm"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📖</div>
                     <div className="flex-1">
@@ -86,7 +103,7 @@ const LinkTree = () => {
                     <ChevronRight className="w-4 h-4 text-gray-300" />
                 </a>
 
-                <div className="flex justify-center my-4">
+                <div className="flex justify-center -my-1">
                     <div className="w-12 h-px bg-gray-200"></div>
                 </div>
 
@@ -94,7 +111,7 @@ const LinkTree = () => {
                     href="https://m.site.naver.com/20ZdO"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-4 shadow-sm"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3.5 shadow-sm"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">👥</div>
                     <div className="flex-1 flex items-center gap-2">
@@ -106,20 +123,11 @@ const LinkTree = () => {
             </div>
 
             {/* ── 8. 하단 브랜딩 ── */}
-            <div className="px-6 pb-16 text-center">
-                <div className="flex flex-wrap justify-center items-center gap-6 mb-10 text-[12px] font-bold text-gray-500">
-                    <Link to="/" className="hover:text-gray-800 transition-colors">홈페이지</Link>
+            <div className="px-6 pb-4 text-center">
+                <div className="flex flex-wrap justify-center items-center gap-6 mt-1 mb-2 text-[12px] font-bold text-gray-500">
                     <Link to="/instagram" className="hover:text-gray-800 transition-colors">인스타그램</Link>
                     <Link to="/contact" className="hover:text-gray-800 transition-colors">카카오톡 문의</Link>
                     <Link to="/faq" className="hover:text-gray-800 transition-colors">자주 묻는 질문</Link>
-                </div>
-                <p className="text-[11px] font-bold text-gray-400 mb-2">광주·전남 프리미엄 1:1 매칭 서비스</p>
-                <h2 className="text-[28px] font-black text-gray-200 tracking-[0.2em] uppercase mb-8">E.UM LOG</h2>
-                <div className="border-t border-gray-100 pt-6">
-                    <p className="text-[10px] text-gray-400">
-                        전남 순천시 충효로 15 | 사업자번호: 671-14-02393<br />
-                        © 2025 E.UM LOG. All Rights Reserved.
-                    </p>
                 </div>
             </div>
 
