@@ -30,25 +30,8 @@ const LinkTree = () => {
     return (
         <div className="min-h-screen bg-white font-sans relative">
 
-            {/* 상단 네비 */}
-            <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-md px-6 py-4 flex justify-between items-center border-b border-gray-100">
-                <Link to="/" className="text-lg font-black tracking-tighter text-gray-900">E.UM LOG</Link>
-                <div className="flex items-center gap-2">
-                    <button
-                        onClick={() => setIsRegionModalOpen(true)}
-                        className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 rounded-full text-[10px] font-bold text-gray-500 hover:bg-gray-200 transition-colors"
-                    >
-                        <MapPin className="w-3 h-3" />
-                        지역 선택
-                    </button>
-                    <button onClick={handleShare} className="p-2 bg-gray-100 rounded-full text-gray-500 hover:bg-gray-200 transition-colors">
-                        <Share2 className="w-4 h-4" />
-                    </button>
-                </div>
-            </div>
-
             {/* ── 1. HERO 이미지 ── */}
-            <div className="relative w-full h-[380px] overflow-hidden">
+            <div className="relative w-full h-[320px] overflow-hidden">
                 <img
                     src={IMG_HERO}
                     alt="이음로그"
@@ -56,7 +39,7 @@ const LinkTree = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/35 to-black/80" />
                 <div className="absolute bottom-0 left-0 right-0 px-6 pb-8">
-                    <div className="inline-flex items-center px-2.5 py-1 bg-[#f0c8b0]/20 border border-[#f0c8b0]/50 rounded-md text-[11px] font-bold text-[#f0c8b0] mb-3">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-[#f0c8b0]/20 border border-[#f0c8b0]/50 rounded-md text-[13px] font-bold text-[#f0c8b0] mb-3">
                         광주 · 여수 · 순천 · 광양 · 목포
                     </div>
                     <h1 className="text-[28px] font-black text-white leading-snug tracking-tight mb-2">
@@ -124,14 +107,14 @@ const LinkTree = () => {
 
             {/* ── 8. 하단 브랜딩 ── */}
             <div className="px-6 pb-16 text-center">
+                <div className="flex flex-wrap justify-center items-center gap-6 mb-10 text-[12px] font-bold text-gray-500">
+                    <Link to="/" className="hover:text-gray-800 transition-colors">홈페이지</Link>
+                    <Link to="/instagram" className="hover:text-gray-800 transition-colors">인스타그램</Link>
+                    <Link to="/contact" className="hover:text-gray-800 transition-colors">카카오톡 문의</Link>
+                    <Link to="/faq" className="hover:text-gray-800 transition-colors">자주 묻는 질문</Link>
+                </div>
                 <p className="text-[11px] font-bold text-gray-400 mb-2">광주·전남 프리미엄 1:1 매칭 서비스</p>
                 <h2 className="text-[28px] font-black text-gray-200 tracking-[0.2em] uppercase mb-8">E.UM LOG</h2>
-                <div className="flex flex-wrap justify-center items-center gap-6 mb-8 text-[11px] font-bold text-gray-400">
-                    <Link to="/" className="hover:text-gray-700 transition-colors">홈페이지</Link>
-                    <Link to="/instagram" className="hover:text-gray-700 transition-colors">인스타그램</Link>
-                    <Link to="/contact" className="hover:text-gray-700 transition-colors">카카오톡 문의</Link>
-                    <Link to="/faq" className="hover:text-gray-700 transition-colors">자주 묻는 질문</Link>
-                </div>
                 <div className="border-t border-gray-100 pt-6">
                     <p className="text-[10px] text-gray-400">
                         전남 순천시 충효로 15 | 사업자번호: 671-14-02393<br />
