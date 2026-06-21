@@ -98,7 +98,7 @@ export const FloatingMenu = () => {
         { name: '멤버십 안내', icon: CreditCard, href: '/pricing' },
         { name: '진행방식', icon: ClipboardList, href: '/service' },
         { name: '가입기준', icon: UserCheck, href: '/criteria' },
-        { name: '신청하기', icon: PenLine, href: 'https://naver.me/G4GlQVbi' },
+        { name: '신청하기', icon: PenLine, href: '/links' },
     ];
 
     return (

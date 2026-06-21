@@ -57,7 +57,7 @@ const Service2: React.FC = () => {
               </div>
               <div className="flex items-start gap-2 text-[10px] text-gray-400 bg-gray-50 p-3 rounded-lg leading-relaxed">
                 <Info className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
-                <p>이 정보는 상대에게 전달되는 프로필 카드에 일부 반영되며, 매니저가 더 정확한 매칭을 위해 참고합니다.</p>
+                <p>🛡️ [추가] 차단하고 싶은 지인의 이름을 등록하면 매칭에서 100% 원천 차단됩니다.</p>
               </div>
           </div>
       ),
@@ -140,7 +140,7 @@ const Service2: React.FC = () => {
                     <span className="keep-all font-bold text-[13px]">실제 커플이 될 때까지 3개월 내내 프로필 제공이 계속 진행됩니다.</span>
                   </div>
               </div>
-              <p className="text-[10px] text-gray-400 font-bold">* 서로 수락 시 만남이 확정되며 매칭비는 별도입니다.</p>
+              <p className="text-[10px] text-gray-400 font-bold hidden">* 서로 수락 시 만남이 확정되며 매칭비는 별도입니다.</p>
           </div>
       ),
       img: "https://wooban.co.kr/wp-content/uploads/2026/06/005-1-819x1024.png"
@@ -167,7 +167,7 @@ const Service2: React.FC = () => {
       content: (
           <div className="space-y-4">
               <p className="text-gray-600 text-base leading-relaxed keep-all font-medium">
-                  소개팅 종료 후, 상대방 피드백을 바탕으로 매니저가 개선 팁이나 조언을 전달드립니다.
+                  소개팅 종료 후, 만남에 대한 상대방 피드백을 작성합니다.
               </p>
               <div className="bg-eum-bg/50 p-5 rounded-2xl border border-gray-200/50 flex items-center gap-5">
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm flex-shrink-0">
@@ -282,12 +282,12 @@ const Service2: React.FC = () => {
                </Link>
            </div>
 
-           <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
+           <Link to="/links" className="group relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
               <span className="relative z-10 flex items-center gap-2 text-[14px] md:text-[15px]">
                   지금 바로 신청하기 <Sparkles className="w-[16px] h-[16px]" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-eum-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-           </a>
+           </Link>
         </div>
       </section>
 

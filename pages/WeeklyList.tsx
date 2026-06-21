@@ -142,12 +142,12 @@ const WeeklyList = () => {
                                 아닐경우 구독료 전액의 100배를<br />즉시 보상해드립니다.
                             </p>
                         </div>
-                        <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
+                        <Link to="/links" className="group relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
                             <span className="relative z-10 flex items-center gap-2 text-[14px] md:text-[15px]">
                                 매칭 신청하기 <Sparkles className="w-[16px] h-[16px]" />
                             </span>
                             <div className="absolute inset-0 bg-gradient-to-r from-eum-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        </a>
+                        </Link>
                     </div>
 
                 </div>

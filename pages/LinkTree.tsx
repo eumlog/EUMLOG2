@@ -83,6 +83,21 @@ const LinkTree = () => {
                 </a>
 
                 <a
+                    href="https://m.site.naver.com/2aTSK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3 shadow-sm"
+                >
+                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">🔄</div>
+                    <div className="flex-1">
+                        <p className="text-[13px] font-bold text-gray-900">진행방식</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-gray-300" />
+                </a>
+
+                <div className="w-12 mx-auto h-px bg-gray-200"></div>
+
+                <a
                     href="https://m.site.naver.com/22ZhB"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -115,7 +130,7 @@ const LinkTree = () => {
             </div>
 
             {/* ── 8. 하단 브랜딩 ── */}
-            <div className="px-6 pb-6 pt-8 mt-6 border-t border-gray-100 text-center">
+            <div className="px-6 pb-4 mt-3 text-center">
                 <div className="flex justify-center items-center divide-x divide-gray-300 text-[12px] font-bold text-gray-500">
                     <Link to="/pricing" className="hover:text-gray-800 transition-colors px-4">멤버십 가격</Link>
                     <Link to="/contact" className="hover:text-gray-800 transition-colors px-4">카카오톡 문의</Link>

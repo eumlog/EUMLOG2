@@ -66,7 +66,7 @@ const ServiceDetail = () => {
                                 <li>흡연 여부 / 종교 / 자녀 계획 등</li>
                             </ul>
                         </blockquote>
-                        <p className="text-xs text-gray-400 mt-4">※ 이 정보는 상대에게 전달되는 프로필 카드에 일부 반영되며, 매니저가 더 정확한 매칭을 위해 참고합니다.</p>
+                        <p className="text-xs text-eum-accent font-bold mt-4">🛡️ [추가] 차단하고 싶은 지인의 이름을 등록하면 매칭에서 100% 원천 차단됩니다.</p>
                     </div>
 
                     <div className="w-full h-px bg-gray-200 my-12"></div>
@@ -142,7 +142,7 @@ const ServiceDetail = () => {
                                 </li>
                             </ul>
                             
-                            <p className="text-sm text-gray-500">📌 서로 수락 시 만남이 확정되며, 💏<strong>매칭비는 별도</strong>입니다. (하단 가격안내 확인)</p>
+                            <p className="text-sm text-gray-500 hidden">📌 서로 수락 시 만남이 확정되며, 💏<strong>매칭비는 별도</strong>입니다. (하단 가격안내 확인)</p>
                             <p className="text-sm text-gray-500">📌 효율적인 매칭을 위해 회원님의 프로필이 3명 내외에게 전달 될 수 있으며, 선택을 받을 시 ➕️추가 프로필이 제공됩니다. (지인차단시스템 선 적용)</p>
                         </div>
                     </div>
@@ -172,8 +172,7 @@ const ServiceDetail = () => {
                         <div className="bg-eum-accent/10 p-6 rounded-2xl text-center">
                             <p className="text-gray-700 leading-relaxed mb-4">
                                 소개팅 종료 후,<br />
-                                상대방 피드백을 바탕으로<br />
-                                매니저가 개선 팁이나 조언을 전달드립니다.
+                                만남에 대한 상대방 피드백을 작성합니다.
                             </p>
                             <p className="font-bold text-eum-dark">
                                 💡 피드백은 다음 매칭 때 반영돼<br />

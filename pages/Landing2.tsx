@@ -614,13 +614,13 @@ const Landing2 = () => {
         <header className="hero" id="top">
           <div className="hero-nav">
             <div className="brand">E.UM&nbsp;<span>LOG</span></div>
-            <div className="menu"><a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">신청</a></div>
+            <div className="menu"><Link to="/links">신청</Link></div>
           </div>
           <div className="hero-content">
             <div className="eyebrow">광주·전남 1:1 소개팅</div>
             <h1>괜찮은 사람과의 만남,<br/><span className="brand-pink">이음로그</span>에서 시작됩니다.</h1>
             <div className="hero-btns">
-              <a className="hero-cta" href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">소개팅 신청하기 →</a>
+              <Link className="hero-cta" to="/links">소개팅 신청하기 →</Link>
               <Link className="hero-sub" to="/links">이번주 참가자 명단 보기</Link>
             </div>
           </div>
@@ -671,7 +671,7 @@ const Landing2 = () => {
             <div className="proof proof-4"></div>
           </div>
           <div className="quote">처음엔 기대 안 했어요. 근데 첫 만남부터 대화가 잘 됐고, 자연스럽게 만나게 됐어요.<span>광주 30대 대기업 ♥ 광주 20대 공기업</span></div>
-          <a className="cta" href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">나도 신청하기 →</a>
+          <Link className="cta" to="/links">나도 신청하기 →</Link>
           <Link className="subcta" to="/links">이번주 참가자 명단 확인 →</Link>
         </section>
 
@@ -697,7 +697,7 @@ const Landing2 = () => {
       </div>
 
       <div className="sticky-nav">
-        <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer"><span>소개팅 신청하기 →</span></a>
+        <Link to="/links"><span>소개팅 신청하기 →</span></Link>
       </div>
     </div>
   );
