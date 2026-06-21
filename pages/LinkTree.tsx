@@ -115,11 +115,11 @@ const LinkTree = () => {
             </div>
 
             {/* ── 8. 하단 브랜딩 ── */}
-            <div className="px-6 pb-4 text-center">
-                <div className="flex flex-wrap justify-center items-center gap-6 mt-1 mb-2 text-[12px] font-bold text-gray-500">
-                    <Link to="/pricing" className="hover:text-gray-800 transition-colors">멤버십 가격</Link>
-                    <Link to="/contact" className="hover:text-gray-800 transition-colors">카카오톡 문의</Link>
-                    <Link to="/faq" className="hover:text-gray-800 transition-colors">자주 묻는 질문</Link>
+            <div className="px-6 pb-6 pt-8 mt-6 border-t border-gray-100 text-center">
+                <div className="flex justify-center items-center divide-x divide-gray-300 text-[12px] font-bold text-gray-500">
+                    <Link to="/pricing" className="hover:text-gray-800 transition-colors px-4">멤버십 가격</Link>
+                    <Link to="/contact" className="hover:text-gray-800 transition-colors px-4">카카오톡 문의</Link>
+                    <Link to="/faq" className="hover:text-gray-800 transition-colors px-4">자주 묻는 질문</Link>
                 </div>
             </div>
 
