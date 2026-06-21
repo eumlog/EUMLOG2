@@ -59,8 +59,11 @@ const PricingPage = () => (
       .p-ptier { font-size: 22px; font-weight: 800; color: var(--muted); letter-spacing: -0.5px; line-height: 1.2; }
       .p-plan.p-std .p-ptier { color: var(--olive); }
       .p-plan.p-prem .p-ptier { color: var(--prem-ink); }
-      .p-pvalue { font-size: 15.5px; font-weight: 600; color: var(--text); line-height: 1.45; margin-top: 7px; }
-      .p-pvalue .p-am { color: var(--prem-ink); font-weight: 700; }
+      .p-pduration { position: absolute; top: 28px; right: 24px; font-size: 13.5px; font-weight: 700; color: var(--muted); }
+      .p-plan.p-std .p-pduration { color: var(--olive); }
+      .p-plan.p-prem .p-pduration { color: var(--prem-ink); }
+      .p-pvalue { font-size: 20px; font-weight: 800; color: var(--text); line-height: 1.4; margin-top: 10px; letter-spacing: -0.5px; }
+      .p-pvalue .p-am { color: var(--prem-ink); font-weight: 800; }
       .p-pbody { font-size: 12.5px; color: var(--text-soft); line-height: 1.7; margin-top: 8px; }
       .p-pprice { display: flex; gap: 16px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 14px; font-weight: 600; }
       .p-plan.p-prem .p-pprice { border-top-color: var(--prem-line); }
@@ -73,9 +76,9 @@ const PricingPage = () => (
       .p-pmeta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
       .p-chip { font-size: 11.5px; padding: 5px 11px; border-radius: 7px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
       .p-chip::before { font-weight: 800; font-size: 10px; }
-      .p-chip.p-on { background: #fff; border: 1px solid var(--olive-line); color: var(--olive); }
+      .p-chip.p-on { background: var(--olive); border: 1px solid var(--olive); color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
       .p-chip.p-on::before { content: "✓"; }
-      .p-chip.p-gold { background: #fff; border: 1px solid var(--prem-line); color: var(--prem-ink); }
+      .p-chip.p-gold { background: var(--prem-ink); border: 1px solid var(--prem-ink); color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
       .p-chip.p-gold::before { content: "✓"; }
       .p-chip.p-off { background: transparent; border: 1px dashed var(--border); color: var(--faint); font-weight: 500; }
       .p-chip.p-off::before { content: "✕"; }
@@ -188,6 +191,7 @@ const PricingPage = () => (
           <div className="p-plans">
             {/* LITE */}
             <div className="p-plan p-lite">
+              <div className="p-pduration">3개월간</div>
               <div className="p-ptier">라이트</div>
               <div className="p-pvalue">조건 보장 없음</div>
               <div className="p-pbody">정해진 조건 없이 폭넓게 소개받는 최소 구성입니다.</div>
@@ -201,9 +205,10 @@ const PricingPage = () => (
             {/* STANDARD */}
             <div className="p-plan p-std">
               <span className="p-pbadge p-olive">합리적인 선택</span>
+              <div className="p-pduration">3개월간</div>
               <div className="p-ptier">스탠다드</div>
               <div className="p-pvalue">조건 2개 보장</div>
-              <div className="p-pbody">나이·직업·키처럼 양보할 수 없는 조건 2가지를 100% 반영합니다.</div>
+              <div className="p-pbody">나이·직업·키 등 조건 2가지를 반영합니다.</div>
               <div className="p-pprice"><span><i>남</i>320,000원</span><span><i>여</i>230,000원</span></div>
               <div className="p-pbase">12회 프로필 제공</div>
               <div className="p-pmeta">
@@ -214,9 +219,10 @@ const PricingPage = () => (
             {/* PREMIUM */}
             <div className="p-plan p-prem">
               <span className="p-pbadge p-prem">확실한 만남을 위한</span>
+              <div className="p-pduration">3개월간</div>
               <div className="p-ptier">프리미엄</div>
               <div className="p-pvalue">조건 4개 보장 <span className="p-am">+ 만남 3회 보장</span></div>
-              <div className="p-pbody">조건 4개까지 깊이 반영하고,<br/>3개월 안에 실제 만남 3회를 보장합니다.</div>
+              <div className="p-pbody">조건 4개까지 반영하고,<br/>3개월 안에 실제 만남 3회를 보장합니다.</div>
               <div className="p-pprice"><span><i>남</i>480,000원</span><span><i>여</i>360,000원</span></div>
               <div className="p-pbase">12회 프로필 제공</div>
               <div className="p-pmeta">

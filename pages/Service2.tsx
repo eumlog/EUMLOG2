@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,11 +5,10 @@ import { ArrowDown, Sparkles, MessageSquare, Heart, Info, ArrowRight } from 'luc
 import { Link } from 'react-router-dom';
 import { PageHeader } from '../components/Shared';
 import Footer from '../components/Footer';
-import { IMAGES } from '../lib/assets';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Service: React.FC = () => {
+const Service2: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const steps = [
@@ -32,7 +30,7 @@ const Service: React.FC = () => {
               </div>
           </div>
       ),
-      img: IMAGES.processStep1
+      img: "https://wooban.co.kr/wp-content/uploads/2026/06/001-819x1024.png"
     },
     {
       step: "02",
@@ -63,7 +61,7 @@ const Service: React.FC = () => {
               </div>
           </div>
       ),
-      img: IMAGES.processStep2
+      img: "https://wooban.co.kr/wp-content/uploads/2026/06/002-1-819x1024.png"
     },
     {
       step: "03",
@@ -80,7 +78,7 @@ const Service: React.FC = () => {
               </div>
           </div>
       ),
-      img: IMAGES.processStep3
+      img: "https://wooban.co.kr/wp-content/uploads/2026/06/003-1-819x1024.png"
     },
     {
       step: "04",
@@ -118,7 +116,7 @@ const Service: React.FC = () => {
               </div>
           </div>
       ),
-      img: IMAGES.processStep4
+      img: "https://wooban.co.kr/wp-content/uploads/2026/06/004-1-819x1024.png"
     },
     {
       step: "05",
@@ -145,7 +143,7 @@ const Service: React.FC = () => {
               <p className="text-[10px] text-gray-400 font-bold">* 서로 수락 시 만남이 확정되며 매칭비는 별도입니다.</p>
           </div>
       ),
-      img: IMAGES.processStep5
+      img: "https://wooban.co.kr/wp-content/uploads/2026/06/005-1-819x1024.png"
     },
     {
       step: "06",
@@ -160,7 +158,7 @@ const Service: React.FC = () => {
               </div>
           </div>
       ),
-      img: IMAGES.processStep6
+      img: "https://wooban.co.kr/wp-content/uploads/2026/06/006-1-819x1024.png"
     },
     {
       step: "07",
@@ -179,7 +177,7 @@ const Service: React.FC = () => {
               </div>
           </div>
       ),
-      img: IMAGES.processStep7
+      img: "https://wooban.co.kr/wp-content/uploads/2026/06/007-1-819x1024.png"
     }
   ];
 
@@ -244,7 +242,7 @@ const Service: React.FC = () => {
                 </div>
 
                 {/* 2. IMAGE AREA (Middle) */}
-                <div className="w-full aspect-[4/3] md:aspect-video bg-gray-50 relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] mb-8 md:mb-10 shadow-sm border border-gray-100/50">
+                <div className="w-full aspect-[4/5] bg-gray-50 relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] mb-8 md:mb-10 shadow-sm border border-gray-100/50">
                    <img 
                      src={item.img} 
                      alt={item.title} 
@@ -300,4 +298,4 @@ const Service: React.FC = () => {
   );
 };
 
-export default Service;
+export default Service2;

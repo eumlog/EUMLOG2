@@ -11,6 +11,7 @@ import { IMAGES, TEXTS } from './lib/assets';
 import Home from './pages/Home';
 import About from './pages/About';
 import Service from './pages/Service';
+import Service2 from './pages/Service2';
 import CriteriaPage from './pages/Criteria';
 import PricingPage from './pages/Pricing';
 import FaqPage from './pages/Faq';
@@ -191,6 +192,7 @@ const AppContent = () => {
                         } />
                         <Route path="/about" element={<About />} />
                         <Route path="/service" element={<Service />} />
+                        <Route path="/service2" element={<Service2 />} />
                         <Route path="/criteria" element={<CriteriaPage />} />
                         <Route path="/pricing" element={<PricingPage />} />
                         <Route path="/faq" element={<FaqPage />} />
