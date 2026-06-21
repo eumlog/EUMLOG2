@@ -327,7 +327,6 @@ const PricingPage2 = () => (
             괜찮은 사람을 만나고 싶다면
           </div>
           <a className="p-btn" href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">이음로그 신청하기</a>
-          <div className="p-foot">광주 · 여수 · 순천 · 광양 — 이음로그</div>
         </div>
       </section>
     </div>

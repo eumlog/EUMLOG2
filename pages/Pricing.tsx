@@ -191,8 +191,7 @@ const PricingPage = () => (
           <div className="p-plans">
             {/* LITE */}
             <div className="p-plan p-lite">
-              <div className="p-pduration">3개월간</div>
-              <div className="p-ptier">라이트</div>
+              <div className="p-ptier">라이트 <span style={{ fontWeight: 500, fontSize: '16px', opacity: 0.85 }}>· 3개월</span></div>
               <div className="p-pvalue">조건 보장 없음</div>
               <div className="p-pbody">정해진 조건 없이 폭넓게 소개받는 최소 구성입니다.</div>
               <div className="p-pprice"><span><i>남</i>180,000원</span><span><i>여</i>120,000원</span></div>
@@ -205,8 +204,7 @@ const PricingPage = () => (
             {/* STANDARD */}
             <div className="p-plan p-std">
               <span className="p-pbadge p-olive">합리적인 선택</span>
-              <div className="p-pduration">3개월간</div>
-              <div className="p-ptier">스탠다드</div>
+              <div className="p-ptier">스탠다드 <span style={{ fontWeight: 500, fontSize: '16px', opacity: 0.85 }}>· 3개월</span></div>
               <div className="p-pvalue">조건 2개 보장</div>
               <div className="p-pbody">나이·직업·키 등 조건 2가지를 반영합니다.</div>
               <div className="p-pprice"><span><i>남</i>320,000원</span><span><i>여</i>230,000원</span></div>
@@ -219,15 +217,14 @@ const PricingPage = () => (
             {/* PREMIUM */}
             <div className="p-plan p-prem">
               <span className="p-pbadge p-prem">확실한 만남을 위한</span>
-              <div className="p-pduration">3개월간</div>
-              <div className="p-ptier">프리미엄</div>
-              <div className="p-pvalue">조건 4개 보장 <span className="p-am">+ 만남 3회 보장</span></div>
+              <div className="p-ptier">프리미엄 <span style={{ fontWeight: 500, fontSize: '16px', opacity: 0.85 }}>· 3개월</span></div>
+              <div className="p-pvalue">조건 4개 보장</div>
               <div className="p-pbody">조건 4개까지 반영하고,<br/>3개월 안에 실제 만남 3회를 보장합니다.</div>
               <div className="p-pprice"><span><i>남</i>480,000원</span><span><i>여</i>360,000원</span></div>
               <div className="p-pbase">12회 프로필 제공</div>
               <div className="p-pmeta">
                 <span className="p-chip p-gold">애프터케어 6개월</span>
-                <span className="p-chip p-gold">만남 3회 보장</span>
+                <span className="p-chip" style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)', color: '#fff', border: '1px solid rgba(139,92,246,0.5)', boxShadow: '0 4px 12px rgba(109,40,217,0.3)' }}><Sparkles style={{ width: '12px', height: '12px', fill: '#fcd34d', color: '#fcd34d' }} /> 만남 3회 보장</span>
               </div>
             </div>
           </div>
@@ -270,10 +267,16 @@ const PricingPage = () => (
         <div className="p-wrap">
           <div className="p-center">
             <div className="p-sec-title">조건 보장 항목</div>
-            <div className="p-sec-sub">스탠다드 2개, 프리미엄 4개까지 보장</div>
+            <div className="p-sec-sub" style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '12px', color: 'var(--faint)' }}>
+              <span style={{ fontSize: '15px', color: 'var(--text)', fontWeight: 500 }}>
+                스탠다드 <strong style={{ color: 'var(--olive)', fontWeight: 800 }}>2개</strong> 보장
+              </span>
+              <span style={{ fontSize: '15px', color: 'var(--text)', fontWeight: 500 }}>
+                프리미엄 <strong style={{ color: 'var(--prem-ink)', fontWeight: 800 }}>4개</strong> 보장
+              </span>
+            </div>
           </div>
           <div className="p-cond-box">
-            <div className="p-ttl">조건 8가지</div>
             <div className="p-items">나이 &nbsp;·&nbsp; 키 &nbsp;·&nbsp; 종교 &nbsp;·&nbsp; 흡연여부<br/>직업 &nbsp;·&nbsp; 연봉 &nbsp;·&nbsp; 학력 &nbsp;·&nbsp; 자녀계획</div>
           </div>
         </div>
@@ -336,7 +339,6 @@ const PricingPage = () => (
             괜찮은 사람을 만나고 싶다면
           </div>
           <a className="p-btn" href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">이음로그 신청하기</a>
-          <div className="p-foot">광주 · 여수 · 순천 · 광양 — 이음로그</div>
         </div>
       </section>
     </div>
