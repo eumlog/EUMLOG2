@@ -66,76 +66,65 @@ const WeeklyList = () => {
 
     return (
         <div className="bg-eum-bg min-h-screen">
-            <PageHeader title="이번주 참가자 명단" subtitle="Weekly Participants" />
-            
-            <section className="py-12 md:py-20 px-0">
+            <section className="pt-24 pb-12 md:pt-32 md:pb-20 px-0">
                 <div className="max-w-[700px] w-[90%] mx-auto">
                     
-                    <div className="text-center mb-10">
-                        <h2 className="text-2xl md:text-3xl font-black text-eum-dark mb-4">
+                    <div className="text-center mb-6">
+                        <h2 className="text-2xl md:text-3xl font-black text-eum-dark mb-3">
                             매주 업데이트되는<br/>
                             <span className="text-eum-accent">실제 참여자 현황</span>
                         </h2>
-                        <p className="text-gray-500 font-medium text-sm md:text-base leading-relaxed keep-all">
-                            이음로그는 매주 검증된 분들과 함께합니다.<br/>
-                            투명하게 공개되는 참여자 현황을 확인해보세요.
-                        </p>
                     </div>
 
                     {/* Region Tabs */}
-                    <div className="flex p-1.5 bg-white rounded-2xl border border-gray-100 shadow-sm mb-10 max-w-sm mx-auto">
+                    <div className="flex p-1 bg-white rounded-xl border border-gray-100 shadow-sm mb-8 max-w-[280px] mx-auto">
                         <button 
                             onClick={() => setActiveTab('gj')}
-                            className={`flex-1 py-3 rounded-xl text-sm font-black transition-all duration-300 ${activeTab === 'gj' ? 'bg-eum-dark text-white shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
+                            className={`flex-[1.2] py-2.5 rounded-lg text-xs font-black transition-all duration-300 ${activeTab === 'gj' ? 'bg-eum-dark text-white shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
                         >
-                            광주 지역
+                            광주·목포
                         </button>
                         <button 
                             onClick={() => setActiveTab('jn')}
-                            className={`flex-1 py-3 rounded-xl text-sm font-black transition-all duration-300 ${activeTab === 'jn' ? 'bg-indigo-600 text-white shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
+                            className={`flex-1 py-2.5 rounded-lg text-xs font-black transition-all duration-300 ${activeTab === 'jn' ? 'bg-indigo-600 text-white shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
                         >
-                            전남 (여순광)
+                            여·순·광
                         </button>
                     </div>
 
                     <div key={fadeKey} className="animate-[fadeIn_0.5s_ease-out]">
                         {filteredLists.length === 0 ? (
-                            <div className="text-center py-20 bg-white rounded-[2rem] border border-gray-100 shadow-sm">
+                            <div className="text-center py-20 bg-white rounded-2xl border border-gray-100 shadow-sm">
                                 <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-gray-300">
                                     <Users className="w-8 h-8" />
                                 </div>
                                 <p className="text-gray-400 font-bold text-sm mb-1">
-                                    {activeTab === 'gj' ? '광주 지역' : '전남 지역'} 등록된 명단이 없습니다.
+                                    {activeTab === 'gj' ? '광주·목포' : '여·순·광'} 등록된 명단이 없습니다.
                                 </p>
                                 <p className="text-xs text-gray-300">업데이트 준비 중입니다.</p>
                             </div>
                         ) : (
-                            <div className="space-y-8">
+                            <div className="space-y-6">
                                 {filteredLists.map((item: any, index: number) => (
-                                    <div key={index} className="bg-white rounded-[2rem] border border-gray-100 shadow-lg overflow-hidden">
-                                        <div className="px-6 py-5 border-b border-gray-50 flex justify-between items-center bg-white">
+                                    <div key={index} className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden">
+                                        <div className="px-5 py-4 border-b border-gray-50 flex justify-between items-center bg-white">
                                             <div className="flex items-center gap-3">
-                                                <div className={`w-10 h-10 text-white rounded-xl flex items-center justify-center shadow-md ${item.region === 'jn' ? 'bg-indigo-600' : 'bg-eum-dark'}`}>
-                                                    <Calendar className="w-5 h-5" />
+                                                <div className={`w-7 h-7 text-white rounded-lg flex items-center justify-center shadow-sm ${item.region === 'jn' ? 'bg-indigo-600' : 'bg-eum-dark'}`}>
+                                                    <Calendar className="w-3.5 h-3.5" />
                                                 </div>
                                                 <div>
-                                                    <h3 className="text-lg font-black text-eum-dark">{item.title}</h3>
+                                                    <h3 className="text-[13px] font-black text-eum-dark">{item.title}</h3>
                                                     <div className="flex items-center gap-2 mt-0.5">
                                                         <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded text-white ${item.region === 'jn' ? 'bg-indigo-500' : 'bg-eum-accent'}`}>
-                                                            {item.region === 'jn' ? '전남(여순광)' : '광주'}
+                                                            {item.region === 'jn' ? '여·순·광' : '광주·목포'}
                                                         </span>
                                                         <p className="text-[10px] text-gray-400 font-medium">{item.date} 업데이트</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="p-2 bg-gray-50">
-                                            <div className="rounded-2xl overflow-hidden border border-gray-200">
-                                                <img src={item.image} alt={item.title} className="w-full h-auto object-cover block" />
-                                            </div>
-                                        </div>
-                                        <div className="px-6 py-4 bg-white text-center">
-                                            <p className="text-[11px] text-gray-400 font-medium">* 개인정보 보호를 위해 상세 정보는 가림 처리되었습니다.</p>
+                                        <div className="p-0 bg-white">
+                                            <img src={item.image} alt={item.title} className="w-full h-auto object-cover block" />
                                         </div>
                                     </div>
                                 ))}
@@ -144,10 +133,15 @@ const WeeklyList = () => {
                     </div>
 
                     {/* CTA Section */}
-                    <div className="mt-16 text-center">
-                        <h3 className="text-xl md:text-2xl font-black text-eum-dark mb-6 leading-tight">
-                            이번주 명단의<br/>주인공이 되어보세요
-                        </h3>
+                    <div className="mt-10 text-center">
+                        <div className="mb-8 p-5 bg-white border border-gray-200 rounded-2xl shadow-sm max-w-sm mx-auto">
+                            <h3 className="text-sm md:text-base font-black text-eum-dark mb-1.5">
+                                이음로그 명단은 100% 실제회원입니다.
+                            </h3>
+                            <p className="text-[11px] md:text-xs text-gray-500 font-medium leading-relaxed">
+                                아닐경우 구독료 전액의 100배를<br />즉시 보상해드립니다.
+                            </p>
+                        </div>
                         <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center px-12 py-5 md:px-16 md:py-6 bg-eum-dark text-white font-black rounded-full shadow-2xl overflow-hidden transition-all hover:bg-black active:scale-95">
                             <span className="relative z-10 flex items-center gap-3 text-base md:text-lg">
                                 매칭 신청하기 <Sparkles className="w-5 h-5 md:w-6 md:h-6" />

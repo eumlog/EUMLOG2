@@ -63,20 +63,16 @@ const LinkTree = () => {
                         괜찮은 사람과의 만남,<br />
                         <span className="text-[#f0c8b0]">이음로그</span>에서 시작됩니다.
                     </h1>
-                    <p className="text-[12px] text-white/55 leading-relaxed mb-4">
-                        지인 차단 100% · 3개월 무제한 소개<br />
-                        매니저가 직접 맞는 사람을 찾아드립니다
-                    </p>
                 </div>
             </div>
 
             {/* ── 2. 링크 버튼들 ── */}
-            <div className="px-6 py-4 flex flex-col gap-3">
+            <div className="px-6 py-4 flex flex-col gap-4">
                 <a
                     href="https://naver.me/G4GlQVbi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-3.5 shadow-sm transition-transform hover:-translate-y-0.5"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-3 shadow-sm transition-transform hover:-translate-y-0.5"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📝</div>
                     <div className="flex-1">
@@ -90,7 +86,7 @@ const LinkTree = () => {
                     href="https://m.site.naver.com/22ZhB"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3.5 shadow-sm"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3 shadow-sm"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📖</div>
                     <div className="flex-1">
@@ -103,15 +99,11 @@ const LinkTree = () => {
                     <ChevronRight className="w-4 h-4 text-gray-300" />
                 </a>
 
-                <div className="flex justify-center -my-1">
-                    <div className="w-12 h-px bg-gray-200"></div>
-                </div>
-
                 <a
                     href="https://m.site.naver.com/20ZdO"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3.5 shadow-sm"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3 shadow-sm"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">👥</div>
                     <div className="flex-1 flex items-center gap-2">
