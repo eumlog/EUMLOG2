@@ -2,7 +2,7 @@ import React from 'react';
 import { Check, Sparkles } from 'lucide-react';
 import Footer from '../components/Footer';
 
-const PricingPage = () => (
+const PricingPage2 = () => (
   <div className="bg-[#fdf8f1] min-h-screen">
     
     <style>{`
@@ -353,4 +353,4 @@ const PricingPage = () => (
   </div>
 );
 
-export default PricingPage;
+export default PricingPage2;

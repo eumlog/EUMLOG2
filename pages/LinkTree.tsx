@@ -91,7 +91,7 @@ const LinkTree = () => {
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📖</div>
                     <div className="flex-1">
                         <div className="flex items-center gap-2 mb-0.5">
-                            <p className="text-[13px] font-bold text-gray-900">이음로그가 처음이라면</p>
+                            <p className="text-[13px] font-bold text-gray-900">처음이라면</p>
                             <span className="bg-[#8a6b5d] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md tracking-wider">필독</span>
                         </div>
                         <p className="text-[11px] text-gray-500">신청 전 꼭 읽어보세요</p>
@@ -117,7 +117,7 @@ const LinkTree = () => {
             {/* ── 8. 하단 브랜딩 ── */}
             <div className="px-6 pb-4 text-center">
                 <div className="flex flex-wrap justify-center items-center gap-6 mt-1 mb-2 text-[12px] font-bold text-gray-500">
-                    <Link to="/instagram" className="hover:text-gray-800 transition-colors">인스타그램</Link>
+                    <Link to="/pricing" className="hover:text-gray-800 transition-colors">멤버십 가격</Link>
                     <Link to="/contact" className="hover:text-gray-800 transition-colors">카카오톡 문의</Link>
                     <Link to="/faq" className="hover:text-gray-800 transition-colors">자주 묻는 질문</Link>
                 </div>
