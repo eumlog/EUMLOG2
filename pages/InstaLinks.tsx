@@ -99,7 +99,7 @@ const InstaLinks = () => {
 
                 {/* 3. Key Info Grid (Quick Access) */}
                 <div className="grid grid-cols-2 gap-2.5 mb-2.5 animate-[slideUp_0.5s_0.2s_both]">
-                    <Link to="/pricing" className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:border-eum-accent/30 hover:shadow-md transition-all flex flex-col justify-between h-[110px] group">
+                    <a href="https://m.site.naver.com/2aTSV" target="_blank" rel="noopener noreferrer" className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:border-eum-accent/30 hover:shadow-md transition-all flex flex-col justify-between h-[110px] group">
                         <div className="w-8 h-8 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
                             <CreditCard className="w-4 h-4" />
                         </div>
@@ -107,9 +107,9 @@ const InstaLinks = () => {
                             <h3 className="text-xs font-bold text-gray-800 mb-0.5">멤버십 가격</h3>
                             <p className="text-[9px] text-gray-400 font-medium">합리적인 구독 비용</p>
                         </div>
-                    </Link>
+                    </a>
 
-                    <Link to="/service" className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:border-eum-accent/30 hover:shadow-md transition-all flex flex-col justify-between h-[110px] group">
+                    <a href="https://m.site.naver.com/2aTSK" target="_blank" rel="noopener noreferrer" className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:border-eum-accent/30 hover:shadow-md transition-all flex flex-col justify-between h-[110px] group">
                         <div className="w-8 h-8 bg-purple-50 text-purple-500 rounded-lg flex items-center justify-center group-hover:bg-purple-500 group-hover:text-white transition-colors">
                             <CheckCircle className="w-4 h-4" />
                         </div>
@@ -117,7 +117,7 @@ const InstaLinks = () => {
                             <h3 className="text-xs font-bold text-gray-800 mb-0.5">진행 방식</h3>
                             <p className="text-[9px] text-gray-400 font-medium">매칭 프로세스 7단계</p>
                         </div>
-                    </Link>
+                    </a>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2.5 mb-5 animate-[slideUp_0.5s_0.3s_both]">

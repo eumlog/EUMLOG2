@@ -42,7 +42,7 @@ gsap.registerPlugin(ScrollTrigger);
 const AppContent = () => {
     const [loading, setLoading] = useState(() => {
         const path = window.location.hash.replace('#', '') || window.location.pathname;
-        return path !== '/wooban' && path !== '/wooban/status' && path !== '/wooban/admin' && path !== '/links';
+        return path === '/' || path === '';
     });
     const [, setUpdateTick] = useState(0);
     const wrapperRef = useRef<HTMLDivElement>(null);

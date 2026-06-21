@@ -132,7 +132,7 @@ const LinkTree = () => {
             {/* ── 8. 하단 브랜딩 ── */}
             <div className="px-6 pb-4 mt-3 text-center">
                 <div className="flex justify-center items-center divide-x divide-gray-300 text-[12px] font-bold text-gray-500">
-                    <Link to="/pricing" className="hover:text-gray-800 transition-colors px-4">멤버십 가격</Link>
+                    <a href="https://m.site.naver.com/2aTSV" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800 transition-colors px-4">멤버십 가격</a>
                     <Link to="/contact" className="hover:text-gray-800 transition-colors px-4">카카오톡 문의</Link>
                     <Link to="/faq" className="hover:text-gray-800 transition-colors px-4">자주 묻는 질문</Link>
                 </div>
