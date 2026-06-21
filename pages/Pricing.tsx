@@ -91,11 +91,14 @@ const PricingPage = () => (
       .p-fee.p-prem { background: var(--prem-tint); border-color: var(--prem-line); }
       .p-fee.p-lite { opacity: 0.85; }
       .p-fee .p-fname { font-size: 15px; font-weight: 600; color: var(--text-soft); }
+      .p-fee.p-std .p-fname { color: var(--amber-ink); }
       .p-fee.p-prem .p-fname { color: var(--prem-ink); }
       .p-fee .p-fdiv { border-top: 1px solid var(--border); margin: 16px 0; }
+      .p-fee.p-std .p-fdiv { border-top-color: var(--olive-line); }
       .p-fee.p-prem .p-fdiv { border-top-color: var(--prem-line); }
       .p-fee .p-famt { font-size: 17px; font-weight: 700; color: var(--text); word-break: keep-all; }
       @media (min-width: 400px){ .p-fee .p-famt { font-size: 20px; } }
+      .p-fee.p-std .p-famt { color: var(--olive); }
       .p-fee.p-prem .p-famt { color: var(--prem); }
       .p-fee-note { font-size: 13.5px; color: var(--text-soft); line-height: 1.9; text-align: center; margin-top: 22px; font-weight: 500; }
 
@@ -160,7 +163,7 @@ const PricingPage = () => (
         <div className="p-wrap">
           <div className="p-center">
             <div className="p-pillar"><span className="p-num">①</span> 3개월 구독료</div>
-            <div className="p-pillar-sub">가입할 때 한 일 결제</div>
+            <div className="p-pillar-sub">가입할 때 1번 결제</div>
           </div>
 
           <div className="p-subintro">
