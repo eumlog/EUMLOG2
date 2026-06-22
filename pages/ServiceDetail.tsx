@@ -66,7 +66,6 @@ const ServiceDetail = () => {
                                 <li>흡연 여부 / 종교 / 자녀 계획 등</li>
                             </ul>
                         </blockquote>
-                        <p className="text-xs text-eum-accent font-bold mt-4">🛡️ [추가] 차단하고 싶은 지인의 이름을 등록하면 매칭에서 100% 원천 차단됩니다.</p>
                     </div>
 
                     <div className="w-full h-px bg-gray-200 my-12"></div>

@@ -57,10 +57,6 @@ const Service: React.FC = () => {
                     ))}
                   </ul>
               </div>
-              <div className="flex items-start gap-2 text-[10px] text-gray-400 bg-gray-50 p-3 rounded-lg leading-relaxed">
-                <Info className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
-                <p>🛡️ [추가] 차단하고 싶은 지인의 이름을 등록하면 매칭에서 100% 원천 차단됩니다.</p>
-              </div>
           </div>
       ),
       img: IMAGES.processStep2
@@ -113,7 +109,7 @@ const Service: React.FC = () => {
                   💡 <strong>[기본]</strong> 상대방의 ‘초성/나이/지역'을 미리 확인 후, 지인으로 의심되면 새로운 프로필을 제공합니다.
                 </p>
                 <p className="text-[13px] text-gray-600 font-bold leading-relaxed keep-all bg-rose-50 p-4 rounded-xl border border-rose-100">
-                  🛡️ <strong>[추가]</strong> 차단하고 싶은 <strong>지인의 이름을 등록</strong>하면 해당 인원은 매칭에서 <strong>100% 원천 차단</strong>됩니다.
+                  🛡️ [추가] 지인의 이름을 등록하면 매칭에서 100% 원천 차단됩니다.
                 </p>
               </div>
           </div>
