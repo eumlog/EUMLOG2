@@ -268,11 +268,11 @@ const PricingPage = () => (
           <div className="p-center">
             <div className="p-sec-title">조건 보장 항목</div>
             <div className="p-sec-sub" style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '12px', color: 'var(--faint)' }}>
-              <span style={{ fontSize: '15px', color: 'var(--text)', fontWeight: 500 }}>
-                스탠다드 <strong style={{ color: 'var(--olive)', fontWeight: 800 }}>2개</strong> 보장
+              <span style={{ fontSize: '15px', fontWeight: 500, color: 'var(--text)' }}>
+                <span style={{ color: 'var(--olive)' }}>스탠다드</span> <strong style={{ color: 'var(--olive)', fontWeight: 800 }}>2개</strong> 보장
               </span>
-              <span style={{ fontSize: '15px', color: 'var(--text)', fontWeight: 500 }}>
-                프리미엄 <strong style={{ color: 'var(--prem-ink)', fontWeight: 800 }}>4개</strong> 보장
+              <span style={{ fontSize: '15px', fontWeight: 500, color: 'var(--text)' }}>
+                <span style={{ color: 'var(--prem-ink)' }}>프리미엄</span> <strong style={{ color: 'var(--prem-ink)', fontWeight: 800 }}>4개</strong> 보장
               </span>
             </div>
           </div>
