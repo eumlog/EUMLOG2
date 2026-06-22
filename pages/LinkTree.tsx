@@ -48,18 +48,18 @@ const LinkTree = () => {
             </div>
 
             {/* ── 1. HERO 이미지 ── */}
-            <div className="relative w-full h-[240px] overflow-hidden">
+            <div className="relative w-full h-[210px] overflow-hidden">
                 <img
                     src={IMG_HERO}
                     alt="이음로그"
                     className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/90" />
-                <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
-                    <div className="inline-flex items-center px-2.5 py-1 bg-[#f0c8b0]/20 border border-[#f0c8b0]/50 rounded-md text-[11px] font-bold text-[#f0c8b0] mb-2">
+                <div className="absolute bottom-0 left-0 right-0 px-6 pb-5">
+                    <div className="inline-flex items-center px-2 py-0.5 bg-[#f0c8b0]/20 border border-[#f0c8b0]/50 rounded-md text-[10px] font-bold text-[#f0c8b0] mb-1.5">
                         광주 · 여수 · 순천 · 광양 · 목포
                     </div>
-                    <h1 className="text-[24px] font-black text-white leading-snug tracking-tight mb-2">
+                    <h1 className="text-[24px] font-black text-white leading-snug tracking-tight mb-1">
                         괜찮은 사람과의 만남,<br />
                         <span className="text-[#f0c8b0]">이음로그</span>에서 시작됩니다.
                     </h1>
@@ -67,12 +67,12 @@ const LinkTree = () => {
             </div>
 
             {/* ── 2. 링크 버튼들 ── */}
-            <div className="px-6 py-4 flex flex-col gap-4">
+            <div className="px-6 py-3 flex flex-col gap-3">
                 <a
                     href="https://naver.me/G4GlQVbi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-3 shadow-sm transition-transform hover:-translate-y-0.5"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-2.5 shadow-sm transition-transform hover:-translate-y-0.5"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📝</div>
                     <div className="flex-1">
@@ -83,25 +83,10 @@ const LinkTree = () => {
                 </a>
 
                 <a
-                    href="https://m.site.naver.com/2aTSK"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3 shadow-sm"
-                >
-                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">🔄</div>
-                    <div className="flex-1">
-                        <p className="text-[13px] font-bold text-gray-900">진행방식</p>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-gray-300" />
-                </a>
-
-                <div className="w-12 mx-auto h-px bg-gray-200"></div>
-
-                <a
                     href="https://m.site.naver.com/22ZhB"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3 shadow-sm"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-2.5 shadow-sm"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">📖</div>
                     <div className="flex-1">
@@ -114,11 +99,26 @@ const LinkTree = () => {
                     <ChevronRight className="w-4 h-4 text-gray-300" />
                 </a>
 
+                <div className="w-10 mx-auto h-px bg-gray-200"></div>
+
+                <a
+                    href="https://m.site.naver.com/2aTSK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-2.5 shadow-sm"
+                >
+                    <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">🔄</div>
+                    <div className="flex-1">
+                        <p className="text-[13px] font-bold text-gray-900">진행방식</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-gray-300" />
+                </a>
+
                 <a
                     href="https://m.site.naver.com/20ZdO"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-3 shadow-sm"
+                    className="flex items-center gap-3 w-full bg-[#f4ece6] border border-transparent rounded-xl px-4 py-2.5 shadow-sm"
                 >
                     <div className="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center text-[14px] flex-shrink-0">👥</div>
                     <div className="flex-1 flex items-center gap-2">
@@ -130,7 +130,7 @@ const LinkTree = () => {
             </div>
 
             {/* ── 8. 하단 브랜딩 ── */}
-            <div className="px-6 pb-4 mt-3 text-center">
+            <div className="px-6 pb-2 mt-1 text-center">
                 <div className="flex justify-center items-center divide-x divide-gray-300 text-[12px] font-bold text-gray-500">
                     <a href="https://m.site.naver.com/2aTSV" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800 transition-colors px-4">멤버십 가격</a>
                     <Link to="/contact" className="hover:text-gray-800 transition-colors px-4">카카오톡 문의</Link>
