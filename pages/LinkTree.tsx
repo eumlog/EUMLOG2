@@ -52,7 +52,7 @@ const LinkTree = () => {
                 <img
                     src={IMG_HERO}
                     alt="이음로그"
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-[center_35%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/90" />
                 <div className="absolute bottom-0 left-0 right-0 px-6 pb-5">
@@ -67,7 +67,7 @@ const LinkTree = () => {
             </div>
 
             {/* ── 2. 링크 버튼들 ── */}
-            <div className="px-6 py-3 flex flex-col gap-3">
+            <div className="px-6 pt-5 pb-3 flex flex-col gap-3.5">
                 <a
                     href="https://naver.me/G4GlQVbi"
                     target="_blank"
@@ -130,7 +130,7 @@ const LinkTree = () => {
             </div>
 
             {/* ── 8. 하단 브랜딩 ── */}
-            <div className="px-6 pb-2 mt-1 text-center">
+            <div className="px-6 pb-2 mt-2 text-center">
                 <div className="flex justify-center items-center divide-x divide-gray-300 text-[12px] font-bold text-gray-500">
                     <a href="https://m.site.naver.com/2aTSV" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800 transition-colors px-4">멤버십 가격</a>
                     <Link to="/contact" className="hover:text-gray-800 transition-colors px-4">카카오톡 문의</Link>
