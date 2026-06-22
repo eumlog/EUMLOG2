@@ -96,7 +96,7 @@ const PolicyPage: React.FC = () => {
                    <tr>
                      <td className="py-3 px-2 font-bold bg-gray-50/50">보장 조건</td>
                      <td className="py-3 px-2">필수 조건 2가지 고정 보장</td>
-                     <td className="py-3 px-2 font-bold text-eum-accent">핵심 조건 5가지 완벽 고정 보장</td>
+                     <td className="py-3 px-2 font-bold text-eum-accent">핵심 조건 4가지 완벽 고정 보장</td>
                    </tr>
                    <tr>
                      <td className="py-3 px-2 font-bold bg-gray-50/50">남성 이용권</td>

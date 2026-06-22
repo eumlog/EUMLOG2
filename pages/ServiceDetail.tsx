@@ -214,7 +214,7 @@ const ServiceDetail = () => {
                                         <td className="py-6 px-6 text-gray-700 leading-relaxed bg-eum-accent/5">
                                             ✔ 3개월 무제한 소개<br />
                                             ✔ 1명씩 순차 제공 (3~7일 주기)<br />
-                                            <strong className="text-blue-600">✔ [조건 5개] 완벽 보장</strong><br />
+                                            <strong className="text-blue-600">✔ [조건 4개] 완벽 보장</strong><br />
                                             ✔ 매칭 실패 시, 우반(6:6) 참가권 1회 무료 증정
                                         </td>
                                     </tr>
