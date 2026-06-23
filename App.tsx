@@ -14,6 +14,7 @@ import Service from './pages/Service';
 import Service2 from './pages/Service2';
 import CriteriaPage from './pages/Criteria';
 import PricingPage from './pages/Pricing';
+import PricingPage2 from './pages/Pricing2';
 import FaqPage from './pages/Faq';
 import ContactPage from './pages/Contact';
 import ApplyPage from './pages/Apply';
@@ -188,6 +189,7 @@ const AppContent = () => {
                             hashPath === '#/policy3' ? <PolicyPage3 /> :
                             hashPath === '#/policy4' ? <PolicyPage4 /> :
                             hashPath === '#/policy5' ? <PolicyPage5 /> :
+                            hashPath === '#/pricing2' ? <PricingPage2 /> :
                             <Home />
                         } />
                         <Route path="/about" element={<About />} />
@@ -195,6 +197,7 @@ const AppContent = () => {
                         <Route path="/service2" element={<Service />} />
                         <Route path="/criteria" element={<CriteriaPage />} />
                         <Route path="/pricing" element={<PricingPage />} />
+                        <Route path="/pricing2" element={<PricingPage2 />} />
                         <Route path="/faq" element={<FaqPage />} />
                         <Route path="/contact" element={<ContactPage />} />
                         <Route path="/apply" element={<ApplyPage />} />

@@ -77,6 +77,7 @@ export const FloatingMenu = () => {
     const [isOpen, setIsOpen] = useState(
         location.pathname !== '/blocking-system' && 
         location.pathname !== '/pricing' &&
+        location.pathname !== '/pricing2' &&
         location.pathname !== '/service' &&
         location.pathname !== '/service2'
     );
@@ -85,6 +86,7 @@ export const FloatingMenu = () => {
         if (
             location.pathname === '/blocking-system' || 
             location.pathname === '/pricing' ||
+            location.pathname === '/pricing2' ||
             location.pathname === '/service' ||
             location.pathname === '/service2'
         ) {
@@ -93,6 +95,8 @@ export const FloatingMenu = () => {
             setIsOpen(true);
         }
     }, [location.pathname]);
+
+    if (location.pathname === '/pricing2') return null;
 
     const items = [
         { name: '멤버십 안내', icon: CreditCard, href: '/pricing' },
