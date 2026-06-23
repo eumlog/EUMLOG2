@@ -30,7 +30,7 @@ const Service2: React.FC = () => {
               </div>
           </div>
       ),
-      img: "https://wooban.co.kr/wp-content/uploads/2026/06/001-819x1024.png"
+      img: "https://wooban.co.kr/wp-content/uploads/2026/06/001.png"
     },
     {
       step: "02",
@@ -154,7 +154,7 @@ const Service2: React.FC = () => {
               </div>
           </div>
       ),
-      img: "https://wooban.co.kr/wp-content/uploads/2026/06/006-1-819x1024.png"
+      img: "https://wooban.co.kr/wp-content/uploads/2026/06/006-1.png"
     },
     {
       step: "07",
