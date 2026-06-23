@@ -19,14 +19,12 @@ const Footer = ({ theme = 'dark' }: { theme?: 'dark' | 'light' }) => {
             {!isPricingPage && (
                 <div className="mt-12 flex flex-col items-center justify-center">
                     <p className={`text-[12px] font-bold mb-3 tracking-widest ${theme === 'dark' ? 'text-[#a69b8d]' : 'text-[#a69b8d]'}`}>MAKE YOUR MOMENT</p>
-                    <a 
-                        href="https://naver.me/G4GlQVbi" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                    <Link 
+                        to="/links" 
                         className={`text-center text-[32px] md:text-[38px] font-black leading-[1.2] transition-all ${theme === 'dark' ? 'text-[#a3a3a3] hover:text-[#d4a04c]' : 'text-[#6b635b] hover:text-[#d4a04c]'}`}
                     >
                         신청하기
-                    </a>
+                    </Link>
                 </div>
             )}
 

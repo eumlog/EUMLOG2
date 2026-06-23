@@ -52,7 +52,7 @@ const InstaLinks = () => {
                     href="https://naver.me/G4GlQVbi" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group relative block w-full bg-eum-dark text-white p-5 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mb-2.5 overflow-hidden animate-[slideUp_0.5s_0.1s_both]"
+                    className="group relative block w-full bg-eum-dark text-white p-5 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mb-5 overflow-hidden animate-[slideUp_0.5s_0.1s_both]"
                 >
                     <div className="relative z-10 flex items-center justify-between">
                         <div className="flex items-center gap-4">
@@ -77,57 +77,25 @@ const InstaLinks = () => {
                     <div className="absolute -top-4 -right-4 w-24 h-24 bg-eum-accent/20 rounded-full blur-2xl"></div>
                 </a>
 
-                {/* NEW: Weekly List Banner */}
-                <Link 
-                    to="/weekly" 
-                    className="group block w-full bg-white border border-eum-accent/20 p-4 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 mb-5 animate-[slideUp_0.5s_0.15s_both]"
-                >
-                    <div className="flex items-center gap-3">
-                         <div className="w-8 h-8 bg-eum-accent/10 rounded-lg flex items-center justify-center text-eum-accent group-hover:bg-eum-accent group-hover:text-white transition-colors">
-                             <Calendar className="w-4 h-4" />
-                         </div>
-                         <div className="flex-1">
-                             <div className="flex items-center gap-2">
-                                 <h3 className="text-xs font-bold text-gray-800">이번주 참가자 명단</h3>
-                                 <span className="text-[9px] font-bold text-red-500 bg-red-50 px-1.5 py-0.5 rounded">NEW</span>
-                             </div>
-                             <p className="text-[9px] text-gray-400 font-medium mt-0.5">매주 업데이트되는 실제 참여자 리스트</p>
-                         </div>
-                         <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-eum-accent transition-colors" />
-                    </div>
-                </Link>
-
                 {/* 3. Key Info Grid (Quick Access) */}
-                <div className="grid grid-cols-2 gap-2.5 mb-2.5 animate-[slideUp_0.5s_0.2s_both]">
+                <div className="grid grid-cols-2 gap-2.5 mb-5 animate-[slideUp_0.5s_0.2s_both]">
                     <a href="https://m.site.naver.com/2aTSV" target="_blank" rel="noopener noreferrer" className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:border-eum-accent/30 hover:shadow-md transition-all flex flex-col justify-between h-[110px] group">
                         <div className="w-8 h-8 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
                             <CreditCard className="w-4 h-4" />
                         </div>
                         <div className="mt-2">
-                            <h3 className="text-xs font-bold text-gray-800 mb-0.5">멤버십 가격</h3>
-                            <p className="text-[9px] text-gray-400 font-medium">합리적인 구독 비용</p>
+                            <h3 className="text-xs font-bold text-gray-800 mb-0.5">멤버십 안내</h3>
+                            <p className="text-[9px] text-gray-400 font-medium">합리적인 매칭 비용</p>
                         </div>
                     </a>
 
-                    <a href="https://m.site.naver.com/2aTSK" target="_blank" rel="noopener noreferrer" className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:border-eum-accent/30 hover:shadow-md transition-all flex flex-col justify-between h-[110px] group">
-                        <div className="w-8 h-8 bg-purple-50 text-purple-500 rounded-lg flex items-center justify-center group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                            <CheckCircle className="w-4 h-4" />
-                        </div>
-                        <div className="mt-2">
-                            <h3 className="text-xs font-bold text-gray-800 mb-0.5">진행 방식</h3>
-                            <p className="text-[9px] text-gray-400 font-medium">매칭 프로세스 7단계</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2.5 mb-5 animate-[slideUp_0.5s_0.3s_both]">
                     <Link to="/blocking-system" className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:border-eum-accent/30 hover:shadow-md transition-all flex flex-col justify-between h-[110px] group">
                         <div className="w-8 h-8 bg-red-50 text-red-500 rounded-lg flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-colors">
                             <Shield className="w-4 h-4" />
                         </div>
                         <div className="mt-2">
                             <h3 className="text-xs font-bold text-gray-800 mb-0.5">지인 차단</h3>
-                            <p className="text-[9px] text-gray-400 font-medium">2중 안심 차단 시스템</p>
+                            <p className="text-[9px] text-gray-400 font-medium">안심 차단 시스템</p>
                         </div>
                     </Link>
 
@@ -140,6 +108,28 @@ const InstaLinks = () => {
                             <p className="text-[9px] text-gray-400 font-medium">엄격한 회원 관리</p>
                         </div>
                     </Link>
+
+                    <Link to="/faq" className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:border-eum-accent/30 hover:shadow-md transition-all flex flex-col justify-between h-[110px] group">
+                        <div className="w-8 h-8 bg-orange-50 text-orange-500 rounded-lg flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                            <MessageCircle className="w-4 h-4" />
+                        </div>
+                        <div className="mt-2">
+                            <h3 className="text-xs font-bold text-gray-800 mb-0.5">자주 묻는 질문</h3>
+                            <p className="text-[9px] text-gray-400 font-medium">Q&A 모음</p>
+                        </div>
+                    </Link>
+                </div>
+
+                {/* Sub Menu: Minimal Text Links */}
+                <div className="flex justify-center items-center gap-4 mb-6 mt-1 animate-[slideUp_0.5s_0.3s_both] text-[11px] text-gray-400 font-medium tracking-wide">
+                    <Link to="/weekly" className="flex items-center gap-1 hover:text-gray-700 transition-colors">
+                        <span>참가자 명단</span>
+                        <span className="text-[8px] font-bold text-white bg-eum-accent px-1 py-[1.5px] rounded border border-eum-accent">NEW</span>
+                    </Link>
+                    <div className="w-[1px] h-2.5 bg-gray-300"></div>
+                    <a href="https://m.site.naver.com/2aTSK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-gray-700 transition-colors">
+                        <span>진행 방식 안내</span>
+                    </a>
                 </div>
 
                 {/* 4. Trust Banner */}
