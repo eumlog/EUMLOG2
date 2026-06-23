@@ -269,7 +269,7 @@ const PricingPage2 = () => {
           <div className="p-pnote">
             <div className="p-row">
               <span className="p-t">애프터케어<br/><span style={{ fontSize: '13.5px', color: 'var(--olive)', fontWeight: 800, display: 'block', marginTop: 2 }}>6개월</span></span>
-              <span className="p-d">3개월 이용 후 <b style={{ color: 'var(--olive)', fontWeight: 800 }}>6개월 더</b>. 끝난 뒤에도 나를 선택한 상대가<span className="pc-br"><br/></span>생기면 무료로 소개합니다.<br/><span style={{ display: 'inline-block', padding: '4px 10px', background: 'var(--olive-tint)', color: 'var(--olive)', border: '1px solid var(--olive-line)', borderRadius: '6px', fontSize: '11.5px', fontWeight: 700, marginTop: '8px' }}>스탠다드·프리미엄 적용</span></span>
+              <span className="p-d">3개월 이용 후 <b style={{ color: 'var(--olive)', fontWeight: 800 }}>6개월 더</b>. 끝난 뒤에도 나를 선택한 상대가 <span className="pc-br"><br/></span>생기면 무료로 소개합니다.<br/><span style={{ display: 'inline-block', padding: '4px 10px', background: 'var(--olive-tint)', color: 'var(--olive)', border: '1px solid var(--olive-line)', borderRadius: '6px', fontSize: '11.5px', fontWeight: 700, marginTop: '8px' }}>스탠다드·프리미엄 적용</span></span>
             </div>
             <div className="p-row">
               <span className="p-t">만남 보장<br/><span style={{ fontSize: '13.5px', color: 'var(--prem-ink)', fontWeight: 800, display: 'block', marginTop: 2 }}>3회</span></span>
