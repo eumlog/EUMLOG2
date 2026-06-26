@@ -94,7 +94,7 @@ const PricingPage2 = () => {
         .p-pnote .p-row .p-t { flex: 0 0 auto; font-weight: 700; color: var(--text); }
         .p-pnote .p-row .p-d { color: var(--text-soft); }
         .pc-br { display: none; }
-        .p-grid-fee { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 24px; }
+        .p-grid-fee { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 24px; }
         .p-fee { border-radius: 12px; padding: 26px 8px; text-align: center; background: var(--card); border: 1px solid var(--border); }
         .p-fee.p-std { background: var(--olive-tint-2); border-color: var(--olive-line); }
         .p-fee.p-prem { background: var(--prem-tint); border-color: var(--prem-line); }
@@ -192,6 +192,20 @@ const PricingPage2 = () => {
         </div>
       </header>
 
+      <section className="p-section" style={{ paddingBottom: '10px' }}>
+        <div className="p-wrap">
+          <div className="p-center" style={{ marginBottom: 24 }}>
+            <div className="p-sec-title">괜찮은 사람을, 진지하게,<br/>3개월 내내 만날 수 있는 자리입니다</div>
+            <div className="p-sec-sub" style={{ marginTop: 12 }}>단순히 한 번 소개하고 끝나는 가벼운 만남이 아닙니다.<br/>충분한 가치를 제공하기 위해 3개월의 진정성 있는 여정을 함께합니다.</div>
+          </div>
+          <div className="p-vlist" style={{ marginTop: 0 }}>
+            <div className="p-vcard"><div className="p-vnum">1</div><div className="p-vbody"><div className="p-vh">3개월 동안 꾸준한 매칭</div><div className="p-vp">단 한 번의 소개로 끝나는 것이 아닙니다. 3개월 내내 나와 잘 맞는 사람을 찾아 연결해 드립니다.</div></div></div>
+            <div className="p-vcard"><div className="p-vnum">2</div><div className="p-vbody"><div className="p-vh">밀착 1:1 상담 및 매칭</div><div className="p-vp">진지한 만남을 위해 깊이 있는 상담을 바탕으로 검증된 괜찮은 사람만 엄선하여 소개합니다.</div></div></div>
+            <div className="p-vcard"><div className="p-vnum">3</div><div className="p-vbody"><div className="p-vh">철저한 지인 차단 시스템</div><div className="p-vp">아는 사람을 만날까 걱정하지 마세요. 2단계 차단 시스템으로 안심하고 집중할 수 있습니다.</div></div></div>
+          </div>
+        </div>
+      </section>
+
       <section className="p-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="p-wrap">
           <div className="p-center">
@@ -225,17 +239,6 @@ const PricingPage2 = () => {
           </div>
 
           <div className="p-plans">
-            <div className="p-plan p-lite">
-              <div className="p-ptier">라이트</div>
-              <div className="p-pvalue">조건 보장 없음</div>
-              <div className="p-pbody">정해진 조건 없이 소개받습니다.</div>
-              <div className="p-pprice"><span><i>남</i>180,000원</span><span><i>여</i>120,000원</span></div>
-              <div className="p-pbase">3개월 프로필 제공</div>
-              <div className="p-pmeta">
-                <span className="p-chip p-off">애프터케어</span>
-                <span className="p-chip p-off">만남 보장</span>
-              </div>
-            </div>
             <div className="p-plan p-std" ref={stdRef}>
               <span className="p-pbadge p-olive">합리적인 선택</span>
               <div className="p-ptier">스탠다드</div>
@@ -286,7 +289,6 @@ const PricingPage2 = () => {
             <div className="p-pillar-sub">서로 수락해 만남이 잡힐 때마다</div>
           </div>
           <div className="p-grid-fee">
-            <div className="p-fee p-lite"><div className="p-fname">라이트</div><div className="p-fdiv"></div><div className="p-famt">50,000원</div></div>
             <div className="p-fee p-std"><div className="p-fname">스탠다드</div><div className="p-fdiv"></div><div className="p-famt">30,000원</div></div>
             <div className="p-fee p-prem"><div className="p-fname">프리미엄</div><div className="p-fdiv"></div><div className="p-famt">20,000원</div></div>
           </div>
@@ -294,27 +296,7 @@ const PricingPage2 = () => {
         </div>
       </section>
 
-      <section className="p-section" style={{ paddingBottom: '22px', borderTop: '1px solid var(--border)' }}>
-        <div className="p-wrap">
-          <div className="p-center">
-            <div className="p-sec-title">아무나 만나는 곳이<br/>아닙니다</div>
-            <div className="p-sec-sub">괜찮은 사람만, 진지한 사람만 모았습니다</div>
-          </div>
-          <div className="p-vlist">
-            <div className="p-vcard"><div className="p-vnum">1</div><div className="p-vbody"><div className="p-vh">검증된 사람만 들어옵니다</div><div className="p-vp">외모·스타일·상담까지 보고 선정합니다.</div></div></div>
-            <div className="p-vcard"><div className="p-vnum">2</div><div className="p-vbody"><div className="p-vh">지인은 만나지 않습니다</div><div className="p-vp">2단계 시스템으로 지인을 확실하게 차단합니다.</div></div></div>
-            <div className="p-vcard"><div className="p-vnum">3</div><div className="p-vbody"><div className="p-vh">가벼운 만남은 없습니다</div><div className="p-vp">성사비가 있어 가벼운 사람은 걸러집니다.</div></div></div>
-            <div className="p-vcard"><div className="p-vnum">4</div><div className="p-vbody"><div className="p-vh">한 번 소개하고 끝나지 않습니다</div><div className="p-vp">3개월 동안 꾸준히 소개를 진행합니다.</div></div></div>
-          </div>
-
-        </div>
-      </section>
-
-      <section className="p-section" style={{ padding: '22px 0 18px' }}>
-        <div className="p-wrap">
-          <div className="p-loss-box"><p>괜찮은 사람을, 진지하게,<br/><span className="p-rs">3개월 내내</span><br/>만날 수 있는 자리입니다.</p></div>
-        </div>
-      </section>
+    
 
       <section className="p-cta">
         <div className="p-wrap">

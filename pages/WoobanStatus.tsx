@@ -77,15 +77,15 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                <>
                  {isMenClosed ? (
                    <span className="text-[11px] md:text-[12px] font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">남성 마감</span>
-                 ) : menAvailable <= 2 ? (
-                   <span className="text-[11px] md:text-[12px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 whitespace-nowrap">남성 {menAvailable}자리</span>
+                 ) : menAvailable > 0 && menAvailable <= 2 ? (
+                   <span className="text-[11px] md:text-[12px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200 whitespace-nowrap shadow-sm flex items-center gap-1.5"><span className="relative flex h-1.5 w-1.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span><span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span></span>남성 {menAvailable}자리</span>
                  ) : (
                    <span className="text-[11px] md:text-[12px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 whitespace-nowrap">남성 모집중</span>
                  )}
                  {isWomenClosed ? (
                    <span className="text-[11px] md:text-[12px] font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">여성 마감</span>
-                 ) : womenAvailable <= 2 ? (
-                   <span className="text-[11px] md:text-[12px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-md border border-pink-100 whitespace-nowrap">여성 {womenAvailable}자리</span>
+                 ) : womenAvailable > 0 && womenAvailable <= 2 ? (
+                   <span className="text-[11px] md:text-[12px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-md border border-pink-200 whitespace-nowrap shadow-sm flex items-center gap-1.5"><span className="relative flex h-1.5 w-1.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span><span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-pink-500"></span></span>여성 {womenAvailable}자리</span>
                  ) : (
                    <span className="text-[11px] md:text-[12px] font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-md border border-pink-100 whitespace-nowrap">여성 모집중</span>
                  )}
@@ -104,6 +104,8 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                  <span className="font-bold text-gray-800">남성 참가자</span>
                  {isMenClosed ? (
                    <span className="text-white font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-wider bg-gray-400 ml-auto">마감</span>
+                 ) : menAvailable > 0 && menAvailable <= 2 ? (
+                   <span className="text-blue-600 font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-widest bg-blue-50 border border-blue-200 ml-auto shadow-sm flex items-center gap-1.5"><span className="relative flex h-1.5 w-1.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span><span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span></span>{menAvailable}자리 남음</span>
                  ) : (
                    <span className="text-blue-600 font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-widest bg-blue-50 ml-auto">모집중</span>
                  )}
@@ -121,7 +123,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                      return (
                        <div key={i} className="flex items-center gap-2">
                          <span className="w-5 text-center font-bold text-gray-300">{num}</span>
-                         <span className={`font-medium tracking-tight ${isMenClosed ? 'text-gray-400' : 'text-blue-500'}`}>
+                         <span className={`font-medium tracking-tight ${isMenClosed ? 'text-gray-400' : (menAvailable > 0 && menAvailable <= 2) ? 'text-blue-500 font-bold' : 'text-blue-500'}`}>
                            {isMenClosed ? '(공석)' : '신청 가능'}
                          </span>
                        </div>
@@ -144,6 +146,8 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                  <span className="font-bold text-gray-800">여성 참가자</span>
                  {isWomenClosed ? (
                    <span className="text-white font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-wider bg-gray-400 ml-auto">마감</span>
+                 ) : womenAvailable > 0 && womenAvailable <= 2 ? (
+                   <span className="text-pink-600 font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-widest bg-pink-50 border border-pink-200 ml-auto shadow-sm flex items-center gap-1.5"><span className="relative flex h-1.5 w-1.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span><span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-pink-500"></span></span>{womenAvailable}자리 남음</span>
                  ) : (
                    <span className="text-pink-600 font-bold text-[10px] px-2 py-0.5 rounded uppercase tracking-widest bg-pink-50 ml-auto">모집중</span>
                  )}
@@ -161,7 +165,7 @@ function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultE
                      return (
                         <div key={i} className="flex items-center gap-2">
                           <span className="w-5 text-center font-bold text-gray-300">{num}</span>
-                          <span className={`font-medium tracking-tight ${isWomenClosed ? 'text-gray-400' : 'text-pink-500'}`}>
+                          <span className={`font-medium tracking-tight ${isWomenClosed ? 'text-gray-400' : (womenAvailable > 0 && womenAvailable <= 2) ? 'text-pink-500 font-bold' : 'text-pink-500'}`}>
                             {isWomenClosed ? '(공석)' : '신청 가능'}
                           </span>
                         </div>
