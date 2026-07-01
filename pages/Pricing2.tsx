@@ -52,6 +52,21 @@ const PricingPage2 = () => {
         .p-hero h1 .p-am { color: var(--amber); }
         .p-hero p { font-size: 14px; color: var(--text-soft); margin-top: 18px; line-height: 1.85; }
         .p-hero p b { color: var(--text); font-weight: 700; }
+
+        .p-intro-wrapper { background: #faf9f7; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; justify-content: center; width: 100%; }
+        .p-intro-page { width: 100%; max-width: 540px; padding: 48px 26px; color: var(--text); }
+        .p-intro-head { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.9px; line-height: 1.45; text-align: left; }
+        .p-intro-head mark { background: #fcedc4; color: #8a5a14; padding: 1px 6px; border-radius: 4px; }
+        .p-intro-sub { margin-top: 20px; font-size: 18px; color: var(--text-soft); line-height: 1.7; letter-spacing: -0.4px; text-align: left; }
+        .p-intro-sub b { color: var(--text); font-weight: 600; }
+        .p-intro-stat { display: flex; margin-top: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.03); }
+        .p-intro-stat .c { flex: 1; text-align: center; padding: 0 4px; }
+        .p-intro-stat .c + .c { border-left: 1px solid var(--border); }
+        .p-intro-stat .n { font-size: 23px; font-weight: 800; color: var(--text); letter-spacing: -0.6px; word-break: keep-all; }
+        .p-intro-stat .n small { font-size: 15px; font-weight: 700; }
+        .p-intro-stat .l { font-size: 13.5px; font-weight: 600; color: var(--muted); margin-top: 8px; }
+        @media (max-width: 360px) { .p-intro-head { font-size: 23px; } .p-intro-sub { font-size: 16px; } .p-intro-stat .n { font-size: 20px; } .p-intro-stat .l { font-size: 12.5px; } }
+
         .p-plans { display: flex; flex-direction: column; gap: 14px; margin-top: 26px; }
         .p-plan { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 22px 20px; text-align: left; margin-top: 10px; }
         .p-plan.p-std { background: var(--olive-tint-2); border-color: var(--olive-line); border-top: 3px solid var(--olive); }
@@ -73,28 +88,28 @@ const PricingPage2 = () => {
         .p-pprice span { color: var(--text); }
         .p-pprice span i { color: var(--muted); font-weight: 500; font-style: normal; font-size: 12px; margin-right: 4px; }
         .p-pbase { display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 700; color: #fff; background: #8a8178; border-radius: 8px; padding: 6px 11px; margin-top: 12px; }
-        .p-chip::before { content: "\u2713"; font-weight: 800; font-size: 10px; }
+        .p-chip::before { content: "✓"; font-weight: 800; font-size: 10px; }
         .p-plan.p-std .p-pbase { background: var(--olive); }
         .p-plan.p-prem .p-pbase { background: var(--prem); }
         .p-pmeta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
         .p-chip { font-size: 11.5px; padding: 6px 11px; border-radius: 8px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
         .p-chip::before { font-weight: 800; font-size: 10px; }
         .p-chip.p-on { background: var(--olive); color: #fff; border: none; }
-        .p-chip.p-on::before { content: "\u2713"; }
+        .p-chip.p-on::before { content: "✓"; }
         .p-chip.p-gold { background: var(--prem); color: #fff; border: none; }
-        .p-chip.p-gold::before { content: "\u2713"; }
+        .p-chip.p-gold::before { content: "✓"; }
         .p-chip.p-spark { color: #fff; border: none; position: relative; overflow: hidden; background: linear-gradient(110deg, #9b72cf 0%, #b88ee8 50%, #9b72cf 100%); background-size: 200% 100%; box-shadow: 0 3px 12px rgba(155,114,207,0.5); animation: sparkShimmer 2.6s infinite linear, sparkPulse 1.8s infinite ease-in-out; }
-        .p-chip.p-spark::before { content: "\u2728"; font-size: 11px; }
+        .p-chip.p-spark::before { content: "✨"; font-size: 11px; }
         @keyframes sparkShimmer { 0%{ background-position: 200% 0; } 100%{ background-position: -200% 0; } }
         @keyframes sparkPulse { 0%,100%{ box-shadow: 0 3px 12px rgba(155,114,207,0.45); transform: scale(1); } 50%{ box-shadow: 0 5px 20px rgba(155,114,207,0.85); transform: scale(1.04); } }
         .p-chip.p-off { background: transparent; border: 1px dashed var(--border); color: var(--faint); font-weight: 600; }
-        .p-chip.p-off::before { content: "\u2715"; }
+        .p-chip.p-off::before { content: "✕"; }
         .p-pnote { margin-top: 0; display: flex; flex-direction: column; gap: 0; text-align: left; }
         .p-pnote .p-row { display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; line-height: 1.35; padding: 7px 4px; }
         .p-pnote .p-row .p-t { flex: 0 0 auto; font-weight: 700; color: var(--text); }
         .p-pnote .p-row .p-d { color: var(--text-soft); }
         .pc-br { display: none; }
-        .p-grid-fee { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 24px; }
+        .p-grid-fee { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 24px; }
         .p-fee { border-radius: 12px; padding: 26px 8px; text-align: center; background: var(--card); border: 1px solid var(--border); }
         .p-fee.p-std { background: var(--olive-tint-2); border-color: var(--olive-line); }
         .p-fee.p-prem { background: var(--prem-tint); border-color: var(--prem-line); }
@@ -159,6 +174,12 @@ const PricingPage2 = () => {
           .p-hero { padding: 90px 0 30px; }
           .p-hero h1 { font-size: 42px; }
           .p-hero p { font-size: 16px; margin-top: 24px; }
+          .p-intro-page { max-width: 600px; padding: 50px 40px; }
+          .p-intro-head { font-size: 28px; text-align: left; }
+          .p-intro-sub { font-size: 17px; text-align: left; }
+          .p-intro-stat { margin: 30px auto 0; }
+          .p-intro-stat .n { font-size: 22px; }
+          .p-intro-stat .l { font-size: 13px; }
           .p-two { flex-direction: column; align-items: center; gap: 20px; margin-top: 40px; }
           .p-twobox { width: 100%; max-width: 500px; padding: 28px 30px; }
           .p-tplus { margin: 4px 0; }
@@ -192,19 +213,18 @@ const PricingPage2 = () => {
         </div>
       </header>
 
-      <section className="p-section" style={{ paddingBottom: '10px' }}>
-        <div className="p-wrap">
-          <div className="p-center" style={{ marginBottom: 24 }}>
-            <div className="p-sec-title">괜찮은 사람을, 진지하게,<br/>3개월 내내 만날 수 있는 자리입니다</div>
-            <div className="p-sec-sub" style={{ marginTop: 12 }}>단순히 한 번 소개하고 끝나는 가벼운 만남이 아닙니다.<br/>충분한 가치를 제공하기 위해 3개월의 진정성 있는 여정을 함께합니다.</div>
-          </div>
-          <div className="p-vlist" style={{ marginTop: 0 }}>
-            <div className="p-vcard"><div className="p-vnum">1</div><div className="p-vbody"><div className="p-vh">3개월 동안 꾸준한 매칭</div><div className="p-vp">단 한 번의 소개로 끝나는 것이 아닙니다. 3개월 내내 나와 잘 맞는 사람을 찾아 연결해 드립니다.</div></div></div>
-            <div className="p-vcard"><div className="p-vnum">2</div><div className="p-vbody"><div className="p-vh">밀착 1:1 상담 및 매칭</div><div className="p-vp">진지한 만남을 위해 깊이 있는 상담을 바탕으로 검증된 괜찮은 사람만 엄선하여 소개합니다.</div></div></div>
-            <div className="p-vcard"><div className="p-vnum">3</div><div className="p-vbody"><div className="p-vh">철저한 지인 차단 시스템</div><div className="p-vp">아는 사람을 만날까 걱정하지 마세요. 2단계 차단 시스템으로 안심하고 집중할 수 있습니다.</div></div></div>
+      <div className="p-intro-wrapper">
+        <div className="p-intro-page">
+          <h1 className="p-intro-head">한 번 보고 끝이 아니라,<br/><mark>3개월 내내</mark> 만나는 자리입니다.</h1>
+          <p className="p-intro-sub">광주·전남에서 괜찮은 사람을,<br/><b>실제 커플이 될 때까지</b> 계속 소개합니다.</p>
+
+          <div className="p-intro-stat">
+            <div className="c"><div className="n">4,500<small>+</small></div><div className="l">누적 신청</div></div>
+            <div className="c"><div className="n">검증된 분만</div><div className="l">선별 승인</div></div>
+            <div className="c"><div className="n">매달 40<small>쌍+</small></div><div className="l">매칭 성사</div></div>
           </div>
         </div>
-      </section>
+      </div>
 
       <section className="p-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="p-wrap">
@@ -239,6 +259,17 @@ const PricingPage2 = () => {
           </div>
 
           <div className="p-plans">
+            <div className="p-plan p-lite">
+              <div className="p-ptier">라이트</div>
+              <div className="p-pvalue">조건 보장 없음</div>
+              <div className="p-pbody">정해진 조건 없이 소개받습니다.</div>
+              <div className="p-pprice"><span><i>남</i>180,000원</span><span><i>여</i>120,000원</span></div>
+              <div className="p-pbase">3개월 프로필 제공</div>
+              <div className="p-pmeta">
+                <span className="p-chip p-off">애프터케어</span>
+                <span className="p-chip p-off">만남 보장</span>
+              </div>
+            </div>
             <div className="p-plan p-std" ref={stdRef}>
               <span className="p-pbadge p-olive">합리적인 선택</span>
               <div className="p-ptier">스탠다드</div>
@@ -289,6 +320,7 @@ const PricingPage2 = () => {
             <div className="p-pillar-sub">서로 수락해 만남이 잡힐 때마다</div>
           </div>
           <div className="p-grid-fee">
+            <div className="p-fee p-lite"><div className="p-fname">라이트</div><div className="p-fdiv"></div><div className="p-famt">50,000원</div></div>
             <div className="p-fee p-std"><div className="p-fname">스탠다드</div><div className="p-fdiv"></div><div className="p-famt">30,000원</div></div>
             <div className="p-fee p-prem"><div className="p-fname">프리미엄</div><div className="p-fdiv"></div><div className="p-famt">20,000원</div></div>
           </div>
@@ -296,7 +328,27 @@ const PricingPage2 = () => {
         </div>
       </section>
 
-    
+      <section className="p-section" style={{ paddingBottom: '22px', borderTop: '1px solid var(--border)' }}>
+        <div className="p-wrap">
+          <div className="p-center">
+            <div className="p-sec-title">아무나 만나는 곳이<br/>아닙니다</div>
+            <div className="p-sec-sub">괜찮은 사람만, 진지한 사람만 모았습니다</div>
+          </div>
+          <div className="p-vlist">
+            <div className="p-vcard"><div className="p-vnum">1</div><div className="p-vbody"><div className="p-vh">검증된 사람만 들어옵니다</div><div className="p-vp">외모·스타일·상담까지 보고 선정합니다.</div></div></div>
+            <div className="p-vcard"><div className="p-vnum">2</div><div className="p-vbody"><div className="p-vh">지인은 만나지 않습니다</div><div className="p-vp">2단계 시스템으로 지인을 확실하게 차단합니다.</div></div></div>
+            <div className="p-vcard"><div className="p-vnum">3</div><div className="p-vbody"><div className="p-vh">가벼운 만남은 없습니다</div><div className="p-vp">성사비가 있어 가벼운 사람은 걸러집니다.</div></div></div>
+            <div className="p-vcard"><div className="p-vnum">4</div><div className="p-vbody"><div className="p-vh">한 번 소개하고 끝나지 않습니다</div><div className="p-vp">3개월 동안 꾸준히 소개를 진행합니다.</div></div></div>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="p-section" style={{ padding: '22px 0 18px' }}>
+        <div className="p-wrap">
+          <div className="p-loss-box"><p>괜찮은 사람을, 진지하게,<br/><span className="p-rs">3개월 내내</span><br/>만날 수 있는 자리입니다.</p></div>
+        </div>
+      </section>
 
       <section className="p-cta">
         <div className="p-wrap">
@@ -311,7 +363,7 @@ const PricingPage2 = () => {
         <div className="w">
           <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">
             <span>1분 신청서 작성</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
           </a>
         </div>
       </div>
