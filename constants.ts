@@ -27,18 +27,6 @@ export const WEEKLY_PARTICIPANTS = [
        region: "jn"
     },
 
-    {
-       date: "2026-03-04",
-       image: "https://wooban.co.kr/wp-content/uploads/2026/03/002.png", 
-       region: "gj"
-    },
-
-    {
-       date: "2026-03-04",
-       image: "https://wooban.co.kr/wp-content/uploads/2026/02/005.png", 
-       region: "jn"
-    },
-
     // ⬇️ 여기에 계속 추가하면 됩니다 ⬇️
     
 ];
