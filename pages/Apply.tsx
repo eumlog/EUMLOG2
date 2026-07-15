@@ -16,7 +16,7 @@ const ApplyPage = () => (
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {/* Active Region: Gwangju/Jeonnam -> Links directly to naver form */}
-                    <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer" className="relative group p-6 md:p-8 rounded-2xl md:rounded-3xl border transition-all duration-300 flex flex-col justify-between min-h-[140px] md:min-h-[180px] bg-white border-eum-dark hover:shadow-xl hover:-translate-y-1 cursor-pointer">
+                    <a href="https://m.site.naver.com/1Pznd" target="_blank" rel="noopener noreferrer" className="relative group p-6 md:p-8 rounded-2xl md:rounded-3xl border transition-all duration-300 flex flex-col justify-between min-h-[140px] md:min-h-[180px] bg-white border-eum-dark hover:shadow-xl hover:-translate-y-1 cursor-pointer">
                         <div className="flex justify-between items-start mb-3 md:mb-4">
                             <div className="p-2.5 md:p-3 rounded-full bg-eum-dark text-white"><MapPin className="w-4 h-4 md:w-5 md:h-5" /></div>
                             <div className="bg-eum-accent/10 text-eum-accent px-2.5 py-1 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-wider">Open</div>

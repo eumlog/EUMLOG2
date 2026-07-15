@@ -68,7 +68,7 @@ const LinkTree = () => {
             {/* ── 2. 링크 버튼들 ── */}
             <div className="px-6 pt-5 pb-3 flex flex-col gap-5">
                 <a
-                    href="https://naver.me/G4GlQVbi"
+                    href="https://m.site.naver.com/1Pznd"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 w-full bg-[#f4ece6] border border-[#8a6b5d] rounded-xl px-4 py-2.5 shadow-sm transition-transform hover:-translate-y-0.5"

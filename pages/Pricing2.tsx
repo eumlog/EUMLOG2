@@ -1,6 +1,39 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Footer from '../components/Footer';
 
+function AnimatedNumber({ value, suffix = '', duration = 1500 }: { value: number, suffix?: string, duration?: number }) {
+  const [count, setCount] = useState(0);
+  const nodeRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    let start = 0;
+    let end = value;
+    if (start === end) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        let startTime: number | null = null;
+        const animate = (timestamp: number) => {
+          if (!startTime) startTime = timestamp;
+          const progress = Math.min((timestamp - startTime) / duration, 1);
+          const easeProgress = 1 - Math.pow(1 - progress, 4);
+          setCount(Math.floor(easeProgress * (end - start) + start));
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        };
+        requestAnimationFrame(animate);
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    if (nodeRef.current) observer.observe(nodeRef.current);
+    return () => observer.disconnect();
+  }, [value, duration]);
+
+  return <span ref={nodeRef}>{count.toLocaleString()}{suffix}</span>;
+}
+
 const PricingPage2 = () => {
   const [showCondBtn, setShowCondBtn] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
@@ -53,19 +86,19 @@ const PricingPage2 = () => {
         .p-hero p { font-size: 14px; color: var(--text-soft); margin-top: 18px; line-height: 1.85; }
         .p-hero p b { color: var(--text); font-weight: 700; }
 
-        .p-intro-wrapper { background: #faf9f7; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; justify-content: center; width: 100%; }
-        .p-intro-page { width: 100%; max-width: 540px; padding: 48px 26px; color: var(--text); }
-        .p-intro-head { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.9px; line-height: 1.45; text-align: left; }
-        .p-intro-head mark { background: #fcedc4; color: #8a5a14; padding: 1px 6px; border-radius: 4px; }
-        .p-intro-sub { margin-top: 20px; font-size: 18px; color: var(--text-soft); line-height: 1.7; letter-spacing: -0.4px; text-align: left; }
-        .p-intro-sub b { color: var(--text); font-weight: 600; }
-        .p-intro-stat { display: flex; margin-top: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.03); }
+        .p-intro-wrapper { background: #f3f4f6; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; justify-content: center; width: 100%; }
+        .p-intro-page { width: 100%; max-width: 480px; padding: 40px 22px; color: var(--text); }
+        .p-intro-head { font-size: 21px; font-weight: 700; color: #3c342d; letter-spacing: -0.8px; line-height: 1.4; text-align: left; }
+        .p-intro-head mark { background: #fcedc4; color: #8a5a14; padding: 1px 5px; border-radius: 4px; }
+        .p-intro-sub { margin-top: 16px; font-size: 14.5px; color: #737373; line-height: 1.6; letter-spacing: -0.4px; text-align: left; }
+        .p-intro-sub b { color: #4a4038; font-weight: 600; }
+        .p-intro-stat { display: flex; margin-top: 26px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
         .p-intro-stat .c { flex: 1; text-align: center; padding: 0 4px; }
         .p-intro-stat .c + .c { border-left: 1px solid var(--border); }
-        .p-intro-stat .n { font-size: 23px; font-weight: 800; color: var(--text); letter-spacing: -0.6px; word-break: keep-all; }
-        .p-intro-stat .n small { font-size: 15px; font-weight: 700; }
-        .p-intro-stat .l { font-size: 13.5px; font-weight: 600; color: var(--muted); margin-top: 8px; }
-        @media (max-width: 360px) { .p-intro-head { font-size: 23px; } .p-intro-sub { font-size: 16px; } .p-intro-stat .n { font-size: 20px; } .p-intro-stat .l { font-size: 12.5px; } }
+        .p-intro-stat .n { font-size: 19px; font-weight: 800; color: #3c342d; letter-spacing: -0.6px; word-break: keep-all; display: flex; justify-content: center; align-items: baseline; gap: 2px; }
+        .p-intro-stat .n small { font-size: 13px; font-weight: 700; }
+        .p-intro-stat .l { font-size: 11.5px; font-weight: 600; color: #888; margin-top: 6px; }
+        @media (max-width: 360px) { .p-intro-head { font-size: 19px; } .p-intro-sub { font-size: 13.5px; } .p-intro-stat .n { font-size: 17px; } .p-intro-stat .l { font-size: 10.5px; } }
 
         .p-plans { display: flex; flex-direction: column; gap: 14px; margin-top: 26px; }
         .p-plan { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 22px 20px; text-align: left; margin-top: 10px; }
@@ -174,12 +207,12 @@ const PricingPage2 = () => {
           .p-hero { padding: 90px 0 30px; }
           .p-hero h1 { font-size: 42px; }
           .p-hero p { font-size: 16px; margin-top: 24px; }
-          .p-intro-page { max-width: 600px; padding: 50px 40px; }
-          .p-intro-head { font-size: 28px; text-align: left; }
-          .p-intro-sub { font-size: 17px; text-align: left; }
-          .p-intro-stat { margin: 30px auto 0; }
-          .p-intro-stat .n { font-size: 22px; }
-          .p-intro-stat .l { font-size: 13px; }
+          .p-intro-page { max-width: 500px; padding: 48px 32px; }
+          .p-intro-head { font-size: 23px; text-align: left; }
+          .p-intro-sub { font-size: 15.5px; text-align: left; }
+          .p-intro-stat { margin: 28px auto 0; }
+          .p-intro-stat .n { font-size: 21px; }
+          .p-intro-stat .l { font-size: 12.5px; }
           .p-two { flex-direction: column; align-items: center; gap: 20px; margin-top: 40px; }
           .p-twobox { width: 100%; max-width: 500px; padding: 28px 30px; }
           .p-tplus { margin: 4px 0; }
@@ -219,9 +252,9 @@ const PricingPage2 = () => {
           <p className="p-intro-sub">광주·전남에서 괜찮은 사람을,<br/><b>실제 커플이 될 때까지</b> 계속 소개합니다.</p>
 
           <div className="p-intro-stat">
-            <div className="c"><div className="n">4,500<small>+</small></div><div className="l">누적 신청</div></div>
-            <div className="c"><div className="n">검증된 분만</div><div className="l">선별 승인</div></div>
-            <div className="c"><div className="n">매달 40<small>쌍+</small></div><div className="l">매칭 성사</div></div>
+            <div className="c"><div className="n"><AnimatedNumber value={4500} suffix="+" duration={800} /></div><div className="l">누적 신청</div></div>
+            <div className="c"><div className="n" style={{fontSize: '16px', display: 'block', paddingTop: '2px'}}>검증된 분만</div><div className="l">선별 승인</div></div>
+            <div className="c"><div className="n">매달 <AnimatedNumber value={40} suffix="쌍+" duration={800} /></div><div className="l">매칭 성사</div></div>
           </div>
         </div>
       </div>
@@ -353,7 +386,7 @@ const PricingPage2 = () => {
       <section className="p-cta">
         <div className="p-wrap">
           <div className="p-line">광주·전남에서<br/>괜찮은 사람을 만나고 싶다면</div>
-          <a className="p-btn" href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">이음로그 신청하기</a>
+          <a className="p-btn" href="https://m.site.naver.com/1Pznd" target="_blank" rel="noopener noreferrer">이음로그 신청하기</a>
         </div>
       </section>
 
@@ -361,7 +394,7 @@ const PricingPage2 = () => {
 
       <div className="p-floatcta">
         <div className="w">
-          <a href="https://naver.me/G4GlQVbi" target="_blank" rel="noopener noreferrer">
+          <a href="https://m.site.naver.com/1Pznd" target="_blank" rel="noopener noreferrer">
             <span>1분 신청서 작성</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
           </a>

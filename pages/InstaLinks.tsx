@@ -49,7 +49,7 @@ const InstaLinks = () => {
 
                 {/* 2. Main CTA: Apply (Naver Form) */}
                 <a 
-                    href="https://naver.me/G4GlQVbi" 
+                    href="https://m.site.naver.com/1Pznd" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="group relative block w-full bg-eum-dark text-white p-5 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mb-5 overflow-hidden animate-[slideUp_0.5s_0.1s_both]"
