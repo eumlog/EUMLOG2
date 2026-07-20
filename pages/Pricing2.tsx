@@ -1,39 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Footer from '../components/Footer';
 
-function AnimatedNumber({ value, suffix = '', duration = 1500 }: { value: number, suffix?: string, duration?: number }) {
-  const [count, setCount] = useState(0);
-  const nodeRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    let start = 0;
-    let end = value;
-    if (start === end) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        let startTime: number | null = null;
-        const animate = (timestamp: number) => {
-          if (!startTime) startTime = timestamp;
-          const progress = Math.min((timestamp - startTime) / duration, 1);
-          const easeProgress = 1 - Math.pow(1 - progress, 4);
-          setCount(Math.floor(easeProgress * (end - start) + start));
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          }
-        };
-        requestAnimationFrame(animate);
-        observer.disconnect();
-      }
-    }, { threshold: 0.1 });
-
-    if (nodeRef.current) observer.observe(nodeRef.current);
-    return () => observer.disconnect();
-  }, [value, duration]);
-
-  return <span ref={nodeRef}>{count.toLocaleString()}{suffix}</span>;
-}
-
 const PricingPage2 = () => {
   const [showCondBtn, setShowCondBtn] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
@@ -85,20 +52,6 @@ const PricingPage2 = () => {
         .p-hero h1 .p-am { color: var(--amber); }
         .p-hero p { font-size: 14px; color: var(--text-soft); margin-top: 18px; line-height: 1.85; }
         .p-hero p b { color: var(--text); font-weight: 700; }
-
-        .p-intro-wrapper { background: #f3f4f6; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; justify-content: center; width: 100%; }
-        .p-intro-page { width: 100%; max-width: 480px; padding: 40px 22px; color: var(--text); }
-        .p-intro-head { font-size: 21px; font-weight: 700; color: #3c342d; letter-spacing: -0.8px; line-height: 1.4; text-align: left; }
-        .p-intro-head mark { background: #fcedc4; color: #8a5a14; padding: 1px 5px; border-radius: 4px; }
-        .p-intro-sub { margin-top: 16px; font-size: 14.5px; color: #737373; line-height: 1.6; letter-spacing: -0.4px; text-align: left; }
-        .p-intro-sub b { color: #4a4038; font-weight: 600; }
-        .p-intro-stat { display: flex; margin-top: 26px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .p-intro-stat .c { flex: 1; text-align: center; padding: 0 4px; }
-        .p-intro-stat .c + .c { border-left: 1px solid var(--border); }
-        .p-intro-stat .n { font-size: 19px; font-weight: 800; color: #3c342d; letter-spacing: -0.6px; word-break: keep-all; display: flex; justify-content: center; align-items: baseline; gap: 2px; }
-        .p-intro-stat .n small { font-size: 13px; font-weight: 700; }
-        .p-intro-stat .l { font-size: 11.5px; font-weight: 600; color: #888; margin-top: 6px; }
-        @media (max-width: 360px) { .p-intro-head { font-size: 19px; } .p-intro-sub { font-size: 13.5px; } .p-intro-stat .n { font-size: 17px; } .p-intro-stat .l { font-size: 10.5px; } }
 
         .p-plans { display: flex; flex-direction: column; gap: 14px; margin-top: 26px; }
         .p-plan { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 22px 20px; text-align: left; margin-top: 10px; }
@@ -207,12 +160,6 @@ const PricingPage2 = () => {
           .p-hero { padding: 90px 0 30px; }
           .p-hero h1 { font-size: 42px; }
           .p-hero p { font-size: 16px; margin-top: 24px; }
-          .p-intro-page { max-width: 500px; padding: 48px 32px; }
-          .p-intro-head { font-size: 23px; text-align: left; }
-          .p-intro-sub { font-size: 15.5px; text-align: left; }
-          .p-intro-stat { margin: 28px auto 0; }
-          .p-intro-stat .n { font-size: 21px; }
-          .p-intro-stat .l { font-size: 12.5px; }
           .p-two { flex-direction: column; align-items: center; gap: 20px; margin-top: 40px; }
           .p-twobox { width: 100%; max-width: 500px; padding: 28px 30px; }
           .p-tplus { margin: 4px 0; }
@@ -245,19 +192,6 @@ const PricingPage2 = () => {
           <p>앱처럼 가볍지 않고,<br/>결혼정보회사처럼 부담스럽지 않게.</p>
         </div>
       </header>
-
-      <div className="p-intro-wrapper">
-        <div className="p-intro-page">
-          <h1 className="p-intro-head">한 번 보고 끝이 아니라,<br/><mark>3개월 내내</mark> 만나는 자리입니다.</h1>
-          <p className="p-intro-sub">광주·전남에서 괜찮은 사람을,<br/><b>실제 커플이 될 때까지</b> 계속 소개합니다.</p>
-
-          <div className="p-intro-stat">
-            <div className="c"><div className="n"><AnimatedNumber value={4500} suffix="+" duration={800} /></div><div className="l">누적 신청</div></div>
-            <div className="c"><div className="n" style={{fontSize: '16px', display: 'block', paddingTop: '2px'}}>검증된 분만</div><div className="l">선별 승인</div></div>
-            <div className="c"><div className="n">매달 <AnimatedNumber value={40} suffix="쌍+" duration={800} /></div><div className="l">매칭 성사</div></div>
-          </div>
-        </div>
-      </div>
 
       <section className="p-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="p-wrap">
@@ -292,15 +226,16 @@ const PricingPage2 = () => {
           </div>
 
           <div className="p-plans">
-            <div className="p-plan p-lite">
-              <div className="p-ptier">라이트</div>
-              <div className="p-pvalue">조건 보장 없음</div>
-              <div className="p-pbody">정해진 조건 없이 소개받습니다.</div>
-              <div className="p-pprice"><span><i>남</i>180,000원</span><span><i>여</i>120,000원</span></div>
+            <div className="p-plan p-prem" ref={premRef}>
+              <span className="p-pbadge p-prem">확실한 만남을 위한</span>
+              <div className="p-ptier">프리미엄</div>
+              <div className="p-pvalue">조건 <span className="p-em">4개</span> 보장</div>
+              <div className="p-pbody">조건 4개까지 반영하고,<br/>만남 3회를 보장합니다.</div>
+              <div className="p-pprice"><span><i>남</i>480,000원</span><span><i>여</i>360,000원</span></div>
               <div className="p-pbase">3개월 프로필 제공</div>
               <div className="p-pmeta">
-                <span className="p-chip p-off">애프터케어</span>
-                <span className="p-chip p-off">만남 보장</span>
+                <span className="p-chip p-gold">애프터케어 6개월</span>
+                <span className="p-chip p-spark">만남 3회 보장</span>
               </div>
             </div>
             <div className="p-plan p-std" ref={stdRef}>
@@ -315,16 +250,15 @@ const PricingPage2 = () => {
                 <span className="p-chip p-off">만남 보장</span>
               </div>
             </div>
-            <div className="p-plan p-prem" ref={premRef}>
-              <span className="p-pbadge p-prem">확실한 만남을 위한</span>
-              <div className="p-ptier">프리미엄</div>
-              <div className="p-pvalue">조건 <span className="p-em">4개</span> 보장</div>
-              <div className="p-pbody">조건 4개까지 반영하고,<br/>만남 3회를 보장합니다.</div>
-              <div className="p-pprice"><span><i>남</i>480,000원</span><span><i>여</i>360,000원</span></div>
+            <div className="p-plan p-lite">
+              <div className="p-ptier">라이트</div>
+              <div className="p-pvalue">조건 보장 없음</div>
+              <div className="p-pbody">정해진 조건 없이 소개받습니다.</div>
+              <div className="p-pprice"><span><i>남</i>180,000원</span><span><i>여</i>120,000원</span></div>
               <div className="p-pbase">3개월 프로필 제공</div>
               <div className="p-pmeta">
-                <span className="p-chip p-gold">애프터케어 6개월</span>
-                <span className="p-chip p-spark">만남 3회 보장</span>
+                <span className="p-chip p-off">애프터케어</span>
+                <span className="p-chip p-off">만남 보장</span>
               </div>
             </div>
           </div>
@@ -353,9 +287,9 @@ const PricingPage2 = () => {
             <div className="p-pillar-sub">서로 수락해 만남이 잡힐 때마다</div>
           </div>
           <div className="p-grid-fee">
-            <div className="p-fee p-lite"><div className="p-fname">라이트</div><div className="p-fdiv"></div><div className="p-famt">50,000원</div></div>
-            <div className="p-fee p-std"><div className="p-fname">스탠다드</div><div className="p-fdiv"></div><div className="p-famt">30,000원</div></div>
             <div className="p-fee p-prem"><div className="p-fname">프리미엄</div><div className="p-fdiv"></div><div className="p-famt">20,000원</div></div>
+            <div className="p-fee p-std"><div className="p-fname">스탠다드</div><div className="p-fdiv"></div><div className="p-famt">30,000원</div></div>
+            <div className="p-fee p-lite"><div className="p-fname">라이트</div><div className="p-fdiv"></div><div className="p-famt">50,000원</div></div>
           </div>
           <div className="p-fee-note">성사비는 진지한 만남을 위한 장치입니다.<br/>이음로그는 가벼운 만남을 만들지 않으려 합니다.</div>
         </div>
