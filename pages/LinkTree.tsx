@@ -27,9 +27,9 @@ const LinkTree = () => {
     ];
 
     return (
-        <div className="min-h-[100dvh] bg-white font-sans relative flex flex-col">
-
-            {/* 상단 네비 */}
+        <div className="min-h-[100dvh] bg-gray-50 flex justify-center">
+            <div className="w-full max-w-[480px] min-h-[100dvh] bg-white font-sans relative flex flex-col shadow-xl overflow-hidden">
+                {/* 상단 네비 */}
             <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-md px-6 py-4 flex justify-between items-center border-b border-gray-100">
                 <Link to="/" className="text-lg font-black tracking-tighter text-gray-900">E.UM LOG</Link>
                 <div className="flex items-center gap-2">
@@ -183,6 +183,7 @@ const LinkTree = () => {
                     </div>
                 </div>
             )}
+            </div>
         </div>
     );
 };
