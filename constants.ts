@@ -7,28 +7,42 @@ import { ImageAssets, TextAssets } from './types';
 // 날짜와 이미지 주소만 넣으면 제목(몇월 몇주차)은 알아서 만들어집니다.
 // =================================================================
 
-export const WEEKLY_PARTICIPANTS = [
-    // -------------------------------------------------------------
-    // [작성 방법]
-    // 1. 아래 덩어리를 복사해서 추가하세요.
-    // 2. "date": 날짜를 적으세요 (예: "2025-01-26")
-    // 3. "image": 이미지 주소를 넣으세요.
-    // 4. "region": 광주면 "gj", 전남이면 "jn"
-    // -------------------------------------------------------------
+const files = import.meta.glob('/public/weekly/*.{png,jpg,jpeg,PNG,JPG,JPEG}', { eager: true });
+const weeklyPaths = Object.keys(files).map(p => p.replace(/^\/public/, ''));
 
+const getLatestWeeklyImage = (prefix: string) => {
+    const safePrefix = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`^/weekly/${safePrefix}(?:-(\\d+))?\\.(?:png|jpg|jpeg)$`, 'i');
+    
+    let maxVersion = -1;
+    let latestPath = '';
+    
+    for (const path of weeklyPaths) {
+        const match = path.match(regex);
+        if (match) {
+            const versionStr = match[1];
+            const version = versionStr ? parseInt(versionStr, 10) : 0;
+            if (version > maxVersion) {
+                maxVersion = version;
+                latestPath = path;
+            }
+        }
+    }
+    
+    return latestPath || `/weekly/${prefix}.png`;
+};
+
+export const WEEKLY_PARTICIPANTS = [
     {
        date: "2026-07-15",
-       image: "/weekly/광주.png", 
+       image: getLatestWeeklyImage("002"), 
        region: "gj"
     },
     {
        date: "2026-07-15",
-       image: "/weekly/전남.png", 
+       image: getLatestWeeklyImage("005"), 
        region: "jn"
     },
-
-    // ⬇️ 여기에 계속 추가하면 됩니다 ⬇️
-    
 ];
 
 // =================================================================
