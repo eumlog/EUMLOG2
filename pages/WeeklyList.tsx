@@ -28,19 +28,7 @@ const formatDate = (date: Date) => {
 
 // 수요일 날짜를 기반으로 "N월 N주차" 문자열을 반환하는 함수
 const getAutoWeekTitle = (region: string) => {
-    const date = getRecentWednesday();
-    const month = date.getMonth() + 1;
-    
-    // 주차 계산 (해당 월의 몇 번째 주인지)
-    const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-    const dayOfWeek = firstDayOfMonth.getDay(); // 0(일) ~ 6(토)
-    const dateNum = date.getDate();
-    
-    const offsetDate = dateNum + dayOfWeek - 1;
-    const weekNum = Math.floor(offsetDate / 7) + 1;
-
-    const regionName = region === 'gj' ? '광주' : '전남';
-    return `${month}월 ${weekNum}주차 ${regionName} 선정자`;
+    return region === 'gj' ? '광주·목포 선정자' : '여수·순천·광양 선정자';
 };
 
 const WeeklyList = () => {

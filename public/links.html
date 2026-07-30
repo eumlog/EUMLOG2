@@ -2,6 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>소개팅 신청하기 | 이음로그 — 1분 신청</title>
 <meta name="description" content="가까운 지역만 연결하는 1:1 소개팅, 이음로그 신청 페이지. 1분이면 신청이 끝납니다. 참가자 명단과 진행 방식도 확인하세요.">
@@ -16,6 +18,7 @@
 <link rel="stylesheet" as="style" crossorigin
   href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
+  :root{color-scheme:only light;} html{color-scheme:only light;}
 
   *{margin:0;padding:0;box-sizing:border-box;}
   :root{
@@ -73,7 +76,7 @@
 
 
   /* ===== 신청 — 럭셔리 에디토리얼 v2 ===== */
-  .ap-hero{position:relative; width:100%; height:300px; overflow:hidden;}
+  .ap-hero{position:relative; width:100%; height:258px; overflow:hidden;}
   .ap-hero img{width:100%; height:100%; object-fit:cover; object-position:center 28%; display:block;}
   .ap-hero .grad{position:absolute; inset:0; background:linear-gradient(180deg, rgba(12,16,10,0.22) 0%, rgba(12,16,10,0.12) 34%, rgba(12,18,10,0.5) 62%, rgba(11,17,9,0.92) 100%);}
   .ap-hero .inner{position:absolute; bottom:0; left:0; right:0; padding:0 28px 30px;}
@@ -83,14 +86,14 @@
 
 
   /* 히어로 위 글래스 CTA */
-  .ap-cta{padding:0 24px; margin-top:22px; position:relative;}
+  .ap-cta{padding:0 24px; margin-top:15px; position:relative;}
   .apply-btn{
     position:relative; overflow:hidden;
     display:flex; align-items:center; justify-content:center; gap:10px;
     width:100%;
     background:linear-gradient(150deg, #3B573B 0%, #486848 55%, #3B573B 100%);
     color:#F6F4EE;
-    border-radius:14px; padding:21px 20px;
+    border-radius:14px; padding:18px 20px;
     border:1px solid rgba(232,220,191,0.55);
     box-shadow:0 12px 30px rgba(35,55,33,0.28);
     text-decoration:none;
@@ -117,12 +120,12 @@
 
   /* 필독 강조 카드 */
   .must-card{
-    margin:22px 26px 0;
+    margin:16px 26px 0;
     display:flex; align-items:center; gap:14px;
     background:var(--std-tint); border:1px solid var(--std-line);
     border-left:3px solid var(--std);
     border-radius:12px;
-    padding:16px 18px; text-decoration:none;
+    padding:13px 16px; text-decoration:none;
     transition:transform 0.15s;
   }
   .must-card:active{transform:scale(0.985);}
@@ -137,24 +140,24 @@
   .must-card .chev{margin-left:auto; width:7px; height:7px; border-right:1.5px solid var(--std-ink); border-top:1.5px solid var(--std-ink); transform:rotate(45deg); flex:0 0 auto;}
 
   /* 2열 참고 카드 */
-  .pair{display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:22px 26px 0;}
+  .pair{display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:18px 26px 0;}
   .pc{
     display:flex; flex-direction:column; gap:5px; justify-content:center;
     background:#FFFDFA; border:1px solid rgba(35,55,33,0.12); border-radius:12px;
-    padding:15px 16px; text-decoration:none;
+    padding:12px 15px; text-decoration:none;
   }
   .pc b{font-size:13.5px; font-weight:700; color:#26221D; letter-spacing:-0.2px;}
   .pc span{font-size:10.5px; color:#8FA28B; font-weight:600;}
 
   /* 하단 */
-  .ap-foot{padding:58px 24px 22px; text-align:center;}
+  .ap-foot{padding:16px 24px 18px; text-align:center;}
   .ap-foot .hr{width:40px; height:1px; background:rgba(35,55,33,0.18); margin:0 auto 26px;}
   .ap-foot .row{display:flex; justify-content:center; flex-wrap:wrap; gap:10px;}
   .ap-foot .row a{
     display:inline-block;
     font-size:12px; font-weight:500; color:#5A6B58;
     border:1px solid rgba(35,55,33,0.28); border-radius:0;
-    padding:7px 15px; text-decoration:none;
+    padding:6px 13px; text-decoration:none;
     transition:background 0.25s, color 0.25s, border-color 0.25s;
   }
   .ap-foot .row a:hover{background:var(--green); color:var(--beige); border-color:var(--green);}
