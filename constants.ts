@@ -34,12 +34,12 @@ const getLatestWeeklyImage = (prefix: string) => {
 
 export const WEEKLY_PARTICIPANTS = [
     {
-       date: "2026-07-15",
+       date: "2026-07-29",
        image: getLatestWeeklyImage("002"), 
        region: "gj"
     },
     {
-       date: "2026-07-15",
+       date: "2026-07-29",
        image: getLatestWeeklyImage("005"), 
        region: "jn"
     },
