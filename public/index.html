@@ -2,6 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>이음로그 | 가까운 지역만 연결하는 1:1 소개팅</title>
 <meta name="description" content="멀리서 찾지 않습니다. 이음로그는 가까운 지역끼리만 연결하는 1:1 소개팅입니다. 지금은 광주·전남에서, 직접 확인한 괜찮은 사람만 한 분씩 소개합니다.">
@@ -18,6 +20,7 @@
 <link rel="stylesheet" as="style" crossorigin
   href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <style>
+  :root{color-scheme:only light;} html{color-scheme:only light;}
   /* ============================================================
      디자인 토큰 (릴리봄 원본 CSS에서 이식)
      - 배경 #F9F6F1 / 그린 #233723 / 각진 아웃라인 버튼 /
@@ -41,7 +44,7 @@
     -webkit-font-smoothing:antialiased;
   }
   .page{
-    width:100%; max-width:390px;
+    width:390px;
     background:var(--beige);
     overflow:hidden;
   }
@@ -113,7 +116,7 @@
     top:54px;
     left:50%;
     transform:translateX(-50%);
-    width:100%; max-width:390px;
+    width:390px;
     max-width:100%;
     background:var(--beige);
     z-index:49;
@@ -616,6 +619,19 @@
     color:#555;
     padding:0 4px 20px;
   }
+  .faq-a p b{color:#3B573B; font-weight:700;}
+  .faq-more{
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    margin:22px auto 0;
+    width:fit-content;
+    padding:11px 26px;
+    border:1px solid rgba(35,55,33,0.22); border-radius:10px;
+    font-size:13px; font-weight:700; color:#5A6B58;
+    text-decoration:none;
+    transition:border-color 0.2s, color 0.2s;
+  }
+  .faq-more span{font-size:15px; color:#9B8F72;}
+  .faq-more:hover{border-color:#3B573B; color:#233723;}
   .faq-item.open .faq-a{max-height:300px;}
 
   /* ---- 푸터 ---- */
@@ -951,24 +967,26 @@
 
     <div class="faq-item anim d1">
       <button class="faq-q">어떤 분들이 가입하시나요?</button>
-      <div class="faq-a"><p>가까운 지역에서 진지한 만남을 원하시는 미혼 남녀분들이 가입하고 계십니다. 이음로그는 같은 생활권끼리만 연결합니다. 지금은 광주·전남에서 진행 중이며, 부산·대구로 순차 확장 예정입니다.</p></div>
+      <div class="faq-a"><p>가까운 지역에서 진지한 만남을 원하시는<br>미혼 남녀분들이 가입하고 계십니다.<br>이음로그는 <b>같은 생활권끼리만</b> 연결합니다.<br>지금은 <b>광주·전남</b>에서 진행 중이며,<br>부산·대구로 순차 확장 예정입니다.</p></div>
     </div>
     <div class="faq-item anim d1">
       <button class="faq-q">비용은 얼마인가요?</button>
-      <div class="faq-a"><p>가입비와 성사비(만남 확정 시에만 발생) 두 가지이며, 결정사 대비 약 1/10 수준입니다. 라이트·스탠다드·프리미엄 플랜별 가격은 <a href="pricing.html" style="color:var(--green); font-weight:700;">멤버십 안내</a>에서 바로 확인하실 수 있습니다.</p></div>
+      <div class="faq-a"><p><b>가입비</b>와 <b>성사비</b>(만남 확정 시에만 발생) 두 가지이며,<br>결정사 대비 약 <b>1/10 수준</b>입니다.<br>라이트·스탠다드·프리미엄 플랜별 가격은 <a href="pricing.html" style="color:var(--green); font-weight:700;">멤버십 안내</a>에서 바로 확인하실 수 있습니다.</p></div>
     </div>
     <div class="faq-item anim d2">
       <button class="faq-q">지인을 만나게 될까 걱정돼요.</button>
-      <div class="faq-a"><p>2단계 지인 차단 시스템으로 아는 사람과 매칭되지 않도록 100% 차단합니다.</p></div>
+      <div class="faq-a"><p>걱정 안 하셔도 됩니다. <b>두 번 거릅니다.</b><br>1. 등록해주신 지인 이름은 <b>원천 차단</b>되고<br>2. 프로필 공개 전에 <b>초성·나이·지역</b>을 한 번 더 확인합니다.<br>아는 사람이 나올 수 있는 구조가 아닙니다.</p></div>
     </div>
     <div class="faq-item anim d2">
       <button class="faq-q">가입 절차가 어떻게 되나요?</button>
-      <div class="faq-a"><p>신청서 작성(1분) → 1:1 상담 → 멤버십 선택 → 프로필 등록 → 매주 1명씩 소개 순으로 진행됩니다.</p></div>
+      <div class="faq-a"><p><b>신청서 작성(1분)</b> → <b>1:1 상담</b> → <b>멤버십 선택</b><br>→ <b>프로필 등록</b> → <b>매주 1명씩 소개</b><br>순으로 진행됩니다.</p></div>
     </div>
     <div class="faq-item anim d3">
       <button class="faq-q">한 번 만나고 끝인가요?</button>
-      <div class="faq-a"><p>아니요. 3개월 동안 꾸준히 소개를 진행하며, 만남 이후 피드백을 반영해 다음 매칭을 설계합니다.</p></div>
+      <div class="faq-a"><p>아니요. <b>3개월 동안 꾸준히</b> 소개를 진행하며,<br>만남 이후 피드백을 반영해 다음 매칭을 설계합니다.</p></div>
     </div>
+
+    <a class="faq-more anim" href="faq.html">질문 더 보기 <span>&#8250;</span></a>
   </section>
 
   <!-- 7. FOOT -->
