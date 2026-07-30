@@ -41,7 +41,7 @@
     -webkit-font-smoothing:antialiased;
   }
   .page{
-    width:390px;
+    width:100%; max-width:390px;
     background:var(--beige);
     overflow:hidden;
   }
@@ -113,7 +113,7 @@
     top:54px;
     left:50%;
     transform:translateX(-50%);
-    width:390px;
+    width:100%; max-width:390px;
     max-width:100%;
     background:var(--beige);
     z-index:49;
@@ -665,6 +665,8 @@
   }
 
 /* PC-LAYER */
+  .brand-side{display:none;}
+  .top-nav{display:none;}
   @media (min-width:600px){
     .page{max-width:480px;}
     .page.active{box-shadow:0 30px 90px rgba(35,55,33,0.12);}

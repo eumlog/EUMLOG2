@@ -18,29 +18,22 @@ async function startServer() {
        res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
     });
 
-    // React routes
-    const reactRoutes = ['/wooban/status', '/wooban/admin', '/links', '/insta-links'];
-    app.get(reactRoutes, async (req, res, next) => {
-      try {
-        let html = await fs.promises.readFile(path.join(process.cwd(), 'app.html'), 'utf-8');
-        html = await vite.transformIndexHtml(req.url, html);
-        res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
-      } catch (e) {
-        next(e);
-      }
-    });
-
-    // Static HTML clean URLs fallback for dev (e.g., /about -> /public/about.html)
-    // Run this BEFORE vite.middlewares so it intercepts extensionless URLs that map to static files.
-    app.use((req, res, next) => {
+    // React routes fallback for dev
+    app.use(async (req, res, next) => {
       if (req.method === 'GET' && !req.path.includes('.') && req.path !== '/') {
-        // Only intercept if the corresponding .html file exists in public/
         const htmlPath = path.join(process.cwd(), 'public', req.path + '.html');
-        fs.access(htmlPath, fs.constants.F_OK, (err: any) => {
+        fs.access(htmlPath, fs.constants.F_OK, async (err: any) => {
           if (!err) {
             res.sendFile(htmlPath);
           } else {
-            next();
+            // Serve React app
+            try {
+              let html = await fs.promises.readFile(path.join(process.cwd(), 'app.html'), 'utf-8');
+              html = await vite.transformIndexHtml(req.url, html);
+              res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+            } catch (e) {
+              next(e);
+            }
           }
         });
       } else {
@@ -61,13 +54,7 @@ async function startServer() {
       res.sendFile(path.join(distPath, 'index.html'));
     });
 
-    // React routes fallback
-    const reactRoutes = ['/wooban/status', '/wooban/admin', '/links', '/insta-links'];
-    app.get(reactRoutes, (req, res) => {
-      res.sendFile(path.join(distPath, "app.html"));
-    });
-
-    // Static HTML clean URLs fallback (e.g., /about -> /about.html)
+    // React routes fallback for prod
     app.use((req, res, next) => {
       if (req.method === 'GET' && !req.path.includes('.')) {
         const htmlPath = path.join(distPath, req.path + '.html');
@@ -75,7 +62,7 @@ async function startServer() {
           if (!err) {
             res.sendFile(htmlPath);
           } else {
-            res.status(404).sendFile(path.join(distPath, "404.html"));
+            res.sendFile(path.join(distPath, "app.html"));
           }
         });
       } else {

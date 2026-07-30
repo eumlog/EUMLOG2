@@ -58,7 +58,7 @@
   .hamburger.open span:nth-child(3){width:22px; transform:translateY(-6.5px) rotate(-45deg);}
   .menu{
     position:fixed; top:54px; left:50%; transform:translateX(-50%);
-    width:390px; max-width:100%; background:var(--beige); z-index:49;
+    width:100%; max-width:390px; max-width:100%; background:var(--beige); z-index:49;
     border-bottom:1px solid var(--line);
     max-height:0; overflow:hidden; transition:max-height 0.35s ease;
   }
@@ -180,6 +180,8 @@
 
 
 /* PC-LAYER */
+  .brand-side{display:none;}
+  .top-nav{display:none;}
   @media (min-width:600px){
     .page{max-width:480px;}
     .page.active{box-shadow:0 30px 90px rgba(35,55,33,0.12);}
