@@ -17,7 +17,7 @@ import PricingPage from './pages/Pricing';
 import PricingPage2 from './pages/Pricing2';
 import FaqPage from './pages/Faq';
 import ContactPage from './pages/Contact';
-import ApplyPage from './pages/Apply';
+
 import AdminPage from './pages/Admin';
 import InstagramRegionsPage from './pages/Instagram';
 import PolicyPage from './pages/Policy';
@@ -164,9 +164,9 @@ const AppContent = () => {
         ? hashPath.replace('#', '') 
         : location.pathname;
 
-    const showFloatingBanner = currentPath !== '/contact' && currentPath !== '/admin' && currentPath !== '/profile' && currentPath !== '/landing' && currentPath !== '/landing2' && currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/survey' && currentPath !== '/wooban' && currentPath !== '/wooban/status' && currentPath !== '/wooban/admin';
+    const showFloatingBanner = currentPath !== '/contact' && currentPath !== '/admin' && currentPath !== '/profile' && currentPath !== '/landing' && currentPath !== '/landing2' && currentPath !== '/insta-links' && currentPath !== '/survey' && currentPath !== '/wooban' && currentPath !== '/wooban/status' && currentPath !== '/wooban/admin' && currentPath !== '/links';
     
-    const showNavbar = currentPath !== '/links' && currentPath !== '/insta-links' && currentPath !== '/wooban' && currentPath !== '/wooban/status' && currentPath !== '/wooban/admin' && currentPath !== '/landing' && currentPath !== '/landing2';
+    const showNavbar = currentPath !== '/insta-links' && currentPath !== '/wooban' && currentPath !== '/wooban/status' && currentPath !== '/wooban/admin' && currentPath !== '/landing' && currentPath !== '/landing2' && currentPath !== '/links';
 
     return (
         <>
@@ -202,7 +202,7 @@ const AppContent = () => {
                         <Route path="/pricing2" element={<PricingPage2 />} />
                         <Route path="/faq" element={<FaqPage />} />
                         <Route path="/contact" element={<ContactPage />} />
-                        <Route path="/apply" element={<ApplyPage />} />
+                        <Route path="/apply" element={<Navigate to="/links" replace />} />
                         <Route path="/admin" element={<AdminPage />} />
                         <Route path="/instagram" element={<InstagramRegionsPage />} />
                         <Route path="/policy" element={<PolicyPage />} />

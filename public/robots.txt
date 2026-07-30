@@ -1,7 +1,4 @@
-User-agent: Yeti
-Allow: /
-
 User-agent: *
 Allow: /
 
-Sitemap: https://eumlog.co.kr/sitemap.xml
+Sitemap: https://www.eumlog.co.kr/sitemap.xml

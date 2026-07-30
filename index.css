@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-eum-bg: #F9F6F1;
+  --color-eum-dark: #233723;
+  --color-eum-accent: #B08F4A;
+  --color-eum-gray: #C7BAA6;
+}

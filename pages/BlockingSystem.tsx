@@ -207,7 +207,7 @@ const BlockingSystem = () => {
                     {/* CTA */}
                     <div className="cta-section text-center py-10 bg-gray-50 rounded-3xl border border-gray-100">
                         <p className="text-gray-500 font-bold mb-5 text-xs md:text-sm">이제 마음 편하게 만남에만 집중하세요.</p>
-                         <Link to="/apply" className="inline-flex items-center justify-center gap-2 bg-eum-dark text-white text-base font-black px-10 py-4 rounded-full hover:bg-black transition-all shadow-lg hover:-translate-y-0.5">
+                         <Link to="/links" className="inline-flex items-center justify-center gap-2 bg-eum-dark text-white text-base font-black px-10 py-4 rounded-full hover:bg-black transition-all shadow-lg hover:-translate-y-0.5">
                             안심하고 매칭 신청하기 <CheckCircle className="w-4 h-4" />
                         </Link>
                     </div>
