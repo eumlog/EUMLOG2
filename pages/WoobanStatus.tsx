@@ -4,7 +4,7 @@ import { db } from '../lib/firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { Loader2, ChevronDown, ChevronUp } from 'lucide-react';
 
-function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultExpanded?: boolean }) {
+function CohortCard({ cohort, defaultExpanded = false }: { cohort: any, defaultExpanded?: boolean, key?: React.Key }) {
   const [expanded, setExpanded] = useState(defaultExpanded);
 
   const titleMatch = cohort.titleLine.match(/✨\s*\[(.*?)\]\s*(.*)/);
@@ -504,7 +504,7 @@ export default function WoobanStatus() {
         <div className="max-w-2xl mx-auto relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-[#8A6EE5] to-[#D8B4FE] rounded-[20px] blur opacity-40 group-hover:opacity-60 transition duration-1000 animate-pulse"></div>
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'auto' }) || navigate('/wooban')}
+            onClick={() => { window.scrollTo({ top: 0, behavior: 'auto' }); navigate('/wooban'); }}
             className="relative block w-full bg-gradient-to-r from-[#8A6EE5] to-[#7C5EE0] text-white py-3.5 rounded-2xl text-center font-bold text-[16px] shadow-md hover:shadow-lg active:scale-[0.98] transition-all overflow-hidden"
           >
             <div 

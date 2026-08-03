@@ -1,4 +1,5 @@
 
+/// <reference types="vite/client" />
 import { ImageAssets, TextAssets } from './types';
 
 // =================================================================

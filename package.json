@@ -15,6 +15,7 @@
     "gsap": "3.12.5",
     "html2canvas": "1.4.1",
     "lucide-react": "0.471.0",
+    "puppeteer": "^25.4.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "7.1.1"

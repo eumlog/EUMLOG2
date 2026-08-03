@@ -10,7 +10,7 @@ async function startServer() {
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: "spa",
+      appType: "custom",
     });
     
     // Intercept root explicitly
@@ -18,9 +18,12 @@ async function startServer() {
        res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
     });
 
+    // Let Vite handle assets first
+    app.use(vite.middlewares);
+
     // React routes fallback for dev
     app.use(async (req, res, next) => {
-      if (req.method === 'GET' && !req.path.includes('.') && req.path !== '/') {
+      if (req.method === 'GET' && !req.path.startsWith('/api') && req.path !== '/') {
         const htmlPath = path.join(process.cwd(), 'public', req.path + '.html');
         fs.access(htmlPath, fs.constants.F_OK, async (err: any) => {
           if (!err) {
@@ -41,8 +44,6 @@ async function startServer() {
       }
     });
 
-    // Let Vite handle other assets
-    app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
     
@@ -56,7 +57,7 @@ async function startServer() {
 
     // React routes fallback for prod
     app.use((req, res, next) => {
-      if (req.method === 'GET' && !req.path.includes('.')) {
+      if (req.method === 'GET' && !req.path.startsWith('/api') && req.path !== '/') {
         const htmlPath = path.join(distPath, req.path + '.html');
         fs.access(htmlPath, fs.constants.F_OK, (err: any) => {
           if (!err) {
