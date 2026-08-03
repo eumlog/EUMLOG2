@@ -160,7 +160,7 @@ const AppContent = () => {
     }, [location.pathname]);
 
     // 플로팅 메뉴 표시 조건 (WeeklyList 포함)
-    const currentPath = location.pathname === '/' && hashPath.startsWith('#/') 
+    const currentPath = (location.pathname === '/' || location.pathname === '/app.html') && hashPath.startsWith('#/') 
         ? hashPath.replace('#', '') 
         : location.pathname;
 
@@ -182,6 +182,19 @@ const AppContent = () => {
                 <main className="flex-1">
                     <Routes>
                         <Route path="/" element={
+                            hashPath === '#/wooban/admin' ? <WoobanAdmin /> :
+                            hashPath === '#/wooban/status' ? <WoobanStatus /> :
+                            hashPath === '#/wooban' ? <Wooban /> :
+                            hashPath === '#/survey' ? <SurveyLinks /> :
+                            hashPath === '#/policy2' ? <PolicyPage2 /> :
+                            hashPath === '#/policy3' ? <PolicyPage3 /> :
+                            hashPath === '#/policy4' ? <PolicyPage4 /> :
+                            hashPath === '#/policy5' ? <PolicyPage5 /> :
+                            hashPath === '#/policy6' ? <PolicyPage6 /> :
+                            hashPath === '#/pricing2' ? <PricingPage2 /> :
+                            <Home />
+                        } />
+                        <Route path="/app.html" element={
                             hashPath === '#/wooban/admin' ? <WoobanAdmin /> :
                             hashPath === '#/wooban/status' ? <WoobanStatus /> :
                             hashPath === '#/wooban' ? <Wooban /> :
