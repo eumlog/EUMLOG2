@@ -15,7 +15,7 @@ async function startServer() {
     
     // Intercept root explicitly
     app.get("/", (req, res, next) => {
-       res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+       res.sendFile(path.join(process.cwd(), 'app.html'));
     });
 
     // Let Vite handle assets first
@@ -52,7 +52,7 @@ async function startServer() {
 
     // Intercept root explicitly
     app.get("/", (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      res.sendFile(path.join(distPath, 'app.html'));
     });
 
     // React routes fallback for prod

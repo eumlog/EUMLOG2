@@ -1,8 +1,6 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/wooban/status", "destination": "/app.html" },
-    { "source": "/wooban/admin", "destination": "/app.html" },
-    { "source": "/insta-links", "destination": "/app.html" }
+    { "source": "/(.*)", "destination": "/app.html" }
   ]
 }
