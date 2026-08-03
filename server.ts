@@ -16,9 +16,7 @@ async function startServer() {
     // Intercept root explicitly
     app.get("/", async (req, res, next) => {
        try {
-         let html = await fs.promises.readFile(path.join(process.cwd(), 'app.html'), 'utf-8');
-         html = await vite.transformIndexHtml(req.url, html);
-         res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+         res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
        } catch (e) {
          next(e);
        }
@@ -58,7 +56,7 @@ async function startServer() {
 
     // Intercept root explicitly
     app.get("/", (req, res) => {
-      res.sendFile(path.join(distPath, 'app.html'));
+      res.sendFile(path.join(distPath, 'index.html'));
     });
 
     // React routes fallback for prod
