@@ -100,6 +100,8 @@
 
       /* 구역 이름 — 블록끼리 헷갈리지 않게 앞에 라벨을 세운다 */
       .slabel { display: flex; align-items: center; gap: 10px; margin: 28px 0 10px; }
+      .slabel em { font-style: normal; font-weight: 700; font-size: 1.07em;
+                   background: linear-gradient(transparent 62%, #CFE0D4 62%); padding: 0 2px; }
       .slabel span { font-size: 11.5px; font-weight: 700; color: var(--green);
                      letter-spacing: 1.5px; white-space: nowrap; }
       .slabel em { font-style: normal; background: linear-gradient(transparent 62%, #CFE0D4 62%); padding: 0 2px; }
@@ -244,7 +246,7 @@
           <div class="li"><b>·</b><div>2단계로 <strong>지인 100% 차단</strong>됩니다.</div></div>
         </div>
 
-        <div class="slabel"><span><em>3개월</em> 멤버십 비용</span><i></i></div>
+        <div class="slabel"><span>멤버십 비용 <em>3개월</em></span><i></i></div>
         <div class="plans">
           <div class="plan">
             <div class="top"><div class="nm">라이트</div><div class="pr">남 18만 / 여 12만</div></div>
@@ -293,7 +295,7 @@
           <div class="fld">
             <label>전화번호</label>
             <div class="fld-help">- 꼭 정확히 입력해주세요.
-- 카톡 친구허용이 되어 있지 않다면, 아이디를 남겨주세요.</div>
+- 카톡 친구허용이 안 되어 있다면, 카톡 아이디를 남겨주세요.</div>
             <input type="text" id="f_phone" maxlength="30" placeholder="01012345678 또는 카톡 아이디">
             <div class="fld-msg" id="m_phone"></div>
           </div>
@@ -306,7 +308,7 @@
 
           <div class="fld">
             <label>거주지역</label>
-            <input type="text" id="f_region" maxlength="20" placeholder="예: 광주, 순천, 목포">
+            <input type="text" id="f_region" maxlength="20" placeholder="예: 광주">
           </div>
 
           <div class="fld">
@@ -465,12 +467,16 @@
       // ── 접수현황 ──
       //   서버가 너무 빨리 답하면 확인하는 느낌이 안 나서, 최소 시간은 채우고 숫자를 보여준다
       var CNT_T0 = Date.now();
-      var CNT_MIN = 2000;
+      var CNT_MIN = 1500;
 
-      google.script.run
-        .withSuccessHandler(function(res) { holdThenShow(res && res.count, res && res.at); })
-        .withFailureHandler(function() { holdThenShow(null, null); })
-        .getApplyCount();
+      if (window.google && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function(res) { holdThenShow(res && res.count, res && res.at); })
+          .withFailureHandler(function() { holdThenShow(null, null); })
+          .getApplyCount();
+      } else {
+        holdThenShow(null, null);
+      }
 
       function holdThenShow(n, at) {
         var left = CNT_MIN - (Date.now() - CNT_T0);
